@@ -1,3 +1,4 @@
+
 main .productos {
     border-radius: 20px;
     color: var(--morado);
@@ -5,17 +6,33 @@ main .productos {
     -moz-box-shadow: 1px 1px 5px -2px rgba(0,0,0,0.75);
     box-shadow: 1px 1px 5px -2px rgba(0,0,0,0.75);
 }
-main .productos:hover ul li a{
-    display: block;
-    color: var(--morado);
-    transition: 1s;
+main .productos h1{
+    margin-left: 2rem;
+}
+main .productos ul{
+    padding: 0;
+    margin: 0 auto;
+}
+main .productos:hover ul li{
+    font-size: 1rem;
+    transition:all .7s;
 }
 main .productos ul li {
     list-style: none;
+    font-size: 0;
 }
 
 main .productos ul li a {
     text-decoration: none;
-    color: white;
-    display: none;
+    color: var(--morado);
+}
+main .productos ul li:hover a {
+    color: violet;
+}
+main .productos .contenedorImagen{
+    width: 100%;
+    position: relative;
+}
+main .productos .contenedorImagen img{
+    width: 100%;
 }
