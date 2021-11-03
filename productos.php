@@ -6,30 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Implant Bionic</title>
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/css/variables.css">
-    <link rel="stylesheet" href="/css/productos.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/productos.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <header class="sticky-top">
-        <img src="/img/logo_bionic.png" alt="logoEntrada">
-        <nav>
-            <a href="#">COMPAÑIA</a>
-            <a href="#">PRODUCTOS</a>
-            <a href="#">TIENDA</a>
-            <a href="#">CONTACTO</a>
-            <a href="#"><i class="bi bi-search"></i></a>
-            <a href="#"><i class="bi bi-cart"></i></a>
-            <a href="#"><img src="/img/mexico.jpg" alt="bandera"></a>
-        </nav>
-    </header>
+    <?php
+    include("header.php");
+    ?>
     <main>
-        <div class="container">
-            <div class="row d-flex justify-content-evenly">
-
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-11 col-lg-8">
+                <div class="row d-flex justify-content-evenly">
                 <div class="col-11 col-md-3 productos">
                     <h3>Soluciones</h3>
                     <h1>Protésicas</h1>
@@ -44,7 +36,7 @@
                         <li><a href="">TORNILLO PROTÉSICO</a></li>
                     </ul>
                     <div class="contenedorImagen">
-                        <img src="/img/prueba.png" alt="">
+                        <img src="img/prueba.png" alt="">
                     </div>
                 </div>
                 <div class="col-11 col-md-3 productos purpura">
@@ -56,7 +48,7 @@
                         <li><a href="">PILARES CAD CAM</a></li>
                     </ul>
                     <div class="contenedorImagen">
-                        <img src="/img/img_3.png" alt="">
+                        <img src="img/img_3.png" alt="">
                     </div>
                 </div>
                 <div class="col-11 col-md-3 productos">
@@ -72,29 +64,18 @@
                         <li><a href="">LABORATORIO DENTAL</a></li>
                     </ul>
                     <div class="contenedorImagen">
-                        <img src="/img/centro_escaneo.png" alt="">
+                        <img src="img/centro_escaneo.png" alt="">
                     </div>
+                </div>
+            </div>
                 </div>
             </div>
         </div>
     </main>
     
-    <footer class="fixed-bottom">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-4 d-flex justify-content-center">
-                    <p>BIONIC MÉXICO Y LATINOAMERICA</p>
-                </div>
-                <div class="col-4 d-flex justify-content-center">
-                    <p class="bi bi-whatsapp">56 2163 0081 </p>
-                </div>
-                <div class="col-4 d-flex justify-content-center">
-                    <p> BIONIC | TODOS LOS DERECHOS RESERVADOS | POLITICAS DE PRIVACIDAD</p>
-                </div>
-            </div>
-        </div>
-
-    </footer>
+    <?php
+    include("footer.php");
+    ?>
 </body>
 
 </html>

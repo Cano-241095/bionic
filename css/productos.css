@@ -1,4 +1,10 @@
-
+body{
+    padding-bottom: 5rem;
+    height: 100vh;
+}
+main{
+    padding-bottom: 5rem;
+}
 main .productos {
     margin-top: 20px;
     padding-top: 20px;

@@ -1,20 +1,25 @@
-.menuImagenes{
+.menuImagenes {
     width: 80%;
     margin: 0 auto;
     text-align: center;
-   }
-   .menuImagenes a img{
-       width: 48%;
-       margin: 10px 5px 0 5px;
-   }
-   .menuImagenes a:last-of-type img{
-       width: 98%;
-   }
-   @media only screen and (max-width: 768px){
-       .menuImagenes{
-           width: 100%;
-       }
-.menuImagenes a img{
-    width: 100%;
 }
-   }
+
+.menuImagenes a img {
+    width: 48%;
+    margin: 10px 5px 0 5px;
+}
+
+.menuImagenes a:last-of-type img {
+    width: 98%;
+}
+
+@media only screen and (max-width: 768px) {
+    .menuImagenes {
+        width: 100%;
+    }
+    .menuImagenes a img {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
