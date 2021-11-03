@@ -32,10 +32,13 @@ main{
     width: 100%;
 }
 footer{
+    width: 100%;
     background-color: var(--moradoFooter);
     color: white;
     margin-top: 25px;
     padding-top: 20px;
+    position: absolute;
+    bottom: 0;
 }
 footer p{
     font-size: 15px;

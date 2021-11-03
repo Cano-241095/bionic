@@ -1,13 +1,24 @@
 
 main .productos {
+    margin-top: 20px;
+    padding-top: 20px;
     border-radius: 20px;
     color: var(--morado);
     -webkit-box-shadow: 1px 1px 5px -2px rgba(0,0,0,0.75);
     -moz-box-shadow: 1px 1px 5px -2px rgba(0,0,0,0.75);
     box-shadow: 1px 1px 5px -2px rgba(0,0,0,0.75);
 }
+main .purpura{
+    background: radial-gradient(rgb(165, 75, 168) 5%, rgb(161, 76, 168) 25%, #7c1d80f1 50%);
+    color: white;
+}
+main .productos h3{
+    margin: 0;
+    margin-left: 1rem;
+}
 main .productos h1{
-    margin-left: 2rem;
+    margin-top: 0;
+    margin-left: 1rem;
 }
 main .productos ul{
     padding: 0;
@@ -15,16 +26,21 @@ main .productos ul{
 }
 main .productos:hover ul li{
     font-size: 1rem;
-    transition:all .7s;
+    transition:all .5s;
 }
 main .productos ul li {
     list-style: none;
     font-size: 0;
+    margin-left: 20px;
+    transition:all .5s;
 }
 
 main .productos ul li a {
     text-decoration: none;
     color: var(--morado);
+}
+main .purpura ul li a{
+    color: white;
 }
 main .productos ul li:hover a {
     color: violet;
@@ -35,4 +51,5 @@ main .productos .contenedorImagen{
 }
 main .productos .contenedorImagen img{
     width: 100%;
+    margin-bottom: 0;
 }
