@@ -31,15 +31,12 @@ header nav a img{
 main{
     width: 100%;
 }
-.menuImagenes{
- width: 80%;
- margin: 0 auto;
- text-align: center;
+footer{
+    background-color: var(--moradoFooter);
+    color: white;
+    margin-top: 25px;
+    padding-top: 20px;
 }
-.menuImagenes a img{
-    width: 48%;
-    margin: 10px 5px 0 5px;
-}
-.menuImagenes a:last-of-type img{
-    width: 98%;
+footer p{
+    font-size: 15px;
 }
