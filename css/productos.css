@@ -1,0 +1,21 @@
+main .productos {
+    border-radius: 20px;
+    color: var(--morado);
+    -webkit-box-shadow: 1px 1px 5px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 5px -2px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 5px -2px rgba(0,0,0,0.75);
+}
+main .productos:hover ul li a{
+    display: block;
+    color: var(--morado);
+    transition: 1s;
+}
+main .productos ul li {
+    list-style: none;
+}
+
+main .productos ul li a {
+    text-decoration: none;
+    color: white;
+    display: none;
+}
