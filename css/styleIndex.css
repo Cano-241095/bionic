@@ -10,3 +10,11 @@
    .menuImagenes a:last-of-type img{
        width: 98%;
    }
+   @media only screen and (max-width: 768px){
+       .menuImagenes{
+           width: 100%;
+       }
+.menuImagenes a img{
+    width: 100%;
+}
+   }
