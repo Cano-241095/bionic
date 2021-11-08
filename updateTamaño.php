@@ -22,52 +22,61 @@
 
     <?php
             include("conexion.php");
-            if(isset($_GET['id_categoria'])){ 
-                $id_categoria = $_GET['id_categoria'];
+            if(isset($_GET['codigo'])){ 
+                $codigo = $_GET['codigo'];
 
-                $query = "SELECT * FROM soluciones_protesicas WHERE id_categoria = $id_categoria";
+                $query = "SELECT * FROM tamaño WHERE codigo = '$codigo'";
                 $result = mysqli_query($conn, $query);
                 
                 if(mysqli_num_rows($result) == 1){
                     $row = mysqli_fetch_array($result);
                     
-                    $id_categoria = $row['id_categoria'];
-                    $nombre_categoria = $row['nombre_categoria'];
-                    $url = $row['url'];
+                    $id_asociado = $row['id_asociado'];
+                    $codigo = $row['codigo'];
+                    $tamaño = $row['tamaño'];
+                    $cantidad = $row['cantidad'];
+
                    
                 }
             }
             if(isset($_POST['update'])){
-                $id_categoria = $_GET['id_categoria'];
-                $nombre_categoria = $_POST['nombre_categoria'];
-                $url = $_POST['url'];
+                $id_asociado = $_GET['id_asociado'];
+                $codigo = $_POST['codigo'];
+                $tamaño = $_POST['tamaño'];
+                $cantidad = $_POST['cantidad'];
 
-                $update = "UPDATE soluciones_protesicas set nombre_categoria = '$nombre_categoria', url ='$url' WHERE id_categoria = $id_categoria";
+
+                $update = "UPDATE  set codigo = '$codigo', tamaño = '$tamaño', cantidad = '$cantidad'  WHERE id_asociado = $id_asociado";
                 mysqli_query($conn, $update);
                 $_SESSION['message'] = 'Registro actualizado exitosamente';
                 $_SESSION['message_type'] = 'info'; 
-                header('Location:solucionesProtesicas.php');
+                header('Location:tamaño.php');
             }
         ?>
     <div class="row">
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <form name="form" action="updateSoluciones.php?id_categoria=<?php echo $_GET['id_categoria'];?>"
+                    <form name="form" action="updateTamaño.php?codigo=<?php echo $_GET['codigo'];?>"
                         onsubmit="return validarform()" method="POST">
                         <div class="form-group">
-                            ID_Categoria <input type="number" name="id_categoria" value="<?php echo $id_categoria; ?>"
-                                class="form-control" placeholder="Actualiza ID_Categoria" autocomplete="off" autofocus>
+                            ID_Asociado <input type="number" name="id_asociado" value="<?php echo $id_asociado; ?>"
+                                class="form-control" placeholder="Actualiza ID_asociado" autocomplete="off" autofocus>
                         </div>
                         <div class="form-group">
-                            Nombre_Categoria<input type="text" name="nombre_categoria"
-                                value="<?php echo $nombre_categoria; ?>" class="form-control"
-                                placeholder="Actualiza Nombre_Categoria" autocomplete="off" required>
+                            Código <input type="text" name="codigo"
+                             value="<?php echo $codigo; ?>" class="form-control"
+                                placeholder="Actualiza codigo" autocomplete="off" required>
                         </div>
                         <div class="form-group">
-                            URL<input type="file" name="url" value="<?php echo $url; ?>" class="form-control"
-                                placeholder="Uptate ID" autocomplete="off" required>
+                            Tamaño<input type="number" name="tamaño" value="<?php echo $tamaño; ?>" class="form-control"
+                                placeholder="Actualiza tamaño" autocomplete="off" required>
                         </div>
+                        <div class="form-group">
+                            Cantidad<input type="number" name="cantidad" value="<?php echo $cantidad; ?>" class="form-control"
+                                placeholder="Actualiza cantidad" autocomplete="off" required>
+                        </div>
+
 
                         <button class="btn btn-success btn-block" name="update">
                             Actualizar
