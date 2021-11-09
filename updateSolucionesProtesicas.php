@@ -55,7 +55,7 @@
         <div class="col-6">
             <div class="card">
                 <div class="card-body">
-                    <form name="form" action="updateSoluciones.php?id_categoria=<?php echo $_GET['id_categoria'];?>"
+                    <form name="form" action="updateSolucionesProtesicas.php?id_categoria=<?php echo $_GET['id_categoria'];?>"
                         onsubmit="return validarform()" method="POST">
                         <label for="">ID Categoria:</label>
                         <div class="form-group">
