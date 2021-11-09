@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/soluciones.css">
+    <link rel="stylesheet" href="css/imagenes.css">
     <link rel="stylesheet" href="css/variables.css">
     <title></title>
 
@@ -24,54 +24,54 @@
 
     <?php
             include("conexion.php");
-            if(isset($_GET['id_categoria'])){ 
-                $id_categoria = $_GET['id_categoria'];
+            if(isset($_GET['id'])){ 
+                $id = $_GET['id'];
 
-                $query = "SELECT * FROM soluciones_protesicas WHERE id_categoria = $id_categoria";
+                $query = "SELECT * FROM imagenes WHERE id = $id";
                 $result = mysqli_query($conn, $query);
                 
                 if(mysqli_num_rows($result) == 1){
                     $row = mysqli_fetch_array($result);
                     
-                    $id_categoria = $row['id_categoria'];
-                    $nombre_categoria = $row['nombre_categoria'];
-                    $url = $row['url'];
+                    $id = $row['id'];
+                    $id_asociado = $row['id_asociado'];
+                    $imagen = $row['imagen'];
                    
                 }
             }
             if(isset($_POST['update'])){
-                $id_categoria = $_GET['id_categoria'];
-                $nombre_categoria = $_POST['nombre_categoria'];
-                $url = $_POST['url'];
+                $id = $_GET['id'];
+                $id_Asociado = $_POST['id_asociado'];
+                $imagen = $_POST['imagen'];
 
-                $update = "UPDATE soluciones_protesicas set nombre_categoria = '$nombre_categoria', url ='$url' WHERE id_categoria = $id_categoria";
+                $update = "UPDATE imagenes set id_asociado = '$id_asociado', imagen ='$imagen' WHERE id= $id";
                 mysqli_query($conn, $update);
                 $_SESSION['message'] = 'Registro actualizado exitosamente';
                 $_SESSION['message_type'] = 'info'; 
-                header('Location:solucionesProtesicas.php');
+                header('Location:imagenes.php');
             }
         ?>
     <div class="row justify-content-center">
         <div class="col-6">
             <div class="card">
                 <div class="card-body">
-                    <form name="form" action="updateSoluciones.php?id_categoria=<?php echo $_GET['id_categoria'];?>"
+                    <form name="form" action="updateImagenes.php?id=<?php echo $_GET['id'];?>"
                         onsubmit="return validarform()" method="POST">
-                        <label for="">ID Categoria:</label>
+                        <label for="">ID:</label>
                         <div class="form-group">
-                            <input type="number" name="id_categoria" value="<?php echo $id_categoria; ?>"
-                                class="form-control" placeholder="Actualiza ID_Categoria" autocomplete="off" autofocus>
+                           <input type="number" name="id" value="<?php echo $id; ?>"
+                                class="form-control" placeholder="Actualiza ID" autocomplete="off" autofocus>
                         </div>
-                        <label for="">Nombre Categoria:</label>
+                        <label for="">ID Asociado:</label>
                         <div class="form-group">
-                            <input type="text" name="nombre_categoria" value="<?php echo $nombre_categoria; ?>"
-                                class="form-control" placeholder="Actualiza Nombre_Categoria" autocomplete="off"
-                                required>
+                          <input type="number" name="id_asociado"
+                                value="<?php echo $id_asociado; ?>" class="form-control"
+                                placeholder="Actualiza ID_Asociado" autocomplete="off" required>
                         </div>
-                        <label for=""> URL:</label>
+                        <label for="">Imagen:</label>
                         <div class="form-group">
-                            <input type="file" name="url" value="<?php echo $url; ?>" class="form-control"
-                                placeholder="Actualiza Archivo" autocomplete="off" required>
+                            <input type="file" name="imagen" value="<?php echo $iamgen; ?>" class="form-control"
+                                placeholder="Actualiza Imagen" autocomplete="off" required>
                         </div>
 
                         <button class="btn btn-secondary btn-block" name="update">

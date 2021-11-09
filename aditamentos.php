@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/soluciones.css">
+    <link rel="stylesheet" href="css/aditamentos.css">
     <link rel="stylesheet" href="css/variables.css">
     <title>Aditamentos</title>
 </head>
@@ -26,7 +26,7 @@
                     <div class="card-body">
                         <form method="post" name="form" onsubmit="return validarform()" action="crearAditamentos.php">
 
-                            <label for="Ingresar ID:"></label>
+                            <label for="">ID:</label>
                             <input class="form-control" type="number" name="id" placeholder="Ingresar ID"
                                 autocomplete="off" autofocus>
                             <label for="">ID Asociado:</label>

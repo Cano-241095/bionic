@@ -29,7 +29,7 @@
                     <div class="card-body">
                         <form method="post" name="form" onsubmit="return validarform()" action="crearDescripcion.php">
 
-                            <label for="">ID Categoria:</label>
+                            <label for="">ID:</label>
                             <input class="form-control" type="number" name="id_categoria" placeholder="Ingresar ID"
                                 autocomplete="off" autofocus>
                             <label for="">ID Asociado:</label>
@@ -96,6 +96,10 @@
             </div>
 
 
+
+
+     </div>
+    
 
             <script src="bootstrap/js/bootstrap.js.min"></script>
 </body>

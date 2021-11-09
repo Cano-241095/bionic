@@ -16,7 +16,7 @@
 
 <body>
     <div class="row">
-        <div class="col text-center">
+        <div class="col text-center fondo">
             <h1>Actualizar Datos</h1>
         </div>
     </div>
@@ -51,27 +51,28 @@
                 header('Location:descripcion.php');
             }
         ?>
-    <div class="row">
-        <div class="col">
+    <div class="row justify-content-center">
+        <div class="col-6">
             <div class="card">
                 <div class="card-body">
                     <form name="form" action="updateDescripcion.php?id=<?php echo $_GET['id'];?>"
                         onsubmit="return validarform()" method="POST">
+                        <label for="">ID: </label>
                         <div class="form-group">
-                            ID <input type="number" name="id" value="<?php echo $id; ?>"
-                                class="form-control" placeholder="Actualiza ID" autocomplete="off" autofocus>
+                            <input type="number" name="id" value="<?php echo $id; ?>" class="form-control"
+                                placeholder="Actualiza ID" autocomplete="off" autofocus>
                         </div>
+                        <label for="">ID Asociado:</label>
                         <div class="form-group">
-                            ID Asociado<input type="text" name="nombre_categoria"
-                                value="<?php echo $id_asociado; ?>" class="form-control"
-                                placeholder="Actualiza Nombre_Categoria" autocomplete="off" required>
-                        </div>
+                            <input type="text" name="id_asociado" value="<?php echo $id_asociado; ?>"
+                                class="form-control" placeholder="Actualiza ID_Asociado" autocomplete="off" required>
+                        </div><label for=""> Descripcion:</label>
                         <div class="form-group">
-                            Descripcion<input type="text" name="descripcion" value="<?php echo $descripcion; ?>" class="form-control"
-                                placeholder="Atualiza Descripcion" autocomplete="off" required>
+                            <input type="text" name="descripcion" value="<?php echo $descripcion; ?>"
+                                class="form-control" placeholder="Actualiza Descripcion" autocomplete="off" required>
                         </div>
 
-                        <button class="btn btn-success btn-block" name="update">
+                        <button class="btn btn-secondary btn-block" name="update">
                             Actualizar
                         </button>
                     </form>

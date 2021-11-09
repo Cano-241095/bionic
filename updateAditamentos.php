@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/aditamentos.css">
+    <link rel="stylesheet" href="css/variables.css">
     <title></title>
 
 
@@ -14,7 +16,7 @@
 
 <body>
     <div class="row">
-        <div class="col text-center">
+        <div class="col text-center fondo">
             <h1>Actualizar Datos</h1>
         </div>
     </div>
@@ -55,37 +57,42 @@
                 header('Location:aditamentos.php');
             }
         ?>
-    <div class="row">
-        <div class="col">
+    <div class="row justify-content-center ">
+        <div class="col-8 ">
             <div class="card">
                 <div class="card-body">
                     <form name="form" action="updateAditamentos.php?id=<?php echo $_GET['id'];?>"
                         onsubmit="return validarform()" method="POST">
-
+                        <label for=""></label>
                         <div class="form-group">
-                            ID <input type="number" name="id" value="<?php echo $id; ?>" class="form-control"
+                            ID: <input type="number" name="id" value="<?php echo $id; ?>" class="form-control"
                                 placeholder="Actualiza ID" autocomplete="off" autofocus>
                         </div>
+                        <label for=""> ID Asociado:</label>
                         <div class="form-group">
-                            ID Asociado <input type="number" name="id_asociado" value="<?php echo $id_asociado; ?>"
+                            <input type="number" name="id_asociado" value="<?php echo $id_asociado; ?>"
                                 class="form-control" placeholder="Actualiza ID_asociado" autocomplete="off" autofocus>
                         </div>
+                        <label for=""> Nombre Categoria:</label>
                         <div class="form-group">
-                            Nombre Categoria<input type="text" name="nombre_categoria"
-                                value="<?php echo $nombre_categoria; ?>" class="form-control"
-                                placeholder="Actualiza Nombre_Categoria" value="protesicos" autocomplete="off" required>
+                            <input type="text" name="nombre_categoria" value="<?php echo $nombre_categoria; ?>"
+                                class="form-control" placeholder="Actualiza Nombre_Categoria" value="protesicos"
+                                autocomplete="off" required>
                         </div>
+                        <label for=""> Nombre Aditamento:</label>
                         <div class="form-group">
-                            Nombre Aditamento<input type="text" name="nombre_aditamento"
-                                value="<?php echo $nombre_aditamento; ?>" class="form-control"
-                                placeholder="Actualiza Nombre_Aditamento" autocomplete="off" required>
+                            <input type="text" name="nombre_aditamento" value="<?php echo $nombre_aditamento; ?>"
+                                class="form-control" placeholder="Actualiza Nombre_Aditamento" autocomplete="off"
+                                required>
                         </div>
+                        <label for=""> URL:</label>
                         <div class="form-group">
-                            URL<input type="file" name="url" value="<?php echo $url; ?>" class="form-control"
+                            <input type="file" name="url" value="<?php echo $url; ?>" class="form-control"
                                 placeholder="Actualiza URL" autocomplete="off" required>
                         </div>
+                        <label for=""> Precio:</label>
                         <div class="form-group">
-                            Precio<input type="number" name="precio" value="<?php echo $precio; ?>" class="form-control"
+                            <input type="number" name="precio" value="<?php echo $precio; ?>" class="form-control"
                                 placeholder="Actualiza Precio" autocomplete="off" required>
                         </div>
 

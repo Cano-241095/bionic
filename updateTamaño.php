@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/tamaño.css">
+    <link rel="stylesheet" href="css/variables.css">
     <title></title>
 
 
@@ -14,7 +16,7 @@
 
 <body>
     <div class="row">
-        <div class="col text-center">
+        <div class="col text-center fondo">
             <h1>Actualizar Datos</h1>
         </div>
     </div>
@@ -53,27 +55,31 @@
                 header('Location:tamaño.php');
             }
         ?>
-    <div class="row">
-        <div class="col">
+    <div class="row justify-content-center">
+        <div class="col-6">
             <div class="card">
                 <div class="card-body">
                     <form name="form" action="updateTamaño.php?codigo=<?php echo $_GET['codigo'];?>"
                         onsubmit="return validarform()" method="POST">
                         <div class="form-group">
-                            ID_Asociado <input type="number" name="id_asociado" value="<?php echo $id_asociado; ?>"
+                            <label for=""> ID_Asociado: </label>
+                           <input type="number" name="id_asociado" value="<?php echo $id_asociado; ?>"
                                 class="form-control" placeholder="Actualiza ID_asociado" autocomplete="off" autofocus>
                         </div>
+                        <label for="">Código: </label>
                         <div class="form-group">
-                            Código <input type="text" name="codigo"
+                          <input type="text" name="codigo"
                              value="<?php echo $codigo; ?>" class="form-control"
                                 placeholder="Actualiza codigo" autocomplete="off" required>
                         </div>
+                        <label for="">Tamaño:</label>
                         <div class="form-group">
-                            Tamaño<input type="number" name="tamaño" value="<?php echo $tamaño; ?>" class="form-control"
+                           <input type="number" name="tamaño" value="<?php echo $tamaño; ?>" class="form-control"
                                 placeholder="Actualiza tamaño" autocomplete="off" required>
                         </div>
+                        <label for="">Cantidad:</label>
                         <div class="form-group">
-                            Cantidad<input type="number" name="cantidad" value="<?php echo $cantidad; ?>" class="form-control"
+                            <input type="number" name="cantidad" value="<?php echo $cantidad; ?>" class="form-control"
                                 placeholder="Actualiza cantidad" autocomplete="off" required>
                         </div>
 
