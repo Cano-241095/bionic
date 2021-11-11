@@ -1,5 +1,7 @@
 body{
     background-color: var(--grisFondo);
+    min-height: 100vh;
+    position: relative;
 }
 header{
     width: 100%;
@@ -39,6 +41,8 @@ footer{
     color: white;
     margin-top: 25px;
     padding-top: 20px;
+    position: absolute;
+    bottom: 0;
 }
 footer p{
     font-size: 15px;
