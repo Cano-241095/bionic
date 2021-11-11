@@ -74,11 +74,11 @@
                             <tr class="">
                                 <td class="text-center"><?php echo $row['id'] ?></td>
                                 <td class="text-center"><?php echo $row['id_asociado'] ?></td>
-                                <td class="text-center"><?php echo $row['imagen'] ?></td>
                                 <td class="text-center">
-                                    <a href="updateImagenes.php?id=<?php echo $row['id']?>" class="btn btn-light">
-                                        <i class="bi bi-pencil-square iconoModificar"></i>
-                                    </a>
+                                   <img src="img/ <?php echo $row['imagen'] ?>" alt="">
+                                </td>
+                                <td class="text-center">
+                                   
                                     <a href="eliminarImagenes.php?id=<?php echo $row['id']?>" class="btn btn-ligth">
                                         <i class="bi bi-trash-fill iconoEliminar"></i>
                                     </a>

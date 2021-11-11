@@ -3,7 +3,7 @@
     if (isset($_GET['codigo'])){    
         $codigo = $_GET['codigo'];
         
-        $delete = "DELETE FROM tamaño WHERE codigo = '$codigo'";
+        $delete = "DELETE FROM tamaño WHERE codigo = '$codigo '";
 
         if (mysqli_query($conn, $delete)){
             $_SESSION['message'] = 'Registro borrado exitosamente';

@@ -48,7 +48,7 @@
                 $cantidad = $_POST['cantidad'];
 
 
-                $update = "UPDATE  set codigo = '$codigo', tamaño = '$tamaño', cantidad = '$cantidad'  WHERE id_asociado = $id_asociado";
+                $update = "UPDATE  set codigo = '$codigo ', tamaño = '$tamaño', cantidad = '$cantidad'  WHERE id_asociado = $id_asociado";
                 mysqli_query($conn, $update);
                 $_SESSION['message'] = 'Registro actualizado exitosamente';
                 $_SESSION['message_type'] = 'info'; 

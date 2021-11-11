@@ -47,7 +47,7 @@
                 $update = "UPDATE soluciones_protesicas set nombre_categoria = '$nombre_categoria', url ='$url' WHERE id_categoria = $id_categoria";
                 mysqli_query($conn, $update);
                 $_SESSION['message'] = 'Registro actualizado exitosamente';
-                $_SESSION['message_type'] = 'info'; 
+                $_SESSION['message_+type'] = 'info'; 
                 header('Location:solucionesProtesicas.php');
             }
         ?>
@@ -55,7 +55,7 @@
         <div class="col-6">
             <div class="card">
                 <div class="card-body">
-                    <form name="form" action="updateSoluciones.php?id_categoria=<?php echo $_GET['id_categoria'];?>"
+                    <form name="form" action="updateSolucionesProtesicas.php?id_categoria=<?php echo $_GET['id_categoria'];?>"
                         onsubmit="return validarform()" method="POST">
                         <label for="">ID Categoria:</label>
                         <div class="form-group">

@@ -75,7 +75,7 @@
                                 <td class="text-center"><?php echo $row['id'] ?></td>
                                 <td class="text-center"><?php echo $row['id_asociado'] ?></td>
                                 <td class="text-center"><?php echo $row['descripcion'] ?></td>
-                                <td class="d-flex align-items-center">
+                                <td class="text-center">
                                     <a href="updateDescripcion.php?id=<?php echo $row['id']?>" class="btn btn-light">
                                         <i class="bi bi-pencil-square iconoModificar"></i>
                                     </a>
