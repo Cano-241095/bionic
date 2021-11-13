@@ -32,7 +32,7 @@
                                 $result = mysqli_query($conn, $query);
                                 while ($row = mysqli_fetch_array($result)) {
                                 ?>
-                                    <li><a href="<?php echo $row['url'] ?>?id_asociado=<?php echo $row['id_categoria'] ?>">
+                                    <li><a href="plantilla/?id_asociado=<?php echo $row['id_categoria']?>?titulo=<?php echo $row['nombre_categoria'] ?>">
                                             <?php echo $row['nombre_categoria'] ?></a>
                                     </li>
                                 <?php } ?>

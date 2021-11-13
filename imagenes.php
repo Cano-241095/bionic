@@ -38,7 +38,7 @@
 
                             <input class="form-control" type="number" name="id" placeholder="Ingresar ID unico"
                                 autocomplete="off" autofocus>
-                            <input class="form-control mt-3" type="file" name="image" placeholder="Ingresar url"
+                            <input class="form-control mt-3" type="file" name="image" placeholder="Elige imagen"
                                 autocomplete="off" required>
 
                             <input class="btn btn-outline-dark mt-3" type="submit" name="enviar2" value="Enviar"
@@ -72,7 +72,7 @@
                                         $query = "SELECT * FROM imagenes";
                                         $result = mysqli_query($conn, $query);
                                         while($row = mysqli_fetch_array($result)){ 
-                                           
+                                            
                                      ?>
                             <tr class="">
                                 <td class="text-center"><?php echo $row['id'] ?></td>

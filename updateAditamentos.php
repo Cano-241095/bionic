@@ -34,7 +34,6 @@
                     
                     $id = $row['id'];
                     $id_asociado = $row['id_asociado'];
-                    $nombre_categoria = $row['nombre_categoria'];
                     $nombre_aditamento = $row['nombre_aditamento'];
                     $url = $row['url'];
                     $precio = $row['precio'];
@@ -45,12 +44,11 @@
             if(isset($_POST['update'])){
                 $id = $_POST['id'];
                 $id_asociado = $_POST['id_asociado'];
-                $nombre_categoria = $_POST['nombre_categoria'];
                 $nombre_aditamento = $_POST['nombre_aditamento'];
                 $url = $_POST['url'];
                 $precio = $_POST['precio'];
 
-                $update = "UPDATE aditamentos set id_asociado = '$id_asociado', nombre_categoria ='$nombre_categoria',  nombre_aditamento ='$nombre_aditamento',  url ='$url', precio ='$precio' WHERE id = $id";
+                $update = "UPDATE aditamentos set id_asociado = '$id_asociado',  nombre_aditamento ='$nombre_aditamento',  url ='$url', precio ='$precio' WHERE id = $id";
                 mysqli_query($conn, $update);
                 $_SESSION['message'] = 'Registro actualizado exitosamente';
                 $_SESSION['message_type'] = 'info'; 
@@ -72,12 +70,6 @@
                         <div class="form-group">
                             <input type="number" name="id_asociado" value="<?php echo $id_asociado; ?>"
                                 class="form-control" placeholder="Actualiza ID_asociado" autocomplete="off" autofocus>
-                        </div>
-                        <label for=""> Nombre Categoria:</label>
-                        <div class="form-group">
-                            <input type="text" name="nombre_categoria" value="<?php echo $nombre_categoria; ?>"
-                                class="form-control" placeholder="Actualiza Nombre_Categoria" value="protesicos"
-                                autocomplete="off" required>
                         </div>
                         <label for=""> Nombre Aditamento:</label>
                         <div class="form-group">

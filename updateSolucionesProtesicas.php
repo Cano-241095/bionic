@@ -35,16 +35,14 @@
                     
                     $id_categoria = $row['id_categoria'];
                     $nombre_categoria = $row['nombre_categoria'];
-                    $url = $row['url'];
                    
                 }
             }
             if(isset($_POST['update'])){
                 $id_categoria = $_GET['id_categoria'];
                 $nombre_categoria = $_POST['nombre_categoria'];
-                $url = $_POST['url'];
 
-                $update = "UPDATE soluciones_protesicas set nombre_categoria = '$nombre_categoria', url ='$url' WHERE id_categoria = $id_categoria";
+                $update = "UPDATE soluciones_protesicas set nombre_categoria = '$nombre_categoria' WHERE id_categoria = $id_categoria";
                 mysqli_query($conn, $update);
                 $_SESSION['message'] = 'Registro actualizado exitosamente';
                 $_SESSION['message_+type'] = 'info'; 
@@ -68,11 +66,6 @@
                                 class="form-control" placeholder="Actualiza Nombre_Categoria" autocomplete="off"
                                 required>
                         </div>
-                        <label for=""> URL:</label>
-                        <div class="form-group">
-                            <input type="file" name="url" value="<?php echo $url; ?>" class="form-control"
-                                placeholder="Actualiza Archivo" autocomplete="off" required>
-                        </div>
 
                         <button class="btn btn-secondary btn-block" name="update">
                             Actualizar
@@ -82,8 +75,6 @@
             </div>
         </div>
     </div>
-
-
 
     <script src="bootstrap/js/bootstrap.js.min"></script>
 </body>

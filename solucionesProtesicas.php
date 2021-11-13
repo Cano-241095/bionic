@@ -34,9 +34,6 @@
                             <label for="">Nombre Categoria:</label>
                             <input class="form-control mt-3" type="text" name="nombre_categoria"
                                 placeholder="Ingresar nombre" autocomplete="off" required>
-                            <label for="">Archivo:</label>
-                            <input class="form-control mt-3" type="file" name="url" placeholder="Ingresar url"
-                                autocomplete="off" required>
                             <input class="btn btn-outline-secondary mt-3" type="submit" name="enviar" value="Enviar"
                                 id="seleccionArchivos" accept="image/*">
 
@@ -56,7 +53,6 @@
                             <tr>
                                 <th class="text-center text-white">ID_Categoria</th>
                                 <th class="text-center text-white">Nombre_Categoria</th>
-                                <th class="text-center text-white">URL</th>
                                 <th class="text-center text-white">Acciones</th>
                             </tr>
                         </thead>
@@ -72,7 +68,6 @@
                             <tr class="">
                                 <td class="text-center"><?php echo $row['id_categoria'] ?></td>
                                 <td class="text-center"><?php echo $row['nombre_categoria'] ?></td>
-                                <td class="text-center"><?php echo $row['url'] ?></td>
                                 <td class="text-center">
                                     <a href="updateSolucionesProtesicas.php?id_categoria=<?php echo $row['id_categoria']?>"
                                         class="btn btn-light">

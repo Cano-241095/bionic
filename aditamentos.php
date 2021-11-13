@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <header></header>
     <div class="container-fluid">
         <div class="row justify-content-center fondo">
             <div class="col text-center">
@@ -24,25 +25,22 @@
             <div class="col-12 col-md-4 mt-3">
                 <div class="card border border-dark">
                     <div class="card-body">
-                        <form method="post" name="form" onsubmit="return validarform()" action="crearAditamentos.php">
+                        <form method="post" name="form" action="crearAditamentos.php" enctype="multipart/form-data">
 
                             <label for="">ID:</label>
                             <input class="form-control" type="number" name="id" placeholder="Ingresar ID"
                                 autocomplete="off" autofocus>
                             <label for="">ID Asociado:</label>
-                            <input class="form-control mt-3" type="number" name="id_asociado"
+                            <input class="form-control" type="number" name="id_asociado"
                                 placeholder="Ingresar ID Asociado" autocomplete="off" required>
-                            <label for="">Nombre de Categoria:</label>
-                            <input class="form-control mt-3" type="text" name="nombre_categoria"
-                                placeholder="Ingresar Nombre_categoria" value="protesicos" autocomplete="off" required>
                             <label for="">Nombre del Aditamento:</label>
-                            <input class="form-control mt-3" type="text" name="nombre_aditamento"
+                            <input class="form-control" type="text" name="nombre_aditamento"
                                 placeholder="Ingresar Nombre_aditamento" autocomplete="off" required>
-                            <label for="">Archivo</label>
-                            <input class="form-control mt-3" type="file" name="url" placeholder="Ingresar url"
+                            <label for="">Imagen</label>
+                            <input class="form-control" type="file" name="image" placeholder="Elige imagen"
                                 autocomplete="off" required>
                             <label for="">Precio:</label>
-                            <input class="form-control mt-3" type="number" name="precio" placeholder="Precio"
+                            <input class="form-control" type="number" name="precio" placeholder="Precio"
                                 autocomplete="off" required>
 
                             <input class="btn btn-outline-secondary mt-3" type="submit" name="enviar" value="Enviar"
@@ -50,7 +48,7 @@
 
                             <input class="btn btn-outline-secondary mt-3" type="reset" value=Limpiar>
 
-                        </form>
+                        </form> 
                     </div>
                 </div>
             </div>
@@ -65,9 +63,8 @@
                             <tr>
                                 <th class="text-center text-white">ID</th>
                                 <th class="text-center text-white">ID Asociado</th>
-                                <th class="text-center text-white">Nombre de Categoria</th>
                                 <th class="text-center text-white">Nombre de Aditamento</th>
-                                <th class="text-center text-white">URL</th>
+                                <th class="text-center text-white">imagen</th>
                                 <th class="text-center text-white">Precio</th>
                                 <th class="text-center text-white">Acciones</th>
 
@@ -87,9 +84,10 @@
                             <tr class="">
                                 <td class="text-center"><?php echo $row['id'] ?></td>
                                 <td class="text-center"><?php echo $row['id_asociado'] ?></td>
-                                <td class="text-center"><?php echo $row['nombre_categoria'] ?></td>
                                 <td class="text-center"><?php echo $row['nombre_aditamento'] ?></td>
-                                <td class="text-center"><?php echo $row['url'] ?></td>
+                                <td class="text-center">
+                                    <img src="img/aditamentos/<?php echo $row['url'] ?>" alt="">
+                            </td>
                                 <td class="text-center"><?php echo $row['precio'] ?></td>
 
                                 <td class="text-center">
@@ -124,7 +122,7 @@
 
 
 
-    <script src="bootstrap/js/bootstrap.js.min"></script>
+    <script src="bootstrap/js/bootstrap.bundle.js"></script>
 </body>
 
 </html>
