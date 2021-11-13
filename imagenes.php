@@ -24,33 +24,36 @@
         </div>
 
         <div class="row">
-            <div class="col-12 col-md-4 mt-3">
-                <div class="card border border-dark">
+
+            <div class="col-12 col-md-5 justify-content-center">
+
+                <div class="card border-dark">
                     <div class="card-body">
-                        <form method="post" name="form" onsubmit="return validarform()" action="crearImagenes.php">
 
-                            <label for="">ID:</label>
-                            <input class="form-control" type="number" name="id" placeholder="Ingresar ID"
-                                autocomplete="off" autofocus>
-                            <label for="">ID Asociado:</label>
+                        <form method="post" name="form" action="crearImagenes.php" enctype="multipart/form-data">
+
+                            <h2>Imagenes</h2>
                             <input class="form-control" type="number" name="id_asociado"
-                                placeholder="Ingresar ID_Asociado" autocomplete="off" required>
-                            <label for="">imagen:</label>
-                            <input class="form-control" type="file" name="imagen"
-                                placeholder="Selecciona Imagen" autocomplete="off" required>
+                                placeholder="Ingresar ID asociado" autocomplete="off" autofocus>
 
-                            <input class="btn btn-outline-secondary mt-3" type="submit" name="enviar" value="Enviar"
+                            <input class="form-control" type="number" name="id" placeholder="Ingresar ID unico"
+                                autocomplete="off" autofocus>
+                            <input class="form-control mt-3" type="file" name="image" placeholder="Ingresar url"
+                                autocomplete="off" required>
+
+                            <input class="btn btn-outline-dark mt-3" type="submit" name="enviar2" value="Enviar"
                                 id="seleccionArchivos" accept="image/*">
 
-                            <input class="btn btn-outline-secondary mt-3" type="reset" value=Limpiar>
+                            <input class="btn btn-outline-dark mt-3" type="reset" value=Limpiar>
                         </form>
                     </div>
+
                 </div>
             </div>
 
 
-            
-            <div class="col-12 col-md-8 mt-3">
+
+            <div class="col-12 col-md-7 mt-3 justify-content-center">
                 <div class="card border border-dark">
 
                     <table>
@@ -75,10 +78,10 @@
                                 <td class="text-center"><?php echo $row['id'] ?></td>
                                 <td class="text-center"><?php echo $row['id_asociado'] ?></td>
                                 <td class="text-center">
-                                   <img src="img/ <?php echo $row['imagen'] ?>" alt="">
+                                    <img src="img/<?php echo $row['imagen'] ?>" alt="">
                                 </td>
                                 <td class="text-center">
-                                   
+
                                     <a href="eliminarImagenes.php?id=<?php echo $row['id']?>" class="btn btn-ligth">
                                         <i class="bi bi-trash-fill iconoEliminar"></i>
                                     </a>
@@ -95,13 +98,13 @@
 
             </div>
 
+        </div>
+
+    </div>
 
 
 
-     </div>
-    
-
-            <script src="bootstrap/js/bootstrap.js.min"></script>
+    <script src="bootstrap/js/bootstrap.js.min"></script>
 </body>
 
 </html>

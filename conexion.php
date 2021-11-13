@@ -3,7 +3,7 @@
     $servername = "localhost";   
     $username = "root";          
     $password = "";   
-    $database = "bionic";       #
+    $database = "bionic";       
     $port = "3306";              
     $conn = mysqli_connect($servername, $username, $password, $database, $port);
         if (!$conn) {

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/descripcion.css">
     <link rel="stylesheet" href="css/variables.css">
-    <title>Descripcion</title>
+    <title>Descripción</title>
 </head>
 
 
@@ -19,7 +19,7 @@
 
         <div class="row justify-content-center fondo">
             <div class="col-12 col-md-12 text-center">
-                <h1>Descripcion</h1>
+                <h1>Descripción</h1>
             </div>
         </div>
 
@@ -37,7 +37,7 @@
                                 placeholder="Ingresar IDAsociado" autocomplete="off" required>
                             <label for="">Descripción:</label>
                             <input class="form-control mt-3" type="text" name="descripcion"
-                                placeholder="Ingresar Descripcion" autocomplete="off" required>
+                                placeholder="Ingresar Descripción" autocomplete="off" required>
 
                             <input class="btn btn-outline-secondary mt-3" type="submit" name="enviar" value="Enviar"
                                 id="seleccionArchivos" accept="image/*">
@@ -58,7 +58,7 @@
                             <tr>
                                 <th class="text-center text-white">ID</th>
                                 <th class="text-center text-white">ID Asociado</th>
-                                <th class="text-center text-white">Descripcion</th>
+                                <th class="text-center text-white">Descripción</th>
                                 <th class="text-center text-white">Acciones</th>
                             </tr>
                         </thead>
