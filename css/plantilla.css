@@ -1,16 +1,32 @@
 
 h1{
     text-align: center; color: #7c4a84;
+    font-weight: 700;
+    font-size: 60px;
+    margin-top: 20px;
+
 }
 h2{
     color: #7c4a84;
+    font-size: 25px;
+    font-weight: 600;
 }
 h3{
     margin-left: 20px;
+    font-weight: 700;
+    font-size: 35px;
+    margin-top: 25px;
+}
+h4{
+    font-weight:bold ;
+    margin-left: 20px;
+    text-decoration: line-through;
+    color: rgba(128, 128, 128, 0.59);
 }
 main {
     width: 65%;
     margin: 0 auto;
+    margin-top: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 40px;
@@ -18,7 +34,7 @@ main {
 
 .producto {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: white;
     box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.322);
     padding: 10px;
@@ -26,4 +42,21 @@ main {
 
 .producto img {
     width: 100px;
+}
+button{
+    background-color:var(--moradoTenue);
+    border: none;
+    border-radius: 50px;
+    margin: 0 auto;
+    width: 80px;
+    height: 30px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+button p{
+    color: white;
+    font-weight: bold;
+    font-size: .7rem;
+    margin: 0;
 }

@@ -38,6 +38,20 @@
                     <li>Compatible con : BIONIC Dental Implant®, MIS®, Alpha Bio®, AB Dental®,
                         BioHorizon®, Zimmer®, Implant Direct®, Cortex®, Alpha Gate®, Adin® etc.</li>
                 </ul>
+
+                <div class="contenedorImagenes visiblePequeño">
+
+                    <img src="img/soluciones_protesicas/pilares_cicatrizacion/Healing delgado2 PS 70 R.png" alt="">
+
+                    <div class="imagenes">
+                        <img src="img/soluciones_protesicas/pilares_cicatrizacion/HEaling Delgado1 PS 70R.png" alt="">
+                        <img src="img/soluciones_protesicas/pilares_cicatrizacion/Healing delgado2 PS 70 R.png" alt="">
+                        <img src="img/soluciones_protesicas/pilares_cicatrizacion/CICATRIZAL DELGADO 70 R.png" alt="">
+                        <img src="img/soluciones_protesicas/pilares_cicatrizacion/TAPON DE CICATRIZACION ESTRECHO.jpg"
+                            alt="">
+
+                    </div>
+                </div>
                 <div class="contenedorSecundario">
                     <table>
                         <thead>
@@ -84,7 +98,7 @@
                         <button>Add to card</button>
                         <button>Buy</button>
                     </div>
-                    <div class="btnIconos">
+                    <div class="btnIconos iconosPequeño">
                         <i class="bi bi-share-fill"></i>
                         <i class="bi bi-facebook"></i>
                         <i class="bi bi-instagram"></i>
@@ -93,7 +107,7 @@
                 </div>
             </div>
         </div>
-        <div class="contenedorImagenes">
+        <div class="contenedorImagenes visibleGrande">
 
             <img src="img/soluciones_protesicas/pilares_cicatrizacion/Healing delgado2 PS 70 R.png" alt="">
 
@@ -103,6 +117,12 @@
                 <img src="img/soluciones_protesicas/pilares_cicatrizacion/CICATRIZAL DELGADO 70 R.png" alt="">
                 <img src="img/soluciones_protesicas/pilares_cicatrizacion/TAPON DE CICATRIZACION ESTRECHO.jpg" alt="">
 
+            </div>
+            <div class="btnIconos iconosGrande">
+                <i class="bi bi-share-fill"></i>
+                <i class="bi bi-facebook"></i>
+                <i class="bi bi-instagram"></i>
+                <i class="bi bi-messenger"></i>
             </div>
         </div>
     </div>

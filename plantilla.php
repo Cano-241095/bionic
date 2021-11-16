@@ -14,6 +14,7 @@
 
 <body>
     <?php
+     include("header.php");
     $idAsociado = $_GET['id'];
     $titulo = $_GET['titulo'];
 
@@ -29,17 +30,29 @@
         $result = mysqli_query($conn, $query);
         while ($row = mysqli_fetch_array($result)) {
         ?>
-            <div class="producto">
-                <h2> <?php echo $row['nombre_aditamento'] ?></h2>
-                <h3> <?php echo $row['precio'] ?></h3>
-                <img src="img/aditamentos/<?php echo $row['url'] ?>" alt="">
-            </div>
+        <div class="producto">
+            <h2> <?php echo $row['nombre_aditamento'] ?></h2>
+            <h3> $<?php echo $row['precio'] ?>.00</h3>
+            <h4>$27.84</h4>
+            <img src="img/aditamentos/<?php echo $row['url'] ?>" alt="">
+        </div>
 
 
         <?php } ?>
+        <button>
+            <p>Saber más</p>
+        </button>
+        <button>
+            <p>Saber más</p>
+        </button>
+        <button>
+            <p>Saber más</p>
+        </button>
     </main>
 
-
+    <?php
+    include("footer.php");
+    ?>
 </body>
 
 </html>
