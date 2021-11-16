@@ -1,6 +1,6 @@
 
     <header class="sticky-top">
-        <a href="index.php"><img src="img/completo1.png" alt="logoEntrada"></a>
+        <a href="home.php"><img src="img/completo1.png" alt="logoEntrada"></a>
         <nav>
             <a href="#">COMPAÑIA</a>
             <a href="productos.php">PRODUCTOS</a>

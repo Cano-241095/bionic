@@ -1,0 +1,29 @@
+
+h1{
+    text-align: center; color: #7c4a84;
+}
+h2{
+    color: #7c4a84;
+}
+h3{
+    margin-left: 20px;
+}
+main {
+    width: 65%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+.producto {
+    width: 100%;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.322);
+    padding: 10px;
+}
+
+.producto img {
+    width: 100px;
+}

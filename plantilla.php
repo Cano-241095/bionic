@@ -9,36 +9,36 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/plantilla.css">
 </head>
 
 <body>
     <?php
-    include("header.php");
+    $idAsociado = $_GET['id'];
+    $titulo = $_GET['titulo'];
+
     ?>
+
+    <h1> <?php echo $titulo ?> </h1>
     <main>
 
+
         <?php
-$idAsociado = 0;
         include("conexion.php");
-        if (isset($_GET['id_categoria'])) {
-            $idAsociado = $_GET['id_categoria'];
-        }
-        $query = "SELECT * FROM aditamentos WHERE id_asociado = $idAsociado";
+        $query = "SELECT * FROM aditamentos where id_asociado = $idAsociado";
         $result = mysqli_query($conn, $query);
         while ($row = mysqli_fetch_array($result)) {
         ?>
-<h2></h2>
+            <div class="producto">
+                <h2> <?php echo $row['nombre_aditamento'] ?></h2>
+                <h3> <?php echo $row['precio'] ?></h3>
+                <img src="img/aditamentos/<?php echo $row['url'] ?>" alt="">
+            </div>
+
 
         <?php } ?>
-
-
-
-
     </main>
 
-    <?php
-    include("footer.php");
-    ?>
 
 </body>
 

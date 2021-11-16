@@ -20,7 +20,7 @@
             <h1>Actualizar Datos</h1>
         </div>
     </div>
-
+ 
 
     <?php
             include("conexion.php");
