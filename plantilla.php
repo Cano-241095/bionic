@@ -35,19 +35,14 @@
             <h3> $<?php echo $row['precio'] ?>.00</h3>
             <h4>$27.84</h4>
             <img src="img/aditamentos/<?php echo $row['url'] ?>" alt="">
+            
+
+        <button>
+            <p>Saber más</p>
+        </button>
         </div>
 
-
         <?php } ?>
-        <button>
-            <p>Saber más</p>
-        </button>
-        <button>
-            <p>Saber más</p>
-        </button>
-        <button>
-            <p>Saber más</p>
-        </button>
     </main>
 
     <?php

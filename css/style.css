@@ -5,7 +5,7 @@ body{
 }
 header{
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.863);
+    background-color: rgb(0, 0, 0);
     display: flex;
     justify-content: center;
     align-items: center;
