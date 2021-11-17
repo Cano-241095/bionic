@@ -86,7 +86,7 @@
                                 <td class="text-center"><?php echo $row['id_asociado'] ?></td>
                                 <td class="text-center"><?php echo $row['nombre_aditamento'] ?></td>
                                 <td class="text-center">
-                                    <img src="img/aditamentos/<?php echo $row['url'] ?>" alt="">
+                                    <img class="imgAditamento" src="img/aditamentos/<?php echo $row['url'] ?>" alt="">
                             </td>
                                 <td class="text-center"><?php echo $row['precio'] ?></td>
 

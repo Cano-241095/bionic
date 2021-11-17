@@ -45,9 +45,9 @@
                     $result = mysqli_query($conn, $query);
                     while ($row2 = mysqli_fetch_array($result)) {
                     ?>
-                        <li>
-                            <?php echo $row2['descripcion'] ?>
-                        </li>
+                    <li>
+                        <?php echo $row2['descripcion'] ?>
+                    </li>
 
                     <?php } ?>
                 </ul>
@@ -60,7 +60,8 @@
                         <img src="img/soluciones_protesicas/pilares_cicatrizacion/HEaling Delgado1 PS 70R.png" alt="">
                         <img src="img/soluciones_protesicas/pilares_cicatrizacion/Healing delgado2 PS 70 R.png" alt="">
                         <img src="img/soluciones_protesicas/pilares_cicatrizacion/CICATRIZAL DELGADO 70 R.png" alt="">
-                        <img src="img/soluciones_protesicas/pilares_cicatrizacion/TAPON DE CICATRIZACION ESTRECHO.jpg" alt="">
+                        <img src="img/soluciones_protesicas/pilares_cicatrizacion/TAPON DE CICATRIZACION ESTRECHO.jpg"
+                            alt="">
 
                     </div>
                 </div>
@@ -75,18 +76,18 @@
 
                         </thead>
                         <tbody>
-                            
-                    <?php
+
+                            <?php
                     $query = "SELECT * FROM tamaño where id_asociado = $id";
                     $result = mysqli_query($conn, $query);
                     while ($row3 = mysqli_fetch_array($result)) {
                     ?>
-                    <tr>
+                            <tr>
                                 <td><?php echo $row3['codigo'] ?></td>
                                 <td><?php echo $row3['tamaño'] ?></td>
                                 <td> <input type="number" name="" id=""> </td>
                             </tr>
-                    <?php } ?>
+                            <?php } ?>
                         </tbody>
 
                     </table>
@@ -100,7 +101,7 @@
                         <i class="bi bi-share-fill"></i>
                         <i class="bi bi-facebook"></i>
                         <i class="bi bi-instagram"></i>
-                        <i class="bi bi-messenger"></i>
+                        <i class="bi bi-messenge r"></i>
                     </div>
                 </div>
             </div>
@@ -125,7 +126,7 @@
         </div>
     </div>
     <?php
-    include("footer.php");
+    include("footer.php");  
     ?>
 </body>
 
