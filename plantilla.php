@@ -37,9 +37,9 @@
             <img src="img/aditamentos/<?php echo $row['url'] ?>" alt="">
             
 
-        <button>
+        <a href="plantillaProducto.php?id=<?php echo $row['id'] ?>">
             <p>Saber más</p>
-        </button>
+        </a>
         </div>
 
         <?php } ?>

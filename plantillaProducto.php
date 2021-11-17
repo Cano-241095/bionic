@@ -17,26 +17,39 @@
     <?php
     include("header.php");
     ?>
+
+    <?php
+    include("conexion.php");
+
+    $id = $_GET['id'];
+
+    $query = "SELECT * FROM aditamentos where id = $id";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_array($result);
+    $precio = $row['precio'] + 0.00;
+    ?>
     <div class="contenedor">
         <div class="contenedorInformacion">
 
             <div>
-                <h1 class="colorTitulo">PILAR DE CICATRIZACIÓN DELGADO Ø 3.8mm</h1>
-                <h2>$ 24.00</h2>
+                <h1 class="colorTitulo"><?php echo $row['nombre_aditamento'] ?> </h1>
+                <h2>$ <?php echo floatval($precio) ?></h2>
                 <h6>DESCRIPCIÓN DEL PRODUCTO:</h6>
             </div>
 
             <div>
                 <ul>
-                    <li>Conexión: Conexión interna hexágonal 2.42mm</li>
-                    <li> Diámetro: Ø3.8mm</li>
-                    <li> Longitud: 3.0mm,4.0mm,5.0mm,6.0mm y 7.0mm</li>
-                    <li>Material: Titanio grado 5(TI-6AL-4V ELI)</li>
-                    <li>Certificados: CE Approved, ISO (9001:2008),MEDICAL ISO (13485:2003),
-                        Aprobado por la FDA</li>
-                    <li>País de fabricación: Israel</li>
-                    <li>Compatible con : BIONIC Dental Implant®, MIS®, Alpha Bio®, AB Dental®,
-                        BioHorizon®, Zimmer®, Implant Direct®, Cortex®, Alpha Gate®, Adin® etc.</li>
+
+                    <?php
+                    $query = "SELECT * FROM descripcion where id_asociado = $id";
+                    $result = mysqli_query($conn, $query);
+                    while ($row2 = mysqli_fetch_array($result)) {
+                    ?>
+                        <li>
+                            <?php echo $row2['descripcion'] ?>
+                        </li>
+
+                    <?php } ?>
                 </ul>
 
                 <div class="contenedorImagenes visiblePequeño">
@@ -47,8 +60,7 @@
                         <img src="img/soluciones_protesicas/pilares_cicatrizacion/HEaling Delgado1 PS 70R.png" alt="">
                         <img src="img/soluciones_protesicas/pilares_cicatrizacion/Healing delgado2 PS 70 R.png" alt="">
                         <img src="img/soluciones_protesicas/pilares_cicatrizacion/CICATRIZAL DELGADO 70 R.png" alt="">
-                        <img src="img/soluciones_protesicas/pilares_cicatrizacion/TAPON DE CICATRIZACION ESTRECHO.jpg"
-                            alt="">
+                        <img src="img/soluciones_protesicas/pilares_cicatrizacion/TAPON DE CICATRIZACION ESTRECHO.jpg" alt="">
 
                     </div>
                 </div>
@@ -63,32 +75,18 @@
 
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>BHCN3</td>
-                                <td>3 mm</td>
-                                <td><input type="number"></td>
+                            
+                    <?php
+                    $query = "SELECT * FROM tamaño where id_asociado = $id";
+                    $result = mysqli_query($conn, $query);
+                    while ($row3 = mysqli_fetch_array($result)) {
+                    ?>
+                    <tr>
+                                <td><?php echo $row3['codigo'] ?></td>
+                                <td><?php echo $row3['tamaño'] ?></td>
+                                <td> <input type="number" name="" id=""> </td>
                             </tr>
-
-                            <tr>
-                                <td>BHCN4</td>
-                                <td>4 mm</td>
-                                <td><input type="number"></td>
-                            </tr>
-                            <tr>
-                                <td>BHCN5</td>
-                                <td>5 mm</td>
-                                <td><input type="number"></td>
-                            </tr>
-                            <tr>
-                                <td>BHCN6</td>
-                                <td>6 mm</td>
-                                <td><input type="number"></td>
-                            </tr>
-                            <tr>
-                                <td>BHCN7</td>
-                                <td>7 mm</td>
-                                <td><input type="number"></td>
-                            </tr>
+                    <?php } ?>
                         </tbody>
 
                     </table>
