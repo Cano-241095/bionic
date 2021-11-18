@@ -37,7 +37,7 @@
                     $nombre_aditamento = $row['nombre_aditamento'];
                     $url = $row['url'];
                     $precio = $row['precio'];
-
+                    $imagen = $url;
                    
                 }
             }
@@ -45,7 +45,7 @@
                 $id = $_POST['id'];
                 $id_asociado = $_POST['id_asociado'];
                 $nombre_aditamento = $_POST['nombre_aditamento'];
-                $url = $_POST['url'];
+                $url = $imagen;
                 $precio = $_POST['precio'];
 
                 $update = "UPDATE aditamentos set id_asociado = '$id_asociado',  nombre_aditamento ='$nombre_aditamento',  url ='$url', precio ='$precio' WHERE id = $id";
@@ -80,7 +80,8 @@
                         <label for=""> URL:</label>
                         <div class="form-group">
                             <input type="file" name="url" value="<?php echo $url; ?>" class="form-control"
-                                placeholder="Actualiza URL" autocomplete="off" required>
+                                placeholder="Actualiza URL" autocomplete="off">
+
                         </div>
                         <label for=""> Precio:</label>
                         <div class="form-group">

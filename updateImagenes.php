@@ -70,7 +70,7 @@
                         </div>
                         <label for="">Imagen:</label>
                         <div class="form-group">
-                            <input type="file" name="imagen" value="<?php echo $iamgen; ?>" class="form-control"
+                            <input type="file" name="imagen" value="<?php echo $imagen; ?>" class="form-control"
                                 placeholder="Actualiza Imagen" autocomplete="off" required>
                         </div>
 
