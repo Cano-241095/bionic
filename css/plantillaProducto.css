@@ -1,4 +1,4 @@
-.contenedor{
+.contenedor {
     width: 80%;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -6,82 +6,111 @@
     margin: 40px auto 0px auto;
     padding-bottom: 90px;
 }
-@media only screen and (max-width: 768px){
-    .contenedor{
+
+@media only screen and (max-width: 768px) {
+    .contenedor {
         width: 95%;
         grid-template-columns: 1fr;
     }
 }
-h1{
+
+h1 {
     color: var(--moradoTenue);
     font-weight: bold;
-    font-size: 35px;    
+    font-size: 35px;
 }
-h2{
+
+h2 {
     font-weight: bold;
     margin-top: 40px;
 }
-h6{
+
+h6 {
     font-weight: bolder;
     margin-top: 40px;
 }
 
 
-.contenedorImagenes{
-text-align: center;
-width: 90%;
-margin: 0 auto;
+.contenedorImagenes {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
 }
-.contenedorImagenes img{
+
+.contenedorImagenes img {
     background-color: var(--blancoFondo);
-    width:100%;
+    width: 100%;
     margin: 0 auto;
     box-shadow: gray 0 0 10px;
 }
-.imagenes{
+
+.imagenes {
+    width: 100%;
     margin-top: 30px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 20px;
     padding-bottom: 50px;
 }
-@media only screen and (max-width:768px){
-    .imagenes{
+
+@media only screen and (max-width:768px) {
+    .contenedorImagenes img {
+        background-color: var(--blancoFondo);
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        box-shadow: gray 0 0 10px;
+    }
+
+    .imagenes {
         grid-template-columns: 1fr 1fr;
 
     }
 }
-.imagenes img{
+
+.imagenes img {
     width: 100%;
+    height: auto;
 }
-table{
+
+@media only screen and (max-width: 768px) {
+    .imagenes img {
+        width: 100%;
+    }
+}
+
+table {
     align-items: center;
 }
 
-    th, td{
-        text-align: center;
-    }
+th, td {
+    text-align: center;
+}
 
-th{
+th {
     color: var(--moradoTenue);
 }
-td{
+
+td {
     font-weight: bold;
 }
-table td input{
-    background-color:white;
+
+table td input {
+    background-color: white;
     width: 70px;
-    height:20px ;
+    height: 20px;
     border-radius: 20px;
     box-shadow: gray 0 0 5px;
-  
+
 }
-.btnCompra{
+
+.btnCompra {
     text-align: center;
     margin-top: 0;
     margin-bottom: 10px;
 }
-.btnCompra button{
+
+.btnCompra button {
     color: white;
     background-color: var(--moradoTenue);
     font-weight: bold;
@@ -89,63 +118,77 @@ table td input{
     font-size: 20px;
     width: 90%;
 }
-.btnCompra button:last-child{
+
+.btnCompra button:last-child {
     margin-top: 10px;
 }
-.btnCompra p{
+
+.btnCompra p {
     margin: 0;
 }
-.btnCompra p i{
+
+.btnCompra p i {
     font-size: 35px;
     color: var(--moradoTenue);
 }
-.btnIconos{
+
+.btnIconos {
     display: flex;
     justify-content: space-around;
     margin-top: 40px;
 }
-.btnIconos i{
-font-size: 35px;
+
+.btnIconos i {
+    font-size: 35px;
 }
-.iconosPequeño{
+
+.iconosPequeño {
     display: none;
 }
-@media only screen and (max-width:760px){
-    .iconosPequeño{
+
+@media only screen and (max-width:760px) {
+    .iconosPequeño {
         display: block;
     }
-    .iconosGrande{
+
+    .iconosGrande {
         display: none;
     }
-    .btnIconos{
-        display: flex!important;
+
+    .btnIconos {
+        display: flex !important;
     }
 }
 
 
-@media only screen and (max-width:768px){
-.btnIconos{
-    padding-bottom: 120px;
+@media only screen and (max-width:768px) {
+    .btnIconos {
+        padding-bottom: 120px;
+    }
 }
+
+.contenedorSecundario {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
 }
-.contenedorSecundario{
-display: grid;
-grid-template-columns: 2fr 1fr;
-}
-@media only screen and (max-width:768px){
-    .contenedorSecundario{
+
+@media only screen and (max-width:768px) {
+    .contenedorSecundario {
         grid-template-columns: 1fr;
-      
+
     }
 }
-.visiblePequeño{
-display: none;
+
+.visiblePequeño {
+    display: none;
 }
-@media only screen and (max-width:768px){
-    .visiblePequeño{
+
+@media only screen and (max-width:768px) {
+    .visiblePequeño {
         display: block;
     }
-    .visibleGrande{
+
+    .visibleGrande {
         display: none;
     }
 }

@@ -45,24 +45,33 @@
                     $result = mysqli_query($conn, $query);
                     while ($row2 = mysqli_fetch_array($result)) {
                     ?>
-                    <li>
-                        <?php echo $row2['descripcion'] ?>
-                    </li>
+                        <li>
+                            <?php echo $row2['descripcion'] ?>
+                        </li>
 
                     <?php } ?>
                 </ul>
 
                 <div class="contenedorImagenes visiblePequeño">
 
-                    <img src="img/soluciones_protesicas/pilares_cicatrizacion/Healing delgado2 PS 70 R.png" alt="">
+                    <?php
+                    $query = "SELECT * FROM imagenes where id_asociado = $id";
+                    $result = mysqli_query($conn, $query);
+                    $row = mysqli_fetch_array($result)
+                    ?>
 
+                    <img src="img/<?php echo $row['imagen'] ?> " alt="">
                     <div class="imagenes">
-                        <img src="img/soluciones_protesicas/pilares_cicatrizacion/HEaling Delgado1 PS 70R.png" alt="">
-                        <img src="img/soluciones_protesicas/pilares_cicatrizacion/Healing delgado2 PS 70 R.png" alt="">
-                        <img src="img/soluciones_protesicas/pilares_cicatrizacion/CICATRIZAL DELGADO 70 R.png" alt="">
-                        <img src="img/soluciones_protesicas/pilares_cicatrizacion/TAPON DE CICATRIZACION ESTRECHO.jpg"
-                            alt="">
+                        <?php
+                        $query = "SELECT * FROM imagenes where id_asociado = $id";
+                        $result = mysqli_query($conn, $query);
+                        while ($row = mysqli_fetch_array($result)) {
+                        ?>
+                            <img src="img/<?php echo $row['imagen'] ?>" alt="">
 
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
                 <div class="contenedorSecundario">
@@ -78,15 +87,15 @@
                         <tbody>
 
                             <?php
-                    $query = "SELECT * FROM tamaño where id_asociado = $id";
-                    $result = mysqli_query($conn, $query);
-                    while ($row3 = mysqli_fetch_array($result)) {
-                    ?>
-                            <tr>
-                                <td><?php echo $row3['codigo'] ?></td>
-                                <td><?php echo $row3['tamaño'] ?></td>
-                                <td> <input type="number" name="" id=""> </td>
-                            </tr>
+                            $query = "SELECT * FROM tamaño where id_asociado = $id";
+                            $result = mysqli_query($conn, $query);
+                            while ($row3 = mysqli_fetch_array($result)) {
+                            ?>
+                                <tr>
+                                    <td><?php echo $row3['codigo'] ?></td>
+                                    <td><?php echo $row3['tamaño'] ?></td>
+                                    <td> <input type="number" name="" id=""> </td>
+                                </tr>
                             <?php } ?>
                         </tbody>
 
@@ -97,36 +106,40 @@
                         <button>Add to card</button>
                         <button>Buy</button>
                     </div>
-                    <div class="btnIconos iconosPequeño">
+                    <div class="btnIconos iconosGrande">
                         <i class="bi bi-share-fill"></i>
                         <i class="bi bi-facebook"></i>
                         <i class="bi bi-instagram"></i>
-                        <i class="bi bi-messenge r"></i>
+                        <i class="bi bi-messenger"></i>
                     </div>
                 </div>
             </div>
         </div>
         <div class="contenedorImagenes visibleGrande">
+            <?php
+            $query = "SELECT * FROM imagenes where id_asociado = $id";
+            $result = mysqli_query($conn, $query);
+            $row = mysqli_fetch_array($result)
+            ?>
 
-            <img src="img/soluciones_protesicas/pilares_cicatrizacion/Healing delgado2 PS 70 R.png" alt="">
-
+            <img src="img/<?php echo $row['imagen'] ?> " alt="">
             <div class="imagenes">
-                <img src="img/soluciones_protesicas/pilares_cicatrizacion/HEaling Delgado1 PS 70R.png" alt="">
-                <img src="img/soluciones_protesicas/pilares_cicatrizacion/Healing delgado2 PS 70 R.png" alt="">
-                <img src="img/soluciones_protesicas/pilares_cicatrizacion/CICATRIZAL DELGADO 70 R.png" alt="">
-                <img src="img/soluciones_protesicas/pilares_cicatrizacion/TAPON DE CICATRIZACION ESTRECHO.jpg" alt="">
+                <?php
+                $query = "SELECT * FROM imagenes where id_asociado = $id";
+                $result = mysqli_query($conn, $query);
+                while ($row = mysqli_fetch_array($result)) {
+                ?>
+                    <img src="img/<?php echo $row['imagen'] ?>" alt="">
 
-            </div>
-            <div class="btnIconos iconosGrande">
-                <i class="bi bi-share-fill"></i>
-                <i class="bi bi-facebook"></i>
-                <i class="bi bi-instagram"></i>
-                <i class="bi bi-messenger"></i>
+                <?php
+                }
+                ?>
             </div>
         </div>
     </div>
+    </div>
     <?php
-    include("footer.php");  
+    include("footer.php");
     ?>
 </body>
 
