@@ -17,7 +17,9 @@
 <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
         <div class="logo2">
+            <a href="home.php">
             <img src="img/completo.png" alt="">
+            </a>
         </div>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>

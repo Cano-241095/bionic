@@ -63,8 +63,7 @@
                                         $query = "SELECT * FROM soluciones_protesicas";
                                         $result = mysqli_query($conn, $query);
                                         while($row = mysqli_fetch_array($result)){ 
-                                           
-                                     ?>
+                                    ?>
                             <tr class="">
                                 <td class="text-center"><?php echo $row['id_categoria'] ?></td>
                                 <td class="text-center"><?php echo $row['nombre_categoria'] ?></td>
