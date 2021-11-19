@@ -20,7 +20,7 @@
     <main>
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-12 col-md-11 col-lg-8">
+                <div class="col-12 col-lg-9">
                     <div class="row d-flex justify-content-evenly">
                         <div class="col-11 col-md-3 productos">
                             <h3>Soluciones</h3>

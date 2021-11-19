@@ -1,5 +1,10 @@
 main{
-    padding-bottom: 5rem;
+    padding-bottom: 5.5rem;
+}
+@media only screen and (max-width:768px){
+    main{
+        padding-bottom: 200px;
+    }
 }
 main .productos {
     margin-top: 20px;
@@ -9,7 +14,9 @@ main .productos {
     -webkit-box-shadow: 1px 1px 5px -2px rgba(0,0,0,0.75);
     -moz-box-shadow: 1px 1px 5px -2px rgba(0,0,0,0.75);
     box-shadow: 1px 1px 5px -2px rgba(0,0,0,0.75);
+    
 }
+
 main .purpura{
     background: radial-gradient(rgb(165, 75, 168) 5%, rgb(161, 76, 168) 25%, #7c1d80f1 50%);
     color: white;

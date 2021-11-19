@@ -2,6 +2,8 @@
     width: 80%;
     margin: 0 auto;
     text-align: center;
+    padding-bottom: 100px;
+
 }
 
 .menuImagenes a img {
@@ -16,6 +18,7 @@
 @media only screen and (max-width: 768px) {
     .menuImagenes {
         width: 100%;
+        padding-bottom: 200px;
     }
     .menuImagenes a img {
         width: 100%;
