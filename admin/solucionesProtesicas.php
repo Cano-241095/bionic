@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/soluciones.css">
-    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="../css/variables.css">
     <title>Soluciones Protesicas</title>
 </head>
 
@@ -28,17 +28,20 @@
                     <div class="card-body">
                         <form method="post" name="form" onsubmit="return validarform()" action="crearSoluciones.php">
 
-                            <label for="">ID Categoria:</label>
+                            <!-- <label for="">ID Categoria:</label>
                             <input class="form-control" type="number" name="id_categoria" placeholder="Ingresar ID"
-                                autocomplete="off" autofocus>
+                                autocomplete="off" autofocus> -->
                             <label for="">Nombre Categoria:</label>
                             <input class="form-control mt-3" type="text" name="nombre_categoria"
                                 placeholder="Ingresar nombre" autocomplete="off" required>
-                            <input class="btn btn-outline-secondary mt-3" type="submit" name="enviar" value="Enviar"
+                            <input class="btn btn-secondary mt-3 w-100" type="submit" name="enviar" value="Enviar"
                                 id="seleccionArchivos" accept="image/*">
 
-                            <input class="btn btn-outline-secondary mt-3" type="reset" value=Limpiar>
+                            <input class="btn btn-secondary mt-3 w-100" type="reset" value=Limpiar>
                         </form>
+                        <a class="btn btn-secondary btn-block w-100 mt-3" href="productosAdmin.php">
+                            Cancelar
+                        </a>
                     </div>
                 </div>
             </div>

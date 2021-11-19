@@ -53,10 +53,7 @@
             <div class="card mt-3">
                 <div class="card-body">
                     <form name="form" action="updateSolucionesProtesicas.php?id_categoria=<?php echo $_GET['id_categoria']; ?>" onsubmit="return validarform()" method="POST">
-                        <label for="">ID Categoria:</label>
-                        <div class="form-group">
-                            <input type="number" name="id_categoria" value="<?php echo $id_categoria; ?>" class="form-control" placeholder="Actualiza ID_Categoria" autocomplete="off" autofocus>
-                        </div>
+                        
                         <label class="mt-3" for="">Nombre Categoria:</label>
                         <div class="form-group">
                             <input type="text" name="nombre_categoria" value="<?php echo $nombre_categoria; ?>" class="form-control" placeholder="Actualiza Nombre_Categoria" autocomplete="off" required>

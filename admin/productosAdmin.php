@@ -45,12 +45,11 @@
                                         </a>
                                     </li>
                                 <?php } ?>
-                                <li>
-                                    <a href="solucionesProtesicas.php">
+                                
+                            </ul>
+                                    <a class="mas" href="solucionesProtesicas.php">
                                         +
                                     </a>
-                                </li>
-                            </ul>
                             <div class="contenedorImagen">
                                 <img src="../img/prueba.png" alt="">
                             </div>
