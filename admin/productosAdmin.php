@@ -8,14 +8,14 @@
     <title>Implant Bionic</title>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../css/variables.css">
-    <link rel="stylesheet" href="productosAdmin.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/productosAdmin.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
     <?php
-    include("../header.php");
+    include("header.php");
     ?>
     <header></header>
     <main>
@@ -28,7 +28,7 @@
                             <h1>Protésicas</h1>
                             <ul>
                                 <?php
-                                include("../conexion.php");
+                                include("conexion.php");
                                 $query = "SELECT * FROM soluciones_protesicas";
                                 $result = mysqli_query($conn, $query);
                                 while ($row = mysqli_fetch_array($result)) {
@@ -45,6 +45,11 @@
                                         </a>
                                     </li>
                                 <?php } ?>
+                                <li>
+                                    <a href="solucionesProtesicas.php">
+                                        +
+                                    </a>
+                                </li>
                             </ul>
                             <div class="contenedorImagen">
                                 <img src="../img/prueba.png" alt="">
