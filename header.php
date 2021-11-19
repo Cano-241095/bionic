@@ -1,13 +1,36 @@
+<header class="sticky-top">
+    <a href="home.php"><img src="img/completo1.png" alt="logoEntrada"></a>
+    <nav>
+        <a href="#">COMPAÑIA</a>
+        <a href="productos.php">PRODUCTOS</a>
+        <a href="#">TIENDA</a>
+        <a href="#">CONTACTO</a>
+        <a href="#"><i class="bi bi-search"></i></a>
+        <a href="#"><i class="bi bi-cart"></i></a>
+        <a href="#"><img src="img/mexico.jpg" alt="bandera"></a>
+    </nav>
+    <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" id="menu">
+        <i class="bi bi-list"></i>
+    </button>
+</header>
 
-    <header class="sticky-top">
-        <a href="home.php"><img src="img/completo1.png" alt="logoEntrada"></a>
-        <nav>
+<div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <div class="logo2">
+            <img src="img/completo.png" alt="">
+        </div>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="nav nav2">
             <a href="#">COMPAÑIA</a>
             <a href="productos.php">PRODUCTOS</a>
             <a href="#">TIENDA</a>
             <a href="#">CONTACTO</a>
+            <div>
             <a href="#"><i class="bi bi-search"></i></a>
             <a href="#"><i class="bi bi-cart"></i></a>
-            <a href="#"><img src="img/mexico.jpg" alt="bandera"></a>
-        </nav>
-    </header>
+            </div>
+        </div>
+    </div>
+</div>

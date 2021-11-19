@@ -1,68 +1,79 @@
-
-h1{
-    text-align: center; color: #7c4a84;
+h1 {
+    text-align: center;
+    color: #7c4a84;
     font-weight: 700;
     font-size: 60px;
     margin-top: 20px;
 
 }
-@media only screen and (max-width:768px){
-    h1{
+
+@media only screen and (max-width:768px) {
+    h1 {
         font-size: 2em;
         margin-top: 20px;
 
     }
 }
-h2{
+
+h2 {
     color: #7c4a84;
     font-size: 25px;
-    font-weight: 600;                      
+    font-weight: 600;
 }
-h3{
+
+h3 {
     margin-left: 20px;
     font-weight: 700;
     font-size: 35px;
-    margin-top: 25px;                         
+    margin-top: 25px;
 }
-h4{
-    font-weight:bold ;
+
+h4 {
+    font-weight: bold;
     margin-left: 20px;
     text-decoration: line-through;
     color: rgba(128, 128, 128, 0.59);
 }
+
 main {
-    width: 65%;
+    width: 85%;
     margin: 0 auto;
     margin-top: 50px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 20px;
-} 
-@media only screen and (max-width:768px){
-    main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@media only screen and (max-width:768px) {
+    main {
+        display: grid;
         width: 100%;
-        grid-template-columns: 1fr;  
+        grid-template-columns: 1fr;
         padding-bottom: 200px;
+        gap: 15px;
     }
 }
 
 .producto {
-    width: 100%;
+    width: 23%;
+    min-height: 35vh;
     border-radius: 20px;
     background-color: white;
     box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.322);
-    padding: 10px;
+    padding: 10px 10px 40px 10px;
     position: relative;
+    margin: 20px auto;
 }
 
-@media only screen and (max-width:768px){
-  .producto{
-      width: 90%;
-      margin: 0 auto;
-  }
-
+@media only screen and (max-width:768px) {
+    .producto {
+        width: 90%;
+        margin: 0 auto;
     }
-.producto button{
+}
+
+.producto button {
     margin-top: 100px;
 }
 
@@ -70,26 +81,32 @@ main {
     width: 150px;
     position: absolute;
     right: -30px;
-    bottom: 30px;
+    bottom: 50px;
 }
-@media only screen and (max-width:768px){
-    .producto img{
-        right: -15px;
+
+@media only screen and (max-width:768px) {
+    .producto img {
+        right: -19px;
     }
 }
-.producto a{
-    background-color:var(--moradoTenue);
+
+.producto a {
+    background-color: var(--moradoTenue);
     border: none;
     border-radius: 50px;
     margin: 0 auto;
     width: 80px;
     height: 30px;
-   display: flex;
-   text-decoration: none;
-   justify-content: center;
-   align-items: center;
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 1rem;
+    left: calc(50% - 40px);
 }
-.producto a p{
+
+.producto a p {
     color: white;
     font-weight: bold;
     font-size: .7rem;

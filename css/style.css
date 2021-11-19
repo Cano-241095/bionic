@@ -31,6 +31,27 @@ header nav a:hover{
 header nav a img{
     width: 40px;
 }
+
+header button{
+    background-color: black;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    display: none;
+}
+@media only screen and (max-width: 768px){
+    header button{
+        display: block;
+    }
+    header nav{
+        display: none ;
+    }
+    header{
+        justify-content: space-between;
+        padding-left: 15px;
+        padding-right: 10px;
+    }
+}
 main{
     width: 100%;
     margin-top: 0;
@@ -47,8 +68,44 @@ footer{
 footer p{
     font-size: 15px;
 }
-@media only screen and (max-width: 768px){
-    header{
-        display: none;
-    }
+
+.offcanvas{
+    width: 100%;
+    height: auto;
+    background: rgb(0, 0, 0);
+background: linear-gradient(180deg, rgb(0, 0, 0) 54%, rgb(0, 0, 0) 55%, rgba(255,255,255,0) 91%);
+}    
+.nav{
+    display: none;
+}
+.nav2{
+    display: block;
+}
+.nav2 a{
+    display: inline-block;
+    width: 100%;
+    margin: 10px 0;
+    text-align: center;
+    height: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+.nav2 a:hover{
+    color: var(--morado);
+}
+.nav2 div{
+    display: flex;
+    justify-content: center;
+}
+.nav2 div a{
+    width: 20%;
+}
+.logo2{
+    width: 100%;
+    text-align: center;
+}
+.logo2 img:first-child{
+    width: 10rem;
+    margin-left: 1rem;
 }
