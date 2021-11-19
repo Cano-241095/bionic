@@ -33,10 +33,8 @@
         <div class="producto">
             <h2> <?php echo $row['nombre_aditamento'] ?></h2>
             <h3> $<?php echo $row['precio'] ?></h3>
-            <h4>$27.84</h4>
+            <h4>$<span class="x">27</span></h4>
             <img src="img/aditamentos/<?php echo $row['url'] ?>" alt="">
-
-
 
             <a href="plantillaProducto.php?id=<?php echo $row['id'] ?>">
                 <p>Saber más</p>
@@ -50,9 +48,18 @@
     include("footer.php");
     ?>
     <script>
-        var num = 24;
-var n = num.toFixed(2);
+    var list = document.querySelectorAll(".x");
+    console.log(list);
+
+    list.child.foreach(item => {
+        console.log(item);
+    })
+
+    var n = Number(num).toFixed(2);
+    document.querySelector(".x").innerText = n;
+    console.log("prueba");
     </script>
+
 </body>
 
 </html>
