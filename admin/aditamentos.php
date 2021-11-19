@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/aditamentos.css">
-    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="../css/variables.css">
     <title>Aditamentos</title>
 </head>
 
@@ -78,15 +78,14 @@
                                         include("conexion.php");
                                         $query = "SELECT * FROM aditamentos";
                                         $result = mysqli_query($conn, $query);
-                                        while($row = mysqli_fetch_array($result)){ 
-                                           
-                                     ?>
+                                        while($row = mysqli_fetch_array($result)){          
+                                    ?>
                             <tr class="">
                                 <td class="text-center"><?php echo $row['id'] ?></td>
                                 <td class="text-center"><?php echo $row['id_asociado'] ?></td>
                                 <td class="text-center"><?php echo $row['nombre_aditamento'] ?></td>
                                 <td class="text-center">
-                                    <img class="imgAditamento" src="img/aditamentos/<?php echo $row['url'] ?>" alt="">
+                                    <img class="imgAditamento" src="../img/aditamentos/<?php echo $row['url'] ?>" alt="">
                             </td>
                                 <td class="text-center"><?php echo $row['precio'] ?></td>
 
