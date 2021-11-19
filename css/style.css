@@ -12,8 +12,12 @@ header{
     padding-bottom: 10px;
 }
 header a img{
-    margin-top: 10px;
     width: 160px;
+    margin-top: 10px;
+}
+
+header nav a img:last-child{
+    margin-top: 0;
 }
 header nav{
     width: 60%;
@@ -22,6 +26,7 @@ header nav{
     align-items: center;
 }
 header nav a{
+    margin-top: 10px;
     color: white;
     text-decoration: none;
 }
@@ -59,7 +64,7 @@ main{
 footer{
     width: 100%;
     background-color: var(--moradoFooter);
-    color: white;
+    color: #ffffff;
     margin-top: 25px;
     padding-top: 20px;
     position: absolute;
