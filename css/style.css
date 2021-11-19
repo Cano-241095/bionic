@@ -75,6 +75,9 @@ footer p{
     background: rgb(0, 0, 0);
 background: linear-gradient(180deg, rgb(0, 0, 0) 54%, rgb(0, 0, 0) 55%, rgba(255,255,255,0) 91%);
 }    
+.offcanvas-header .btn-close{
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+}
 .nav{
     display: none;
 }
