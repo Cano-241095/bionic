@@ -58,7 +58,7 @@ main {
 
 .producto {
     width: 23%;
-    min-height: 35vh;
+    min-height: 50vh;
     border-radius: 20px;
     background-color: white;
     box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.322);
@@ -118,4 +118,20 @@ main {
     color: purple;
     font-size: 1.5rem;
     
+}
+.btn-mas {
+    text-decoration: none;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    background-color: var(--moradoTenue);
+    position: absolute;
+    top: 50vh;
+    right: 20px;
+}
+
+.btn-mas p{
+    color: white;
+    font-size: 30px;
+    text-align: center;
 }

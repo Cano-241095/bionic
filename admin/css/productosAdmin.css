@@ -72,15 +72,20 @@ main .purpura ul li a{
 main .productos ul li:hover a {
     color: violet;
 }
+
 a.mas{
-    background-color: violet;
+    background-color:var(--moradoTenue);
     display: flex;
-    width: 2rem;
-    height: 2rem;
+    width: 40px;
+    height: 40px;
     border-radius: 100%;
     text-decoration: none;
     justify-content: center;
     align-items: center;
+    color: white;
+    margin-top: 10px;
+    font-weight: bold;+
+    font-size: 20px;
 }
 main .productos .contenedorImagen{
     width: 100%;

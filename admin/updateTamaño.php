@@ -78,7 +78,7 @@
                         </div>
 
 
-                        <button class="btn btn-success btn-block" name="update">
+                        <button class="btn btn-secondary btn-block" name="update">
                             Actualizar
                         </button>
                     </form>

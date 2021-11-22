@@ -46,8 +46,11 @@
             <a class="mas" href="plantillaProducto.php?id=<?php echo $row['id'] ?>">
                 <p>Saber más</p>
             </a>
+
         </div>
+        
         <?php } ?>
+        <a class="btn-mas" href="aditamentos.php"><p>+</p></a>
     </main>
     <?php
     include("footer.php");
