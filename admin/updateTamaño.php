@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <div class="container-fluid">
     <div class="row">
         <div class="col text-center fondo">
             <h1>Actualizar Datos</h1>
@@ -24,6 +25,7 @@
 
     <?php
             include("conexion.php");
+            
             if(isset($_GET['codigo'])){ 
                 $codigo = $_GET['codigo'];
 
@@ -42,20 +44,20 @@
                 }
             }
             if(isset($_POST['update'])){
-                $id_asociado = $_GET['id_asociado'];
+                $id_asociado = $_POST['id_asociado'];
                 $codigo = $row['codigo'];
                 $tamaño = $_POST['tamaño'];
                 $cantidad = $_POST['cantidad'];
 
 
-                $update = "UPDATE  set id_asociado = '$id_asociado', tamaño = '$tamaño', cantidad = '$cantidad'  WHERE codigo = '$codigo";
+                $update = "UPDATE  set id_asociado = '$id_asociado', tamaño = '$tamaño', cantidad = '$cantidad'  WHERE codigo = '$codigo'";
                 mysqli_query($conn, $update);
-                $_SESSION['message'] = 'Registro actualizado exitosamente';
-                $_SESSION['message_type'] = 'info'; 
-                header('Location:tamaño.php');
+                // $_SESSION['message'] = 'Registro actualizado exitosamente';
+                // $_SESSION['message_type'] = 'info'; 
+                // header('Location:admin/');
             }
         ?>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-3">
         <div class="col-6">
             <div class="card">
                 <div class="card-body">
@@ -76,9 +78,7 @@
                             <input type="number" name="cantidad" value="<?php echo $cantidad; ?>" class="form-control"
                                 placeholder="Actualiza cantidad" autocomplete="off" required>
                         </div>
-
-
-                        <button class="btn btn-success btn-block" name="update">
+                        <button class="btn btn-secondary btn-block mt-3" name="update">
                             Actualizar
                         </button>
                     </form>
@@ -88,8 +88,9 @@
     </div>
 
 
-
+    </div>
     <script src="bootstrap/js/bootstrap.js.min"></script>
+    
 </body>
 
 </html>
