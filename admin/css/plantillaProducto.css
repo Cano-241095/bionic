@@ -56,7 +56,7 @@ h6 {
 @media only screen and (max-width:768px) {
     .contenedorImagenes img {
         background-color: var(--blancoFondo);
-        width: 100%;
+        width: 10px;
         height: auto;
         margin: 0 auto;
         box-shadow: gray 0 0 10px;

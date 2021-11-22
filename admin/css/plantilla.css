@@ -38,11 +38,12 @@ h4 {
 main {
     width: 85%;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
+    padding-bottom: 100px;
 }
 
 @media only screen and (max-width:768px) {
@@ -61,7 +62,7 @@ main {
     border-radius: 20px;
     background-color: white;
     box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.322);
-    padding: 10px 10px 40px 10px;
+    padding: 40px 10px 40px 10px;
     position: relative;
     margin: 20px auto;
 }
@@ -90,7 +91,7 @@ main {
     }
 }
 
-.producto a {
+.producto a.mas {
     background-color: var(--moradoTenue);
     border: none;
     border-radius: 50px;
@@ -106,9 +107,15 @@ main {
     left: calc(50% - 40px);
 }
 
+
 .producto a p {
     color: white;
     font-weight: bold;
     font-size: .7rem;
     margin: 0;
+}
+.producto a i{
+    color: purple;
+    font-size: 1.5rem;
+    
 }

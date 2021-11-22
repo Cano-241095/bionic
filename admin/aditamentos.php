@@ -90,7 +90,7 @@
                                 <td class="text-center"><?php echo $row['precio'] ?></td>
 
                                 <td class="text-center">
-                                    <a href="updateAditamentos.php?id=<?php echo $row['id']?>" class="btn btn-light">
+                                    <a href="updateAditamento.php?id=<?php echo $row['id']?>" class="btn btn-light">
                                         <i class="bi bi-pencil-square iconoModificar"></i>
                                     </a>
                                     <a href="eliminarAditamento.php?id=<?php echo $row['id']?>" class="btn btn-ligth">

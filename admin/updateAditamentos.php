@@ -59,7 +59,7 @@ if(isset($_GET['id'])){
                 mysqli_query($conn, $update);
                 $_SESSION['message'] = 'Registro actualizado exitosamente';
                 $_SESSION['message_type'] = 'info';  
-                header('Location:aditamentos.php');
+                header('Location:admin/plantilla.php');
             $url = $_FILES["image"]["name"];
             $target_dir = "img/aditamentos/";
             $target_file = $target_dir . basename($_FILES["image"]["name"]);
@@ -118,10 +118,10 @@ if(isset($_GET['id'])){
                     <form name="form" action="updateAditamentos.php?id=<?php echo $_GET['id'];?>"
                         onsubmit="return " method="POST" enctype="multipart/form-data">
                         <label for=""></label>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             ID: <input type="number" name="id" value="<?php echo $id; ?>" class="form-control"
                                 placeholder="Actualiza ID" autocomplete="off" autofocus>
-                        </div>
+                        </div> -->
                         <label for=""> ID Asociado:</label>
                         <div class="form-group">
                             <input type="number" name="id_asociado" value="<?php echo $id_asociado; ?>"

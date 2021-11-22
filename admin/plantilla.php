@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="css/plantilla.css">
@@ -35,15 +36,19 @@
             <h3> $<?php echo $row['precio'] ?></h3>
             <h4>$<span class="x">27</span></h4>
             <img src="../img/aditamentos/<?php echo $row['url'] ?>" alt="">
-
-            <a href="plantillaProducto.php?id=<?php echo $row['id'] ?>">
+            
+            <a href="updateAditamentos.php?id=<?php echo $row['id']?>" class="btn btn-light">
+                <i class="bi bi-pencil-square iconoModificar"></i>
+            </a>
+            <a href="eliminarAditamento.php?id=<?php echo $row['id'] ?>" class="btn btn-ligth">
+                <i class="bi bi-trash-fill iconoEliminar"></i>
+            </a>
+            <a class="mas" href="plantillaProducto.php?id=<?php echo $row['id'] ?>">
                 <p>Saber más</p>
             </a>
         </div>
-
         <?php } ?>
     </main>
-
     <?php
     include("footer.php");
     ?>

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="../css/styleIndex.css">
+    <link rel="stylesheet" href="css/styleIndex.css">
 
     <title>Implant Bionic</title>
 </head>
@@ -28,16 +28,16 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="img/bannerweb1.jpg" class="d-block w-100" alt="...">
+                    <img src="../img/bannerweb1.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/bannerweb2.jpg" class="d-block w-100" alt="...">
+                    <img src="../img/bannerweb2.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/bannerweb4.jpg" class="d-block w-100" alt="...">
+                    <img src="../img/bannerweb4.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/bannerweb5.jpg" class="d-block w-100" alt="...">
+                    <img src="../img/bannerweb5.jpg" class="d-block w-100" alt="...">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -51,13 +51,12 @@
         </div>
 
         <div class="menuImagenes">
-            <a href="#"><img src="img/library.jpg" alt=""></a>
-            <a href="#"><img src="img/banner2_1.jpg" alt=""></a>
-            <a href="#"><img src="img/banner3.jpg" alt=""></a>
-            <a href="#"><img src="img/banner4.jpg" alt=""></a>
-            <a href="#"><img src="img/banner5.jpg" alt=""></a>
-            <a href="#"><img src="img/banner6.jpg" alt=""></a>
-            <a href="#"><img src="img/banner_inferior.jpg" alt=""></a>
+            <a href="#"><img src="../img/library.jpg" alt=""></a>
+            <a href="#"><img src="../img/banner2_1.jpg" alt=""></a>
+            <a href="#"><img src="../img/banner3.jpg" alt=""></a>
+            <a href="#"><img src="../img/banner4.jpg" alt=""></a>
+            <a href="#"><img src="../img/banner5.jpg" alt=""></a>
+            <a href="#"><img src="../img/banner_inferior.jpg" alt=""></a>
         </div>
     </main>
 

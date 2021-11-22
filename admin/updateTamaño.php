@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/tamaño.css">
-    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="../css/variables.css">
     <title></title>
 
 
@@ -38,17 +38,17 @@
                     $tamaño = $row['tamaño'];
                     $cantidad = $row['cantidad'];
 
-                   
+            
                 }
             }
             if(isset($_POST['update'])){
                 $id_asociado = $_GET['id_asociado'];
-                $codigo = $_POST['codigo'];
+                $codigo = $row['codigo'];
                 $tamaño = $_POST['tamaño'];
                 $cantidad = $_POST['cantidad'];
 
 
-                $update = "UPDATE  set codigo = '$codigo ', tamaño = '$tamaño', cantidad = '$cantidad'  WHERE id_asociado = $id_asociado";
+                $update = "UPDATE  set id_asociado = '$id_asociado', tamaño = '$tamaño', cantidad = '$cantidad'  WHERE codigo = '$codigo";
                 mysqli_query($conn, $update);
                 $_SESSION['message'] = 'Registro actualizado exitosamente';
                 $_SESSION['message_type'] = 'info'; 
@@ -63,18 +63,12 @@
                         onsubmit="return validarform()" method="POST">
                         <div class="form-group">
                             <label for=""> ID_Asociado: </label>
-                           <input type="number" name="id_asociado" value="<?php echo $id_asociado; ?>"
+                            <input type="number" name="id_asociado" value="<?php echo $id_asociado; ?>"
                                 class="form-control" placeholder="Actualiza ID_asociado" autocomplete="off" autofocus>
-                        </div>
-                        <label for="">Código: </label>
-                        <div class="form-group">
-                          <input type="text" name="codigo"
-                             value="<?php echo $codigo; ?>" class="form-control"
-                                placeholder="Actualiza codigo" autocomplete="off" required>
                         </div>
                         <label for="">Tamaño:</label>
                         <div class="form-group">
-                           <input type="number" name="tamaño" value="<?php echo $tamaño; ?>" class="form-control"
+                            <input type="number" name="tamaño" value="<?php echo $tamaño; ?>" class="form-control"
                                 placeholder="Actualiza tamaño" autocomplete="off" required>
                         </div>
                         <label for="">Cantidad:</label>

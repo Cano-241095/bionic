@@ -81,7 +81,9 @@
                                     <img src="../img/<?php echo $row['imagen'] ?>" alt="">
                                 </td>
                                 <td class="text-center">
-
+                                <a href="updateImagenes.php?id=<?php echo $row['id']?>" class="btn btn-ligth">
+                                        <i class="bi bi-pencil-square iconoModificar"></i>
+                                    </a>
                                     <a href="eliminarImagenes.php?id=<?php echo $row['id']?>" class="btn btn-ligth">
                                         <i class="bi bi-trash-fill iconoEliminar"></i>
                                     </a>
