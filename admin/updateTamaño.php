@@ -50,11 +50,15 @@
                 $cantidad = $_POST['cantidad'];
 
 
-                $update = "UPDATE  set id_asociado = '$id_asociado', tamaño = '$tamaño', cantidad = '$cantidad'  WHERE codigo = '$codigo'";
+                $update = "UPDATE tamaño set id_asociado = '$id_asociado', codigo = '$codigo',
+                tamaño = '$tamaño', cantidad = '$cantidad'  WHERE codigo = '$codigo'";
                 mysqli_query($conn, $update);
-                // $_SESSION['message'] = 'Registro actualizado exitosamente';
-                // $_SESSION['message_type'] = 'info'; 
-                // header('Location:admin/');
+                $_SESSION['message'] = 'Registro actualizado exitosamente';
+                $_SESSION['message_type'] = 'info'; 
+                $ir = 'Location:plantillaProducto.php?id=';
+                $ir .= $id_asociado;
+
+                header($ir);
             }
         ?>
     <div class="row justify-content-center mt-3">
