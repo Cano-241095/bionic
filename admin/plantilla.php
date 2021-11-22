@@ -37,7 +37,7 @@
             <h4>$<span class="x">27</span></h4>
             <img src="../img/aditamentos/<?php echo $row['url'] ?>" alt="">
             
-            <a href="updateAditamentos.php?id=<?php echo $row['id']?>" class="btn btn-light">
+            <a href="updateAditamentos.php?id=<?php echo $row['id']?>&titulo=<?php echo $titulo ?>" class="btn btn-light">
                 <i class="bi bi-pencil-square iconoModificar"></i>
             </a>
             <a href="eliminarAditamento.php?id=<?php echo $row['id'] ?>" class="btn btn-ligth">

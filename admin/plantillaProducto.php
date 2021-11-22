@@ -45,15 +45,15 @@
                     $result = mysqli_query($conn, $query);
                     while ($row2 = mysqli_fetch_array($result)) {
                     ?>
-                    <li>
-                        <?php echo $row2['descripcion'] ?>
-                        <a href="updateDescripcion.php?id=<?php echo $row['id']?>" class="btn btn-light">
-                            <i class="bi bi-pencil-square iconoModificar"></i>
-                        </a>
-                        <a href="eliminarDescripcion.php?id=<?php echo $row['id']?>" class="btn btn-ligth">
-                            <i class="bi bi-trash-fill iconoEliminar"></i>
-                        </a>
-                    </li>
+                        <li>
+                            <?php echo $row2['descripcion'] ?>
+                            <a href="updateDescripcion.php?id=<?php echo $row['id'] ?>" class="btn btn-light">
+                                <i class="bi bi-pencil-square iconoModificar"></i>
+                            </a>
+                            <a href="eliminarDescripcion.php?id=<?php echo $row['id'] ?>" class="btn btn-ligth">
+                                <i class="bi bi-trash-fill iconoEliminar"></i>
+                            </a>
+                        </li>
 
                     <?php } ?>
                 </ul>
@@ -67,22 +67,21 @@
                     ?>
 
                     <img src="../img/<?php echo $row['imagen'] ?> " alt="">
-                    <a href="eliminarImagenes.php?id=<?php echo $row['id']?>" class="btn btn-ligth">
-                        <i class="bi bi-trash-fill iconoEliminar"></i>
-                    </a>
                     <div class="imagenes">
                         <?php
                         $query = "SELECT * FROM imagenes where id_asociado = $id";
                         $result = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
-                        <img src="../img/<?php echo $row['imagen'] ?>" alt="">
-                        <a href="updateImagenes.php?id=<?php echo $row['id']?>" class="btn btn-ligth">
-                            <i class="bi bi-pencil-square iconoModificar"></i>
-                        </a>
-                        <a href="eliminarImagenes.php?id=<?php echo $row['id']?>" class="btn btn-ligth">
-                            <i class="bi bi-trash-fill iconoEliminar"></i>
-                        </a>
+                            <div>
+                                <img src="../img/<?php echo $row['imagen'] ?>" alt="">
+                                <a href="updateImagenes.php?id=<?php echo $row['id'] ?>" class="btn btn-ligth">
+                                    <i class="bi bi-pencil-square iconoModificar"></i>
+                                </a>
+                                <a href="eliminarImagenes.php?id=<?php echo $row['id'] ?>" class="btn btn-ligth">
+                                    <i class="bi bi-trash-fill iconoEliminar"></i>
+                                </a>
+                            </div>
                         <?php
                         }
                         ?>
@@ -105,16 +104,17 @@
                             $result = mysqli_query($conn, $query);
                             while ($row3 = mysqli_fetch_array($result)) {
                             ?>
-                            <tr>
-                                <td><?php echo $row3['codigo'] ?></td>
-                                <td><?php echo $row3['tamaño']?></td>
-                                <td>
-                                    <input type="number" name="" id="">
-                                    <a href="updateTamaño.php?codigo=<?php echo $row3['codigo']?>" class="btn btn-light">
-                                    <i class="bi bi-pencil-square iconoModificar"></i>
-                                </a></td>
-                                
-                            </tr>
+                                <tr>
+                                    <td><?php echo $row3['codigo'] ?></td>
+                                    <td><?php echo $row3['tamaño'] ?></td>
+                                    <td>
+                                        <input type="number" name="" id="">
+                                        <a href="updateTamaño.php?codigo=<?php echo $row3['codigo'] ?>" class="btn btn-light">
+                                            <i class="bi bi-pencil-square iconoModificar"></i>
+                                        </a>
+                                    </td>
+
+                                </tr>
                             <?php } ?>
                         </tbody>
 
@@ -148,8 +148,15 @@
                 $result = mysqli_query($conn, $query);
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
-                <img src="../img/<?php echo $row['imagen'] ?>" alt="">
-
+                <div>
+                    <img src="../img/<?php echo $row['imagen'] ?>" alt="">
+                    <a href="updateImagenes.php?id=<?php echo $row['id'] ?>" class="btn btn-ligth">
+                        <i class="bi bi-pencil-square iconoModificar"></i>
+                    </a>
+                    <a href="eliminarImagenes.php?id=<?php echo $row['id'] ?>" class="btn btn-ligth">
+                        <i class="bi bi-trash-fill iconoEliminar"></i>
+                    </a>
+                </div>
                 <?php
                 }
                 ?>

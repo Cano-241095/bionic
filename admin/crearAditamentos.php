@@ -7,7 +7,6 @@ if (isset($_POST['enviar'])){
     $url = $_FILES["image"]["name"];
     $precio = $_POST['precio'];
 
-           
     $insertar = "INSERT INTO aditamentos (id,id_asociado,nombre_aditamento,url,precio)
         VALUES ('$id','$id_asociado','$nombre_aditamento','$url', '$precio')";
     
