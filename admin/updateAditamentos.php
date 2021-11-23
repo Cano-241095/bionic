@@ -121,8 +121,8 @@
                 <div class="card">
                     <div class="card-body">
                         <form name="form" action="updateAditamentos.php?id=<?php echo $_GET['id']; ?>&titulo=<?php echo $_GET['titulo']; ?>" onsubmit="return " method="POST" enctype="multipart/form-data">
-                        <!-- <input type="text" value="<?php echo $titulo; ?>">     -->
-                        <label for=""></label>
+                            <!-- <input type="text" value="<?php echo $titulo; ?>">     -->
+                            <label for=""></label>
                             <!-- <div class="form-group">
                             ID: <input type="number" name="id" value="<?php echo $id; ?>" class="form-control"
                                 placeholder="Actualiza ID" autocomplete="off" autofocus>

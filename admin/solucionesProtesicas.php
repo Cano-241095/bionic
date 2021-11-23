@@ -22,8 +22,8 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-12 col-md-4 mt-3">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-7 mt-3">
                 <div class="card border border-dark">
                     <div class="card-body">
                         <form method="post" name="form" onsubmit="return validarform()" action="crearSoluciones.php">
@@ -34,12 +34,12 @@
                             <label for="">Nombre Categoria:</label>
                             <input class="form-control mt-3" type="text" name="nombre_categoria"
                                 placeholder="Ingresar nombre" autocomplete="off" required>
-                            <input class="btn btn-secondary mt-3 w-100" type="submit" name="enviar" value="Enviar"
+                            <input class="btn btn-morado mt-3 w-100" type="submit" name="enviar" value="Enviar"
                                 id="seleccionArchivos" accept="image/*">
 
-                            <input class="btn btn-secondary mt-3 w-100" type="reset" value=Limpiar>
+                            <input class="btn btn-morado mt-3 w-100" type="reset" value=Limpiar>
                         </form>
-                        <a class="btn btn-secondary btn-block w-100 mt-3" href="productosAdmin.php">
+                        <a class="btn btn-morado btn-block w-100 mt-3" href="productos.php">
                             Cancelar
                         </a>
                     </div>
@@ -48,7 +48,7 @@
 
 
 
-            <div class="col-12 col-md-8 mt-3">
+            <div class="col-12 col-md-7 mt-3">
                 <div class="card border border-dark">
 
                     <table>

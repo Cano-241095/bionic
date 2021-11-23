@@ -14,7 +14,7 @@
 
 <body>
     <?php
-     include("header.php");
+    include("header.php");
     $idAsociado = $_GET['id'];
     $titulo = $_GET['titulo'];
 
