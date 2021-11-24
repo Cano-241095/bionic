@@ -115,28 +115,28 @@
                 }
             }
         }
-        ?>
+        ?> 
         <div class="row justify-content-center mt-3">
             <div class="col-8 ">
                 <div class="card">
                     <div class="card-body">
                         <form name="form" action="updateAditamentos.php?id=<?php echo $_GET['id']; ?>&titulo=<?php echo $_GET['titulo']; ?>" onsubmit="return " method="POST" enctype="multipart/form-data">
                             <!-- <input type="text" value="<?php echo $titulo; ?>">     -->
-                            <label for=""></label>
+                            <!-- <label for=""></label> -->
                             <!-- <div class="form-group">
                             ID: <input type="number" name="id" value="<?php echo $id; ?>" class="form-control"
                                 placeholder="Actualiza ID" autocomplete="off" autofocus>
                         </div> -->
-                            <label for=""> ID Asociado:</label>
-                            <div class="form-group">
+                            <!-- <label for=""> ID Asociado:</label> -->
+                            <div class="form-group d-none">
                                 <input type="number" name="id_asociado" value="<?php echo $id_asociado; ?>" class="form-control" placeholder="Actualiza ID_asociado" autocomplete="off" autofocus>
-                                <input type="text" name="titulo" value="<?php echo $titulo; ?>" class="form-control d-none" placeholder="" autocomplete="off" autofocus>
+                                <input type="text" name="titulo" value="<?php echo $titulo; ?>" class="form-control" placeholder="" autocomplete="off" autofocus>
                             </div>
                             <label for=""> Nombre Aditamento:</label>
                             <div class="form-group">
                                 <input type="text" name="nombre_aditamento" value="<?php echo $nombre_aditamento; ?>" class="form-control" placeholder="Actualiza Nombre_Aditamento" autocomplete="off" required>
                             </div>
-                            <label for=""> URL:</label>
+                            <label for=""> Imagen:</label>
                             <div class="form-group">
                                 <input type="file" name="image" value="<?php echo $url; ?>" class="form-control" placeholder="Actualiza URL" autocomplete="off">
                             </div>
@@ -144,9 +144,10 @@
                             <div class="form-group">
                                 <input type="number" name="precio" value="<?php echo $precio; ?>" class="form-control" placeholder="Actualiza Precio" autocomplete="off" required>
                             </div>
-                            <button class="btn btn-secondary btn-block mt-3" name="update">
+                            <button class="btn btn-outline-secondary btn-block mt-3 w-100" name="update">
                                 Actualizar
                             </button>
+                            <a href="" class="btn btn-outline-secondary btn-block mt-3 w-100">Atras</a>
                         </form>
                     </div>
                 </div>

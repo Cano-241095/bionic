@@ -4,7 +4,6 @@
         $url = $_FILES["image"]["name"];
         $id_asociado = $_POST['id_asociado'];
         $id_imagen = $_POST['id'];
-               
         $insert = "INSERT INTO imagenes (id,id_asociado,imagen)
         VALUES ('$id','$id_asociado','$url')";
     

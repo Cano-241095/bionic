@@ -1,21 +1,24 @@
-h1{
-  
+h1 {
     width: 100%;
-    height:80px ;
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
 }
-.iconoEliminar{
+
+.iconoEliminar {
     color: red;
 }
-.iconoModificar{
+
+.iconoModificar {
     color: green;
 }
-.fondo{
+
+.fondo {
     background: var(--moradoFooter);
 }
- .imgAditamento{
+
+.imgAditamento {
     width: 100px;
 }

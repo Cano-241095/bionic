@@ -13,6 +13,12 @@
 </head>
 
 <body>
+    <?php
+    include("conexion.php");
+    if (isset($_GET['id_asociado'])) {
+        $id_asociado = $_GET['id_asociado'];
+    }
+    ?>
     <header></header>
     <div class="container-fluid">
         <div class="row justify-content-center fondo">
@@ -23,32 +29,43 @@
 
         <div class="row justify-content-center">
             <div class="col-12 col-md-7 mt-3">
+                <!-- aqui hace una consulta utilizando id_asociado para ver que categoria es -->
+                <?php
+                $query2 = "SELECT * FROM soluciones_protesicas where id_categoria = $id_asociado";
+                $result2 = mysqli_query($conn, $query2);
+                while ($row2 = mysqli_fetch_array($result2)) {
+                ?>
+                    <!-- imprime categoria -->
+                    <h2 class=""><?php echo $row2['nombre_categoria'] ?></h2>
+                <?php } ?>
                 <div class="card border border-dark">
                     <div class="card-body">
                         <form method="post" name="form" action="crearAditamentos.php" enctype="multipart/form-data">
                             <label class="d-none" for="">ID:</label>
                             <input class="form-control d-none" type="number" name="id" placeholder="Ingresar ID" autocomplete="off" autofocus>
-                            <label for="">ID Asociado:</label>
-                            <select class="form-select" name="id_asociado" aria-label="Default select example">
-                                <!-- <option selected>Selecciona Categoria</option> -->
-                                <?php
-                            include("conexion.php");
-                            $query = "SELECT * FROM soluciones_protesicas";
-                            $result = mysqli_query($conn, $query);
-                            while ($row = mysqli_fetch_array($result)) {
-                            ?>        
-                                <option value="<?php echo $row['id_categoria'] ?>"><?php echo $row['nombre_categoria'] ?></option>
-                            <?php } ?>
-                            </select>
-                            <!-- <input class="form-control" type="number" name="id_asociado" placeholder="Ingresar ID Asociado" autocomplete="off" required> -->
+                            <label class="d-none" for="">ID Asociado:</label>
+                            <input class="form-control d-none" type="number" name="id_asociado" placeholder="Ingresar ID Asociado" value="<?php echo $id_asociado ?>" autocomplete="off" required>
                             <label for="">Nombre del Aditamento:</label>
                             <input class="form-control" type="text" name="nombre_aditamento" placeholder="Ingresar Nombre_aditamento" autocomplete="off" required>
                             <label for="">Imagen</label>
                             <input class="form-control" type="file" name="image" placeholder="Elige imagen" autocomplete="off" required>
                             <label for="">Precio:</label>
                             <input class="form-control" type="number" name="precio" placeholder="Precio" autocomplete="off" required>
-                            <input class="btn btn-outline-secondary mt-3" type="submit" name="enviar" value="Enviar" id="seleccionArchivos" accept="image/*">
-                            <input class="btn btn-outline-secondary mt-3" type="reset" value=Limpiar>
+                            <div class="row">
+                                <div class="col-6">
+                                    <input class="btn btn-outline-secondary mt-3 w-100" type="submit" name="enviar" value="Guardar" id="seleccionArchivos" accept="image/*">
+                                </div>
+                                <div class="col-6">
+                                    <input class="btn btn-outline-secondary mt-3 w-100" type="reset" value=Limpiar>
+                                </div>
+                                <div class="col-12">
+                                <a class="btn btn-outline-secondary mt-3 w-100" href="plantilla.php?id=<?php echo $id_asociado ?>
+                            &titulo=<?php $query2 = "SELECT * FROM soluciones_protesicas where id_categoria = $id_asociado";
+                                    $result2 = mysqli_query($conn, $query2);
+                                    $row2 = mysqli_fetch_array($result2);
+                                    echo $row2['nombre_categoria'] ?>" value=Limpiar> Atras </a>
+                                    </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -62,8 +79,6 @@
                     <table>
                         <thead class="bg-dark">
                             <tr>
-                                <th class="text-center text-white">ID</th>
-                                <th class="text-center text-white">ID Asociado</th>
                                 <th class="text-center text-white">Nombre de Aditamento</th>
                                 <th class="text-center text-white">imagen</th>
                                 <th class="text-center text-white">Precio</th>
@@ -76,13 +91,11 @@
 
                         <tbody class="bg-white">
                             <?php
-                            $query = "SELECT * FROM aditamentos";
+                            $query = "SELECT * FROM aditamentos where id_asociado = $id_asociado";
                             $result = mysqli_query($conn, $query);
                             while ($row = mysqli_fetch_array($result)) {
                             ?>
                                 <tr class="">
-                                    <td class="text-center"><?php echo $row['id'] ?></td>
-                                    <td class="text-center"><?php echo $row['id_asociado'] ?></td>
                                     <td class="text-center"><?php echo $row['nombre_aditamento'] ?></td>
                                     <td class="text-center">
                                         <img class="imgAditamento" src="../img/aditamentos/<?php echo $row['url'] ?>" alt="">
@@ -90,9 +103,9 @@
                                     <td class="text-center"><?php echo $row['precio'] ?></td>
 
                                     <td class="text-center">
-                                        <a href="updateAditamento.php?id=<?php echo $row['id'] ?>" class="btn btn-light">
+                                        <!-- <a href="updateAditamento.php?id=<?php echo $row['id'] ?>" class="btn btn-light">
                                             <i class="bi bi-pencil-square iconoModificar"></i>
-                                        </a>
+                                        </a> -->
                                         <a href="eliminarAditamento.php?id=<?php echo $row['id'] ?>" class="btn btn-ligth">
                                             <i class="bi bi-trash-fill iconoEliminar"></i>
                                         </a>

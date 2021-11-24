@@ -13,7 +13,9 @@ if (isset($_POST['enviar'])){
     if (mysqli_query($conn,$insertar)){
         $_SESSION['message'] = 'Registro guardado exitosamente';
         $_SESSION['message_type'] = 'success'; 
-        header('Location:aditamentos.php');
+        $ir = 'Location:aditamentos.php?id_asociado=';
+        $ir .= $id_asociado;
+        header($ir);
     }else{
     echo "El registro no se pudo guardar". mysqli_error($conn);
     }        
@@ -68,4 +70,3 @@ echo "The file ". htmlspecialchars( basename( $_FILES["image"]["name"])). " has 
 echo "Sorry, there was an error uploading your file.";
 }
 }
-?>

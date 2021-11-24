@@ -36,7 +36,6 @@
                     $id = $row['id'];
                     $id_asociado = $row['id_asociado'];
                     $descripcion = $row['descripcion'];
-                   
                 }
             }
             if(isset($_POST['update'])){
