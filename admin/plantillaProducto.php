@@ -45,17 +45,19 @@
                     $result = mysqli_query($conn, $query);
                     while ($row2 = mysqli_fetch_array($result)) {
                     ?>
-                        <li>
-                            <?php echo $row2['descripcion'] ?>
-                            <a href="updateDescripcion.php?id=<?php echo $row['id'] ?>" class="btn btn-light">
-                                <i class="bi bi-pencil-square iconoModificar"></i>
-                            </a>
-                            <a href="eliminarDescripcion.php?id=<?php echo $row['id'] ?>" class="btn btn-ligth">
-                                <i class="bi bi-trash-fill iconoEliminar"></i>
-                            </a>
-                        </li>
-
+                    <li>
+                        <?php echo $row2['descripcion'] ?>
+                        <a href="updateDescripcion.php?id=<?php echo $row['id'] ?>" class="btn btn-light">
+                            <i class="bi bi-pencil-square iconoModificar"></i>
+                        </a>
+                        <a href="eliminarDescripcion.php?id=<?php echo $row['id'] ?>" class="btn btn-ligth">
+                            <i class="bi bi-trash-fill iconoEliminar"></i>
+                        </a>
+                    </li>
                     <?php } ?>
+                    <a class="btn-descripcion" href="descripcion.php?id=<?php echo $id?>">
+                        +
+                    </a>
                 </ul>
 
                 <div class="contenedorImagenes visiblePequeño">
@@ -73,18 +75,19 @@
                         $result = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
-                            <div>
-                                <img src="../img/<?php echo $row['imagen'] ?>" alt="">
-                                <a href="updateImagenes.php?id=<?php echo $row['id'] ?>" class="btn btn-ligth">
-                                    <i class="bi bi-pencil-square iconoModificar"></i>
-                                </a>
-                                <a href="eliminarImagenes.php?id=<?php echo $row['id'] ?>" class="btn btn-ligth">
-                                    <i class="bi bi-trash-fill iconoEliminar"></i>
-                                </a>
-                            </div>
+                        <div>
+                            <img src="../img/<?php echo $row['imagen'] ?>" alt="">
+                            <a href="updateImagenes.php?id=<?php echo $row['id'] ?>" class="btn btn-ligth">
+                                <i class="bi bi-pencil-square iconoModificar"></i>
+                            </a>
+                            <a href="eliminarImagenes.php?id=<?php echo $row['id'] ?>" class="btn btn-ligth">
+                                <i class="bi bi-trash-fill iconoEliminar"></i>
+                            </a>
+                        </div>
                         <?php
                         }
                         ?>
+                        <a class="btn-imagenes2" href="imagenes.php?id=<?php echo $id ?>" >+</a>
                     </div>
                 </div>
                 <div class="contenedorSecundario">
@@ -104,21 +107,22 @@
                             $result = mysqli_query($conn, $query);
                             while ($row3 = mysqli_fetch_array($result)) {
                             ?>
-                                <tr>
-                                    <td><?php echo $row3['codigo'] ?></td>
-                                    <td><?php echo $row3['tamaño'] ?></td>
-                                    <td>
-                                        <input type="number" name="" id="">
-                                        <a href="updateTamaño.php?codigo=<?php echo $row3['codigo'] ?>" class="btn btn-light">
-                                            <i class="bi bi-pencil-square iconoModificar"></i>
-                                        </a>
-                                    </td>
+                            <tr>
+                                <td><?php echo $row3['codigo'] ?></td>
+                                <td><?php echo $row3['tamaño'] ?></td>
+                                <td>
+                                    <input type="number" name="" id="">
+                                    <a href="updateTamaño.php?codigo=<?php echo $row3['codigo'] ?>"
+                                        class="btn btn-light">
+                                        <i class="bi bi-pencil-square iconoModificar"></i>
+                                    </a>
+                                </td>
 
-                                </tr>
+                            </tr>
                             <?php } ?>
                         </tbody>
-
                     </table>
+                    <a class="btn-tabla" href="tamaño.php?id=<?php echo $id ?>">+</a>
 
                     <div class="btnCompra">
                         <p><i class="bi bi-suit-heart"></i></p>
@@ -159,8 +163,11 @@
                 </div>
                 <?php
                 }
-                ?>
+                ?>               
+                <a class="btn-imagenes" href="imagenes.php?id=<?php echo $id ?>" >+</a>
+
             </div>
+
         </div>
     </div>
     </div>
