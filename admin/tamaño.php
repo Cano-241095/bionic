@@ -41,7 +41,7 @@
                                 autocomplete="off" required>
 
                             <input class="btn btn-outline-secondary" type="submit" name="enviar" value="Enviar"
-                                0id="seleccionArchivos" accept="image/*">
+                                id="seleccionArchivos" accept="image/*">
 
                             <input class="btn btn-outline-secondary" type="reset" value=Limpiar>
                         </form>

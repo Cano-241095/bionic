@@ -16,6 +16,10 @@
 <body>
     <div class="container-fluid">
 
+        <?php
+        include("conexion.php");
+        $idAsociado = $_GET['id'];
+        ?>
 
         <div class="row justify-content-center fondo">
             <div class="col-12 col-md-12 text-center">
@@ -23,26 +27,26 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-12 col-md-12 mt-3">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 mt-3">
                 <div class="card border border-dark">
                     <div class="card-body">
                         <form method="post" name="form" onsubmit="return validarform()" action="crearDescripcion.php">
-
-                            <label for="">ID:</label>
-                            <input class="form-control" type="number" name="id_categoria" placeholder="Ingresar ID"
-                                autocomplete="off" autofocus>
-                            <label for="">ID Asociado:</label>
-                            <input class="form-control mt-3" type="number" name="id_asociado"
-                                placeholder="Ingresar IDAsociado" autocomplete="off" required>
+                            <label for="" class="d-none">ID Asociado:</label>
+                            <input class="form-control mt-3 d-none" type="number" name="id_asociado" placeholder="Ingresar IDAsociado" autocomplete="off" value="<?php echo $idAsociado ?>" required>
                             <label for="">Descripción:</label>
-                            <input class="form-control mt-3" type="text" name="descripcion"
-                                placeholder="Ingresar Descripción" autocomplete="off" required>
-
-                            <input class="btn btn-outline-secondary mt-3" type="submit" name="enviar" value="Enviar"
-                                id="seleccionArchivos" accept="image/*">
-
-                            <input class="btn btn-outline-secondary mt-3" type="reset" value=Limpiar>
+                            <input class="form-control mt-3" type="text" name="descripcion" placeholder="Ingresar Descripción" autocomplete="off" required>
+                            <div class="row">
+                                <div class="col-6">
+                                    <input class="btn btn-secondary mt-3 w-100" type="submit" name="enviar" value="Guardar" id="seleccionArchivos" accept="image/*">
+                                </div>
+                                <div class="col-6">
+                                    <input class="btn btn-secondary mt-3 w-100" type="reset" value=Limpiar>
+                                </div>
+                                <div class="col-12">
+                                <a href="plantillaProducto.php?id=<?php echo $idAsociado ?>" class="btn btn-secondary mt-3 w-100">Atras</a>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -50,40 +54,33 @@
 
 
 
-            <div class="col-12 col-md-12 mt-3">
+            <div class="col-12 col-md-8 mt-3">
                 <div class="card border border-dark">
-
                     <table>
                         <thead class="bg-dark">
                             <tr>
-                                <th class="text-center text-white">ID</th>
-                                <th class="text-center text-white">ID Asociado</th>
                                 <th class="text-center text-white">Descripción</th>
-                                <th class="text-center text-white">Acciones</th>
+                                <!-- <th class="text-center text-white">Acciones</th> -->
                             </tr>
                         </thead>
-
                         <tbody class="bg-white">
-                            <?php 
-                                        include("conexion.php");
-                                        $query = "SELECT * FROM descripcion";
-                                        $result = mysqli_query($conn, $query);
-                                        while($row = mysqli_fetch_array($result)){                                        
-                                    ?>
-                            <tr class="">
-                                <td class="text-center"><?php echo $row['id'] ?></td>
-                                <td class="text-center"><?php echo $row['id_asociado'] ?></td>
-                                <td class="text-center"><?php echo $row['descripcion'] ?></td>
-                                <td class="text-center">
-                                    <a href="updateDescripcion.php?id=<?php echo $row['id']?>" class="btn btn-light">
-                                        <i class="bi bi-pencil-square iconoModificar"></i>
-                                    </a>
-                                    <a href="eliminarDescripcion.php?id=<?php echo $row['id']?>" class="btn btn-ligth">
-                                        <i class="bi bi-trash-fill iconoEliminar"></i>
-                                    </a>
-                                </td>
+                            <?php
+                            $query = "SELECT * FROM descripcion where id_asociado = $idAsociado";
+                            $result = mysqli_query($conn, $query);
+                            while ($row = mysqli_fetch_array($result)) {
+                            ?>
+                                <tr class="">
+                                    <td class="text-center"><?php echo $row['descripcion'] ?></td>
+                                    <!-- <td class="text-center">
+                                        <a href="updateDescripcion.php?id=<?php echo $row['id'] ?>" class="btn btn-light">
+                                            <i class="bi bi-pencil-square iconoModificar"></i>
+                                        </a>
+                                        <a href="eliminarDescripcion.php?id=<?php echo $row['id'] ?>" class="btn btn-ligth">
+                                            <i class="bi bi-trash-fill iconoEliminar"></i>
+                                        </a>
+                                    </td> -->
 
-                            </tr>
+                                </tr>
                             <?php } ?>
 
                         </tbody>
@@ -97,10 +94,10 @@
 
 
 
-     </div>
-    
+        </div>
 
-            <script src="bootstrap/js/bootstrap.js.min"></script>
+
+        <script src="bootstrap/js/bootstrap.js.min"></script>
 </body>
 
 </html>

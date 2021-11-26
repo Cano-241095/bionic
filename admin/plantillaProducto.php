@@ -14,10 +14,10 @@
 </head>
 
 <body>
+    <header></header>
     <?php
     include("header.php");
     ?>
-
     <?php
     include("conexion.php");
 
@@ -39,7 +39,6 @@
 
             <div>
                 <ul>
-
                     <?php
                     $query = "SELECT * FROM descripcion where id_asociado = $id";
                     $result = mysqli_query($conn, $query);
@@ -47,10 +46,10 @@
                     ?>
                     <li>
                         <?php echo $row2['descripcion'] ?>
-                        <a href="updateDescripcion.php?id=<?php echo $row['id'] ?>" class="btn btn-light">
+                        <a href="updateDescripcion.php?id=<?php echo $row2['id'] ?>" class="btn btn-light">
                             <i class="bi bi-pencil-square iconoModificar"></i>
                         </a>
-                        <a href="eliminarDescripcion.php?id=<?php echo $row['id'] ?>" class="btn btn-ligth">
+                        <a href="eliminarDescripcion.php?id=<?php echo $row2['id'] ?>" class="btn btn-ligth">
                             <i class="bi bi-trash-fill iconoEliminar"></i>
                         </a>
                     </li>
@@ -97,11 +96,10 @@
                                 <th>Code</th>
                                 <th>Size</th>
                                 <th>Cantidad</th>
+                                <th>act</th>
                             </tr>
-
                         </thead>
                         <tbody>
-
                             <?php
                             $query = "SELECT * FROM tamaño where id_asociado = $id";
                             $result = mysqli_query($conn, $query);
@@ -112,12 +110,17 @@
                                 <td><?php echo $row3['tamaño'] ?></td>
                                 <td>
                                     <input type="number" name="" id="">
+                                </td>
+                                <td>
                                     <a href="updateTamaño.php?codigo=<?php echo $row3['codigo'] ?>"
                                         class="btn btn-light">
                                         <i class="bi bi-pencil-square iconoModificar"></i>
                                     </a>
+                                    <a href="updateTamaño.php?codigo=<?php echo $row3['codigo'] ?>"
+                                        class="btn btn-light">
+                                        <i class="bi bi-trash-fill iconoEliminar"></i>
+                                    </a>
                                 </td>
-
                             </tr>
                             <?php } ?>
                         </tbody>
@@ -174,6 +177,7 @@
     <?php
     include("footer.php");
     ?>
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -17,6 +17,7 @@
     include("conexion.php");
     if (isset($_GET['id_asociado'])) {
         $id_asociado = $_GET['id_asociado'];
+        $titulo = $_GET['titulo'];
     }
     ?>
     <header></header>
@@ -41,6 +42,7 @@
                 <div class="card border border-dark">
                     <div class="card-body">
                         <form method="post" name="form" action="crearAditamentos.php" enctype="multipart/form-data">
+                            <input class="d-none" type="text" name="titulo" value="<?php echo $titulo ?>">
                             <label class="d-none" for="">ID:</label>
                             <input class="form-control d-none" type="number" name="id" placeholder="Ingresar ID" autocomplete="off" autofocus>
                             <label class="d-none" for="">ID Asociado:</label>
@@ -53,18 +55,17 @@
                             <input class="form-control" type="number" name="precio" placeholder="Precio" autocomplete="off" required>
                             <div class="row">
                                 <div class="col-6">
-                                    <input class="btn btn-outline-secondary mt-3 w-100" type="submit" name="enviar" value="Guardar" id="seleccionArchivos" accept="image/*">
+                                    <input class="btn btn-secondary mt-3 w-100" type="submit" name="enviar" value="Guardar" id="seleccionArchivos" accept="image/*">
                                 </div>
                                 <div class="col-6">
-                                    <input class="btn btn-outline-secondary mt-3 w-100" type="reset" value=Limpiar>
+                                    <input class="btn btn-secondary mt-3 w-100" type="reset" value=Limpiar>
                                 </div>
                                 <div class="col-12">
-                                <a class="btn btn-outline-secondary mt-3 w-100" href="plantilla.php?id=<?php echo $id_asociado ?>
-                            &titulo=<?php $query2 = "SELECT * FROM soluciones_protesicas where id_categoria = $id_asociado";
+                                    <a class="btn btn-secondary mt-3 w-100" href="plantilla.php?id=<?php echo $id_asociado ?>&titulo=<?php $query2 = "SELECT * FROM soluciones_protesicas where id_categoria = $id_asociado";
                                     $result2 = mysqli_query($conn, $query2);
                                     $row2 = mysqli_fetch_array($result2);
-                                    echo $row2['nombre_categoria'] ?>" value=Limpiar> Atras </a>
-                                    </div>
+                                    echo $row2['nombre_categoria'] ?>"> Atras </a>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -82,7 +83,7 @@
                                 <th class="text-center text-white">Nombre de Aditamento</th>
                                 <th class="text-center text-white">imagen</th>
                                 <th class="text-center text-white">Precio</th>
-                                <th class="text-center text-white">Acciones</th>
+                                <!-- <th class="text-center text-white">Acciones</th> -->
 
 
 
@@ -100,15 +101,15 @@
                                     <td class="text-center">
                                         <img class="imgAditamento" src="../img/aditamentos/<?php echo $row['url'] ?>" alt="">
                                     </td>
-                                    <td class="text-center"><?php echo $row['precio'] ?></td>
+                                    <td class="text-center">$<?php echo $row['precio'] ?></td>
 
                                     <td class="text-center">
                                         <!-- <a href="updateAditamento.php?id=<?php echo $row['id'] ?>" class="btn btn-light">
                                             <i class="bi bi-pencil-square iconoModificar"></i>
                                         </a> -->
-                                        <a href="eliminarAditamento.php?id=<?php echo $row['id'] ?>" class="btn btn-ligth">
+                                        <!-- <a href="eliminarAditamento.php?id=<?php echo $row['id'] ?>" class="btn btn-ligth">
                                             <i class="bi bi-trash-fill iconoEliminar"></i>
-                                        </a>
+                                        </a> -->
                                     </td>
 
                                 </tr>

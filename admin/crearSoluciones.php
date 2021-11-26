@@ -10,7 +10,7 @@
         if (mysqli_query($conn,$insert)){
             $_SESSION['message'] = 'Registro guardado exitosamente';
             $_SESSION['message_type'] = 'success'; 
-            header('Location:solucionesProtesicas.php');
+            header('Location:productos.php');
         }else{
         echo "El registro no se pudo guardar". mysqli_error($conn);
         }        

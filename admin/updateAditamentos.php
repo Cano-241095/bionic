@@ -115,9 +115,9 @@
                 }
             }
         }
-        ?> 
+        ?>
         <div class="row justify-content-center mt-3">
-            <div class="col-8 ">
+            <div class="col-12 col-md-8 ">
                 <div class="card">
                     <div class="card-body">
                         <form name="form" action="updateAditamentos.php?id=<?php echo $_GET['id']; ?>&titulo=<?php echo $_GET['titulo']; ?>" onsubmit="return " method="POST" enctype="multipart/form-data">
@@ -144,10 +144,20 @@
                             <div class="form-group">
                                 <input type="number" name="precio" value="<?php echo $precio; ?>" class="form-control" placeholder="Actualiza Precio" autocomplete="off" required>
                             </div>
-                            <button class="btn btn-outline-secondary btn-block mt-3 w-100" name="update">
-                                Actualizar
-                            </button>
-                            <a href="" class="btn btn-outline-secondary btn-block mt-3 w-100">Atras</a>
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <button class="btn btn-secondary btn-block mt-3 w-100" name="update">
+                                        Actualizar
+                                    </button>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <a href="plantilla.php?id=<?php echo $id_asociado ?>&titulo=<?php $query2 = "SELECT * FROM soluciones_protesicas where id_categoria = $id_asociado";
+                                        $result2 = mysqli_query($conn, $query2);
+                                        $row2 = mysqli_fetch_array($result2);
+                                        echo $row2['nombre_categoria'] ?>" class="btn btn-secondary btn-block mt-3 w-100">Atras</a>
+                                </div>
+                            </div>
+
                         </form>
                     </div>
                 </div>

@@ -24,3 +24,7 @@ h1{
     background-color: var(--morado);
     color: white;
 }
+.btn-light{
+    background-color: white!important;
+    border: none;
+}

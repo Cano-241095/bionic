@@ -50,7 +50,7 @@
             </div>
 
         <?php } ?>
-        <a class="btn-mas" href="aditamentos.php?id_asociado=<?php echo $idAsociado ?>">
+        <a class="btn-mas" href="aditamentos.php?id_asociado=<?php echo $idAsociado ?>&titulo=<?php echo $titulo ?>">
             <p>+</p>
         </a>
     </main>

@@ -248,8 +248,8 @@ a.btn-imagenes{
     align-items: center;
     font-size: 1.5rem;
     position: absolute;
-    right: 100px;
-    top: 50vh;
+    right: -60px;
+    top: 1rem;
 }
 .imagenes{
     position: relative;
@@ -269,6 +269,6 @@ a.btn-imagenes2{
     font-size: 1rem;
     margin: 0 auto;
     position: absolute;
-    right: 90px;
+    right: calc((100% /2)-17px);
     bottom: 30px;
 }

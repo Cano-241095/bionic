@@ -6,6 +6,7 @@ if (isset($_POST['enviar'])){
     $nombre_aditamento = $_POST['nombre_aditamento'];
     $url = $_FILES["image"]["name"];
     $precio = $_POST['precio'];
+    $titulo = $_POST['titulo'];
 
     $insertar = "INSERT INTO aditamentos (id,id_asociado,nombre_aditamento,url,precio)
         VALUES ('$id','$id_asociado','$nombre_aditamento','$url', '$precio')";
@@ -13,8 +14,10 @@ if (isset($_POST['enviar'])){
     if (mysqli_query($conn,$insertar)){
         $_SESSION['message'] = 'Registro guardado exitosamente';
         $_SESSION['message_type'] = 'success'; 
-        $ir = 'Location:aditamentos.php?id_asociado=';
+        $ir = 'Location:plantilla.php?id=';
         $ir .= $id_asociado;
+        $ir .= '&titulo=';
+        $ir .= $titulo;
         header($ir);
     }else{
     echo "El registro no se pudo guardar". mysqli_error($conn);
@@ -22,9 +25,8 @@ if (isset($_POST['enviar'])){
 }
 
 $url = $_FILES["image"]["name"];
-$target_dir = "img/aditamentos/";
+$target_dir = "../img/aditamentos/";
 $target_file = $target_dir . basename($_FILES["image"]["name"]);
-
 
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));

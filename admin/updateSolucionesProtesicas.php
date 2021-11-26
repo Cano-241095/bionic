@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../css/soluciones.css">
+    <link rel="stylesheet" href="css/soluciones.css">
     <link rel="stylesheet" href="../css/variables.css">
     <title></title>
 
@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <div class="container-fluid">
     <div class="row">
         <div class="col text-center fondo">
             <h1>Actualizar Datos</h1>
@@ -49,7 +50,7 @@
     }
     ?>
     <div class="row justify-content-center">
-        <div class="col-6">
+        <div class="col-12 col-md-6">
             <div class="card mt-3">
                 <div class="card-body">
                     <form name="form" action="updateSolucionesProtesicas.php?id_categoria=<?php echo $_GET['id_categoria']; ?>" onsubmit="return validarform()" method="POST">
@@ -63,14 +64,14 @@
                             Actualizar
                         </button>
                     </form>
-                        <a class="btn btn-secondary btn-block w-100 mt-3" href="productosAdmin.php">
-                            Cancelar
+                        <a class="btn btn-secondary btn-block w-100 mt-3" href="productos.php">
+                            Atras
                         </a>
                 </div>
             </div>
         </div>
     </div>
-
+    </div>
     <script src="bootstrap/js/bootstrap.js.min"></script>
 </body>
 

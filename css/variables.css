@@ -6,3 +6,11 @@
     --moradoTenue:#79437d;
     --blancoFondo:#FFFFFF;
 }
+.btn-secondary{
+    background-color: white!important;
+    color: var(--moradoFooter);
+    border: solid 1px var(--moradoFooter);
+}
+.btn-secondary:hover{
+    background-color: var(--moradoFooter)!important;
+}
