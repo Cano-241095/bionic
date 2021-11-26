@@ -68,9 +68,9 @@
                     <form name="form" action="updateTamaño.php?codigo=<?php echo $_GET['codigo'];?>"
                         onsubmit="return validarform()" method="POST">
                         <div class="form-group">
-                            <label for=""> ID_Asociado: </label>
+                            <label for="" class="d-none"> ID_Asociado: </label>
                             <input type="number" name="id_asociado" value="<?php echo $id_asociado; ?>"
-                                class="form-control" placeholder="Actualiza ID_asociado" autocomplete="off" autofocus>
+                                class="form-control d-none" placeholder="Actualiza ID_asociado" autocomplete="off" autofocus>
                         </div>
                         <label for="">Tamaño:</label>
                         <div class="form-group">
@@ -84,7 +84,7 @@
                         </div>
 
 
-                        <button class="btn btn-secondary btn-block mt-3" name="update">
+                        <button class="btn btn-secondary btn-block mt-3 w-100" name="update">
                             Actualizar
                         </button>
                     </form>

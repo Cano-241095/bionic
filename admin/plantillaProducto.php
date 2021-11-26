@@ -107,16 +107,16 @@
                             ?>
                             <tr>
                                 <td><?php echo $row3['codigo'] ?></td>
-                                <td><?php echo $row3['tamaño'] ?></td>
+                                <td><?php echo $row3['tamaño'] ?>mm</td>
                                 <td>
                                     <input type="number" name="" id="">
                                 </td>
                                 <td>
-                                    <a href="updateTamaño.php?codigo=<?php echo $row3['codigo'] ?>"
+                                    <a href="updateTamaño.php?codigo=<?php echo $row3['codigo']?>"
                                         class="btn btn-light">
                                         <i class="bi bi-pencil-square iconoModificar"></i>
                                     </a>
-                                    <a href="updateTamaño.php?codigo=<?php echo $row3['codigo'] ?>"
+                                    <a href="eliminarTamaño.php?codigo=<?php echo $row3['codigo']?>"
                                         class="btn btn-light">
                                         <i class="bi bi-trash-fill iconoEliminar"></i>
                                     </a>
@@ -164,9 +164,7 @@
                         <i class="bi bi-trash-fill iconoEliminar"></i>
                     </a>
                 </div>
-                <?php
-                }
-                ?>               
+                <?php } ?>               
                 <a class="btn-imagenes" href="imagenes.php?id=<?php echo $id ?>" >+</a>
 
             </div>
