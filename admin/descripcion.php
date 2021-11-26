@@ -15,7 +15,6 @@
 
 <body>
     <div class="container-fluid">
-
         <?php
         include("conexion.php");
         $idAsociado = $_GET['id'];

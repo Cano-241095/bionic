@@ -15,7 +15,9 @@
 
 <body>
     <div class="container-fluid">
-
+<?php 
+$id_asociado = $_GET['id'];
+?>
 
         <div class="row justify-content-center fondo">
             <div class="col-12 col-md-12 text-center">
@@ -33,7 +35,7 @@
                         <form method="post" name="form" action="crearImagenes.php" enctype="multipart/form-data">
 
                             <h2>Imagenes</h2>
-                            <input class="form-control" type="number" name="id_asociado"
+                            <input class="form-control" type="number" name="id_asociado" value="<?php echo $id_asociado?>"
                                 placeholder="Ingresar ID asociado" autocomplete="off" autofocus>
 
                             <input class="form-control" type="number" name="id" placeholder="Ingresar ID unico"
@@ -41,7 +43,7 @@
                             <input class="form-control mt-3" type="file" name="image" placeholder="Elige imagen"
                                 autocomplete="off" required>
 
-                            <input class="btn btn-outline-dark mt-3" type="submit" name="enviar2" value="Enviar"
+                            <input class="btn btn-outline-dark mt-3" type="submit" name="enviar2" value="Guardar"
                                 id="seleccionArchivos" accept="image/*">
 
                             <input class="btn btn-outline-dark mt-3" type="reset" value=Limpiar>
