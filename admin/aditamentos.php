@@ -36,26 +36,33 @@
                 $result2 = mysqli_query($conn, $query2);
                 while ($row2 = mysqli_fetch_array($result2)) {
                 ?>
-                    <!-- imprime categoria -->
-                    <h2 class=""><?php echo $row2['nombre_categoria'] ?></h2>
+                <!-- imprime categoria -->
+                <h2 class=""><?php echo $row2['nombre_categoria'] ?></h2>
                 <?php } ?>
                 <div class="card border border-dark">
                     <div class="card-body">
                         <form method="post" name="form" action="crearAditamentos.php" enctype="multipart/form-data">
                             <input class="d-none" type="text" name="titulo" value="<?php echo $titulo ?>">
                             <label class="d-none" for="">ID:</label>
-                            <input class="form-control d-none" type="number" name="id" placeholder="Ingresar ID" autocomplete="off" autofocus>
+                            <input class="form-control d-none" type="number" name="id" placeholder="Ingresar ID"
+                                autocomplete="off" autofocus>
                             <label class="d-none" for="">ID Asociado:</label>
-                            <input class="form-control d-none" type="number" name="id_asociado" placeholder="Ingresar ID Asociado" value="<?php echo $id_asociado ?>" autocomplete="off" required>
+                            <input class="form-control d-none" type="number" name="id_asociado"
+                                placeholder="Ingresar ID Asociado" value="<?php echo $id_asociado ?>" autocomplete="off"
+                                required>
                             <label for="">Nombre del Aditamento:</label>
-                            <input class="form-control" type="text" name="nombre_aditamento" placeholder="Ingresar Nombre_aditamento" autocomplete="off" required>
+                            <input class="form-control" type="text" name="nombre_aditamento"
+                                placeholder="Ingresar Nombre_aditamento" autocomplete="off" required>
                             <label for="">Imagen</label>
-                            <input class="form-control" type="file" name="image" placeholder="Elige imagen" autocomplete="off" required>
+                            <input class="form-control" type="file" name="image" value="<?php echo $id_asociado?>" placeholder="Elige imagen"
+                                autocomplete="off" required>
                             <label for="">Precio:</label>
-                            <input class="form-control" type="number" name="precio" placeholder="Precio" autocomplete="off" required>
+                            <input class="form-control" type="number" name="precio" placeholder="Precio"
+                                autocomplete="off" required>
                             <div class="row">
                                 <div class="col-6">
-                                    <input class="btn btn-secondary mt-3 w-100" type="submit" name="enviar" value="Guardar" id="seleccionArchivos" accept="image/*">
+                                    <input class="btn btn-secondary mt-3 w-100" type="submit" name="enviar"
+                                        value="Guardar" id="seleccionArchivos" accept="image/*">
                                 </div>
                                 <div class="col-6">
                                     <input class="btn btn-secondary mt-3 w-100" type="reset" value=Limpiar>
@@ -96,23 +103,24 @@
                             $result = mysqli_query($conn, $query);
                             while ($row = mysqli_fetch_array($result)) {
                             ?>
-                                <tr class="">
-                                    <td class="text-center"><?php echo $row['nombre_aditamento'] ?></td>
-                                    <td class="text-center">
-                                        <img class="imgAditamento" src="../img/aditamentos/<?php echo $row['url'] ?>" alt="">
-                                    </td>
-                                    <td class="text-center">$<?php echo $row['precio'] ?></td>
+                            <tr class="">
+                                <td class="text-center"><?php echo $row['nombre_aditamento'] ?></td>
+                                <td class="text-center">
+                                    <img class="imgAditamento" src="../img/aditamentos/<?php echo $row['url'] ?>"
+                                        alt="">
+                                </td>
+                                <td class="text-center">$<?php echo $row['precio'] ?></td>
 
-                                    <td class="text-center">
-                                        <!-- <a href="updateAditamento.php?id=<?php echo $row['id'] ?>" class="btn btn-light">
+                                <td class="text-center">
+                                    <!-- <a href="updateAditamento.php?id=<?php echo $row['id'] ?>" class="btn btn-light">
                                             <i class="bi bi-pencil-square iconoModificar"></i>
                                         </a> -->
-                                        <!-- <a href="eliminarAditamento.php?id=<?php echo $row['id'] ?>" class="btn btn-ligth">
+                                    <!-- <a href="eliminarAditamento.php?id=<?php echo $row['id'] ?>" class="btn btn-ligth">
                                             <i class="bi bi-trash-fill iconoEliminar"></i>
                                         </a> -->
-                                    </td>
+                                </td>
 
-                                </tr>
+                            </tr>
                             <?php } ?>
 
                         </tbody>

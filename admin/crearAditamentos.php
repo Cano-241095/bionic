@@ -49,7 +49,7 @@ $uploadOk = 0;
 }
 
 // Check file size
-if ($_FILES["image"]["size"] > 900000) {
+if ($_FILES["image"]["size"] > 3000000) {
 echo "Sorry, your file is too large.";
 $uploadOk = 0;
 }

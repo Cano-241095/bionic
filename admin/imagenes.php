@@ -63,10 +63,10 @@
         
 
                 <?php 
-                                        include("conexion.php");
-                                        $query = "SELECT * FROM imagenes";
-                                        $result = mysqli_query($conn, $query);
-                                        while($row = mysqli_fetch_array($result)){ 
+                        include("conexion.php");
+                        $query = "SELECT * FROM imagenes WHERE id_asociado = $id_asociado";
+                        $result = mysqli_query($conn, $query);
+                        while($row = mysqli_fetch_array($result)){ 
                                             
                                     ?>
 

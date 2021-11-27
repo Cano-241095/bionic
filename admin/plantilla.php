@@ -31,43 +31,49 @@
         $result = mysqli_query($conn, $query);
         while ($row = mysqli_fetch_array($result)) {
         ?>
-            <div class="producto">
-                <h2> <?php echo $row['nombre_aditamento'] ?></h2>
-                <h3> $<?php echo $row['precio'] ?></h3>
-                <h4>$<span class="x">27</span></h4>
-                <img src="../img/aditamentos/<?php echo $row['url'] ?>" alt="">
+        <div  class="producto">
+        <a  class="subContenedorProducto" href="plantillaProducto.php?id=<?php echo $row['id']?>">
+            <h2> <?php echo $row['nombre_aditamento'] ?></h2>
+            <h3> $<?php echo $row['precio'] ?></h3>
+            <h4>$<span class="x">27</span></h4>
+            <img src="../img/aditamentos/<?php echo $row['url'] ?>" alt="">
 
-                <a href="updateAditamentos.php?id=<?php echo $row['id'] ?>&titulo=<?php echo $titulo ?>" class="btn btn-light">
-                    <i class="bi bi-pencil-square iconoModificar"></i>
-                </a>
-                <a href="eliminarAditamento.php?id=<?php echo $row['id'] ?>&id_asociado=<?php echo $idAsociado ?>&titulo=<?php echo $titulo ?>" class="btn btn-ligth" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <i class="bi bi-trash-fill iconoEliminar"></i>
-                </a>
-                <a class="mas" href="plantillaProducto.php?id=<?php echo $row['id'] ?>">
-                    <p>Saber más</p>
-                </a>
+            <a href="updateAditamentos.php?id=<?php echo $row['id'] ?>&titulo=<?php echo $titulo ?>"
+                class="btn btn-light">
+                <i class="bi bi-pencil-square iconoModificar"></i>
+            </a>
+            <a href="eliminarAditamento.php?id=<?php echo $row['id'] ?>&id_asociado=<?php echo $idAsociado ?>&titulo=<?php echo $titulo ?>"
+                class="btn btn-ligth" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="bi bi-trash-fill iconoEliminar"></i>
+            </a>
+            <a class="mas" href="plantillaProducto.php?id=<?php echo $row['id'] ?>">
+                <p>Saber más</p>
+            </a>
+        </a>
 
-            </div>
-
-        <?php } ?>
+        </div>
+        
         <a class="btn-mas" href="aditamentos.php?id_asociado=<?php echo $idAsociado ?>&titulo=<?php echo $titulo ?>">
             <p>+</p>
         </a>
+
+        <?php } ?>
+
     </main>
     <?php
     include("footer.php");
     ?>
     <script>
-        var list = document.querySelectorAll(".x");
-        console.log(list);
+    var list = document.querySelectorAll(".x");
+    console.log(list);
 
-        list.child.foreach(item => {
-            console.log(item);
-        })
+    list.child.foreach(item => {
+        console.log(item);
+    })
 
-        var n = Number(num).toFixed(2);
-        document.querySelector(".x").innerText = n;
-        console.log("prueba");
+    var n = Number(num).toFixed(2);
+    document.querySelector(".x").innerText = n;
+    console.log("prueba");
     </script>
 
 </body>

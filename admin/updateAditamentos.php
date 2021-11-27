@@ -160,7 +160,7 @@
                                         $result2 = mysqli_query($conn, $query2);
                                         $row2 = mysqli_fetch_array($result2);
                                         echo $row2['nombre_categoria'] ?>"
-                                        class="btn btn-secondary btn-block mt-3 w-100">Atras</a>
+                                        class="btn btn-secondary btn-block mt-3 w-100">Cancelar</a>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <button class="btn btn-secondary btn-block mt-3 w-100" name="update">
