@@ -16,5 +16,14 @@ h1{
 .fondo{
     background: var(--moradoFooter);
 }
+
+
+.imagen{
+    border: solid 1px var(--moradoFooter);
+    border-radius: 5px;
+
+}
 img{
-max-width: 100px;}
+max-width: 100px;
+border: none!important;
+}

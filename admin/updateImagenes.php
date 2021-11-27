@@ -48,22 +48,24 @@
                 mysqli_query($conn, $update);
                 $_SESSION['message'] = 'Registro actualizado exitosamente';
                 $_SESSION['message_type'] = 'info'; 
+                header('Location:plantillaProducto.php?id='.$id_asociado); 
+
             }
         ?>
     <div class="row justify-content-center">
         <div class="col-6">
-            <div class="card">
+            <div class="card mt-3">
                 <div class="card-body">
                     <form name="form" action="updateImagenes.php?id=<?php echo $_GET['id'];?>"
                         onsubmit="return validarform()" method="POST">
-                        <label for="">ID:</label>
-                        <div class="form-group">
-                           <input type="number" name="id" value="<?php echo $id; ?>"
+                        <!-- <label for="">ID:</label> -->
+                        <div class="form-group d-none">
+                        <input type="number" name="id" value="<?php echo $id; ?>"
                                 class="form-control" placeholder="Actualiza ID" autocomplete="off" autofocus>
                         </div>
-                        <label for="">ID Asociado:</label>
-                        <div class="form-group">
-                          <input type="number" name="id_asociado"
+                        <!-- <label for="">ID Asociado:</label> -->
+                        <div class="form-group d-none">
+                        <input type="number" name="id_asociado"
                                 value="<?php echo $id_asociado; ?>" class="form-control"
                                 placeholder="Actualiza ID_Asociado" autocomplete="off" required>
                         </div>
@@ -73,9 +75,10 @@
                                 placeholder="Actualiza Imagen" autocomplete="off" required>
                         </div>
 
-                        <button class="btn btn-secondary btn-block" name="update">
+                        <button class="btn btn-secondary btn-block mt-3 w-100" name="update">
                             Actualizar
                         </button>
+                        <a href="plantillaProducto.php?id=<?php echo $id_asociado ?>" class="btn btn-secondary mt-3 w-100">Cancelar</a>
                     </form>
                 </div>
             </div>

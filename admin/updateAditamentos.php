@@ -120,7 +120,9 @@
             <div class="col-12 col-md-8 ">
                 <div class="card">
                     <div class="card-body">
-                        <form name="form" action="updateAditamentos.php?id=<?php echo $_GET['id']; ?>&titulo=<?php echo $_GET['titulo']; ?>" onsubmit="return " method="POST" enctype="multipart/form-data">
+                        <form name="form"
+                            action="updateAditamentos.php?id=<?php echo $_GET['id']; ?>&titulo=<?php echo $_GET['titulo']; ?>"
+                            onsubmit="return " method="POST" enctype="multipart/form-data">
                             <!-- <input type="text" value="<?php echo $titulo; ?>">     -->
                             <!-- <label for=""></label> -->
                             <!-- <div class="form-group">
@@ -129,32 +131,41 @@
                         </div> -->
                             <!-- <label for=""> ID Asociado:</label> -->
                             <div class="form-group d-none">
-                                <input type="number" name="id_asociado" value="<?php echo $id_asociado; ?>" class="form-control" placeholder="Actualiza ID_asociado" autocomplete="off" autofocus>
-                                <input type="text" name="titulo" value="<?php echo $titulo; ?>" class="form-control" placeholder="" autocomplete="off" autofocus>
+                                <input type="number" name="id_asociado" value="<?php echo $id_asociado; ?>"
+                                    class="form-control" placeholder="Actualiza ID_asociado" autocomplete="off"
+                                    autofocus>
+                                <input type="text" name="titulo" value="<?php echo $titulo; ?>" class="form-control"
+                                    placeholder="" autocomplete="off" autofocus>
                             </div>
                             <label for=""> Nombre Aditamento:</label>
                             <div class="form-group">
-                                <input type="text" name="nombre_aditamento" value="<?php echo $nombre_aditamento; ?>" class="form-control" placeholder="Actualiza Nombre_Aditamento" autocomplete="off" required>
+                                <input type="text" name="nombre_aditamento" value="<?php echo $nombre_aditamento; ?>"
+                                    class="form-control" placeholder="Actualiza Nombre_Aditamento" autocomplete="off"
+                                    required>
                             </div>
                             <label for=""> Imagen:</label>
                             <div class="form-group">
-                                <input type="file" name="image" value="<?php echo $url; ?>" class="form-control" placeholder="Actualiza URL" autocomplete="off">
+                                <input type="file" name="image" value="<?php echo $url; ?>" class="form-control"
+                                    placeholder="Actualiza URL" autocomplete="off">
                             </div>
                             <label for=""> Precio:</label>
                             <div class="form-group">
-                                <input type="number" name="precio" value="<?php echo $precio; ?>" class="form-control" placeholder="Actualiza Precio" autocomplete="off" required>
+                                <input type="number" name="precio" value="<?php echo $precio; ?>" class="form-control"
+                                    placeholder="Actualiza Precio" autocomplete="off" required>
                             </div>
                             <div class="row">
-                                <div class="col-12 col-md-6">
-                                    <button class="btn btn-secondary btn-block mt-3 w-100" name="update">
-                                        Actualizar
-                                    </button>
-                                </div>
+
                                 <div class="col-12 col-md-6">
                                     <a href="plantilla.php?id=<?php echo $id_asociado ?>&titulo=<?php $query2 = "SELECT * FROM soluciones_protesicas where id_categoria = $id_asociado";
                                         $result2 = mysqli_query($conn, $query2);
                                         $row2 = mysqli_fetch_array($result2);
-                                        echo $row2['nombre_categoria'] ?>" class="btn btn-secondary btn-block mt-3 w-100">Atras</a>
+                                        echo $row2['nombre_categoria'] ?>"
+                                        class="btn btn-secondary btn-block mt-3 w-100">Atras</a>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <button class="btn btn-secondary btn-block mt-3 w-100" name="update">
+                                        Actualizar
+                                    </button>
                                 </div>
                             </div>
 

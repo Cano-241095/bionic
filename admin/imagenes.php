@@ -15,9 +15,9 @@
 
 <body>
     <div class="container-fluid">
-<?php 
-$id_asociado = $_GET['id'];
-?>
+        <?php 
+        $id_asociado = $_GET['id'];
+        ?>
 
         <div class="row justify-content-center fondo">
             <div class="col-12 col-md-12 text-center">
@@ -25,79 +25,57 @@ $id_asociado = $_GET['id'];
             </div>
         </div>
 
-        <div class="row">
+        <div class="row justify-content-center">
 
-            <div class="col-12 col-md-5 justify-content-center">
-
-                <div class="card border-dark">
+        
+                <div class="card border-dark mt-3 col-12 col-md-8">
                     <div class="card-body">
 
                         <form method="post" name="form" action="crearImagenes.php" enctype="multipart/form-data">
 
                             <h2>Imagenes</h2>
-                            <input class="form-control" type="number" name="id_asociado" value="<?php echo $id_asociado?>"
-                                placeholder="Ingresar ID asociado" autocomplete="off" autofocus>
+                            <input class="form-control d-none" type="number" name="id_asociado"
+                                value="<?php echo $id_asociado?>" placeholder="Ingresar ID asociado" autocomplete="off"
+                                autofocus>
 
-                            <input class="form-control" type="number" name="id" placeholder="Ingresar ID unico"
+                            <input class="form-control d-none" type="number" name="id" placeholder="Ingresar ID unico"
                                 autocomplete="off" autofocus>
                             <input class="form-control mt-3" type="file" name="image" placeholder="Elige imagen"
                                 autocomplete="off" required>
 
-                            <input class="btn btn-outline-dark mt-3" type="submit" name="enviar2" value="Guardar"
+                            <input class="btn btn-secondary mt-3 w-100" type="submit" name="enviar2" value="Guardar"
                                 id="seleccionArchivos" accept="image/*">
 
-                            <input class="btn btn-outline-dark mt-3" type="reset" value=Limpiar>
+                            <input class="btn btn-secondary mt-3 w-100" type="reset" value=Limpiar>
+                            <div class="col-12">
+                                <a href="plantillaProducto.php?id=<?php echo $id_asociado ?>"
+                                    class="btn btn-secondary mt-3 w-100">Atras</a>
+                            </div>
                         </form>
                     </div>
 
                 </div>
-            </div>
+            
 
 
 
-            <div class="col-12 col-md-7 mt-3 justify-content-center">
-                <div class="card border border-dark">
+            <div class="col-12 col-md-8 mt-3 imagen justify-content-center">
+        
 
-                    <table>
-                        <thead class="bg-dark">
-                            <tr>
-                                <th class="text-center text-white">ID</th>
-                                <th class="text-center text-white">ID Asociado</th>
-                                <th class="text-center text-white">Imagen</th>
-                                <th class="text-center text-white">Acciones</th>
-                            </tr>
-                        </thead>
-
-                        <tbody class="bg-white">
-                            <?php 
+                <?php 
                                         include("conexion.php");
                                         $query = "SELECT * FROM imagenes";
                                         $result = mysqli_query($conn, $query);
                                         while($row = mysqli_fetch_array($result)){ 
                                             
                                     ?>
-                            <tr class="">
-                                <td class="text-center"><?php echo $row['id'] ?></td>
-                                <td class="text-center"><?php echo $row['id_asociado'] ?></td>
-                                <td class="text-center">
-                                    <img src="../img/<?php echo $row['imagen'] ?>" alt="">
-                                </td>
-                                <td class="text-center">
-                                <a href="updateImagenes.php?id=<?php echo $row['id']?>" class="btn btn-ligth">
-                                        <i class="bi bi-pencil-square iconoModificar"></i>
-                                    </a>
-                                    <a href="eliminarImagenes.php?id=<?php echo $row['id']?>" class="btn btn-ligth">
-                                        <i class="bi bi-trash-fill iconoEliminar"></i>
-                                    </a>
-                                </td>
 
-                            </tr>
-                            <?php } ?>
+                <img class="imagen" src="../img/<?php echo $row['imagen'] ?>" alt="">
 
-                        </tbody>
-                    </table>
 
-                </div>
+
+                <?php } ?>
+
 
 
             </div>

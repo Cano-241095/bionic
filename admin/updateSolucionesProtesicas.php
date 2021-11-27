@@ -46,7 +46,7 @@
         mysqli_query($conn, $update);
         $_SESSION['message'] = 'Registro actualizado exitosamente';
         $_SESSION['message_+type'] = 'info';
-        header('Location:solucionesProtesicas.php');
+        header('Location:productos.php');
     }
     ?>
     <div class="row justify-content-center">

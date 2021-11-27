@@ -96,7 +96,7 @@
                                 <th>Code</th>
                                 <th>Size</th>
                                 <th>Cantidad</th>
-                                <th>act</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
