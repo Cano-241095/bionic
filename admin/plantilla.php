@@ -34,8 +34,8 @@
         <div  class="producto">
         <a  class="subContenedorProducto" href="plantillaProducto.php?id=<?php echo $row['id']?>">
             <h2> <?php echo $row['nombre_aditamento'] ?></h2>
-            <h3> $<?php echo $row['precio'] ?></h3>
-            <h4>$<span class="x">27</span></h4>
+            <h3> $<?php echo $row['precio'] ?>.00</h3>
+            <h4>$<span class="x">27</span>.00</h4>
             <img src="../img/aditamentos/<?php echo $row['url'] ?>" alt="">
 
             <a href="updateAditamentos.php?id=<?php echo $row['id'] ?>&titulo=<?php echo $titulo ?>"

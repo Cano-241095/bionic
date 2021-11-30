@@ -32,8 +32,8 @@
         <div class="contenedorInformacion">
 
             <div>
-                <h1 class="colorTitulo"><?php echo $row['nombre_aditamento'] ?> </h1>
-                <h2>$ <?php echo floatval($precio) ?></h2>
+                <h1 class="colorTitulo"><?php echo $row['nombre_aditamento'] ?> Ø 3.8mm </h1>
+                <h2>$ <?php echo floatval($precio) ?>.00</h2>
                 <h6>DESCRIPCIÓN DEL PRODUCTO:</h6>
             </div>
 
