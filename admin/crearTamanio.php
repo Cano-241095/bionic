@@ -3,11 +3,11 @@
     if (isset($_POST['enviar'])){
         $id_asociado = $_POST['id_asociado'];
         $codigo = $_POST['codigo'];
-        $tamaño= $_POST['tamaño'];
+        $tamanio= $_POST['tamanio'];
         $cantidad= $_POST['cantidad'];
 
-        $insert = "INSERT INTO tamaño (id_asociado,codigo,tamaño,cantidad)
-        VALUES ('$id_asociado','$codigo','$tamaño','$cantidad')";
+        $insert = "INSERT INTO tamanio (id_asociado,codigo,tamanio,cantidad)
+        VALUES ('$id_asociado','$codigo','$tamanio','$cantidad')";
     
         if (mysqli_query($conn,$insert)){
             $_SESSION['message'] = 'Registro guardado exitosamente';

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/tamaño.css">
+    <link rel="stylesheet" href="css/tamanio.css">
     <link rel="stylesheet" href="../css/variables.css">
     <title>Tamaño</title>
 </head>
@@ -27,7 +27,7 @@ $id_asociado= $_GET['id'];
             <div class="col-12 col-md-8">
                 <div class="card border border-dark mt-3">
                     <div class="card-body">
-                        <form method="post" name="form" onsubmit="return validarform()" action="crearTamaño.php">
+                        <form method="post" name="form" onsubmit="return validarform()" action="crearTamanio.php">
                             <label class="d-none" for="">ID Asociado:</label>
                             <input class="form-control d-none" type="number" name="id_asociado" value="<?php echo $id_asociado?>" placeholder="Ingresar Asociado"
                                 autocomplete="off" autofocus>
@@ -35,7 +35,7 @@ $id_asociado= $_GET['id'];
                             <input class="form-control" type="text" name="codigo" placeholder="Ingresar codigo"
                                 autocomplete="off" required>
                             <label for="">Tamaño:</label>
-                            <input class="form-control" type="text" name="tamaño" placeholder="Ingresar tamaño"
+                            <input class="form-control" type="text" name="tamanio" placeholder="Ingresar tamanio"
                                 autocomplete="off" required>
                             <label for="">Cantidad:</label>
                             <input class="form-control" type="number" name="cantidad" placeholder="Ingresar cantidad"
@@ -72,13 +72,13 @@ $id_asociado= $_GET['id'];
                         <tbody class="bg-white">
                             <?php 
                                     include("conexion.php");
-                                    $query = "SELECT * FROM tamaño WHERE id_asociado = $id_asociado";
+                                    $query = "SELECT * FROM tamanio WHERE id_asociado = $id_asociado";
                                     $result = mysqli_query($conn, $query);
                                     while($row = mysqli_fetch_array($result)){                                      
                                 ?>
                             <tr class="">
                                 <td class="text-center"><?php echo $row['codigo'] ?></td>
-                                <td class="text-center"><?php echo $row['tamaño'] ?> mm</td>
+                                <td class="text-center"><?php echo $row['tamanio'] ?> mm</td>
                                 <td class="text-center"><?php echo $row['cantidad'] ?></td>
                                 <!-- <td class='text-center'>
                                     <a href="updateTamaño.php?codigo=<?php echo $row['codigo']?>" class="btn btn-light">

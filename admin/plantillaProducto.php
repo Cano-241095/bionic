@@ -59,7 +59,7 @@
                     </a>
                 </ul>
 
-                <div class="contenedorImagenes visiblePequeño">
+                <div class="contenedorImagenes visiblePequenio">
 
                     <?php
                     $query = "SELECT * FROM imagenes where id_asociado = $id";
@@ -101,22 +101,22 @@
                         </thead>
                         <tbody>
                             <?php
-                            $query = "SELECT * FROM tamaño where id_asociado = $id";
+                            $query = "SELECT * FROM tamanio where id_asociado = $id";
                             $result = mysqli_query($conn, $query);
                             while ($row3 = mysqli_fetch_array($result)) {
                             ?>
                             <tr>
                                 <td><?php echo $row3['codigo'] ?></td>
-                                <td><?php echo $row3['tamaño'] ?>mm</td>
+                                <td><?php echo $row3['tamanio'] ?>mm</td>
                                 <td>
                                     <input type="number" name="" id="">
                                 </td>
                                 <td>
-                                    <a href="updateTamaño.php?codigo=<?php echo $row3['codigo']?>"
+                                    <a href="updateTamanio.php?codigo=<?php echo $row3['codigo']?>"
                                         class="btn btn-light">
                                         <i class="bi bi-pencil-square iconoModificar"></i>
                                     </a>
-                                    <a href="eliminarTamaño.php?codigo=<?php echo $row3['codigo']?>"
+                                    <a href="eliminarTamanio.php?codigo=<?php echo $row3['codigo']?>"
                                         class="btn btn-light">
                                         <i class="bi bi-trash-fill iconoEliminar"></i>
                                     </a>
@@ -125,7 +125,7 @@
                             <?php } ?>
                         </tbody>
                     </table>
-                    <a class="btn-tabla" href="tamaño.php?id=<?php echo $id ?>">+</a>
+                    <a class="btn-tabla" href="tamanio.php?id=<?php echo $id ?>">+</a>
 
                     <div class="btnCompra">
                         <p><i class="bi bi-suit-heart"></i></p>

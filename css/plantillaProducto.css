@@ -142,12 +142,12 @@ table td input {
     font-size: 35px;
 }
 
-.iconosPequeño {
+.iconosPequenio {
     display: none;
 }
 
 @media only screen and (max-width:760px) {
-    .iconosPequeño {
+    .iconosPequenio {
         display: block;
     }
 
@@ -179,12 +179,12 @@ table td input {
     }
 }
 
-.visiblePequeño {
+.visiblePequenio {
     display: none;
 }
 
 @media only screen and (max-width:768px) {
-    .visiblePequeño {
+    .visiblePequenio {
         display: block;
     }
 

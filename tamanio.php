@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/tamaño.css">
+    <link rel="stylesheet" href="css/tamanio.css">
     <link rel="stylesheet" href="css/variables.css">
     <title>Tamaño</title>
 </head>
@@ -26,7 +26,7 @@
             <div class="col-12 col-md-4">
                 <div class="card border border-dark">
                     <div class="card-body">
-                        <form method="post" name="form" onsubmit="return validarform()" action="crearTamaño.php">
+                        <form method="post" name="form" onsubmit="return validarform()" action="crearTamanio.php">
                             <label for="">ID Asociado:</label>
                             <input class="form-control" type="number" name="id_asociado" placeholder="Ingresar Asociado"
                                 autocomplete="off" autofocus>
@@ -34,7 +34,7 @@
                             <input class="form-control" type="text" name="codigo" placeholder="Ingresar codigo"
                                 autocomplete="off" required>
                             <label for="">Tamaño:</label>
-                            <input class="form-control" type="text" name="tamaño" placeholder="Ingresar tamaño"
+                            <input class="form-control" type="text" name="tamanio" placeholder="Ingresar tamanio"
                                 autocomplete="off" required>
                             <label for="">Cantidad:</label>
                             <input class="form-control" type="number" name="cantidad" placeholder="Ingresar cantidad"
@@ -69,21 +69,21 @@
                         <tbody class="bg-white">
                             <?php 
                                     include("conexion.php");
-                                    $query = "SELECT * FROM tamaño ORDER BY id_asociado";
+                                    $query = "SELECT * FROM tamanio ORDER BY id_asociado";
                                     $result = mysqli_query($conn, $query);
                                     while($row = mysqli_fetch_array($result)){ 
-                                       
-                                 ?>
+                                    
+                                ?>
                             <tr class="">
                                 <td class="text-center"><?php echo $row['id_asociado'] ?></td>
                                 <td class="text-center"><?php echo $row['codigo'] ?></td>
-                                <td class="text-center"><?php echo $row['tamaño'] ?> mm</td>
+                                <td class="text-center"><?php echo $row['tamanio'] ?> mm</td>
                                 <td class="text-center"><?php echo $row['cantidad'] ?></td>
                                 <td class='text-center'>
-                                    <a href="updateTamaño.php?codigo=<?php echo $row['codigo']?>" class="btn btn-light">
+                                    <a href="updateTamanio.php?codigo=<?php echo $row['codigo']?>" class="btn btn-light">
                                         <i class="bi bi-pencil-square iconoModificar"></i>
                                     </a>
-                                    <a href="eliminarTamaño.php?codigo=<?php echo $row['codigo']?>"
+                                    <a href="eliminarTamanio.php?codigo=<?php echo $row['codigo']?>"
                                         class="btn btn-ligth">
                                         <i class="bi bi-trash-fill iconoEliminar"></i>
                                     </a>

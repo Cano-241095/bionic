@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/tamaño.css">
+    <link rel="stylesheet" href="css/tamanio.css">
     <link rel="stylesheet" href="../css/variables.css">
     <title></title>
 
@@ -29,7 +29,7 @@
             if(isset($_GET['codigo'])){ 
                 $codigo = $_GET['codigo'];
 
-                $query = "SELECT * FROM tamaño WHERE codigo = '$codigo'";
+                $query = "SELECT * FROM tamanio WHERE codigo = '$codigo'";
                 $result = mysqli_query($conn, $query);
                 
                 if(mysqli_num_rows($result) == 1){
@@ -37,7 +37,7 @@
                     
                     $id_asociado = $row['id_asociado'];
                     $codigo = $row['codigo'];
-                    $tamaño = $row['tamaño'];
+                    $tamanio = $row['tamanio'];
                     $cantidad = $row['cantidad'];
 
             
@@ -46,12 +46,12 @@
             if(isset($_POST['update'])){
                 $id_asociado = $_POST['id_asociado'];
                 $codigo = $row['codigo'];
-                $tamaño = $_POST['tamaño'];
+                $tamanio = $_POST['tamanio'];
                 $cantidad = $_POST['cantidad'];
 
 
-                $update = "UPDATE tamaño set id_asociado = '$id_asociado', codigo = '$codigo',
-                tamaño = '$tamaño', cantidad = '$cantidad'  WHERE codigo = '$codigo'";
+                $update = "UPDATE tamanio set id_asociado = '$id_asociado', codigo = '$codigo',
+                tamanio = '$tamanio', cantidad = '$cantidad'  WHERE codigo = '$codigo'";
                 mysqli_query($conn, $update);
                 $_SESSION['message'] = 'Registro actualizado exitosamente';
                 $_SESSION['message_type'] = 'info'; 
@@ -65,7 +65,7 @@
         <div class="col-6">
             <div class="card">
                 <div class="card-body">
-                    <form name="form" action="updateTamaño.php?codigo=<?php echo $_GET['codigo'];?>"
+                    <form name="form" action="updateTamanio.php?codigo=<?php echo $_GET['codigo'];?>"
                         onsubmit="return validarform()" method="POST">
                         <div class="form-group">
                             <label for="" class="d-none"> ID_Asociado: </label>
@@ -74,8 +74,8 @@
                         </div>
                         <label for="">Tamaño:</label>
                         <div class="form-group">
-                            <input type="number" name="tamaño" value="<?php echo $tamaño; ?>" class="form-control"
-                                placeholder="Actualiza tamaño" autocomplete="off" required>
+                            <input type="number" name="tamanio" value="<?php echo $tamanio; ?>" class="form-control"
+                                placeholder="Actualiza tamanio" autocomplete="off" required>
                         </div>
                         <label for="">Cantidad:</label>
                         <div class="form-group">
