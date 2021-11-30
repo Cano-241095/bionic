@@ -52,7 +52,7 @@
                     <?php } ?>
                 </ul>
 
-                <div class="contenedorImagenes visiblePequeño">
+                <div class="contenedorImagenes visiblePequenio">
 
                     <?php
                     $query = "SELECT * FROM imagenes where id_asociado = $id";
@@ -87,13 +87,13 @@
                         <tbody>
 
                             <?php
-                            $query = "SELECT * FROM tamaño where id_asociado = $id";
+                            $query = "SELECT * FROM tamanio where id_asociado = $id";
                             $result = mysqli_query($conn, $query);
                             while ($row3 = mysqli_fetch_array($result)) {
                             ?>
                                 <tr>
                                     <td><?php echo $row3['codigo'] ?></td>
-                                    <td><?php echo $row3['tamaño'] ?></td>
+                                    <td><?php echo $row3['tamanio'] ?></td>
                                     <td> <input type="number" name="" id=""> </td>
                                 </tr>
                             <?php } ?>
