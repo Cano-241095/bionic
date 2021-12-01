@@ -5,9 +5,11 @@
         $codigo = $_POST['codigo'];
         $tamanio= $_POST['tamanio'];
         $cantidad= $_POST['cantidad'];
+        $casilla= $_POST['casilla'];
+        $nombre= $_POST['nombre'];
 
-        $insert = "INSERT INTO tamanio (id_asociado,codigo,tamanio,cantidad)
-        VALUES ('$id_asociado','$codigo','$tamanio','$cantidad')";
+        $insert = "INSERT INTO tamanio (id_asociado,codigo,tamanio,cantidad,nombre,casilla)
+        VALUES ('$id_asociado','$codigo','$tamanio','$cantidad','$nombre','$casilla')";
     
         if (mysqli_query($conn,$insert)){
             $_SESSION['message'] = 'Registro guardado exitosamente';

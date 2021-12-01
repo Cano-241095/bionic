@@ -44,6 +44,8 @@
     list-style: none;
     margin-top: 1rem;
     padding: 0;
+    height: calc(100vh - 550px);
+    overflow-y: scroll;
 }
 .busqueda ul li{
     border-bottom: solid 1px var(--moradoTenue);

@@ -30,6 +30,11 @@ h6 {
     margin-top: 40px;
 }
 
+li{
+    padding: 0;
+    margin: 0;
+    height: 1.3rem;
+}
 
 .contenedorImagenes {
     text-align: center;
@@ -93,16 +98,16 @@ th {
 td {
     font-weight: bold;
 }
-
 table td input {
     background-color: white;
     width: 70px;
     height: 20px;
     border-radius: 20px;
     box-shadow: gray 0 0 5px;
-
 }
-
+.btn{
+    padding: 0;
+}
 .btnCompra {
     text-align: center;
     margin-top: 0;

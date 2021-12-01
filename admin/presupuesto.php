@@ -16,6 +16,14 @@
 <body>
     <?php
     include("header.php");
+
+    include("conexion.php");
+    $inputUno = '';
+    $inputDos = '';
+    if (isset($_POST['palabra'])) {
+        $inputUno = $_POST['palabra'];
+        $inputDos = $_POST['palabraDos'];
+    }
     ?>
 
     <div class="contenedor">
@@ -23,32 +31,35 @@
             <form action="presupuesto.php" method="POST">
                 <h4 for="">Busqueda</h4>
                 <label for="">Palabra Clave</label>
-                <input type="text" name="palabra" autocomplete="off" placeholder="Ejemplo: Implante">
+                <input type="text" value="<?php echo $inputUno ?>" name="palabra" autocomplete="off" placeholder="Ejemplo: Implante">
                 <label for="">Segunda Palabra Clave</label>
-                <input type="text" name="palabraDos" autocomplete="off" placeholder="Ejemplo: Implante">
+                <input type="text" value="<?php echo $inputDos ?>" name="palabraDos" autocomplete="off" placeholder="Ejemplo: Implante">
                 <button name="buscar"><i class="bi bi-search"></i> Buscar</button>
             </form>
             <ul>
                 <?php
-
-                include("conexion.php");
                 if (isset($_POST['palabra'])) {
                     $palabra = $_POST['palabra'];
                     $palabraDos = $_POST['palabraDos'];
-                    $query = "SELECT * FROM aditamentos WHERE nombre_aditamento like '%$palabra%' and nombre_aditamento like '%$palabraDos%'";
+                    $query = "SELECT * FROM tamanio WHERE codigo like '%$palabra%' and tamanio like '%$palabraDos%' order by codigo";
                     $result = mysqli_query($conn, $query);
                     while ($row = mysqli_fetch_array($result)) {
                 ?>
-                        <li><a href="presupuesto.php?"><?php echo $row['nombre_aditamento'] ?></a></li>
-                <?php }
+                        <li>
+                            <a href="agregarPresupuesto.php?id=<?php echo $row['codigo'] ?>">
+                                <?php echo $row['tamanio'].'-'.$row['codigo'] ?>
+                            </a>
+                        </li>
+                    <?php }
                 } else {
-                    $palabra= '';
-                    $query = "SELECT * FROM aditamentos WHERE nombre_aditamento like '%$palabra%'";
+                    $palabra = '';
+                    $query = "SELECT * FROM tamanio WHERE codigo like '%$palabra%' order by codigo";
                     $result = mysqli_query($conn, $query);
                     while ($row = mysqli_fetch_array($result)) {
-                ?>
-                        <li><a href="presupuesto.php?"><?php echo $row['nombre_aditamento'] ?></a></li>
-                <?php } }?>
+                    ?>
+                        <li><a href="agregarPresupuesto.php?id=<?php echo $row['codigo'] ?>"><?php echo $row['codigo'] ?></a></li>
+                <?php }
+                } ?>
             </ul>
         </div>
         <div class="presupuesto sombra">
@@ -57,8 +68,9 @@
                 <div class="fecha">
                     <p>Fecha de presupuesto:</p>
                     <p><?php
+
                         /* Set locale to Dutch */
-                        setlocale(LC_ALL, 'es_ms.UTF-8');
+                        setlocale(LC_ALL, 'es_mx.UTF-8');
                         /* Output: vrijdag 22 december 1978 */
                         echo strftime("%A %d %B %Y",);
                         ?></p>
