@@ -72,3 +72,4 @@ echo "The file ". htmlspecialchars( basename( $_FILES["image"]["name"])). " has 
 echo "Sorry, there was an error uploading your file.";
 }
 }
+?>

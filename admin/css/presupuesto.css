@@ -1,0 +1,84 @@
+.contenedor{
+    width: 80%;
+    margin: 2rem auto;
+    height: 70vh;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+}
+@media only screen and (max-width: 768px){
+    .contenedor{
+        width: 95%;
+        margin: 1rem auto;
+        height: calc(100vh - 265px);
+        grid-template-columns: 1fr;
+    }
+}
+.sombra{
+    border-radius: 7px;
+    box-shadow: rgb(124, 83, 124) 0 0 10px;
+}
+.busqueda{
+    padding: 1rem;
+}
+.busqueda input{
+    width: 100%;
+    border: solid 1px var(--morado);
+    border-radius: 7px;
+    height: 2rem;
+    text-align: center;
+}
+.busqueda input::placeholder{
+    text-align: center;
+}
+.busqueda button{
+    margin-top: .5rem;
+    width: 100%;
+    height: 2rem;
+    border: none;
+    background-color: var(--moradoTenue);
+    border-radius: 7px;
+    color: white;
+}
+.busqueda ul{
+    list-style: none;
+    margin-top: 1rem;
+    padding: 0;
+}
+.busqueda ul li{
+    border-bottom: solid 1px var(--moradoTenue);
+}
+.busqueda ul li a{
+    text-decoration: none;
+    color: var(--morado);
+    width: 100%;
+    display: block;
+}
+
+.busqueda ul li a:hover{
+    background-image: linear-gradient(white 40%, rgba(131, 52, 131, 0.432));
+    border-radius: 7px 7px 0 0;
+}
+.presupuesto{
+    width: 100%;
+}
+.presupuesto .header{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem 1rem 0 1rem;
+    border-bottom: solid 1px var(--moradoTenue);
+}
+.presupuesto .header img{
+    width: 40%;
+}
+@media only screen and (min-width: 768px){
+    .presupuesto .header img{
+        width: 25%;
+    }
+}
+.presupuesto .header p{
+    margin: 0;
+    text-align: end;
+}
