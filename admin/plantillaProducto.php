@@ -25,14 +25,14 @@
 
     $query = "SELECT * FROM aditamentos where id = $id";
     $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_array($result);
-    $precio = $row['precio'] + 0.00;
+    $rowt = mysqli_fetch_array($result);
+    $precio = $rowt['precio'] + 0.00;
     ?>
     <div class="contenedor">
         <div class="contenedorInformacion">
 
             <div>
-                <h1 class="colorTitulo"><?php echo $row['nombre_aditamento'] ?> Ø 3.8mm </h1>
+                <h1 class="colorTitulo"><?php echo $rowt['nombre_aditamento'] ?></h1>
                 <h2>$ <?php echo floatval($precio) ?>.00</h2>
                 <h6>DESCRIPCIÓN DEL PRODUCTO:</h6>
             </div>
@@ -93,6 +93,7 @@
                     <table>
                         <thead>
                             <tr>
+                                <th><i class="bi bi-geo-alt-fill"></i></th>                                
                                 <th>Code</th>
                                 <th>Size</th>
                                 <th>Cantidad</th>
@@ -106,18 +107,17 @@
                             while ($row3 = mysqli_fetch_array($result)) {
                             ?>
                             <tr>
+                                <td><?php echo $row3['casilla'] ?></td>
                                 <td><?php echo $row3['codigo'] ?></td>
                                 <td><?php echo $row3['tamanio'] ?>mm</td>
-                                <td>
-                                    <input type="number" name="" id="">
-                                </td>
+                                <td><?php echo $row3['cantidad'] ?></td>
                                 <td>
                                     <a href="updateTamanio.php?codigo=<?php echo $row3['codigo']?>"
-                                        class="btn btn-light">
+                                        class="btn">
                                         <i class="bi bi-pencil-square iconoModificar"></i>
                                     </a>
                                     <a href="eliminarTamanio.php?codigo=<?php echo $row3['codigo']?>"
-                                        class="btn btn-light">
+                                        class="btn">
                                         <i class="bi bi-trash-fill iconoEliminar"></i>
                                     </a>
                                 </td>
@@ -125,8 +125,7 @@
                             <?php } ?>
                         </tbody>
                     </table>
-                    <a class="btn-tabla" href="tamanio.php?id=<?php echo $id ?>">+</a>
-
+                    <a class="btn-tabla" href="tamanio.php?id=<?php echo $id ?>&nombre=<?php echo $rowt['nombre_aditamento'] ?>">+</a>
                     <div class="btnCompra">
                         <p><i class="bi bi-suit-heart"></i></p>
                         <button>Add to card</button>
