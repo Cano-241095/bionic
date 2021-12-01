@@ -9,11 +9,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/soluciones.css">
     <link rel="stylesheet" href="../css/variables.css">
-    <title>Soluciones Protesicas</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Implantss Bionic</title>
 </head>
 
 
 <body>
+<?php
+    include("header.php");
+    ?>
     <div class="container-fluid">
 
         <div class="row justify-content-center fondo">
@@ -93,12 +97,10 @@
 
         </div>
 
-
-
-
-
-
         <script src="bootstrap/js/bootstrap.js.min"></script>
+        <?php
+    include("footer.php");
+    ?>
 </body>
 
 </html>

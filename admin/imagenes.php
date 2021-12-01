@@ -9,11 +9,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/imagenes.css">
     <link rel="stylesheet" href="../css/variables.css">
-    <title>Imagenes</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <title>Implants Bionic</title>
 </head>
 
 
 <body>
+<?php
+    include("header.php");
+    ?>
     <div class="container-fluid">
         <?php 
         $id_asociado = $_GET['id'];
@@ -87,6 +92,9 @@
 
 
     <script src="bootstrap/js/bootstrap.js.min"></script>
+    <?php
+    include("footer.php");
+    ?>
 </body>
 
 </html>

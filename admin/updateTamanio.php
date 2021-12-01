@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/tamanio.css">
     <link rel="stylesheet" href="../css/variables.css">
-    <title></title>
+    <title>Implants Bionic</title>
 
 
 </head>
@@ -69,17 +69,17 @@
                         onsubmit="return validarform()" method="POST">
                         <div class="form-group">
                             <label for="" class="d-none"> ID_Asociado: </label>
-                            <input type="number" name="id_asociado" value="<?php echo $id_asociado; ?>"
+                            <input type="number" name="id_asociado" value="<?php echo $id_asociado ?>"
                                 class="form-control d-none" placeholder="Actualiza ID_asociado" autocomplete="off" autofocus>
                         </div>
                         <label for="">Tamaño:</label>
                         <div class="form-group">
-                            <input type="number" name="tamanio" value="<?php echo $tamanio; ?>" class="form-control"
+                            <input type="number" name="tamanio" value="<?php echo $tamanio ?>" class="form-control"
                                 placeholder="Actualiza tamanio" autocomplete="off" required>
                         </div>
                         <label for="">Cantidad:</label>
                         <div class="form-group">
-                            <input type="number" name="cantidad" value="<?php echo $cantidad; ?>" class="form-control"
+                            <input type="number" name="cantidad" value="<?php echo $cantidad ?>" class="form-control"
                                 placeholder="Actualiza cantidad" autocomplete="off" required>
                         </div>
 

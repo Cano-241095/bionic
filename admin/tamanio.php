@@ -9,13 +9,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/tamanio.css">
     <link rel="stylesheet" href="../css/variables.css">
-    <title>Tamaño</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    
+    <title>Implants Bionic</title>
 </head>
 <?php 
 $id_asociado= $_GET['id'];
 ?>
 
 <body>
+<?php
+    include("header.php");
+    ?>
     <div class="container-fluid">
         <div class="row justify-content-center fondo">
             <div class="col-12 col-md-12 text-center">
@@ -104,15 +110,12 @@ $id_asociado= $_GET['id'];
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-    <script src="bootstrap/js/bootstrap.js.min"></script>
+    <script src="bootstrap/js/bootstrap.js.min"></script>   
+    <div>
+    <?php
+    include("footer.php");
+    ?>  
+    </div>
 </body>
 
 </html>
