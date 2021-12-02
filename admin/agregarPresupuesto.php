@@ -1,22 +1,40 @@
 <?php
     include ("conexion.php");
     if (isset($_GET['id'])){    
-        $id = $_GET['id'];
+        $codigo = $_GET['id'];
         
-        $delete = "DELETE FROM descrimpcion WHERE id = $id";
+        $query = "SELECT * FROM tamanio where codigo = '$codigo'";
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_array($result);
+        $nombre = $row['nombre'];
+        $descripcion = '';
+        $cantidad = 0;
+        $id = $row['id_asociado'];
+        
+        $query = "SELECT * FROM aditamentos where id = $id";
+        $result2 = mysqli_query($conn, $query);
+        $row2 = mysqli_fetch_array($result2);
+        $precio = $row2['precio'];
 
-        $consulta = "SELECT * FROM descripcmion WHERE id = $id";
-        $result = mysqli_query($conn, $consulta);
-        $idAsociado = '2';
-        while ($row = mysqli_fetch_array($result)) {
-            $idAsociado = $row['id_asociado'];
-        }
-        if (mysqli_query($conn, $delete)){
-            $_SESSION['message'] = 'Registro borrado exitosamente';
+        $insert = "INSERT INTO presupuesto (codigo,producto,descripcion,cantidad,precio)
+        VALUES ('$codigo', '$nombre','$descripcion',$cantidad,$precio)";
+        
+        if (mysqli_query($conn, $insert)){
+            $_SESSION['message'] = 'ok';
             $_SESSION['message_type'] = 'danger'; 
-            header('Location:plantillaProducto.php?id='.$idAsociado); 
+            
+echo'<script type="text/javascript">
+alert("agregado");
+window.location.href="presupuesto.php";
+</script>';
+            header('Location:presupuesto.php'); 
         }else{
-            echo "Error al borrar registro: " . mysqli_error($conn);
+            echo'<script type="text/javascript">
+            alert("agregado");
+            windows.location.href="presupuesto.php";
+            </script>'; 
+            header('Location:presupuesto.php'); 
+
         }
     }
 ?>
