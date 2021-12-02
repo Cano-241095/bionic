@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/styleIndex.css">
 
-    <title>Implant Bionic</title>
+    <title>Implants Bionic</title>
 </head>
 
 <body>

@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/descripcion.css">
     <link rel="stylesheet" href="../css/variables.css">
-    <title>Descripción</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Implants Bionic</title>
 </head>
-
-
 <body>
+<?php
+    include("header.php");
+    ?>
     <div class="container-fluid">
         <?php
         include("conexion.php");
@@ -97,6 +99,9 @@
 
 
         <script src="bootstrap/js/bootstrap.js.min"></script>
+        <?php
+    include("footer.php");
+    ?>
 </body>
 
 </html>

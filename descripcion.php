@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/descripcion.css">
     <link rel="stylesheet" href="css/variables.css">
-    <title>Descripción</title>
+    <title>Implants Bionic</title>
 </head>
 
 

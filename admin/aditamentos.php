@@ -9,10 +9,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/aditamentos.css">
     <link rel="stylesheet" href="../css/variables.css">
-    <title>Aditamentos</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Implants Bionic</title>
 </head>
 
 <body>
+<?php
+    include("header.php");
+    ?>
     <?php
     include("conexion.php");
     if (isset($_GET['id_asociado'])) {
@@ -20,7 +24,9 @@
         $titulo = $_GET['titulo'];
     }
     ?>
-    <header></header>
+    <header>
+        
+    </header>
     <div class="container-fluid">
         <div class="row justify-content-center fondo">
             <div class="col text-center">
@@ -138,12 +144,10 @@
     </div>
 
 
-
-
-
-
-
     <script src="bootstrap/js/bootstrap.bundle.js"></script>
+    <?php
+    include("footer.php");
+    ?>
 </body>
 
 </html>
