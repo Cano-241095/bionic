@@ -23,14 +23,14 @@
             $_SESSION['message'] = 'ok';
             $_SESSION['message_type'] = 'danger'; 
             
-echo'<script type="text/javascript">
-alert("agregado");
-window.location.href="presupuesto.php";
-</script>';
+// echo'<script type="text/javascript">
+// alert("agregado");
+// window.location.href="presupuesto.php";
+// </script>';
             header('Location:presupuesto.php'); 
         }else{
             echo'<script type="text/javascript">
-            alert("agregado");
+            alert("ERROR");
             windows.location.href="presupuesto.php";
             </script>'; 
             header('Location:presupuesto.php'); 

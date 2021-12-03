@@ -29,8 +29,8 @@
     }
     ?>
 
-    <div class="contenedor">
-        <div class="busqueda sombra">
+    <div class="contenedor" id="contenedor">
+        <div id="busqueda" class="busqueda sombra">
             <h4 for="">Busqueda</h4>
             <form action="presupuesto.php" method="POST">
                 <div>
@@ -89,6 +89,7 @@
                 </ul>
             </div>
         </div>
+        
         <div id="imprimir" class="presupuesto sombra">
             <div class="header">
                 <img src="../img/logo.png" alt="">
@@ -103,6 +104,40 @@
                         ?></p>
                 </div>
             </div>
+            <!-- <div class="productosPreChi">
+                <div class="row sombra-bottom">
+                    <div class="col-3">Codigo</div>
+                    <div class="col-3">P.Unit.</div>
+                    <div class="col-3">Pzas.</div>
+                    <div class="col-3">Total</div>
+                </div>
+
+                <script>
+                    var total = 0
+                    var sumados = {}
+                </script>
+
+                <?php
+                $query = "SELECT * FROM presupuesto order by producto";
+                $result = mysqli_query($conn, $query);
+                $total= 0;
+                while ($row = mysqli_fetch_array($result)) {
+                    $total+=$row['precio'];
+                    ?>
+                    <div class="row border-bottom">
+                        <div class="col-3"><?php echo $row['codigo'] ?></div>
+                        <div class="col-3"><?php echo $row['precio'] ?></div>
+                        <div class="col-3" id="x"><input id="<?php echo "id" . $row['codigo'] ?>" type="number" min="0" name="" value="1"></div>
+                        <div class="col-3">$<?php echo $row['precio'] ?></div>
+                    </div>
+                <?php } ?>
+                <div class="row border-bottom rowTotal">
+                    <div class="col-3"> </div>
+                    <div class="col-3"> </div>
+                    <div class="col-3 total"> Total:</div>
+                    <div class="col-3 total" id="totalFinal">$<?php echo $total ?></div>
+                </div>
+            </div> -->
             <div class="productosPre">
                 <div class="row sombra-bottom">
                     <div class="col-2">Codigo</div>
@@ -120,13 +155,16 @@
                 <?php
                 $query = "SELECT * FROM presupuesto order by producto";
                 $result = mysqli_query($conn, $query);
-                while ($row = mysqli_fetch_array($result)) { ?>
+                $total= 0;
+                while ($row = mysqli_fetch_array($result)) {
+                    $total+=$row['precio'];
+                    ?>
                     <div class="row border-bottom">
                         <div class="col-2"><?php echo $row['codigo'] ?></div>
                         <div class="col-5"><?php echo $row['producto'] ?></div>
                         <div class="col-2"><?php echo $row['precio'] ?></div>
-                        <div class="col-1" id="x"><input id="<?php echo "id" . $row['codigo'] ?>" type="number" min="0" name=""></div>
-                        <div class="col-2"></div>
+                        <div class="col-1" id="x"><input id="<?php echo "id" . $row['codigo'] ?>" type="number" min="0" name="" value="1"></div>
+                        <div class="col-2">$<?php echo $row['precio'] ?></div>
                     </div>
                     <script>
                         document.querySelector('#<?php echo "id" . $row['codigo'] ?>')
@@ -146,37 +184,42 @@
 
                                 e.target.parentElement.nextElementSibling.innerText = subtotal
                             })
-                            document.querySelector('#<?php echo "id" . $row['codigo'] ?>')
-                            .addEventListener('keypress', e => {
-                                let subtotal = Number(e.target.parentElement.previousElementSibling.innerText) * e.target.value;
+                            // document.querySelector('#<?php echo "id" . $row['codigo'] ?>')
+                            // .addEventListener('input', e => {
+                            //     let subtotal = Number(e.target.parentElement.previousElementSibling.innerText) * e.target.value;
 
-                                sumados['<?php echo "id" . $row['codigo'] ?>'] = subtotal;
+                            //     sumados['<?php echo "id" . $row['codigo'] ?>'] = subtotal;
 
-                                total = 0
-                                Object.keys(sumados).map(elemento => {
-                                    console.log({
-                                        elemento: sumados[elemento]
-                                    });
-                                    total += Number(sumados[elemento])
-                                })
-                                document.querySelector('#totalFinal').innerText = total;
+                            //     total = 0
+                            //     Object.keys(sumados).map(elemento => {
+                            //         console.log({
+                            //             elemento: sumados[elemento]
+                            //         });
+                            //         total += Number(sumados[elemento])
+                            //     })
+                            //     document.querySelector('#totalFinal').innerText = total;
 
-                                e.target.parentElement.nextElementSibling.innerText = subtotal
-                            })
+                            //     e.target.parentElement.nextElementSibling.innerText = $+subtotal
+                            // })
                     </script>
                 <?php } ?>
                 <div class="row border-bottom rowTotal">
                     <div class="col-2"> </div>
                     <div class="col-5"> </div>
                     <div class="col-2"> </div>
-                    <div class="col-1 total"> $ </div>
-                    <div class="col-2 total" id="totalFinal"></div>
+                    <div class="col-1 total"> Total:</div>
+                    <div class="col-2 total" id="totalFinal">$<?php echo $total ?></div>
                 </div>
             </div>
+            <div class="espacio">
+                <br>
+            </div>
         </div>
-        <button id="btnCrearPdf">Descargar Presupuesto</button>
     </div>
-
+    <div class="botones">
+<button id="btnCrearPdf" class="btnPresupuesto sombra">Descargar Presupuesto</button>
+        <a id="volver" href="eliminarPresupuesto.php" class="btnPresupuesto sombra">Regresar</a>
+        </div>
     <?php
     include("footer.php");
     ?>

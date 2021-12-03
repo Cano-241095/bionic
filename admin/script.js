@@ -1,16 +1,20 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     // Escuchamos el click del botón
-    const $boton = document.querySelector("#btnCrearPdf");
+    let $boton = document.querySelector("#btnCrearPdf");
     $boton.addEventListener("click", () => {
-        const $elementoParaConvertir = document.getElementById('imprimir'); // <-- Aquí puedes elegir cualquier elemento del DOM
+        document.getElementById("btnCrearPdf").style.display = "none";
+        document.getElementById("busqueda").style.display = "none";
+        document.getElementById("contenedor").style.display = "block";
+        document.getElementById("volver").style.display = "flex";
+        let $elementoParaConvertir = document.getElementById('contenedor'); // <-- Aquí puedes elegir cualquier elemento del DOM
         html2pdf()
             .set({
-                margin: 1,
-                filename: 'documento.pdf',
+                margin: 0,
+                filename: 'Presupuesto.pdf',
                 image: {
                     type: 'jpeg',
-                    quality: 0.9
+                    quality: 0.7
                 },
                 html2canvas: {
                     scale: 2, // A mayor escala, mejores gráficos, pero más peso
@@ -26,4 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
             .save()
             .catch(err => console.log(err));
     });
+    // // Escuchamos el click del botón volver
+    // let $volver = document.querySelector("#volver");
+    // $volver.addEventListener("click", () => {
+    //     console.log('<?php echo Hola mundo?>');
+    // });
 });
