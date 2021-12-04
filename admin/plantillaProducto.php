@@ -27,12 +27,18 @@
     $result = mysqli_query($conn, $query);
     $rowt = mysqli_fetch_array($result);
     $precio = $rowt['precio'] + 0.00;
+    $idSoluciones = $rowt['id_asociado'];
+
+
+    $query2 = "SELECT * FROM soluciones_protesicas where id_categoria = $idSoluciones";
+    $result2 = mysqli_query($conn, $query2);
+    $rowt2 = mysqli_fetch_array($result2);
     ?>
     <div class="contenedor">
         <div class="contenedorInformacion">
 
             <div>
-                <h1 class="colorTitulo"><?php echo $rowt['nombre_aditamento'] ?></h1>
+                <h1><a href="plantilla.php?id=<?php echo $id?>&titulo=<?php echo $rowt2['nombre_categoria']?>"><i class="bi bi-caret-left-fill"></i></a><?php echo $rowt['nombre_aditamento'] ?></h1>
                 <h2>$ <?php echo floatval($precio) ?>.00</h2>
                 <h6>DESCRIPCIÓN DEL PRODUCTO:</h6>
             </div>
@@ -86,14 +92,16 @@
                         <?php
                         }
                         ?>
-                        <a class="btn-imagenes2" href="imagenes.php?id=<?php echo $id ?>" >+</a>
+                        <a class="btn-imagenes2" href="imagenes.php?id=<?php echo $id ?>">+</a>
                     </div>
+
                 </div>
+
                 <div class="contenedorSecundario">
                     <table>
                         <thead>
                             <tr>
-                                <th><i class="bi bi-geo-alt-fill"></i></th>                                
+                                <th><i class="bi bi-geo-alt-fill"></i></th>
                                 <th>Code</th>
                                 <th>Size</th>
                                 <th>Cantidad</th>
@@ -112,12 +120,10 @@
                                 <td><?php echo $row3['tamanio'] ?>mm</td>
                                 <td><?php echo $row3['cantidad'] ?></td>
                                 <td>
-                                    <a href="updateTamanio.php?codigo=<?php echo $row3['codigo']?>"
-                                        class="btn">
+                                    <a href="updateTamanio.php?codigo=<?php echo $row3['codigo']?>" class="btn">
                                         <i class="bi bi-pencil-square iconoModificar"></i>
                                     </a>
-                                    <a href="eliminarTamanio.php?codigo=<?php echo $row3['codigo']?>"
-                                        class="btn">
+                                    <a href="eliminarTamanio.php?codigo=<?php echo $row3['codigo']?>" class="btn">
                                         <i class="bi bi-trash-fill iconoEliminar"></i>
                                     </a>
                                 </td>
@@ -125,18 +131,21 @@
                             <?php } ?>
                         </tbody>
                     </table>
-                    <a class="btn-tabla" href="tamanio.php?id=<?php echo $id ?>&nombre=<?php echo $rowt['nombre_aditamento'] ?>">+</a>
-                    <div class="btnCompra">
+                    <a class="btn-tabla"
+                        href="tamanio.php?id=<?php echo $id ?>&nombre=<?php echo $rowt['nombre_aditamento'] ?>">+</a>
+
+                    <div class="btnCompra noVisibleGrande">
                         <p><i class="bi bi-suit-heart"></i></p>
                         <button>Add to card</button>
                         <button>Buy</button>
                     </div>
-                    <div class="btnIconos iconosGrande">
+                    <div class="btnIconos iconosGrande noVisibleGrande">
                         <i class="bi bi-share-fill"></i>
                         <i class="bi bi-facebook"></i>
                         <i class="bi bi-instagram"></i>
                         <i class="bi bi-messenger"></i>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -163,12 +172,25 @@
                         <i class="bi bi-trash-fill iconoEliminar"></i>
                     </a>
                 </div>
-                <?php } ?>               
-                <a class="btn-imagenes" href="imagenes.php?id=<?php echo $id ?>" >+</a>
+                <?php } ?>
+                <a class="btn-imagenes" href="imagenes.php?id=<?php echo $id ?>">+</a>
 
+            </div>
+            <div class="btnCompra">
+                <p><i class="bi bi-suit-heart"></i></p>
+                <button>Add to card</button>
+                <button>Buy</button>
+            </div>
+            <div class="btnIconos iconosGrande">
+                <i class="bi bi-share-fill"></i>
+                <i class="bi bi-facebook"></i>
+                <i class="bi bi-instagram"></i>
+                <i class="bi bi-messenger"></i>
             </div>
 
         </div>
+
+
     </div>
     </div>
     <?php

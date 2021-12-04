@@ -19,6 +19,12 @@ h1 {
     font-weight: bold;
     font-size: 45px;
 }
+h1 a i{
+    text-decoration: none;
+    color: #7c4a84;
+    font-size: 40px;
+    font-weight: bold;
+}
 
 h2 {
     font-weight: bold;
@@ -123,7 +129,7 @@ table td input {
 }
 
 .btnCompra button:last-child {
-    margin-top: 10px;
+    margin-top: 40px;
 }
 
 .btnCompra p {
@@ -275,4 +281,9 @@ a.btn-imagenes2{
     position: absolute;
     right: calc((100% /2)-17px);
     bottom: 30px;
+}
+@media only screen and (min-width:768px){
+    .noVisibleGrande{
+display: none;
+    }
 }

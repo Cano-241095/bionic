@@ -15,7 +15,8 @@
 
 
 <body>
-<?php
+    <?php
+    include("conexion.php");
     include("header.php");
     ?>
     <div class="container-fluid">
@@ -36,10 +37,12 @@
                             <input class="form-control" type="number" name="id_categoria" placeholder="Ingresar ID"
                                 autocomplete="off" autofocus> -->
                             <label for="">Nombre Categoria:</label>
-                            <input class="form-control mt-3" type="text" name="nombre_categoria" placeholder="Ingresar nombre" autocomplete="off" required>
+                            <input class="form-control mt-3" type="text" name="nombre_categoria"
+                                placeholder="Ingresar nombre" autocomplete="off" required>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input class="btn btn-morado mt-3 w-100" type="submit" name="enviar" value="Guardar" id="seleccionArchivos" accept="image/*">
+                                    <input class="btn btn-morado mt-3 w-100" type="submit" name="enviar" value="Guardar"
+                                        id="seleccionArchivos" accept="image/*">
                                 </div>
                                 <div class="col-md-6">
                                     <input class="btn btn-morado mt-3 w-100" type="reset" value=Limpiar>
@@ -68,23 +71,24 @@
 
                         <tbody class="bg-white">
                             <?php
-                            include("conexion.php");
                             $query = "SELECT * FROM soluciones_protesicas";
                             $result = mysqli_query($conn, $query);
                             while ($row = mysqli_fetch_array($result)) {
                             ?>
-                                <tr class="">
-                                    <td class="text-center"><?php echo $row['nombre_categoria'] ?></td>
-                                    <td class="text-center">
-                                        <a href="updateSolucionesProtesicas.php?id_categoria=<?php echo $row['id_categoria'] ?>" class="btn btn-light">
-                                            <i class="bi bi-pencil-square iconoModificar"></i>
-                                        </a>
-                                        <a href="eliminarSolucionesProtesicas.php?id_categoria=<?php echo $row['id_categoria'] ?>" class="btn btn-ligth">
-                                            <i class="bi bi-trash-fill iconoEliminar"></i>
-                                        </a>
-                                    </td>
+                            <tr class="">
+                                <td class="text-center"><?php echo $row['nombre_categoria'] ?></td>
+                                <td class="text-center">
+                                    <a href="updateSolucionesProtesicas.php?id_categoria=<?php echo $row['id_categoria'] ?>"
+                                        class="btn btn-light">
+                                        <i class="bi bi-pencil-square iconoModificar"></i>
+                                    </a>
+                                    <a href="eliminarSolucionesProtesicas.php?id_categoria=<?php echo $row['id_categoria'] ?>"
+                                        class="btn btn-ligth">
+                                        <i class="bi bi-trash-fill iconoEliminar"></i>
+                                    </a>
+                                </td>
 
-                                </tr>
+                            </tr>
                             <?php } ?>
 
                         </tbody>
@@ -94,13 +98,13 @@
 
 
             </div>
-
+            <?php
+    include("footer.php");
+    ?>
         </div>
 
         <script src="bootstrap/js/bootstrap.js.min"></script>
-        <?php
-    include("footer.php");
-    ?>
+       
 </body>
 
 </html>

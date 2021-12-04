@@ -6,6 +6,12 @@ h1 {
     margin-top: 20px;
 
 }
+h1 a i{
+    text-decoration: none;
+    color: #7c4a84;
+    font-size: 40px;
+    font-weight: bold;
+}
 
 @media only screen and (max-width:768px) {
     h1 {

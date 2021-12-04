@@ -22,6 +22,7 @@ $nombre = $_GET['nombre'];
 <body>
 <?php
     include("header.php");
+    include("conexion.php");
     ?>
     <div class="container-fluid">
         <div class="row justify-content-center fondo">
@@ -78,7 +79,6 @@ $nombre = $_GET['nombre'];
 
                         <tbody class="bg-white">
                             <?php
-                            include("conexion.php");
                             $query = "SELECT * FROM tamanio WHERE id_asociado = $id_asociado";
                             $result = mysqli_query($conn, $query);
                             while ($row = mysqli_fetch_array($result)) {

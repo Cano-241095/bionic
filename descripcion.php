@@ -19,7 +19,7 @@
 
         <div class="row justify-content-center fondo">
             <div class="col-12 col-md-12 text-center">
-                <h1>Descripción</h1>
+                <h1>Descripción</h1> 
             </div>
         </div>
 
@@ -69,8 +69,8 @@
                                         $query = "SELECT * FROM descripcion";
                                         $result = mysqli_query($conn, $query);
                                         while($row = mysqli_fetch_array($result)){ 
-                                           
-                                     ?>
+                                    
+                                    ?>
                             <tr class="">
                                 <td class="text-center"><?php echo $row['id'] ?></td>
                                 <td class="text-center"><?php echo $row['id_asociado'] ?></td>
@@ -98,7 +98,7 @@
 
 
 
-     </div>
+</div>
     
 
             <script src="bootstrap/js/bootstrap.js.min"></script>

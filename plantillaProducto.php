@@ -101,17 +101,7 @@
 
                     </table>
 
-                    <div class="btnCompra">
-                        <p><i class="bi bi-suit-heart"></i></p>
-                        <button>Add to card</button>
-                        <button>Buy</button>
-                    </div>
-                    <div class="btnIconos iconosGrande">
-                        <i class="bi bi-share-fill"></i>
-                        <i class="bi bi-facebook"></i>
-                        <i class="bi bi-instagram"></i>
-                        <i class="bi bi-messenger"></i>
-                    </div>
+                
                 </div>
             </div>
         </div>
@@ -131,10 +121,21 @@
                 ?>
                     <img src="img/<?php echo $row['imagen'] ?>" alt="">
 
-                <?php
+                <?php 
                 }
                 ?>
             </div>
+            <div class="btnCompra">
+                        <p><i class="bi bi-suit-heart"></i></p>
+                        <button>Add to card</button>
+                        <button>Buy</button>
+                    </div>
+                    <div class="btnIconos iconosGrande">
+                        <i class="bi bi-share-fill"></i>
+                        <i class="bi bi-facebook"></i>
+                        <i class="bi bi-instagram"></i>
+                        <i class="bi bi-messenger"></i>
+                    </div>
         </div>
     </div>
     </div>

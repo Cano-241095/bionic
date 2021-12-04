@@ -88,20 +88,13 @@
                     </table>
 
                 </div>
-
-
             </div>
-
-
-
-
-        </div>
-
-
-        <script src="bootstrap/js/bootstrap.js.min"></script>
-        <?php
+            <?php
     include("footer.php");
     ?>
+        </div>
+        <script src="bootstrap/js/bootstrap.js.min"></script>
+       
 </body>
 
 </html>
