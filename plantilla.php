@@ -31,6 +31,7 @@
         while ($row = mysqli_fetch_array($result)) {
         ?>
         <div class="producto">
+            <a class="subContenedorProducto" href="plantillaProducto.php?id=<?php echo $row['id']?>">
             <h2> <?php echo $row['nombre_aditamento'] ?></h2>
             <h3> $<?php echo $row['precio'] ?></h3>
             <h4>$<span class="x">27</span></h4>
@@ -39,6 +40,9 @@
             <a href="plantillaProducto.php?id=<?php echo $row['id'] ?>">
                 <p>Saber más</p>
             </a>
+            </a>
+    
+
         </div>
 
         <?php } ?>

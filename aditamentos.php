@@ -23,7 +23,7 @@
 
         <div class="row justify-content-center">
             <div class="col-12 col-md-4 mt-3">
-                <div class="card border border-dark">
+                <d+iv class="card border border-dark">
                     <div class="card-body">
                         <form method="post" name="form" action="crearAditamentos.php" enctype="multipart/form-data">
 
@@ -79,8 +79,8 @@
                                         $query = "SELECT * FROM aditamentos";
                                         $result = mysqli_query($conn, $query);
                                         while($row = mysqli_fetch_array($result)){ 
-                                           
-                                     ?>
+                                    
+                                    ?>
                             <tr class="">
                                 <td class="text-center"><?php echo $row['id'] ?></td>
                                 <td class="text-center"><?php echo $row['id_asociado'] ?></td>
