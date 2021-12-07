@@ -38,7 +38,7 @@
         <div class="contenedorInformacion">
 
             <div>
-                <h1><a href="plantilla.php?id=<?php echo $id?>&titulo=<?php echo $rowt2['nombre_categoria']?>"><i class="bi bi-caret-left-fill"></i></a><?php echo $rowt['nombre_aditamento'] ?></h1>
+                <h1><a href="plantilla.php?id=<?php echo $idSoluciones?>&titulo=<?php echo $rowt2['nombre_categoria']?>"><i class="bi bi-caret-left-fill"></i></a><?php echo $rowt['nombre_aditamento'] ?></h1>
                 <h2>$ <?php echo floatval($precio) ?>.00</h2>
                 <h6>DESCRIPCIÓN DEL PRODUCTO:</h6>
             </div>

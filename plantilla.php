@@ -20,7 +20,9 @@
 
     ?>
 
-    <h1> <?php echo $titulo ?> </h1>
+<h1><a href="productos.php"><i class="bi bi-caret-left-fill"></i></a>
+        <?php echo $titulo ?>
+    </h1>
     <main>
 
 
