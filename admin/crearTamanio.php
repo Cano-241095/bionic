@@ -7,7 +7,7 @@
         $cantidad= $_POST['cantidad'];
         $casilla= $_POST['casilla'];
         $nombre= $_POST['nombre'];
-
+        $codigo = trim($codigo," \t\n\r\0\x0B"); 
         $insert = "INSERT INTO tamanio (id_asociado,codigo,tamanio,cantidad,nombre,casilla)
         VALUES ('$id_asociado','$codigo','$tamanio','$cantidad','$nombre','$casilla')";
     

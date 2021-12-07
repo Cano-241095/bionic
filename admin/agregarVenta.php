@@ -2,6 +2,7 @@
     include ("conexion.php");
     if (isset($_GET['id'])){    
         $codigo = $_GET['id'];
+        $folio = $_GET['folio'];
         
         $query = "SELECT * FROM tamanio where codigo = '$codigo'";
         $result = mysqli_query($conn, $query);
@@ -10,30 +11,25 @@
         $descripcion = '';
         $cantidad = 1;
         $id = $row['id_asociado'];
-        
+        $producto = $row['nombre'];
+
         $query = "SELECT * FROM aditamentos where id = $id";
         $result2 = mysqli_query($conn, $query);
         $row2 = mysqli_fetch_array($result2);
         $precio = $row2['precio'];
-
-        $insert = "INSERT INTO presupuesto (codigo,producto,descripcion,cantidad,precio)
-        VALUES ('$codigo', '$nombre','$descripcion',$cantidad,$precio)";
+        
+        $insert = "INSERT INTO venta (id_asociado,codigo,producto,cantidad,precio)
+        VALUES ('$folio','$codigo','$producto',$cantidad,$precio)";
         
         if (mysqli_query($conn, $insert)){
             $_SESSION['message'] = 'ok';
             $_SESSION['message_type'] = 'danger'; 
-            
-// echo'<script type="text/javascript">
-// alert("agregado");
-// window.location.href="presupuesto.php";
-// </script>';
-            header('Location:presupuesto.php'); 
+            echo $folio.$codigo.$producto.$cantidad.$precio ;
+            //header('Location:venta.php'); 
         }else{
-            echo'<script type="text/javascript">
-            alert("ERROR");
-            windows.location.href="presupuesto.php";
-            </script>'; 
-            header('Location:presupuesto.php'); 
+            
+            echo $folio.$codigo.$producto.$cantidad.$precio ;
+            //header('Location:venta.php'); 
         }
     }
 ?>

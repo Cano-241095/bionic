@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="css/presupuesto.css">
-    <script src="script.js"></script>
     <script src="../src/html2.min.js"></script>
     <title>Document</title>
 
@@ -48,9 +47,10 @@
                 <ul class="encabezado">
                     <li>
                         <p class="titulo">
-                            <span>Producto</span>
-                            <span>Codigo</span>
-                            <span>Tamaño</span>
+                            <span><i class="bi bi-tag"></i> Producto</span>
+                            <span><i class="bi bi-qr-code"></i></span>
+                            <span><i class="bi bi-bar-chart"></i></span>
+                            <span><i class="bi bi-box-seam"></i></span>
                         </p>
                     </li>
                 </ul>
@@ -89,14 +89,15 @@
                 </ul>
             </div>
         </div>
-        
+
         <div id="imprimir" class="presupuesto sombra">
             <div class="header">
-                <img src="../img/logo.png" alt="">
+                <a href="https://implants-bionic.com/">
+                    <img src="../img/logo.png" alt="">
+                </a>
                 <div class="fecha">
                     <p>Fecha de presupuesto:</p>
                     <p><?php
-
                         /* Set locale to Dutch */
                         setlocale(LC_ALL, 'es_mx.UTF-8');
                         /* Output: vrijdag 22 december 1978 */
@@ -104,7 +105,7 @@
                         ?></p>
                 </div>
             </div>
-            <!-- <div class="productosPreChi">
+            <div class="productosPreChi">
                 <div class="row sombra-bottom">
                     <div class="col-3">Codigo</div>
                     <div class="col-3">P.Unit.</div>
@@ -112,103 +113,195 @@
                     <div class="col-3">Total</div>
                 </div>
 
-                <script>
-                    var total = 0
-                    var sumados = {}
-                </script>
-
-                <?php
-                $query = "SELECT * FROM presupuesto order by producto";
-                $result = mysqli_query($conn, $query);
-                $total= 0;
-                while ($row = mysqli_fetch_array($result)) {
-                    $total+=$row['precio'];
-                    ?>
-                    <div class="row border-bottom">
-                        <div class="col-3"><?php echo $row['codigo'] ?></div>
-                        <div class="col-3"><?php echo $row['precio'] ?></div>
-                        <div class="col-3" id="x"><input id="<?php echo "id" . $row['codigo'] ?>" type="number" min="0" name="" value="1"></div>
-                        <div class="col-3">$<?php echo $row['precio'] ?></div>
+                <div class="row border-bottom">
+                    <div class="col-3">
+                        <?php
+                        $query = "SELECT * FROM presupuesto order by producto";
+                        $result = mysqli_query($conn, $query);
+                        $total = 0;
+                        while ($row = mysqli_fetch_array($result)) {
+                            $total += $row['precio'] * $row['cantidad'];
+                        ?>
+                            <p><?php echo $row['codigo'] ?></p>
+                        <?php } ?>
                     </div>
-                <?php } ?>
+                    <div class="col-3">
+                        <?php
+                        $query = "SELECT * FROM presupuesto order by producto";
+                        $result = mysqli_query($conn, $query);
+                        $total = 0;
+                        while ($row = mysqli_fetch_array($result)) {
+                            $total += $row['precio'] * $row['cantidad'];
+                        ?>
+                            <p><?php echo $row['precio'] ?></p>
+                        <?php } ?>
+                    </div>
+                    <div class="col-1 masmenos">
+                        <div id="menos">
+                            <?php
+                            $query = "SELECT * FROM presupuesto order by producto";
+                            $result = mysqli_query($conn, $query);
+                            $total = 0;
+                            while ($row = mysqli_fetch_array($result)) {
+                                $total += $row['precio'] * $row['cantidad'];
+                            ?>
+                                <p>
+                                    <a class="gato" href="editarCantidadPresupuesto.php?codigo=<?php echo $row['codigo'] ?>&numero=-1"><i class="bi bi-dash-circle-fill"></i></a>
+                                </p>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <?php
+                        $query = "SELECT * FROM presupuesto order by producto";
+                        $result = mysqli_query($conn, $query);
+                        $total = 0;
+                        while ($row = mysqli_fetch_array($result)) {
+                            $total += $row['precio'] * $row['cantidad'];
+                        ?>
+                            <p>
+                                <?php echo $row['cantidad'] ?>
+                            </p>
+                        <?php } ?>
+                    </div>
+                    <div class="col-1 masmenos">
+                        <div id="mas">
+                        <?php
+                        $query = "SELECT * FROM presupuesto order by producto";
+                        $result = mysqli_query($conn, $query);
+                        $total = 0;
+                        while ($row = mysqli_fetch_array($result)) {
+                            $total += $row['precio'] * $row['cantidad'];
+                        ?>
+                            <p>
+                                <a class="gato" href="editarCantidadPresupuesto.php?codigo=<?php echo $row['codigo'] ?>&numero=1"><i class="bi bi-plus-circle-fill"></i></a>
+                            </p>
+                        <?php } ?>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <?php
+                        $query = "SELECT * FROM presupuesto order by producto";
+                        $result = mysqli_query($conn, $query);
+                        $total = 0;
+                        while ($row = mysqli_fetch_array($result)) {
+                            $total += $row['precio'] * $row['cantidad'];
+                        ?>
+                            <p>$<?php echo $row['precio'] * $row['cantidad'] ?></p>
+                        <?php } ?>
+                    </div>
+                </div>
                 <div class="row border-bottom rowTotal">
                     <div class="col-3"> </div>
                     <div class="col-3"> </div>
                     <div class="col-3 total"> Total:</div>
                     <div class="col-3 total" id="totalFinal">$<?php echo $total ?></div>
                 </div>
-            </div> -->
+            </div>
             <div class="productosPre">
                 <div class="row sombra-bottom">
                     <div class="col-2">Codigo</div>
                     <div class="col-5">Producto</div>
-                    <div class="col-2">P.Unit.</div>
-                    <div class="col-1">Pzas.</div>
-                    <div class="col-2">Total</div>
+                    <div class="col-1">P.Unit.</div>
+                    <div class="col-3">Pzas.</div>
+                    <div class="col-1">Total</div>
                 </div>
 
-                <script>
-                    var total = 0
-                    var sumados = {}
-                </script>
-
-                <?php
-                $query = "SELECT * FROM presupuesto order by producto";
-                $result = mysqli_query($conn, $query);
-                $total= 0;
-                while ($row = mysqli_fetch_array($result)) {
-                    $total+=$row['precio'];
-                    ?>
-                    <div class="row border-bottom">
-                        <div class="col-2"><?php echo $row['codigo'] ?></div>
-                        <div class="col-5"><?php echo $row['producto'] ?></div>
-                        <div class="col-2"><?php echo $row['precio'] ?></div>
-                        <div class="col-1" id="x"><input id="<?php echo "id" . $row['codigo'] ?>" type="number" min="0" name="" value="1"></div>
-                        <div class="col-2">$<?php echo $row['precio'] ?></div>
+                <div class="row border-bottom">
+                    <div class="col-2">
+                        <?php
+                        $query = "SELECT * FROM presupuesto order by producto";
+                        $result = mysqli_query($conn, $query);
+                        $total = 0;
+                        while ($row = mysqli_fetch_array($result)) {
+                            $total += $row['precio'] * $row['cantidad'];
+                        ?>
+                            <p><?php echo $row['codigo'] ?></p>
+                        <?php } ?>
                     </div>
-                    <script>
-                        document.querySelector('#<?php echo "id" . $row['codigo'] ?>')
-                            .addEventListener('keyup', e => {
-                                let subtotal = Number(e.target.parentElement.previousElementSibling.innerText) * e.target.value;
-
-                                sumados['<?php echo "id" . $row['codigo'] ?>'] = subtotal;
-
-                                total = 0
-                                Object.keys(sumados).map(elemento => {
-                                    console.log({
-                                        elemento: sumados[elemento]
-                                    });
-                                    total += Number(sumados[elemento])
-                                })
-                                document.querySelector('#totalFinal').innerText = total;
-
-                                e.target.parentElement.nextElementSibling.innerText = subtotal
-                            })
-                            // document.querySelector('#<?php echo "id" . $row['codigo'] ?>')
-                            // .addEventListener('input', e => {
-                            //     let subtotal = Number(e.target.parentElement.previousElementSibling.innerText) * e.target.value;
-
-                            //     sumados['<?php echo "id" . $row['codigo'] ?>'] = subtotal;
-
-                            //     total = 0
-                            //     Object.keys(sumados).map(elemento => {
-                            //         console.log({
-                            //             elemento: sumados[elemento]
-                            //         });
-                            //         total += Number(sumados[elemento])
-                            //     })
-                            //     document.querySelector('#totalFinal').innerText = total;
-
-                            //     e.target.parentElement.nextElementSibling.innerText = $+subtotal
-                            // })
-                    </script>
-                <?php } ?>
+                    <div class="col-5">
+                        <?php
+                        $query = "SELECT * FROM presupuesto order by producto";
+                        $result = mysqli_query($conn, $query);
+                        $total = 0;
+                        while ($row = mysqli_fetch_array($result)) {
+                            $total += $row['precio'] * $row['cantidad'];
+                        ?>
+                            <p><?php echo $row['producto'] ?></p>
+                        <?php } ?>
+                    </div>
+                    <div class="col-1">
+                        <?php
+                        $query = "SELECT * FROM presupuesto order by producto";
+                        $result = mysqli_query($conn, $query);
+                        $total = 0;
+                        while ($row = mysqli_fetch_array($result)) {
+                            $total += $row['precio'] * $row['cantidad'];
+                        ?>
+                            <p><?php echo $row['precio'] ?></p>
+                        <?php } ?>
+                    </div>
+                    <div class="col-1 masmenos">
+                        <div id="menos">
+                            <?php
+                            $query = "SELECT * FROM presupuesto order by producto";
+                            $result = mysqli_query($conn, $query);
+                            $total = 0;
+                            while ($row = mysqli_fetch_array($result)) {
+                                $total += $row['precio'] * $row['cantidad'];
+                            ?>
+                                <p>
+                                    <a class="gato" href="editarCantidadPresupuesto.php?codigo=<?php echo $row['codigo'] ?>&numero=-1"><i class="bi bi-dash-circle-fill"></i></a>
+                                </p>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <?php
+                        $query = "SELECT * FROM presupuesto order by producto";
+                        $result = mysqli_query($conn, $query);
+                        $total = 0;
+                        while ($row = mysqli_fetch_array($result)) {
+                            $total += $row['precio'] * $row['cantidad'];
+                        ?>
+                            <p>
+                                <?php echo $row['cantidad'] ?>
+                            </p>
+                        <?php } ?>
+                    </div>
+                    <div class="col-1 masmenos">
+                        <div id="mas">
+                        <?php
+                        $query = "SELECT * FROM presupuesto order by producto";
+                        $result = mysqli_query($conn, $query);
+                        $total = 0;
+                        while ($row = mysqli_fetch_array($result)) {
+                            $total += $row['precio'] * $row['cantidad'];
+                        ?>
+                            <p>
+                                <a class="gato" href="editarCantidadPresupuesto.php?codigo=<?php echo $row['codigo'] ?>&numero=1"><i class="bi bi-plus-circle-fill"></i></a>
+                            </p>
+                        <?php } ?>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <?php
+                        $query = "SELECT * FROM presupuesto order by producto";
+                        $result = mysqli_query($conn, $query);
+                        $total = 0;
+                        while ($row = mysqli_fetch_array($result)) {
+                            $total += $row['precio'] * $row['cantidad'];
+                        ?>
+                            <p>$<?php echo $row['precio'] * $row['cantidad'] ?></p>
+                        <?php } ?>
+                    </div>
+                </div>
                 <div class="row border-bottom rowTotal">
                     <div class="col-2"> </div>
                     <div class="col-5"> </div>
-                    <div class="col-2"> </div>
-                    <div class="col-1 total"> Total:</div>
-                    <div class="col-2 total" id="totalFinal">$<?php echo $total ?></div>
+                    <div class="col-1"> </div>
+                    <div class="col-3 total"> Total:</div>
+                    <div class="col-1 total" id="totalFinal">$<?php echo $total ?></div>
                 </div>
             </div>
             <div class="espacio">
@@ -217,13 +310,14 @@
         </div>
     </div>
     <div class="botones">
-<button id="btnCrearPdf" class="btnPresupuesto sombra">Descargar Presupuesto</button>
+        <button id="btnCrearPdf" class="btnPresupuesto sombra">Descargar Presupuesto</button>
         <a id="volver" href="eliminarPresupuesto.php" class="btnPresupuesto sombra">Regresar</a>
-        </div>
+    </div>
     <?php
     include("footer.php");
     ?>
 
+    <script src="script.js"></script>
 </body>
 
 </html>

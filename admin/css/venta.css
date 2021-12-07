@@ -1,10 +1,11 @@
 .contenedor{
-    width: 80%;
-    margin: 2rem auto 0 auto;
+    width: 80vw;
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 1rem;
+    margin: 2rem auto 0 auto;
     /* padding-bottom: 90px; */
+    text-transform: capitalize;
 }
 .botones{
     padding-bottom: 90px;
@@ -46,9 +47,6 @@ input{
     }
     label{
         width: 19%;
-    }
-    form div:first-child{
-        display: none;
     }
     input{
         width: 78%;
@@ -94,17 +92,11 @@ input{
 .busqueda ul.productos{
     list-style: none;
     margin: 0;
-    margin-top: 1rem;
     padding: 0;
     height: calc(100vh - 550px);
     overflow-y: scroll;
 }
 
-@media only screen and (max-width: 768px){
-    .busqueda ul.productos{
-        height: calc(100vh - 550px);
-    }
-}
 .busqueda ul.productos::-webkit-scrollbar {
     -webkit-appearance: none;
 }
@@ -151,53 +143,55 @@ input{
     width: 100%;
     display: block;
 }
-a span:nth-child(1),p.titulo span:nth-child(1){
-    width: 58%;
+a span,p.titulo span{
     height: 1.5rem;
     display: inline-block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: Ellipsis;
+}
+p.titulo span{
+    text-align: center;
+}
+a span:nth-child(1),p.titulo span:nth-child(1){
+    width: 50%;
 }
 a span:nth-child(2),p.titulo span:nth-child(2){
-    width: 19%;
-    height: 1.5rem;
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: Ellipsis;
+    width: 20%;
 }
 a span:nth-child(3),p.titulo span:nth-child(3){
-    width: 18%;
-    height: 1.5rem;
+    width: 13%;
     text-align: center;
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: Ellipsis;
+}
+a span:nth-child(4),p.titulo span:nth-child(4){
+    width: 13%;
+    text-align: center;
 }
 @media only screen and (max-width: 768px){
 
     a span:nth-child(1),p.titulo span:nth-child(1){
-        width: 62%;
+        width: 53%;
     }
     a span:nth-child(2),p.titulo span:nth-child(2){
-        width: 25%;
+        width: 23%;
     }
     a span:nth-child(3),p.titulo span:nth-child(3){
-        width: 8%;
+        width: 10%;
+    }
+    a span:nth-child(4),p.titulo span:nth-child(4){
+        width: 9%;
     }
 }
-.presupuesto{
+.nota{
     width: 100%;
     padding: 1rem;
 }
 @media only screen and (max-width: 768px){
-    .presupuesto{
+    .nota{
         margin-top: 1rem;
     }
 }
-.presupuesto .header{
+.nota .header{
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -205,25 +199,29 @@ a span:nth-child(3),p.titulo span:nth-child(3){
     padding: 1rem 1rem 0 1rem;
     border-bottom: solid 1px var(--moradoTenue);
 }
-.presupuesto .header img{
+.nota .header img{
     width: 120px;
 }
-.presupuesto .header p{
+.nota .header p{
     margin: 0;
     text-align: end;
 }
-.presupuesto .productosPre{
+.folio{
+    color: brown;
+    font-weight: bold;
+}
+.nota .productosPre{
     padding: 1rem;
     font-size: .9rem;
 }
-.presupuesto .productosPreChi{
+.nota .productosPreChi{
     display: none;
 }
 @media only screen and (max-width: 768px){
-    .presupuesto .productosPre{
+    .nota .productosPre{
         display: none;
     }
-    .presupuesto .productosPreChi{
+    .nota .productosPreChi{
         display: block;
     }
 }
@@ -237,7 +235,7 @@ a span:nth-child(3),p.titulo span:nth-child(3){
 .col-1{
     padding: 0;
 }
-.presupuesto .col-5{
+.nota .col-5{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: Ellipsis;

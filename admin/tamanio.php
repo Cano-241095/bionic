@@ -30,7 +30,21 @@ $nombre = $_GET['nombre'];
                 <h1>Tamaño</h1>
             </div>
         </div>
-
+<script>
+    function validarTexto($texto){
+        $texto = trim($texto);
+        if($texto=="" && trim($texto)==""){
+            return false;
+        }else{
+            $patron = '/^[a-zA-Z, ]*$/';
+            if(preg_match($patron,$texto)){
+                return true;   
+            }else{
+                return false;
+            }
+        }   
+    }
+</script>
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">
                 <div class="card border border-dark mt-3">
@@ -48,24 +62,16 @@ $nombre = $_GET['nombre'];
                             <input class="form-control" type="text" name="tamanio" placeholder="Ingresar tamanio" autocomplete="off" required>
                             <label for="">Cantidad:</label>
                             <input class="form-control" type="number" name="cantidad" placeholder="Ingresar cantidad" autocomplete="off" required>
-
                             <input class="btn btn-secondary mt-3 w-100" type="submit" name="enviar" value="Guardar" id="seleccionArchivos" accept="image/*">
-
                             <input class="btn btn-secondary mt-3 w-100" type="reset" value=Limpiar>
-
                             <a href="plantillaProducto.php?id=<?php echo $id_asociado ?>" class="btn btn-secondary mt-3 w-100">Atras</a>
-
                         </form>
                     </div>
                 </div>
             </div>
 
-
-
             <div class="col-12 col-md-8 mt-3">
-
                 <div class="card border border-dark">
-
                     <table>
                         <thead class="bg-dark">
                             <tr>
@@ -76,7 +82,6 @@ $nombre = $_GET['nombre'];
                                 <!-- <th class="text-center text-white">Acciones</th> -->
                             </tr>
                         </thead>
-
                         <tbody class="bg-white">
                             <?php
                             $query = "SELECT * FROM tamanio WHERE id_asociado = $id_asociado";
@@ -97,18 +102,12 @@ $nombre = $_GET['nombre'];
                                         <i class="bi bi-trash-fill iconoEliminar"></i>
                                     </a>
                                 </td> -->
-
                                 </tr>
                             <?php } ?>
-
                         </tbody>
                     </table>
-
                 </div>
-
-
             </div>
-
         </div>
     </div>
 
