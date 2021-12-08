@@ -16,11 +16,11 @@
     <?php
     include("header.php");
     $idAsociado = $_GET['id'];
-    $titulo = $_GET['titulo'];
+    $titulo = $_GET['titulo']; 
 
     ?>
 
-<h1><a href="productos.php"><i class="bi bi-caret-left-fill"></i></a>
+    <h1><a href="productos.php"><i class="bi bi-caret-left-fill"></i></a>
         <?php echo $titulo ?>
     </h1>
     <main>
@@ -34,17 +34,15 @@
         ?>
         <div class="producto">
             <a class="subContenedorProducto" href="plantillaProducto.php?id=<?php echo $row['id']?>">
-            <h2> <?php echo $row['nombre_aditamento'] ?></h2>
-            <h3> $<?php echo $row['precio'] ?></h3>
-            <h4>$<span class="x">27</span></h4>
-            <img src="img/aditamentos/<?php echo $row['url'] ?>" alt="">
+                <h2> <?php echo $row['nombre_aditamento'] ?></h2>
+                <h3> $<?php echo $row['precio'] ?>.00</h3>
+                <h4>$<span class="x"><?php echo ($row['precio']+($row['precio']*.16)) ?></span></h4>
+                <img src="img/aditamentos/<?php echo $row['url'] ?>" alt="">
 
-            <a href="plantillaProducto.php?id=<?php echo $row['id'] ?>">
-                <p>Saber más</p>
+                <a class="mas" href="plantillaProducto.php?id=<?php echo $row['id'] ?>">
+                    <p>Saber más</p>
+                </a>
             </a>
-            </a>
-    
-
         </div>
 
         <?php } ?>
