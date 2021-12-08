@@ -1,9 +1,11 @@
-
 document.addEventListener("DOMContentLoaded", () => {
     // Escuchamos el click del botón
-    let $boton = document.querySelector("#btnCrearPdf");
-    $boton.addEventListener("click", () => {
-        document.getElementById("btnCrearPdf").style.display = "none";
+    console.log('si esta');
+    let $botonVenta = document.querySelector("#btnCrearPdfVenta");
+    $botonVenta.addEventListener("click", () => {
+        
+    console.log('si esta click');
+        document.getElementById("btnCrearPdfVenta").style.display = "none";
         document.getElementById("busqueda").style.display = "none";
         document.getElementById("contenedor").style.display = "block";
         document.getElementById("volver").style.display = "flex";
@@ -13,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         html2pdf()
             .set({
                 margin: 0,
-                filename: 'Presupuesto.pdf',
+                filename: 'Nota.pdf',
                 image: {
                     type: 'jpeg',
                     quality: 0.7

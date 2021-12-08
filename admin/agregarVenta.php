@@ -18,18 +18,15 @@
         $row2 = mysqli_fetch_array($result2);
         $precio = $row2['precio'];
         
-        $insert = "INSERT INTO venta (id_asociado,codigo,producto,cantidad,precio)
+        $insert = "INSERT INTO venta (folio,codigo,producto,cantidad,precio)
         VALUES ('$folio','$codigo','$producto',$cantidad,$precio)";
-        
         if (mysqli_query($conn, $insert)){
-            $_SESSION['message'] = 'ok';
-            $_SESSION['message_type'] = 'danger'; 
-            echo $folio.$codigo.$producto.$cantidad.$precio ;
-            //header('Location:venta.php'); 
+
+            //echo 'SiSePudo'.$folio.$codigo.$producto.$cantidad.$precio ;
+            header('Location:venta.php'); 
         }else{
-            
-            echo $folio.$codigo.$producto.$cantidad.$precio ;
-            //header('Location:venta.php'); 
+            //echo 'NoSePudo'.$folio.$codigo.$producto.$cantidad.$precio ;
+            header('Location:venta.php'); 
         }
     }
 ?>

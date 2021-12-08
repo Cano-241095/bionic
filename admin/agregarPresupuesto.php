@@ -20,7 +20,7 @@
         VALUES ('$codigo', '$nombre','$descripcion',$cantidad,$precio)";
         
         if (mysqli_query($conn, $insert)){
-            $_SESSION['message'] = 'ok';
+            $_SESSION['message'] = 'ok'; 
             $_SESSION['message_type'] = 'danger'; 
             
 // echo'<script type="text/javascript">
