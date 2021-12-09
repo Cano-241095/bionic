@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log('si esta');
     let $botonVenta = document.querySelector("#btnCrearPdfVenta");
     $botonVenta.addEventListener("click", () => {
-        
-    console.log('si esta click');
+
+        console.log('si esta click');
         document.getElementById("btnCrearPdfVenta").style.display = "none";
         document.getElementById("busqueda").style.display = "none";
         document.getElementById("contenedor").style.display = "block";
@@ -33,5 +33,14 @@ document.addEventListener("DOMContentLoaded", () => {
             .from($elementoParaConvertir)
             .save()
             .catch(err => console.log(err));
+    });
+    $("select").click(function () {
+        var open = $(this).data("isopen");
+        if (open) {
+            window.location.href = $(this).val()
+        }
+        //set isopen to opposite so next time when use clicked select box
+        //it wont trigger this event
+        $(this).data("isopen", !open);
     });
 });
