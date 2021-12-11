@@ -9,68 +9,73 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/cliente.css">
+    <link rel="stylesheet" href="../css/estilosFondo.css">
     <link rel="stylesheet" href="css/vendedores.css">
     <title>Document</title>
+
 </head>
 
 <body>
+    
+<div id="particles-js"></div>
     <?php
     include("header.php");
+
     include("conexion.php");
-
-
-    if (isset($_POST['nombre'])) {
-        $nombre = ucwords(strtolower($_POST['nombre']));
-        $apellidoP = ucwords(strtolower($_POST['apellidoP']));
-        $apellidoM = ucwords(strtolower($_POST['apellidoM']));
-        $usuario = substr($nombre, 0, 2) . substr($apellidoP, 0, 2) . substr($apellidoM, 0, 2);  // devuelve
-
-        $contrasenia = password_hash($_POST['contrasenia'], PASSWORD_DEFAULT);
-        $insert = "INSERT INTO vendedores (id,nombre,apellidoP,apellidoM,usuario,contrasenia)
-        VALUES ('','$nombre','$apellidoP','$apellidoM','$usuario','$contrasenia')";
-
-        if (mysqli_query($conn, $insert)) {
+    $idVendedor = 0;
+    if (isset($_GET['idVendedor'])) {
+        $idVendedor = $_GET['idVendedor'];
+    }
+    if (isset($_POST['idVendedor'])) {
+        $idVendedor = $_POST['idVendedor'];
+    }
+    // echo $idVendedor;
+    if (isset($_POST['NomCliente'])) {
+        $cliente = $_POST['NomCliente'];
+        $idVendedor = $_POST['idVendedor'];
+        $idd ;
+        echo '<label> esta llegando</label>';
+        $insert = "INSERT INTO clientes (nombre) VALUES ('$cliente')";
+    
+        if (mysqli_query($conn,$insert)){
             $_SESSION['message'] = 'Registro guardado exitosamente';
-            $_SESSION['message_type'] = 'success';
-            header('Location:vendedor.php');
-        } else {
-            echo "El registro no se pudo guardar" . mysqli_error($conn);
-        }
+            $_SESSION['message_type'] = 'success'; 
+            header('Location:venta.php?idVendedor='.$idVendedor);
+        }else{
+        echo "<label> El registro no se pudo guardar</label>";
+        header('Location:cliente.php?idVendedor='.$idVendedor);
+        // echo "El registro no se pudo guardar". mysqli_error($conn);
+        }        
     }
     ?>
+    
     <div class="contenedorVendedor">
-        <form action="vendedor.php" class="sombra" method="POST">
-            <label for="">Nombre: </label>
-            <input type="text" placeholder="Ejemplo: Carlos" name="nombre" autocomplete="off">
-            <label for="">Apellido Paterno: </label>
-            <input type="text" placeholder="Ejemplo: Reyes" name="apellidoP" autocomplete="off">
-            <label for="">Apellido Materno: </label>
-            <input type="text" placeholder="Ejemplo: Gongora" name="apellidoM" autocomplete="off">
-            <label for="">Contraseña: </label>
-            <input type="password" placeholder="Ejemplo: d54as4.-87" name="contrasenia" autocomplete="off">
-            <button type="submit" name="crear">Guardar</button>
-        </form>
-        <div class="lista sombra">
+    <form action="cliente.php" method="POST">
+        <input class="d-none" type="text" name="idVendedor" value="<?php echo $idVendedor ?>">
+        <label for="">Nombre Cliente</label>
+        <input type="text" placeholder="Ejemplo: Genesis Cano Gongora" name="NomCliente">
+        <button type="submit">Guardar</button>
+    </form>
+    
+    <div class="lista sombra">
             <div class="containe-fluid">
                 <table class="table caption-top">
-                    <caption>Vendedores</caption>
                     <thead>
                         <tr>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Usuario</th>
                             <th scope="col">Editar</th>
                             <th scope="col">Eliminar</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $query = "SELECT * FROM vendedores ORDER BY nombre";
+                        $query = "SELECT * FROM clientes ORDER BY nombre";
                         $result = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                             <tr>
-                                <td><?php echo $row['nombre'] . ' ' . $row['apellidoP'] . ' ' . $row['apellidoM'] ?></td>
-                                <td><?php echo $row['usuario'] ?></td>
+                                <td><?php echo $row['nombre'] ?></td>
                                 <td>
                                     <a href="editarVendedor.php?id=<?php echo $row['id']?>">
                                         <i class="bi bi-pencil-square"></i>
@@ -89,7 +94,10 @@
         </div>
     </div>
 
-    <?php include("footer.php"); ?>
+    <?php
+    include("footer.php");
+    ?>
+    <script src="../src/jquery-3.1.1.mini.js"></script>
     <script src="scriptVenta.js"></script>
     <script src="../src/particles.min.js"></script>
     <script src="../src/app.js"></script>

@@ -1,0 +1,48 @@
+form{
+    width: 500px;
+    box-shadow: var(--moradoTenue) 0 0 15px;
+    border-radius: 7px;
+    padding: 1rem;
+    background-color: rgba(219, 167, 253, 0.466);
+}
+@media only screen and (max-width: 768px){
+    form{
+        width: 95%;
+    }
+}
+label{
+    width: 100%;
+    padding-left: 1rem;
+}
+input{
+    width: 100%;
+    border: none;
+    border-radius: 7px;
+    border: solid 1px var(--moradoTenue);
+    height: 2rem;
+    text-align: center;
+}
+input:focus{
+    outline: none;
+}
+button{
+    border: none;
+    /* border: solid 1px white; */
+    width: 100%;
+    border-radius: 7px;
+    margin-top: 1rem;
+    background-color: var(--moradoTenue);
+    height: 2rem;
+    box-shadow: rgb(155, 109, 179) 0 0 15px;
+    color: white;
+}
+button:hover{
+    box-shadow: white 0 0 15px;
+}
+.lista{
+    background-color: rgba(219, 167, 253, 0.466);
+    color: white;
+}
+.lista td,.lista a i, .lista th{
+    color: white;
+}

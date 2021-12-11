@@ -1,0 +1,68 @@
+.contenedorVendedor{
+    width: 80%;
+    min-height: calc(100vh - 180px);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    margin: 2rem auto;
+}
+@media only screen and (max-width: 768px){
+    .contenedorVendedor{
+        width: 95%;
+        grid-template-columns: 1fr;
+    }
+}
+.contenedorVendedor form{
+    width: 100%;
+    padding: 15px;
+}
+.contenedorVendedor .lista{
+    width: 100%;
+    padding: 1rem;
+}
+.titulos{
+    font-weight: bold;
+}
+.sombra{
+    box-shadow: var(--moradoTenue) 0 0 15px;
+    border-radius: 7px;
+}
+label{
+    width: 100%;
+    margin: 1rem 0 0 1rem;
+}
+input{
+    width: 100%;
+    text-align: center;
+    border-radius: 7px 7px 0 0 ;
+    border: none;
+    border-bottom: solid 1px var(--moradoTenue);
+}
+input::placeholder{
+    color: rgba(255, 255, 255, 0.788);
+}
+input:focus{
+    outline: none;
+}
+.contenedorVendedor button{
+    border: none;
+    background-color: var(--moradoTenue);
+    width: 100%;
+    margin-top: 1rem;
+    height: 2.5rem;
+    border-radius: 7px;
+    color: white;
+}
+.sombra a{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    color: var(--moradoTenue);
+    text-decoration: none;
+}
+.contenedorVendedor table form{
+    padding: 0;
+}
+button.noMargin{
+    margin: 0;
+}

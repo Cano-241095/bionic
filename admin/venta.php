@@ -23,6 +23,10 @@
     $inputUno = '';
     $inputDos = '';
     $ordenar = 'codigo';
+    $idVendedor = 0;
+    if (isset($_GET['idVendedor'])) {
+        $idVendedor = $_GET['idVendedor'];
+    }
     if (isset($_POST['palabra'])) {
         $inputUno = $_POST['palabra'];
         $inputDos = $_POST['palabraDos'];
@@ -35,12 +39,21 @@
     ?>
     <div class="contenedor" id="contenedor">
         <div class="miniContenedor">
-                <div class="vendedor sombra">
-                    <label for="">Cliente</label>
-                    <select class="form-select" aria-label="Default select example">
-                        <?php echo '<option value="1"> x </option>'?>
-                    </select>
-                </div>
+            <div class="vendedor sombra">
+                <label for="">Cliente</label>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected value="venta.php?idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo 123456789 ?>">Elegir</option>
+                    <?php
+                    $query = "SELECT * FROM clientes ORDER BY nombre";
+                    $result = mysqli_query($conn, $query);
+                    while ($clientes = mysqli_fetch_array($result)) {
+                    ?>
+                        <option value="venta.php?idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $clientes['id'] ?>"> <?php echo $clientes['nombre'] ?> </option> 
+                        <!-- agregue idcliente idvendedor falta usarlo al dar click en un producto  -->
+                    <?php } ?>
+                    <option value="cliente.php?idVendedor=<?php echo $idVendedor ?>"> Nuevo Cliente </option>
+                </select>
+            </div>
             <div id="busqueda" class="busqueda sombra">
                 <h4 for="">Busqueda</h4>
                 <form action="venta.php" method="POST">
