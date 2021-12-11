@@ -33,23 +33,26 @@
                                 $result = mysqli_query($conn, $query);
                                 while ($row = mysqli_fetch_array($result)) {
                                 ?>
-                                    <li>
-                                        <a href="plantilla.php?id=<?php echo $row['id_categoria'] ?>&titulo=<?php echo $row['nombre_categoria'] ?>">
-                                            <?php echo $row['nombre_categoria'] ?>
-                                        </a>
-                                        <a href="updateSolucionesProtesicas.php?id_categoria=<?php echo $row['id_categoria'] ?>" class="btn btn-light">
-                                            <i class="bi bi-pencil-square iconoModificar"></i>
-                                        </a>
-                                        <a href="eliminarSolucionesProtesicas.php?id_categoria=<?php echo $row['id_categoria'] ?>" class="btn btn-ligth">
-                                            <i class="bi bi-trash-fill iconoEliminar"></i>
-                                        </a>
-                                    </li>
-                                <?php } ?>
-                                
-                            </ul>
-                                    <a class="mas" href="solucionesProtesicas.php">
-                                        +
+                                <li>
+                                    <a
+                                        href="plantilla.php?id=<?php echo $row['id_categoria'] ?>&titulo=<?php echo $row['nombre_categoria'] ?>">
+                                        <?php echo $row['nombre_categoria'] ?>
                                     </a>
+                                    <a href="updateSolucionesProtesicas.php?id_categoria=<?php echo $row['id_categoria'] ?>"
+                                        class="btn btn-light">
+                                        <i class="bi bi-pencil-square iconoModificar"></i>
+                                    </a>
+                                    <a href="eliminarSolucionesProtesicas.php?id_categoria=<?php echo $row['id_categoria'] ?>"
+                                        class="btn btn-ligth">
+                                        <i class="bi bi-trash-fill iconoEliminar"></i>
+                                    </a>
+                                </li>
+                                <?php } ?>
+
+                            </ul>
+                            <a class="mas" href="solucionesProtesicas.php">
+                                +
+                            </a>
                             <div class="contenedorImagen">
                                 <img src="../img/prueba.png" alt="">
                             </div>
@@ -91,6 +94,7 @@
     <?php
     include("footer.php");
     ?>
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

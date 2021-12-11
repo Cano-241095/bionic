@@ -17,7 +17,13 @@
 h1 {
     color: var(--moradoTenue);
     font-weight: bold;
-    font-size: 35px;
+    font-size: 45px; 
+}
+h1 a i{
+    text-decoration: none;
+    color: #7c4a84;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 h2 {
@@ -30,6 +36,10 @@ h6 {
     margin-top: 40px;
 }
 
+li{
+    padding: 0;
+    margin: 0;
+}
 
 .contenedorImagenes {
     text-align: center;
@@ -43,34 +53,33 @@ h6 {
     margin: 0 auto;
     box-shadow: gray 0 0 10px;
 }
-
-.imagenes {
-    width: 100%;
-    margin-top: 30px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 20px;
-    padding-bottom: 50px;
-}
-
 @media only screen and (max-width:768px) {
     .contenedorImagenes img {
         background-color: var(--blancoFondo);
-        width: 100%;
         height: auto;
         margin: 0 auto;
         box-shadow: gray 0 0 10px;
     }
 
     .imagenes {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr ;
 
     }
-}
 
+}
+.imagenes {
+    width: 100%;
+    margin-top: 30px; 
+    margin-bottom: 0px;
+    display: grid;
+    grid-template-columns: 1fr ;
+    gap: 20px;
+    padding-bottom: 0px;
+}
 .imagenes img {
     width: 100%;
     height: auto;
+    /* margin: -45px 0px 0px -100px!important; */
 }
 
 @media only screen and (max-width: 768px) {
@@ -81,6 +90,8 @@ h6 {
 
 table {
     align-items: center;
+    margin-top: 70px;
+    width: 80%;
 }
 
 th, td {
@@ -94,16 +105,16 @@ th {
 td {
     font-weight: bold;
 }
-
 table td input {
     background-color: white;
     width: 70px;
     height: 20px;
     border-radius: 20px;
     box-shadow: gray 0 0 5px;
-
 }
-
+.btn{
+    padding: 0;
+}
 .btnCompra {
     text-align: center;
     margin-top: 0;
@@ -120,7 +131,7 @@ table td input {
 }
 
 .btnCompra button:last-child {
-    margin-top: 10px;
+    margin-top: 40px;
 }
 
 .btnCompra p {
@@ -148,18 +159,19 @@ table td input {
 
 @media only screen and (max-width:760px) {
     .iconosPequenio {
-        display: block;
-    }
-
-    .iconosGrande {
         display: none;
     }
+
 
     .btnIconos {
         display: flex !important;
     }
 }
-
+@media only screen and (max-width:768px) {
+    .btnIconos .iconosGrande {
+        display: none;
+    }
+}
 
 @media only screen and (max-width:768px) {
     .btnIconos {
@@ -167,21 +179,21 @@ table td input {
     }
 }
 
-.contenedorSecundario {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
+.contenedorSecundario table {
+width: 100%;
 }
 
 @media only screen and (max-width:768px) {
     .contenedorSecundario {
         grid-template-columns: 1fr;
+        width: 100%;
 
     }
 }
 
 .visiblePequenio {
     display: none;
-}
+} 
 
 @media only screen and (max-width:768px) {
     .visiblePequenio {
@@ -190,5 +202,91 @@ table td input {
 
     .visibleGrande {
         display: none;
+    }
+}
+
+a.btn-descripcion{
+display: flex;
+width: 50px;
+height: 50px;
+background-color:var(--moradoTenue);
+border-radius: 50px;
+align-items: center;
+justify-content: center;
+color: white;
+text-decoration: none;
+font-size: 1.5rem;
+
+}
+@media only screen and (max-width:768px){
+    a.btn-descripcion{
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+    margin: 0 auto;
+    }
+}
+a.btn-tabla{
+    width: 50px;
+    height: 50px;
+    background-color: var(--moradoTenue);
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    font-size: var(--moradoTenue);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+@media only screen and (max-width:768px){
+    a.btn-tabla{
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+    margin: 0 auto;
+    }
+}
+a.btn-imagenes{
+    width: 50px;
+    height: 50px;
+    background-color: var(--moradoTenue);
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    position: absolute;
+    right: -60px;
+    top: 1rem;
+}
+.imagenes{
+    position: relative;
+
+}
+a.btn-imagenes2{
+    width: 35px;
+    height: 35px;
+    background-color: var(--moradoTenue);
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    margin: 0 auto;
+    position: absolute;
+    right: calc((100% /2)-17px);
+    bottom: 30px;
+}
+@media only screen and (min-width:768px){
+    .noVisibleGrande{
+display: none;
     }
 }

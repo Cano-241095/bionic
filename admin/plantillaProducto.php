@@ -27,7 +27,7 @@
     $result = mysqli_query($conn, $query);
     $rowt = mysqli_fetch_array($result);
     $precio = $rowt['precio'] + 0.00;
-    $idSoluciones = $rowt['id_asociado'];
+    $idSoluciones = $rowt['id_asociado']; 
 
 
     $query2 = "SELECT * FROM soluciones_protesicas where id_categoria = $idSoluciones";
@@ -38,7 +38,9 @@
         <div class="contenedorInformacion">
 
             <div>
-                <h1><a href="plantilla.php?id=<?php echo $idSoluciones?>&titulo=<?php echo $rowt2['nombre_categoria']?>"><i class="bi bi-caret-left-fill"></i></a><?php echo $rowt['nombre_aditamento'] ?></h1>
+                <h1><a
+                        href="plantilla.php?id=<?php echo $idSoluciones?>&titulo=<?php echo $rowt2['nombre_categoria']?>"><i
+                            class="bi bi-caret-left-fill"></i></a><?php echo $rowt['nombre_aditamento'] ?></h1>
                 <h2>$ <?php echo floatval($precio) ?>.00</h2>
                 <h6>DESCRIPCIÓN DEL PRODUCTO:</h6>
             </div>

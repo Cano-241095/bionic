@@ -32,6 +32,7 @@ h3 {
     font-weight: 700;
     font-size: 35px;
     margin-top: 25px;
+    margin-bottom: 10px;
 }
 
 h4 {
@@ -69,8 +70,14 @@ main {
     background-color: white;
     box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.322);
     padding: 40px 10px 40px 10px;
-    margin: 20px auto;
+    margin: 10px auto;
     position: relative;
+}
+@media only screen and (max-width:768px) {
+    .producto {
+        width: 90%;
+        margin: 0 auto;
+    }
 }
 .subContenedorProducto {
     position: relative;
@@ -84,13 +91,6 @@ main {
     color: black;
 }
 
-@media only screen and (max-width:768px) {
-    .producto {
-        width: 90%;
-        margin: 0 auto;
-    }
-}
-
 .subContenedorProducto img {
     width: 150px;
     position: absolute;
@@ -102,6 +102,14 @@ main {
     .producto img {
         right: -19px;
     }
+    .subContenedorProducto img{
+        width: 200px;
+    }
+    .subContenedorProducto h2{
+    font-size: 35px;
+    }
+    
+
 }
 .mas{
     position: absolute;
@@ -114,7 +122,13 @@ main {
     font-size: .8rem;
     border-radius: 10px;
     text-align: center;
+    right: 100px;
     
+}
+@media only screen and (max-width:768px) {
+    .mas {
+    right: 150px;
+    }
 }
 .mas p{
     width: 100%;
