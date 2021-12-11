@@ -36,10 +36,6 @@
     <div class="contenedor" id="contenedor">
         <div class="miniContenedor">
                 <div class="vendedor sombra">
-                    <label for="">Vendedor</label>
-                    <select class="form-select" aria-label="Default select example">
-                        <?php echo '<option value="1"> x </option>'?>
-                    </select>
                     <label for="">Cliente</label>
                     <select class="form-select" aria-label="Default select example">
                         <?php echo '<option value="1"> x </option>'?>
@@ -325,6 +321,7 @@
     include("footer.php");
     ?>
 
+    <script src="../src/jquery-3.1.1.mini.js"></script>
     <script src="scriptVenta.js"></script>
 </body>
 
