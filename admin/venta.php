@@ -36,13 +36,14 @@
     $result = mysqli_query($conn, $query);
     $nota = mysqli_fetch_array($result);
     $folio = $nota['id'] + 1;
+    
     ?>
     <div class="contenedor" id="contenedor">
         <div class="miniContenedor">
             <div class="vendedor sombra">
                 <label for="">Cliente</label>
                 <select class="form-select" aria-label="Default select example">
-                    <option selected value="venta.php?idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo 123456789 ?>">Elegir</option>
+                    <option selected value="venta.php?idVendedor=<?php echo $idVendedor ?>&idCliente=123456789">Seleccionar Cliente</option>
                     <?php
                     $query = "SELECT * FROM clientes ORDER BY nombre";
                     $result = mysqli_query($conn, $query);

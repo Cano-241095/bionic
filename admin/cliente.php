@@ -17,8 +17,8 @@
 </head>
 
 <body>
-    
-<div id="particles-js"></div>
+
+    <div id="particles-js"></div>
     <?php
     include("header.php");
 
@@ -34,31 +34,32 @@
     if (isset($_POST['NomCliente'])) {
         $cliente = $_POST['NomCliente'];
         $idVendedor = $_POST['idVendedor'];
-        $idd ;
+        $idd;
         echo '<label> esta llegando</label>';
         $insert = "INSERT INTO clientes (nombre) VALUES ('$cliente')";
-    
-        if (mysqli_query($conn,$insert)){
+
+        if (mysqli_query($conn, $insert)) {
             $_SESSION['message'] = 'Registro guardado exitosamente';
-            $_SESSION['message_type'] = 'success'; 
-            header('Location:venta.php?idVendedor='.$idVendedor);
-        }else{
-        echo "<label> El registro no se pudo guardar</label>";
-        header('Location:cliente.php?idVendedor='.$idVendedor);
-        // echo "El registro no se pudo guardar". mysqli_error($conn);
-        }        
+            $_SESSION['message_type'] = 'success';
+            header('Location:venta.php?idVendedor=' . $idVendedor . '&idCliente=123456789');
+        } else {
+            echo "<label> El registro no se pudo guardar</label>";
+            header('Location:cliente.php?idVendedor=' . $idVendedor);
+            // echo "El registro no se pudo guardar". mysqli_error($conn);
+        }
     }
     ?>
-    
+
     <div class="contenedorVendedor">
-    <form action="cliente.php" method="POST">
-        <input class="d-none" type="text" name="idVendedor" value="<?php echo $idVendedor ?>">
-        <label for="">Nombre Cliente</label>
-        <input type="text" placeholder="Ejemplo: Genesis Cano Gongora" name="NomCliente">
-        <button type="submit">Guardar</button>
-    </form>
-    
-    <div class="lista sombra">
+            <form action="cliente.php" method="POST">
+                <input class="d-none" type="text" name="idVendedor" value="<?php echo $idVendedor ?>">
+                <label for="">Nombre Cliente</label>
+                <input type="text" placeholder="Ejemplo: Genesis Cano Gongora" name="NomCliente">
+                <button type="submit">Guardar</button>
+            <a href="venta.php?idVendedor=<?php echo $idVendedor ?>&idCliente=123456789" class="volver">Volver</a>
+            </form>
+
+        <div class="lista sombra">
             <div class="containe-fluid">
                 <table class="table caption-top">
                     <thead>
@@ -77,12 +78,12 @@
                             <tr>
                                 <td><?php echo $row['nombre'] ?></td>
                                 <td>
-                                    <a href="editarVendedor.php?id=<?php echo $row['id']?>">
+                                    <a href="editarCliente.php?idVendedor=<?php echo $idVendedor ?>&id=<?php echo $row['id'] ?>">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="vendedor.php?id=<?php echo $row['id']?>">
+                                    <a href="vendedor.php?id=<?php echo $row['id'] ?>">
                                         <i class="bi bi-trash"></i>
                                     </a>
                                 </td>

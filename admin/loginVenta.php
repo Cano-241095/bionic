@@ -48,7 +48,7 @@
             if (password_verify($contrasenia, $contraseñaBD)) {
                 echo '<br>';
                 // echo 'si esta bien';
-                header('Location:venta.php?idVendedor='.$datos['id']);
+                header('Location:venta.php?idVendedor='.$datos['id'].'&idCliente=123456789');
             } else {
                 echo '<br>';
                 echo ' <div class="nota" > Contraseña Incorrecta </div>';
