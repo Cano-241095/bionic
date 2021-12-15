@@ -23,17 +23,24 @@
     }
 }
 .miniContenedor{
-    display: grid;
+    /* display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1rem; */
+    width: 100%;
 }
 .sombra{
     border-radius: 7px;
+    width: 100%;
     box-shadow: rgb(124, 83, 124) 0 0 10px;
 }
-.busqueda, .vendedor{
+.vendedor{
     padding: 1rem;
     width: 100%;
+}
+.busqueda{
+    padding: 1rem;
+    width: 100%;
+    margin-top: 1rem;
 }
 input{
     width: 100%;
@@ -134,10 +141,8 @@ input{
     height: 2rem;
     background-color: var(--moradoTenue);
     padding: .3rem;
+    width: 100%;
     border-radius: 7px;
-}
-.busqueda ul.encabezado{
-    background-color: var(--moradoTenue);
     color: rgb(255, 255, 255);
 }
 .busqueda ul.productos li{
