@@ -25,9 +25,9 @@
     </div>
     <div class="offcanvas-body">
         <div class="nav nav2">
-            <a href="#">PRESUPUESTOS</a>
+            <a href="presupuesto.php">PRESUPUESTOS</a>
             <a href="productos.php">PRODUCTOS</a>
-            <a href="#">VENTAS</a>
+            <a href="venta.php">VENTAS</a>
             <a href="#">CONTACTO</a>
             <div>
             <a href="#"><i class="bi bi-search"></i></a>

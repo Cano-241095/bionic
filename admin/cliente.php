@@ -102,6 +102,8 @@
     <script src="scriptVenta.js"></script>
     <script src="../src/particles.min.js"></script>
     <script src="../src/app.js"></script>
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

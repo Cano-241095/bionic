@@ -66,3 +66,6 @@ input:focus{
 button.noMargin{
     margin: 0;
 }
+.lista{
+    margin-bottom: 150px;
+}

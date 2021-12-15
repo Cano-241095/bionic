@@ -18,20 +18,21 @@
     <div class="offcanvas-header">
         <div class="logo2">
             <a href="home.php">
-            <img src="img/completo.png" alt="">
+                <img src="img/completo.png" alt="">
             </a>
         </div>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
         <div class="nav nav2">
-            <a href="#">COMPAÑIA</a>
+            <a href="presupuesto.php">PRESUPUESTOS</a>
             <a href="productos.php">PRODUCTOS</a>
-            <a href="#">TIENDA</a>
+            <a href="venta.php">VENTAS</a>
             <a href="#">CONTACTO</a>
+
             <div>
-            <a href="#"><i class="bi bi-search"></i></a>
-            <a href="#"><i class="bi bi-cart"></i></a>
+                <a href="#"><i class="bi bi-search"></i></a>
+                <a href="#"><i class="bi bi-cart"></i></a>
             </div>
         </div>
     </div>

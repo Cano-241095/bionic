@@ -56,6 +56,11 @@ header button{
         padding-left: 15px;
         padding-right: 10px;
     }
+    /* #menu{
+        background-color: black;
+        box-shadow: none;
+        width: 15%;
+    } */
 }
 main{
     width: 100%;

@@ -265,11 +265,13 @@
     border-color: #4f4f4f;
     cursor: pointer;
     cursor: hand;
+    border-radius: 7px;
 }
 
 .glass-case ul li.gc-active, .glass-case ul li.gc-active:hover {
-    border-color: #669966;
+    border-color: #6b336d;
     cursor: default;
+    border-radius: 7px;
 }
 
 .glass-case ul li .gc-li-display-container img {
@@ -664,4 +666,12 @@
     filter: alpha(opacity=0); /* Netscape */
     -moz-opacity: 0; /* Safari 1.x */
     -khtml-opacity: 0;
+}
+body > div.contenedor > div.imagenes.visibleGrande > div > div > div.gc-display-area{
+    /* border: solid 1px var(--moradoTenue); */
+    border-radius: 7px;
+    box-shadow: var(--moradoTenue) 0 0 15px;
+}
+body > div.contenedor > div.imagenes.visibleGrande > div > div > div.gc-overlay-area > div.gc-overlay-gcontainer > div > div{
+    width: 70%;
 }

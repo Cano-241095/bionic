@@ -36,12 +36,12 @@ input:focus{
 button{
     border: none;
     /* border: solid 1px white; */
-    width: 100%;
+    width: 30%;
     border-radius: 7px;
     margin-top: 1rem;
-    background-color: var(--moradoTenue);
+    background-color: black;
     height: 2rem;
-    box-shadow: rgb(155, 109, 179) 0 0 15px;
+    /* box-shadow: rgb(155, 109, 179) 0 0 15px; */
     color: white;
 }
 .volver{

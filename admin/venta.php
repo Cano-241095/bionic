@@ -337,6 +337,8 @@
 
     <script src="../src/jquery-3.1.1.mini.js"></script>
     <script src="scriptVenta.js"></script>
+    <script src="bootstrap/js/bootstrap.js.min"></script>
+
 </body>
 
 </html>
