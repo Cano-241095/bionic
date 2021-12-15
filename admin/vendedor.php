@@ -77,7 +77,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="vendedor.php?id=<?php echo $row['id']?>">
+                                    <a href="eliminarVendedor.php?id=<?php echo $row['id']?>">
                                         <i class="bi bi-trash"></i>
                                     </a>
                                 </td>
@@ -93,6 +93,8 @@
     <script src="scriptVenta.js"></script>
     <script src="../src/particles.min.js"></script>
     <script src="../src/app.js"></script>
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

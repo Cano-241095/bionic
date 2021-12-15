@@ -27,7 +27,7 @@
         <div class="nav nav2">
             <a href="presupuesto.php">PRESUPUESTOS</a>
             <a href="productos.php">PRODUCTOS</a>
-            <a href="venta.php">VENTAS</a>
+            <a href="loginVenta.php">VENTAS</a>
             <a href="#">CONTACTO</a>
             <div>
             <a href="#"><i class="bi bi-search"></i></a>
