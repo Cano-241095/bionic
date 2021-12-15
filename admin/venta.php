@@ -24,6 +24,8 @@
     $inputDos = '';
     $ordenar = 'codigo';
     $idVendedor = 0;
+    $clienteElegido = 'Elegir Cliente';
+
     if (isset($_GET['idVendedor'])) {
         $idVendedor = $_GET['idVendedor'];
     }
@@ -32,11 +34,21 @@
         $inputDos = $_POST['palabraDos'];
         $ordenar = 'cantidad';
     }
+
+    if (isset($_GET['idCliente'])) {
+        $idCliente = $_GET['idCliente'];
+        $query = "SELECT * FROM clientes WHERE id = $idCliente";
+        if ($idCliente!=123456789) {
+            $result = mysqli_query($conn, $query);
+            $clientee = mysqli_fetch_array($result);
+            $clienteElegido = $clientee['nombre'];
+        }
+    }
     $query = "SELECT * FROM nota ORDER BY ID DESC LIMIT 1";
     $result = mysqli_query($conn, $query);
     $nota = mysqli_fetch_array($result);
     $folio = $nota['id'] + 1;
-    
+
     ?>
     <div class="contenedor" id="contenedor">
         <div class="miniContenedor">
@@ -49,11 +61,12 @@
                     $result = mysqli_query($conn, $query);
                     while ($clientes = mysqli_fetch_array($result)) {
                     ?>
-                        <option value="venta.php?idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $clientes['id'] ?>"> <?php echo $clientes['nombre'] ?> </option> 
+                        <option value="venta.php?idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $clientes['id'] ?>"> <?php echo $clientes['nombre'] ?> </option>
                         <!-- agregue idcliente idvendedor falta usarlo al dar click en un producto  -->
                     <?php } ?>
                     <option value="cliente.php?idVendedor=<?php echo $idVendedor ?>"> Nuevo Cliente </option>
                 </select>
+                <h3><?php echo $clienteElegido ?></h3>
             </div>
             <div id="busqueda" class="busqueda sombra">
                 <h4 for="">Busqueda</h4>
@@ -91,7 +104,7 @@
                             while ($row = mysqli_fetch_array($result)) {
                         ?>
                                 <li>
-                                    <a href="agregarVenta.php?id=<?php echo $row['codigo'] ?>&folio=<?php echo $folio ?>">
+                                    <a href="agregarVenta.php?id=<?php echo $row['codigo'] ?>&folio=<?php echo $folio ?>&idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $_GET['idCliente'] ?>">
                                         <span><?php echo $row['nombre'] ?></span>
                                         <span><?php echo $row['codigo'] ?></span>
                                         <span><?php echo $row['tamanio'] ?></span>
@@ -106,7 +119,7 @@
                             while ($row = mysqli_fetch_array($result)) {
                             ?>
                                 <li>
-                                    <a href="agregarVenta.php?id=<?php echo $row['codigo'] ?>&folio=<?php echo $folio ?>">
+                                    <a href="agregarVenta.php?id=<?php echo $row['codigo'] ?>&folio=<?php echo $folio ?>&idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $_GET['idCliente'] ?>">
                                         <span><?php echo $row['nombre'] ?></span>
                                         <span><?php echo $row['codigo'] ?></span>
                                         <span><?php echo $row['tamanio'] ?></span>

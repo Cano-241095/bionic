@@ -3,6 +3,8 @@
     if (isset($_GET['id'])){    
         $codigo = $_GET['id'];
         $folio = $_GET['folio'];
+        $idCliente = $_GET['idCliente'];
+        $idVendedor = $_GET['idVendedor'];
         
         $query = "SELECT * FROM tamanio where codigo = '$codigo'";
         $result = mysqli_query($conn, $query);
@@ -23,10 +25,10 @@
         if (mysqli_query($conn, $insert)){
 
             //echo 'SiSePudo'.$folio.$codigo.$producto.$cantidad.$precio ;
-            header('Location:venta.php'); 
+            header('Location:venta.php?idVendedor='.$idVendedor.'&idCliente='.$idCliente); 
         }else{
             //echo 'NoSePudo'.$folio.$codigo.$producto.$cantidad.$precio ;
-            header('Location:venta.php'); 
+            header('Location:venta.php?idVendedor='.$idVendedor.'&idCliente='.$idCliente); 
         }
     }
 ?>
