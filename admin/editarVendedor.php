@@ -55,6 +55,8 @@
         <button type="submit" name="actualizar">Actualizar</button>
     </form>
     <?php include "footer.php" ?>
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

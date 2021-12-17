@@ -54,7 +54,13 @@
             <form action="cliente.php" method="POST">
                 <input class="d-none" type="text" name="idVendedor" value="<?php echo $idVendedor ?>">
                 <label for="">Nombre Cliente</label>
-                <input type="text" placeholder="Ejemplo: Genesis Cano Gongora" name="NomCliente">
+                <input type="text" placeholder="Ejemplo: Genesis" name="NomCliente">
+                <label for="">Apellido Paterno:</label>
+                <input type="text" placeholder="Ejemplo: Cano" name="apellidoP">
+                <label for="">Apellido Materno:</label>
+                <input type="text" placeholder="Ejemplo: Gongora" name="apellidoM">
+                <label for="">Email:</label>
+                <input type="text" placeholder="Ejemplo: genesis@gmail." name="email">
                 <button type="submit">Guardar</button>
             <a href="venta.php?idVendedor=<?php echo $idVendedor ?>&idCliente=123456789" class="volver">Volver</a>
             </form>
@@ -65,6 +71,7 @@
                     <thead>
                         <tr>
                             <th scope="col">Nombre</th>
+                            <th scope="col">Email</th>
                             <th scope="col">Editar</th>
                             <th scope="col">Eliminar</th>
                         </tr>
@@ -76,14 +83,16 @@
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                             <tr>
-                                <td><?php echo $row['nombre'] ?></td>
+                                <td><?php echo $row['nombre'] . " " . $row['apellidoP'] . " " . $row['apellidoM'] ?></td>
+
+                                <td><?php echo $row['email'] ?></td>
                                 <td>
                                     <a href="editarCliente.php?idVendedor=<?php echo $idVendedor ?>&id=<?php echo $row['id'] ?>">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="vendedor.php?id=<?php echo $row['id'] ?>">
+                                    <a href="eliminarCliente.php?id=<?php echo $row['id'] ?>">
                                         <i class="bi bi-trash"></i>
                                     </a>
                                 </td>

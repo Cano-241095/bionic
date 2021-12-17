@@ -105,7 +105,7 @@ background: linear-gradient(180deg, rgb(0, 0, 0) 54%, rgb(0, 0, 0) 55%, rgba(255
     text-decoration: none;
 }
 .nav2 a:hover{
-    color: var(--morado);
+    color: var(--morado)!important;
 }
 .nav2 div{
     display: flex;

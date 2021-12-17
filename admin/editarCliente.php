@@ -26,13 +26,16 @@
     if (isset($_POST['actualizar'])) {
         $id = $_POST['idCliente'];
         $nombre = ucwords(strtolower($_POST['nombre']));
-        
-        
-        $insert = "UPDATE clientes set nombre ='$nombre' WHERE id= $id";
-        if (mysqli_query($conn, $insert)) {
+        $apellidoP = ucwords(strtolower($_POST['apellidoP']));
+        $apellidoM = ucwords(strtolower($_POST['apellidoM']));
+        $email = ucwords(strtolower($_POST['email']));
+
+        $insert = "UPDATE clientes set nombre ='$nombre', apellidoP ='$apellidoP',
+        apellidoM ='$apellidoM', email ='$email' WHERE id= $id";
+                if (mysqli_query($conn, $insert)) {
             $_SESSION['message'] = 'Registro Actualizado';
             $_SESSION['message_type'] = 'success';
-            header('Location:venta.php?idVendedor='.$idVendedor.'&idCliente=123456789');
+            header('Location:cliente.php?idVe='.$idVendedor.'&idCliente=123456789');
         } else {
             echo "El registro no se pudo guardar" . mysqli_error($conn);
         }
@@ -44,6 +47,12 @@
         <input class="d-none" type="text" name="idCliente" value="<?php echo $row['id'] ?>">
         <label for="">Nombre</label>
         <input type="text" name="nombre" value="<?php echo $row['nombre'] ?>">
+        <label for="">Apellido Paterno</label>
+        <input type="text" name="apellidoP" value="<?php echo $row['apellidoP'] ?>">
+        <label for="">Apellido Materno</label>
+        <input type="text" name="apellidoM" value="<?php echo $row['apellidoM'] ?>">
+        <label for="">Email</label>
+        <input type="text" name="email" value="<?php echo $row['email'] ?>">
         <button type="submit" name="actualizar">Actualizar</button>
     </form>
     <?php include "footer.php" ?>
