@@ -341,6 +341,7 @@
         </div>
     </div>
     <div class="botones">
+        <!-- falta cambiar el folio para poder usar otra nota -->
         <button id="btnCrearPdfVenta" class="btnPresupuesto sombra">Descargar Presupuesto</button>
         <a id="volver" href="eliminarVenta.php" class="btnPresupuesto sombra">Regresar</a>
     </div>
