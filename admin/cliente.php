@@ -33,10 +33,13 @@
     // echo $idVendedor;
     if (isset($_POST['NomCliente'])) {
         $cliente = $_POST['NomCliente'];
+        $apellidoP = $_POST['apellidoP'];
+        $apellidoM = $_POST['apellidoM'];
+        $email = $_POST['email'];
         $idVendedor = $_POST['idVendedor'];
         $idd;
         echo '<label> esta llegando</label>';
-        $insert = "INSERT INTO clientes (nombre) VALUES ('$cliente')";
+        $insert = "INSERT INTO clientes (nombre,apellidoP,apellidoM,email) VALUES ('$cliente', '$apellidoP', '$apellidoM', '$email')";
 
         if (mysqli_query($conn, $insert)) {
             $_SESSION['message'] = 'Registro guardado exitosamente';

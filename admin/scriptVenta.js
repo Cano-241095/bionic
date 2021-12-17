@@ -7,15 +7,17 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log('si esta click');
         document.getElementById("btnCrearPdfVenta").style.display = "none";
         document.getElementById("busqueda").style.display = "none";
+        document.getElementById("cliente").style.display = "none";
         document.getElementById("contenedor").style.display = "block";
         document.getElementById("volver").style.display = "flex";
         let $elementoParaConvertir = document.getElementById('contenedor'); // <-- Aquí puedes elegir cualquier elemento del DOM
         document.getElementById("menos").className = "d-none";
         document.getElementById("mas").className = "d-none";
+        let folio = document.getElementById("folio").innerText;
         html2pdf()
             .set({
                 margin: 0,
-                filename: 'Nota.pdf',
+                filename: 'Nota'+folio+'.pdf',
                 image: {
                     type: 'jpeg',
                     quality: 0.7
@@ -34,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .save()
             .catch(err => console.log(err));
     });
+    // esto es para abrir con el select
     $("select").click(function () {
         var open = $(this).data("isopen");
         if (open) {

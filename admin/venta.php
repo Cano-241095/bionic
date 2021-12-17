@@ -52,7 +52,7 @@
     ?>
     <div class="contenedor" id="contenedor">
         <div class="miniContenedor">
-            <div class="vendedor sombra">
+            <div class="vendedor sombra" id="cliente">
                 <label for="">Cliente</label>
                 <select class="form-select" aria-label="Default select example">
                     <option selected value="venta.php?idVendedor=<?php echo $idVendedor ?>&idCliente=123456789">Seleccionar Cliente</option>
@@ -139,7 +139,7 @@
                     <img src="../img/logo.png" alt="">
                 </a>
                 <div class="fecha">
-                    <p class="folio">Folio: <?php echo $folio ?></p>
+                    <p class="folio">Folio: <span id="folio"><?php echo $folio ?></span> </p>
                     <p>Fecha de presupuesto:</p>
                     <p><?php
                         /* Set locale to Dutch */
