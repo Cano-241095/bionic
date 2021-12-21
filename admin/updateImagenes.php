@@ -61,7 +61,7 @@
             }
         ?>
     <div class="row justify-content-center">
-        <div class="col-6">
+        <div class="col-12 col-md-6">
             <div class="card mt-3">
                 <div class="card-body">
                     <form name="form" action="updateImagenes.php?id=<?php echo $_GET['id'];?>"
@@ -90,16 +90,16 @@
                     </form>
                 </div>
             </div>
-        </div>
-        </div>
-        <?php
+        </div>  <?php
     include("footer.php");
     ?>
+        </div>
+      
     </div>
 
 
 
-    <script src="bootstrap/js/bootstrap.js.min"></script>
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

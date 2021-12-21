@@ -70,7 +70,7 @@ $nombre = $_GET['nombre'];
                 </div>
             </div>
 
-            <div class="col-12 col-md-8 mt-3">
+            <div class="col-12 col-md-8 mt-3 cardAbajo">
                 <div class="card border border-dark">
                     <table>
                         <thead class="bg-dark">
@@ -111,7 +111,7 @@ $nombre = $_GET['nombre'];
         </div>
     </div>
 
-    <script src="bootstrap/js/bootstrap.js.min"></script>   
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
     <div>
     <?php
     include("footer.php");

@@ -143,8 +143,8 @@
 
     </div>
 
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <script src="bootstrap/js/bootstrap.bundle.js"></script>
     <?php
     include("footer.php");
     ?>

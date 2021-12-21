@@ -9,12 +9,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/tamanio.css">
     <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/style.css">
+
     <title>Implants Bionic</title>
 
 
 </head>
 
 <body>
+<?php
+    include("header.php");
+    ?>
     <div class="container-fluid">
         <div class="row">
             <div class="col text-center fondo">
@@ -60,7 +65,7 @@
         }
         ?>
         <div class="row justify-content-center mt-3">
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                 <div class="card">
                     <div class="card-body">
                         <form name="form" action="updateTamanio.php?codigo=<?php echo $_GET['codigo']; ?>" onsubmit="return validarform()" method="POST">
@@ -89,10 +94,10 @@
                 </div>
             </div>
         </div>
-
-
-    </div>
-    <script src="bootstrap/js/bootstrap.js.min"></script>
+    </div> <?php
+    include("footer.php");
+    ?>
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

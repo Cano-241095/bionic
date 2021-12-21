@@ -41,13 +41,13 @@
     <div class="contenedorVendedor">
         <form action="vendedor.php" class="sombra" method="POST">
             <label for="">Nombre: </label>
-            <input type="text" placeholder="Ejemplo: Carlos" name="nombre" autocomplete="off">
+            <input type="text" placeholder="Ejemplo: Carlos" name="nombre" autocomplete="off" required>
             <label for="">Apellido Paterno: </label>
-            <input type="text" placeholder="Ejemplo: Reyes" name="apellidoP" autocomplete="off">
+            <input type="text" placeholder="Ejemplo: Reyes" name="apellidoP" autocomplete="off" required>
             <label for="">Apellido Materno: </label>
-            <input type="text" placeholder="Ejemplo: Gongora" name="apellidoM" autocomplete="off">
+            <input type="text" placeholder="Ejemplo: Gongora" name="apellidoM" autocomplete="off" required>
             <label for="">Contraseña: </label>
-            <input type="password" placeholder="Ejemplo: d54as4.-87" name="contrasenia" autocomplete="off">
+            <input type="password" placeholder="Ejemplo: d54as4.-87" name="contrasenia" autocomplete="off" required>
             <button type="submit" name="crear">Guardar</button>
         </form>
         <div class="lista sombra">
