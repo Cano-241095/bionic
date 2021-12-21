@@ -28,8 +28,8 @@
         
     </header>
     <div class="container-fluid">
-        <div class="row justify-content-center fondo">
-            <div class="col text-center">
+        <div class="row">
+            <div class="col text-center fondo">
                 <h1>Aditamentos</h1>
             </div>
         </div>
@@ -88,7 +88,7 @@
 
 
             <div class="col-12 col-md-7 mt-3">
-                <div class="card border border-dark">
+                <div class="card border border-dark cardAbajo">
 
                     <table>
                         <thead class="bg-dark">

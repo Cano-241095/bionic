@@ -52,45 +52,91 @@
         }
     }
     ?>
-
-    <div class="contenedorVendedor">
+    <div class="container-fluid">
+        <div class="contenedorVendedor">
             <form action="cliente.php" method="POST">
                 <input class="d-none" type="text" name="idVendedor" value="<?php echo $idVendedor ?>">
                 <label for="">Nombre Cliente</label>
-                <input type="text" placeholder="Ejemplo: Genesis" name="NomCliente">
+                <input type="text" placeholder="Ejemplo: Genesis" name="NomCliente" required>
                 <label for="">Apellido Paterno:</label>
-                <input type="text" placeholder="Ejemplo: Cano" name="apellidoP">
+                <input type="text" placeholder="Ejemplo: Cano" name="apellidoP" required>
                 <label for="">Apellido Materno:</label>
-                <input type="text" placeholder="Ejemplo: Gongora" name="apellidoM">
+                <input type="text" placeholder="Ejemplo: Gongora" name="apellidoM" required>
                 <label for="">Email:</label>
-                <input type="text" placeholder="Ejemplo: genesis@gmail." name="email">
+                <input type="email" placeholder="Ejemplo: genesis@gmail." name="email" required>
                 <button type="submit">Guardar</button>
-            <a href="venta.php?idVendedor=<?php echo $idVendedor ?>&idCliente=123456789" class="volver">Volver</a>
+                <a href="venta.php?idVendedor=<?php echo $idVendedor ?>&idCliente=123456789" class="volver">Volver</a>
             </form>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col lista sombra">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nombre</th>
+                                        <th class= "enPequeNoSeVe" scope="col">Email</th>
+                                        <th scope="col">Editar</th>
+                                        <th scope="col">Eliminar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                        $query = "SELECT * FROM clientes ORDER BY nombre";
+                        $result = mysqli_query($conn, $query);
+                        while ($row = mysqli_fetch_array($result)) {
+                        ?>
 
-        <div class="lista sombra">
-            <div class="containe-fluid">
-                <table class="table caption-top">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Editar</th>
-                            <th scope="col">Eliminar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
+                                    <tr>
+                                        <th scope="row">
+                                            <?php echo $row['nombre'] . " " . $row['apellidoP'] . " " . $row['apellidoM'] ?>
+                                        </th>
+                                        <td class= "enPequeNoSeVe"><?php echo $row['email'] ?></td>
+                                        <td><a
+                                                href="editarCliente.php?idVendedor=<?php echo $idVendedor ?>&id=<?php echo $row['id'] ?>">
+                                                <i class="bi bi-pencil-square"></i>
+                                            </a></td>
+                                        <td><a href="eliminarCliente.php?id=<?php echo $row['id'] ?>">
+                                                <i class="bi bi-trash"></i>
+                                            </a></td>
+                                    </tr>
+
+                                    <?php } ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- <div class="lista sombra">
+                <div class="container-fluid">
+                    <table class="table caption-top">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Editar</th>
+                                <th scope="col">Eliminar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
                         $query = "SELECT * FROM clientes ORDER BY nombre";
                         $result = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                             <tr>
-                                <td><?php echo $row['nombre'] . " " . $row['apellidoP'] . " " . $row['apellidoM'] ?></td>
+                                <td><?php echo $row['nombre'] . " " . $row['apellidoP'] . " " . $row['apellidoM'] ?>
+                                </td>
 
                                 <td><?php echo $row['email'] ?></td>
                                 <td>
-                                    <a href="editarCliente.php?idVendedor=<?php echo $idVendedor ?>&id=<?php echo $row['id'] ?>">
+                                    <a
+                                        href="editarCliente.php?idVendedor=<?php echo $idVendedor ?>&id=<?php echo $row['id'] ?>">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
                                 </td>
@@ -100,12 +146,17 @@
                                     </a>
                                 </td>
                             </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
-            </div>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div> -->
         </div>
+        <?php
+    include("footer.php");
+    ?>
     </div>
+
 
     <?php
     include("footer.php");

@@ -13,6 +13,11 @@ form{
         width: 95%;
     }
 }
+@media only screen and (max-width: 768px){
+    .enPequeNoSeVe{
+        display: none;
+    }
+}
 label{
     width: 100%;
     padding-left: 1rem;

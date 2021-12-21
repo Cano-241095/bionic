@@ -16,6 +16,7 @@ h1{
 .fondo{
     background: var(--moradoFooter);
 }
-table{
-    margin-bottom: 200px;
+
+.cardAbajo{
+    margin-bottom: 120px;
 }

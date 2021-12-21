@@ -46,13 +46,13 @@
         <label class="d-none" for="">id</label>
         <input class="d-none" type="text" name="idCliente" value="<?php echo $row['id'] ?>">
         <label for="">Nombre</label>
-        <input type="text" name="nombre" value="<?php echo $row['nombre'] ?>">
+        <input type="text" name="nombre" value="<?php echo $row['nombre'] ?>" require>
         <label for="">Apellido Paterno</label>
-        <input type="text" name="apellidoP" value="<?php echo $row['apellidoP'] ?>">
+        <input type="text" name="apellidoP" value="<?php echo $row['apellidoP'] ?>" required>
         <label for="">Apellido Materno</label>
-        <input type="text" name="apellidoM" value="<?php echo $row['apellidoM'] ?>">
+        <input type="text" name="apellidoM" value="<?php echo $row['apellidoM'] ?>" required>
         <label for="">Email</label>
-        <input type="text" name="email" value="<?php echo $row['email'] ?>">
+        <input type="email" name="email" value="<?php echo $row['email'] ?>" required>
         <button type="submit" name="actualizar">Actualizar</button>
     </form>
     <?php include "footer.php" ?>

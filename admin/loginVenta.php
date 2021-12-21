@@ -26,9 +26,9 @@
                 <img src="../img/logo.jpg" alt="">
                 <form action="loginVenta.php" method="POST">
                     <label for="">Usuario</label>
-                    <input type="text" name="usuario" placeholder="Ejemplo: Cano">
+                    <input type="text" name="usuario" placeholder="Ejemplo: Cano" required>
                     <label for="">Contraseña</label>
-                    <input type="password" name="contrasenia" id="" placeholder="*******">
+                    <input type="password" name="contrasenia" id="" placeholder="*******" required>
                     <button type="submit" name="checar">Iniciar Sesión</button>
                 </form>
             </div>

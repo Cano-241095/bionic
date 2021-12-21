@@ -86,12 +86,13 @@
             </div>
 
         </div>
+        <script src="../bootstrap/js/bootstrap.js.min"></script>
 
     </div>
 
 
 
-    <script src="bootstrap/js/bootstrap.js.min"></script>
+    <script src="../bootstrap/js/bootstrap.js.min"></script>
     <?php
     include("footer.php");
     ?>

@@ -103,7 +103,7 @@
     ?>
         </div>
 
-        <script src="bootstrap/js/bootstrap.js.min"></script>
+        <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
        
 </body>
 

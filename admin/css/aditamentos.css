@@ -7,7 +7,7 @@ h1 {
     color: var(--morado);
     text-transform: uppercase;
     font-weight: 2rem;
-    box-shadow: var(--moradoTenue) -5px 5px  5px ;
+    /* box-shadow: var(--moradoTenue) -5px 5px  5px ; */
 }
 
 .iconoEliminar {
@@ -21,4 +21,7 @@ h1 {
 
 .imgAditamento {
     width: 100px;
+}
+.card.cardAbajo{
+    margin-bottom: 150px;
 }

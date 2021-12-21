@@ -56,7 +56,7 @@
 
 
             <div class="col-12 col-md-8 mt-3">
-                <div class="card border border-dark">
+                <div class="card border border-dark cardAbajo">
                     <table>
                         <thead class="bg-dark">
                             <tr>
@@ -92,9 +92,9 @@
             <?php
     include("footer.php");
     ?>
-        </div>
-        <script src="bootstrap/js/bootstrap.js.min"></script>
-       
+        </div> 
+<script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

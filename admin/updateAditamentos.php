@@ -177,14 +177,14 @@
                         </form>
                     </div>
                 </div>
-            </div>
-        </div>
-        <?php
+            </div>  
+            <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+
+            <?php
     include("footer.php");
     ?>
-
+        </div>
     </div>
-    <script src="bootstrap/js/bootstrap.js.min"></script>
 </body>
 
 </html>
