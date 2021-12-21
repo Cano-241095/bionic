@@ -1,0 +1,34 @@
+<?php
+include("conexion.php");
+if (isset($_GET['folio'])) {
+    $folio = $_GET['folio'];
+    $idCliente = $_GET['idCliente'];
+    $idVendedor = $_GET['idVendedor'];
+    if ($idCliente != 123456789) {
+        $query = "SELECT * FROM venta where folio = $folio order by producto";
+        $result = mysqli_query($conn, $query);
+        $total = 0;
+        setlocale(LC_ALL, 'es_mx.UTF-8');
+        $fecha = strftime("%Y-%m-%d");
+        while ($row = mysqli_fetch_array($result)) { //checa todos los productos en la venta
+            $total += $row['precio'] * $row['cantidad'];
+            $codigo = $row['codigo'];
+            $cantidadVendida = $row['cantidad'];
+
+            $query2 = "SELECT * FROM tamanio where codigo = '$codigo'";
+            $result2 = mysqli_query($conn, $query2);
+            $row2 = mysqli_fetch_array($result2);
+
+            $cantidadStock = $row2['cantidad'];
+            $cantidad = $cantidadStock - $cantidadVendida;
+            $update = "UPDATE tamanio set cantidad = '$cantidad' WHERE codigo= '$codigo'";
+            mysqli_query($conn, $update);
+        }
+        if ($total>0) {
+            $guardarNota = "INSERT INTO nota (id,fecha,id_vendedor,total,id_cliente)
+            VALUES ($folio,'$fecha',$idVendedor,$total,$idCliente)";
+            mysqli_query($conn, $guardarNota);
+        }
+    }
+    header('Location:venta.php?idVendedor=' . $idVendedor . "&idCliente=123456789");
+}

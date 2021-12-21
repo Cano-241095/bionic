@@ -34,22 +34,21 @@
         $inputDos = $_POST['palabraDos'];
         $ordenar = 'cantidad';
     }
-
     if (isset($_GET['idCliente'])) {
         $idCliente = $_GET['idCliente'];
         $query = "SELECT * FROM clientes WHERE id = $idCliente";
         if ($idCliente!=123456789) {
             $result = mysqli_query($conn, $query);
             $clientee = mysqli_fetch_array($result);
-            $clienteElegido = $clientee['nombre'];
+            $clienteElegido = $clientee['nombre'].' '.$clientee['apellidoP'].' '.$clientee['apellidoM'];
         }
     }
     $query = "SELECT * FROM nota ORDER BY ID DESC LIMIT 1";
     $result = mysqli_query($conn, $query);
     $nota = mysqli_fetch_array($result);
-    $folio = $nota['id'] + 1;
-
+    $folio = $nota['id']+1;
     ?>
+    
     <div class="contenedor" id="contenedor">
         <div class="miniContenedor">
             <div class="vendedor sombra" id="cliente">
@@ -61,16 +60,16 @@
                     $result = mysqli_query($conn, $query);
                     while ($clientes = mysqli_fetch_array($result)) {
                     ?>
-                        <option value="venta.php?idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $clientes['id'] ?>"> <?php echo $clientes['nombre'] ?> </option>
+                        <option value="venta.php?idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $clientes['id'] ?>"> <?php echo $clientes['nombre']." ".$clientes['apellidoP']." ".$clientes['apellidoM'] ?> </option>
                         <!-- agregue idcliente idvendedor falta usarlo al dar click en un producto  -->
                     <?php } ?>
                     <option value="cliente.php?idVendedor=<?php echo $idVendedor ?>"> Nuevo Cliente </option>
                 </select>
-                <h3><?php echo $clienteElegido ?></h3>
+                <h3><?php echo $clienteElegido ?> <span id="idCliente" class="d-none"><?php echo $idCliente ?></span> <span id="idVendedor" class="d-none"><?php echo $idVendedor ?></span></h3>
             </div>
             <div id="busqueda" class="busqueda sombra">
                 <h4 for="">Busqueda</h4>
-                <form action="venta.php" method="POST">
+                <form action="venta.php?idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $idCliente ?>" method="POST">
                     <div>
                         <label for="">Nombre</label>
                         <input type="text" value="<?php echo $inputUno ?>" name="palabra" autocomplete="off" placeholder="Ejemplo: Implante">
@@ -92,7 +91,6 @@
                     </ul>
                     <ul class="productos">
                 </form>
-
                 <div>
                     <ul class="productos">
                         <?php
@@ -107,7 +105,7 @@
                                     <a href="agregarVenta.php?id=<?php echo $row['codigo'] ?>&folio=<?php echo $folio ?>&idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $_GET['idCliente'] ?>">
                                         <span><?php echo $row['nombre'] ?></span>
                                         <span><?php echo $row['codigo'] ?></span>
-                                        <span><?php echo $row['tamanio'] ?></span>
+                                        <span class="tamaño"><?php echo $row['tamanio'] ?> mm</span>
                                         <span><?php echo $row['cantidad'] ?></span>
                                     </a>
                                 </li>
@@ -122,7 +120,7 @@
                                     <a href="agregarVenta.php?id=<?php echo $row['codigo'] ?>&folio=<?php echo $folio ?>&idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $_GET['idCliente'] ?>">
                                         <span><?php echo $row['nombre'] ?></span>
                                         <span><?php echo $row['codigo'] ?></span>
-                                        <span><?php echo $row['tamanio'] ?></span>
+                                        <span class="tamaño"><?php echo $row['tamanio'] ?> mm</span>
                                         <span><?php echo $row['cantidad'] ?></span>
                                     </a>
                                 </li>
@@ -140,12 +138,11 @@
                 </a>
                 <div class="fecha">
                     <p class="folio">Folio: <span id="folio"><?php echo $folio ?></span> </p>
-                    <p>Fecha de presupuesto:</p>
+                    <p>Fecha de venta:</p>
                     <p><?php
                         /* Set locale to Dutch */
                         setlocale(LC_ALL, 'es_mx.UTF-8');
-
-                        echo strftime("%A %d %B %Y",);
+                        echo strftime("%A %d %B %Y");
                         ?></p>
                 </div>
             </div>
@@ -186,7 +183,7 @@
                             $result = mysqli_query($conn, $query);
                             while ($row = mysqli_fetch_array($result)) {
                             ?>
-                                <p><a class="gato" href="editarCantidadVenta.php?codigo=<?php echo $row['codigo'] ?>&numero=-1"><i class="bi bi-dash-circle-fill"></i></a></p>
+                                <p><a class="gato" href="editarCantidadVenta.php?codigo=<?php echo $row['codigo'] ?>&numero=-1&idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $idCliente ?>&folio=<?php echo $folio ?>"><i class="bi bi-dash-circle-fill"></i></a></p>
                             <?php } ?>
                         </div>
                     </div>
@@ -206,7 +203,7 @@
                             $result = mysqli_query($conn, $query);
                             while ($row = mysqli_fetch_array($result)) {
                             ?>
-                                <p><a class="gato" href="editarCantidadVenta.php?codigo=<?php echo $row['codigo'] ?>&numero=1"><i class="bi bi-plus-circle-fill"></i></a></p>
+                                <p><a class="gato" href="editarCantidadVenta.php?codigo=<?php echo $row['codigo'] ?>&numero=1&idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $idCliente ?>&folio=<?php echo $folio ?>"><i class="bi bi-plus-circle-fill"></i></a></p>
                             <?php } ?>
                         </div>
                     </div>
@@ -281,7 +278,7 @@
                                 $total += $row['precio'] * $row['cantidad'];
                             ?>
                                 <p>
-                                    <a class="gato" href="editarCantidadVenta.php?codigo=<?php echo $row['codigo'] ?>&numero=-1"><i class="bi bi-dash-circle-fill"></i></a>
+                                    <a class="gato" href="editarCantidadVenta.php?codigo=<?php echo $row['codigo'] ?>&numero=-1&idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $idCliente ?>&folio=<?php echo $folio ?>"><i class="bi bi-dash-circle-fill"></i></a>
                                 </p>
                             <?php } ?>
                         </div>
@@ -309,7 +306,7 @@
                                 $total += $row['precio'] * $row['cantidad'];
                             ?>
                                 <p>
-                                    <a class="gato" href="editarCantidadVenta.php?codigo=<?php echo $row['codigo'] ?>&numero=1"><i class="bi bi-plus-circle-fill"></i></a>
+                                    <a class="gato" href="editarCantidadVenta.php?codigo=<?php echo $row['codigo'] ?>&numero=1&idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $idCliente ?>&folio=<?php echo $folio ?>"><i class="bi bi-plus-circle-fill"></i></a>
                                 </p>
                             <?php } ?>
                         </div>
@@ -342,16 +339,17 @@
     </div>
     <div class="botones">
         <!-- falta cambiar el folio para poder usar otra nota -->
-        <button id="btnCrearPdfVenta" class="btnPresupuesto sombra">Descargar Presupuesto</button>
-        <a id="volver" href="eliminarVenta.php" class="btnPresupuesto sombra">Regresar</a>
+        <button id="btnCrearPdfVenta" class="btnPresupuesto sombra">Finalizar Compra
+        </button>
+        <!-- <a href="consulta.php" class="btnPresupuesto sombra">Regresar</a> -->
     </div>
     <?php
     include("footer.php");
     ?>
 
-    <script src="../src/jquery-3.1.1.mini.js"></script>
     <script src="scriptVenta.js"></script>
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../src/jquery-3.1.1.mini.js"></script>
 
 
 </body>

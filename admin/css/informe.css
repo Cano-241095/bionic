@@ -1,0 +1,47 @@
+
+.contenedor{
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 2rem auto 0 auto;
+    /* padding-bottom: 90px; */
+    text-transform: capitalize;
+}
+@media only screen and (max-width: 768px){
+    .contenedor{
+        width: 100%;
+    }
+}
+.miniContenedor{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+.sombra{
+    box-shadow: var(--moradoTenue) 0 0 15px;
+    border-radius: 7px;
+    padding: .5rem;
+}
+.cliente{
+    width: 30%;
+}
+.informe{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* text-align: center; */
+}
+.centrar{
+    text-align: center;
+}
+.informe:first-child span{
+    font-weight: bold;
+    text-align: center;
+    padding: 0;
+}
+.informe span{
+    display: inline-block;
+    width: 14%;
+    /* background-color: tomato; */
+}

@@ -9,15 +9,17 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("busqueda").style.display = "none";
         document.getElementById("cliente").style.display = "none";
         document.getElementById("contenedor").style.display = "block";
-        document.getElementById("volver").style.display = "flex";
         let $elementoParaConvertir = document.getElementById('contenedor'); // <-- Aquí puedes elegir cualquier elemento del DOM
         document.getElementById("menos").className = "d-none";
         document.getElementById("mas").className = "d-none";
         let folio = document.getElementById("folio").innerText;
+        let idCliente = document.getElementById("idCliente").innerText;
+        let idVendedor = document.getElementById("idVendedor").innerText;
+        console.log('ya nbo esta');
         html2pdf()
             .set({
                 margin: 0,
-                filename: 'Nota'+folio+'.pdf',
+                filename: 'Nota_'+folio+'.pdf',
                 image: {
                     type: 'jpeg',
                     quality: 0.7
@@ -35,7 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
             .from($elementoParaConvertir)
             .save()
             .catch(err => console.log(err));
+            console.log('valio pispiote');
+            let ir ="compra.php?idVendedor="+idVendedor+"&folio="+folio+"&idCliente="+idCliente;
+            
+        setTimeout("location.href='"+ir+"'",1500);
     });
+    
     // esto es para abrir con el select
     $("select").click(function () {
         var open = $(this).data("isopen");

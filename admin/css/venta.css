@@ -1,5 +1,8 @@
+.accordion{
+    padding-bottom: 90px;
+}
 .contenedor{
-    width: 80vw;
+    width: 80%;
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 1rem;
@@ -8,7 +11,6 @@
     text-transform: capitalize;
 }
 .botones{
-    padding-bottom: 90px;
     margin-top: 1rem;
 }
 @media only screen and (max-width: 768px){
@@ -64,11 +66,14 @@ input{
         width: 78%;
     }
 }
+.tamaño{
+    text-transform: none;
+}
 .busqueda input::placeholder{
     text-align: center;
 }
 #volver{
-    display: none;
+    margin-top: 1rem;
 }
 .busqueda button{
     margin-top: .5rem;
@@ -92,7 +97,10 @@ input{
     align-items: center;
     justify-content: center;
 }
-@media only screen and (min-width: 768px){
+.btnPresupuesto:last-child{
+    margin-top: 1rem;
+}
+@media only screen and (min-width: 1000px){
     .btnPresupuesto{
         width: 80%;
     }
