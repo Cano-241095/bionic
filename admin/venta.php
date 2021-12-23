@@ -25,6 +25,7 @@
     $ordenar = 'codigo';
     $idVendedor = 0;
     $clienteElegido = 'Elegir Cliente';
+    $iva = .16;
 
     if (isset($_GET['idVendedor'])) {
         $idVendedor = $_GET['idVendedor'];
@@ -37,18 +38,46 @@
     if (isset($_GET['idCliente'])) {
         $idCliente = $_GET['idCliente'];
         $query = "SELECT * FROM clientes WHERE id = $idCliente";
-        if ($idCliente!=123456789) {
+        if ($idCliente != 123456789) {
             $result = mysqli_query($conn, $query);
             $clientee = mysqli_fetch_array($result);
-            $clienteElegido = $clientee['nombre'].' '.$clientee['apellidoP'].' '.$clientee['apellidoM'];
+            $clienteElegido = $clientee['nombre'] . ' ' . $clientee['apellidoP'] . ' ' . $clientee['apellidoM'];
         }
     }
     $query = "SELECT * FROM nota ORDER BY ID DESC LIMIT 1";
     $result = mysqli_query($conn, $query);
     $nota = mysqli_fetch_array($result);
-    $folio = $nota['id']+1;
+    $folio = $nota['id'] + 1;
+
+    if (isset($_GET['envio'])) {
+        $costoEnvio = $_GET['envio'];
+        $codigo = $_GET['codigo'];
+
+        $queryV = "SELECT * FROM venta where codigo = '$codigo' and folio = $folio";
+        $resultV = mysqli_query($conn, $queryV);
+        $rowV = mysqli_fetch_array($resultV);
+        
+        if ($rowV['codigo']) {
+            // echo 'ya existe';
+            header('Location:venta.php?idVendedor='.$idVendedor.'&idCliente='.$idCliente);
+        }else{
+            // echo 'no existe';
+            $cantidad = 1;
+            $producto = 'Envio';
+            
+            $insert = "INSERT INTO venta (folio,codigo,producto,cantidad,precio)
+            VALUES ('$folio','$codigo','$producto',$cantidad,$costoEnvio)";
+            if (mysqli_query($conn, $insert)){
+                //echo 'SiSePudo'.$folio.$codigo.$producto.$cantidad.$precio ;
+                header('Location:venta.php?idVendedor='.$idVendedor.'&idCliente='.$idCliente); 
+            }else{
+                //echo 'NoSePudo'.$folio.$codigo.$producto.$cantidad.$precio ;
+                header('Location:venta.php?idVendedor='.$idVendedor.'&idCliente='.$idCliente); 
+            }
+        }
+    }
     ?>
-    
+
     <div class="contenedor" id="contenedor">
         <div class="miniContenedor">
             <div class="vendedor sombra" id="cliente">
@@ -60,13 +89,23 @@
                     $result = mysqli_query($conn, $query);
                     while ($clientes = mysqli_fetch_array($result)) {
                     ?>
-                        <option value="venta.php?idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $clientes['id'] ?>"> <?php echo $clientes['nombre']." ".$clientes['apellidoP']." ".$clientes['apellidoM'] ?> </option>
+                        <option value="venta.php?idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $clientes['id'] ?>"> <?php echo $clientes['nombre'] . " " . $clientes['apellidoP'] . " " . $clientes['apellidoM'] ?> </option>
                         <!-- agregue idcliente idvendedor falta usarlo al dar click en un producto  -->
                     <?php } ?>
                     <option value="cliente.php?idVendedor=<?php echo $idVendedor ?>"> Nuevo Cliente </option>
                 </select>
-                <h3><?php echo $clienteElegido ?> <span id="idCliente" class="d-none"><?php echo $idCliente ?></span> <span id="idVendedor" class="d-none"><?php echo $idVendedor ?></span></h3>
+                <h3 id="nombreCliente" class=""><?php echo $clienteElegido ?> <span id="idCliente" class="d-none"><?php echo $idCliente ?></span> <span id="idVendedor" class="d-none"><?php echo $idVendedor ?></span></h3>
             </div>
+            <form class="sombra" action="venta.php" method="$_GET">
+                <div>
+                    <input value="<?php echo $idVendedor ?>" type="text" class="d-none" name="idVendedor">
+                    <input value="<?php echo $idCliente ?>" type="text" class="d-none" name="idCliente">
+                    <input value="ENVIO24" type="text" class="d-none" name="codigo">
+                    <label for="">Costo de envio</label>
+                    <input name="envio" type="number" name="" id="">
+                </div>
+                <button class="envio">Guardar costo de envio</button>
+            </form>
             <div id="busqueda" class="busqueda sombra">
                 <h4 for="">Busqueda</h4>
                 <form action="venta.php?idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $idCliente ?>" method="POST">
@@ -130,7 +169,6 @@
                 </div>
             </div>
         </div>
-
         <div id="imprimir" class="nota sombra">
             <div class="header">
                 <a href="https://implants-bionic.com/">
@@ -152,7 +190,7 @@
                     <div class="col-3">Codigo</div>
                     <div class="col-3">P.Unit.</div>
                     <div class="col-3">Pzas.</div>
-                    <div class="col-3">Total</div>
+                    <div class="col-3">$</div>
                 </div>
 
                 <div class="row border-bottom">
@@ -173,7 +211,7 @@
                         $result = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
-                            <p><?php echo $row['precio'] ?></p>
+                            <p>$<?php echo $row['precio'] ?></p>
                         <?php } ?>
                     </div>
                     <div class="col-1 masmenos">
@@ -220,8 +258,20 @@
                 <div class="row border-bottom rowTotal">
                     <div class="col-3"> </div>
                     <div class="col-3"> </div>
-                    <div class="col-3 total"> Total:</div>
+                    <div class="col-3 total"> Subtotal:</div>
                     <div class="col-3 total" id="totalFinal">$<?php echo $total ?></div>
+                </div>
+                <div class="row border-bottom rowTotal">
+                    <div class="col-3"> </div>
+                    <div class="col-3"> </div>
+                    <div class="col-3 total"> iva:</div>
+                    <div class="col-3 total" id="totalFinal">$<?php echo $total*$iva ?></div>
+                </div>
+                <div class="row border-bottom rowTotal">
+                    <div class="col-3"> </div>
+                    <div class="col-3"> </div>
+                    <div class="col-3 total"> Total:</div>
+                    <div class="col-3 total" id="totalFinal">$<?php echo $total+$total*$iva ?></div>
                 </div>
             </div>
 
@@ -230,8 +280,8 @@
                     <div class="col-2">Codigo</div>
                     <div class="col-5">Producto</div>
                     <div class="col-1">P.Unit.</div>
-                    <div class="col-3">Pzas.</div>
-                    <div class="col-1">Total</div>
+                    <div class="col-2 text-center">Pzas.</div>
+                    <div class="col-2 text-center">$</div>
                 </div>
 
                 <div class="row border-bottom">
@@ -239,9 +289,7 @@
                         <?php
                         $query = "SELECT * FROM venta where folio = $folio order by producto";
                         $result = mysqli_query($conn, $query);
-                        $total = 0;
                         while ($row = mysqli_fetch_array($result)) {
-                            $total += $row['precio'] * $row['cantidad'];
                         ?>
                             <p><?php echo $row['codigo'] ?></p>
                         <?php } ?>
@@ -250,14 +298,12 @@
                         <?php
                         $query = "SELECT * FROM venta where folio = $folio order by producto";
                         $result = mysqli_query($conn, $query);
-                        $total = 0;
                         while ($row = mysqli_fetch_array($result)) {
-                            $total += $row['precio'] * $row['cantidad'];
                         ?>
                             <p><?php echo $row['producto'] ?></p>
                         <?php } ?>
                     </div>
-                    <div class="col-1">
+                    <div class="col-1 text-center">
                         <?php
                         $query = "SELECT * FROM venta where folio = $folio order by producto";
                         $result = mysqli_query($conn, $query);
@@ -265,17 +311,15 @@
                         while ($row = mysqli_fetch_array($result)) {
                             $total += $row['precio'] * $row['cantidad'];
                         ?>
-                            <p class="negrillas"><?php echo $row['precio'] ?></p>
+                            <p class="negrillas">$<?php echo $row['precio'] ?></p>
                         <?php } ?>
                     </div>
-                    <div class="col-1 masmenos">
+                    <div class="col-1 masmenos text-center">
                         <div id="menos">
                             <?php
                             $query = "SELECT * FROM venta where folio = $folio order by producto";
                             $result = mysqli_query($conn, $query);
-                            $total = 0;
                             while ($row = mysqli_fetch_array($result)) {
-                                $total += $row['precio'] * $row['cantidad'];
                             ?>
                                 <p>
                                     <a class="gato" href="editarCantidadVenta.php?codigo=<?php echo $row['codigo'] ?>&numero=-1&idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $idCliente ?>&folio=<?php echo $folio ?>"><i class="bi bi-dash-circle-fill"></i></a>
@@ -287,9 +331,7 @@
                         <?php
                         $query = "SELECT * FROM venta where folio = $folio order by producto";
                         $result = mysqli_query($conn, $query);
-                        $total = 0;
                         while ($row = mysqli_fetch_array($result)) {
-                            $total += $row['precio'] * $row['cantidad'];
                         ?>
                             <p>
                                 <?php echo $row['cantidad'] ?>
@@ -301,9 +343,7 @@
                             <?php
                             $query = "SELECT * FROM venta where folio = $folio order by producto";
                             $result = mysqli_query($conn, $query);
-                            $total = 0;
                             while ($row = mysqli_fetch_array($result)) {
-                                $total += $row['precio'] * $row['cantidad'];
                             ?>
                                 <p>
                                     <a class="gato" href="editarCantidadVenta.php?codigo=<?php echo $row['codigo'] ?>&numero=1&idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $idCliente ?>&folio=<?php echo $folio ?>"><i class="bi bi-plus-circle-fill"></i></a>
@@ -315,9 +355,7 @@
                         <?php
                         $query = "SELECT * FROM venta where folio = $folio order by producto";
                         $result = mysqli_query($conn, $query);
-                        $total = 0;
                         while ($row = mysqli_fetch_array($result)) {
-                            $total += $row['precio'] * $row['cantidad'];
                         ?>
                             <p>$<?php echo $row['precio'] * $row['cantidad'] ?></p>
                         <?php } ?>
@@ -327,8 +365,22 @@
                     <div class="col-2"> </div>
                     <div class="col-5"> </div>
                     <div class="col-1"> </div>
-                    <div class="col-3 total"> Total:</div>
+                    <div class="col-3 total"> Subtotal:</div>
                     <div class="col-1 total" id="totalFinal">$<?php echo $total ?></div>
+                </div>
+                <div class="row border-bottom rowTotal">
+                    <div class="col-2"> </div>
+                    <div class="col-5"> </div>
+                    <div class="col-1"> </div>
+                    <div class="col-3 total"> iva:</div>
+                    <div class="col-1 total" id="totalFinal">$<?php echo $total*$iva ?></div>
+                </div>
+                <div class="row border-bottom rowTotal">
+                    <div class="col-2"> </div>
+                    <div class="col-5"> </div>
+                    <div class="col-1"> </div>
+                    <div class="col-3 total"> Total:</div>
+                    <div class="col-1 total" id="totalFinal">$<?php echo $total + $total*$iva ?></div>
                 </div>
             </div>
 
@@ -350,7 +402,6 @@
     <script src="scriptVenta.js"></script>
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../src/jquery-3.1.1.mini.js"></script>
-
 
 </body>
 

@@ -1,12 +1,13 @@
 
 .contenedor{
-    width: 80%;
+    width: 60%;
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
     margin: 2rem auto 0 auto;
     /* padding-bottom: 90px; */
     text-transform: capitalize;
+    padding-bottom: 80px;
 }
 @media only screen and (max-width: 768px){
     .contenedor{
@@ -42,6 +43,14 @@
 }
 .informe span{
     display: inline-block;
-    width: 14%;
+    width: 15%;
+    /* background-color: turquoise; */
+}
+.informe span.pequeño{
+    width: 10%;
     /* background-color: tomato; */
+}
+.scroll{
+    height: 60vh;
+    overflow-y: scroll;
 }

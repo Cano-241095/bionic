@@ -6,7 +6,7 @@
         <a href="loginVenta.php">VENTAS</a>
         <a href="#">CONTACTO</a>
         <a href="#"><i class="bi bi-search"></i></a>
-        <a href="#"><i class="bi bi-cart"></i></a>
+        <a href="informes.php"><i class="bi bi-cart"></i></a>
         <a href="#"><img src="../img/mexico.jpg" alt="bandera"></a>
     </nav>
     <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" id="menu">

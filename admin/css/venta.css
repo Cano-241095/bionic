@@ -1,7 +1,8 @@
-.accordion{
+.accordion {
     padding-bottom: 90px;
 }
-.contenedor{
+
+.contenedor {
     width: 80%;
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -10,72 +11,96 @@
     /* padding-bottom: 90px; */
     text-transform: capitalize;
 }
-.botones{
+
+.botones {
     margin-top: 1rem;
+    padding-bottom: 80px;
 }
-@media only screen and (max-width: 768px){
-    .contenedor{
+
+@media only screen and (max-width: 768px) {
+    .contenedor {
         width: 95%;
         margin: 1rem auto 0 auto;
         display: block;
         /* padding-bottom: 170px; */
     }
-    .botones{
+
+    .botones {
         padding-bottom: 180px;
     }
 }
-.miniContenedor{
+
+.miniContenedor {
     /* display: grid;
     grid-template-columns: 1fr;
     gap: 1rem; */
     width: 100%;
 }
-.sombra{
+
+.sombra {
     border-radius: 7px;
+    padding: 1rem;
     width: 100%;
     box-shadow: rgb(124, 83, 124) 0 0 10px;
 }
-.vendedor{
+.miniContenedor .sombra{
+    margin-top: 1rem;
+}
+.miniContenedor .sombra:first-child{
+    margin-top: 0rem;
+}
+.vendedor {
     padding: 1rem;
     width: 100%;
 }
-.busqueda{
+
+.busqueda {
     padding: 1rem;
     width: 100%;
     margin-top: 1rem;
 }
-input{
+
+input {
     width: 100%;
     border: solid 1px var(--morado);
     border-radius: 7px;
     height: 2rem;
     text-align: center;
 }
-@media only screen and (max-width: 768px){
-    form div{
+
+@media only screen and (max-width: 768px) {
+    form div {
         display: flex;
         justify-content: space-around;
+        align-items: center;
     }
-    .segundoInput{
+
+    .segundoInput {
         margin-top: .5rem;
     }
-    label{
+
+    label {
         width: 19%;
     }
-    input{
+
+    input {
         width: 78%;
     }
 }
-.tamaño{
+
+.tamaño {
     text-transform: none;
 }
-.busqueda input::placeholder{
+
+.busqueda input::placeholder {
     text-align: center;
 }
-#volver{
+
+#volver {
     margin-top: 1rem;
 }
-.busqueda button{
+
+.busqueda button {
     margin-top: .5rem;
     width: 100%;
     height: 2rem;
@@ -84,7 +109,8 @@ input{
     border-radius: 7px;
     color: white;
 }
-.btnPresupuesto{
+
+.btnPresupuesto {
     width: 95%;
     margin: 0 auto;
     height: 2rem;
@@ -97,19 +123,23 @@ input{
     align-items: center;
     justify-content: center;
 }
-.btnPresupuesto:last-child{
+
+.btnPresupuesto:last-child {
     margin-top: 1rem;
 }
-@media only screen and (min-width: 1000px){
-    .btnPresupuesto{
+
+@media only screen and (min-width: 1000px) {
+    .btnPresupuesto {
         width: 80%;
     }
 }
-.btnPresupuesto:hover, .busqueda button:hover{
+
+.btnPresupuesto:hover, .busqueda button:hover {
     color: white;
     background-color: rgb(92, 42, 92);
 }
-.busqueda ul.productos{
+
+.busqueda ul.productos {
     list-style: none;
     margin: 0;
     width: 100%;
@@ -123,13 +153,13 @@ input{
 }
 
 .busqueda ul.productos::-webkit-scrollbar:vertical {
-    width:1px;
+    width: 1px;
 }
 
 .busqueda ul.productos::-webkit-scrollbar-button,
 .busqueda ul.productos::-webkit-scrollbar-button {
     display: none;
-} 
+}
 
 .busqueda ul.productos::-webkit-scrollbar:horizontal {
     height: 1px;
@@ -140,9 +170,10 @@ input{
 }
 
 .busqueda ul.productos::-webkit-scrollbar-track {
-    border-radius: 1px;  
+    border-radius: 1px;
 }
-.busqueda ul.encabezado{
+
+.busqueda ul.encabezado {
     list-style: none;
     margin: 0;
     margin-top: .5rem;
@@ -153,67 +184,83 @@ input{
     border-radius: 7px;
     color: rgb(255, 255, 255);
 }
-.busqueda ul.productos li{
+
+.busqueda ul.productos li {
     border-bottom: solid 1px var(--moradoTenue);
 }
-.busqueda ul.productos li a{
+
+.busqueda ul.productos li a {
     text-decoration: none;
     color: var(--morado);
     width: 100%;
     display: block;
 }
-a span,p.titulo span{
+
+a span, p.titulo span {
     height: 1.5rem;
     display: inline-block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: Ellipsis;
 }
-p.titulo span{
+
+p.titulo span {
     text-align: center;
 }
-a span:nth-child(1),p.titulo span:nth-child(1){
+
+a span:nth-child(1), p.titulo span:nth-child(1) {
     width: 50%;
 }
-a span:nth-child(2),p.titulo span:nth-child(2){
+
+a span:nth-child(2), p.titulo span:nth-child(2) {
     width: 20%;
 }
-a span:nth-child(3),p.titulo span:nth-child(3){
+
+a span:nth-child(3), p.titulo span:nth-child(3) {
     width: 12%;
     text-align: center;
 }
-a span:nth-child(4),p.titulo span:nth-child(4){
+
+a span:nth-child(4), p.titulo span:nth-child(4) {
     width: 13%;
     text-align: center;
 }
-@media only screen and (max-width: 768px){
 
-    a span:nth-child(1),p.titulo span:nth-child(1){
+@media only screen and (max-width: 768px) {
+
+    a span:nth-child(1), p.titulo span:nth-child(1) {
         width: 53%;
     }
-    a span:nth-child(2),p.titulo span:nth-child(2){
+
+    a span:nth-child(2), p.titulo span:nth-child(2) {
         width: 23%;
     }
-    a span:nth-child(3),p.titulo span:nth-child(3){
+
+    a span:nth-child(3), p.titulo span:nth-child(3) {
         width: 10%;
     }
-    a span:nth-child(4),p.titulo span:nth-child(4){
+
+    a span:nth-child(4), p.titulo span:nth-child(4) {
         width: 9%;
     }
 }
-.negrillas{
+
+.negrillas {
     font-weight: bold;
 }
-.nota{
+
+.nota {
     width: 100%;
     padding: 1rem;
 }
-@media only screen and (max-width: 768px){
-    .nota{
+
+@media only screen and (max-width: 768px) {
+    .nota {
         margin-top: 1rem;
     }
 }
-.nota .header{
+
+.nota .header {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -221,59 +268,135 @@ a span:nth-child(4),p.titulo span:nth-child(4){
     padding: 1rem 1rem 0 1rem;
     border-bottom: solid 1px var(--moradoTenue);
 }
-.nota .header img{
+
+.nota .header img {
     width: 120px;
 }
-.nota .header p{
+
+.nota .header p {
     margin: 0;
     text-align: end;
 }
-.folio{
+
+.folio {
     color: brown;
     font-weight: bold;
 }
-.nota .productosPre{
+
+.nota .productosPre {
     padding: 1rem;
     font-size: .9rem;
 }
-.nota .productosPreChi{
+
+.nota .productosPreChi {
     display: none;
 }
-@media only screen and (max-width: 768px){
-    .nota .productosPre{
+
+@media only screen and (max-width: 768px) {
+    .nota .productosPre {
         display: none;
     }
-    .nota .productosPreChi{
+
+    .nota .productosPreChi {
         display: block;
     }
 }
-.row{
+
+.row {
     align-items: center;
 }
-.sombra-bottom{
+
+.sombra-bottom {
     margin-bottom: 10px;
     font-weight: bold;
 }
-.col-1{
+
+.col-1 {
     padding: 0;
 }
-.nota .col-5{
+
+.nota .col-5 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: Ellipsis;
 }
-.rowTotal .total{
+
+.rowTotal .total {
     font-weight: bold;
 }
 
-.masmenos a i,.masmenos a{
+.masmenos a i, .masmenos a {
     color: var(--moradoTenue);
-    font: .5rem!important;
+    font: .5rem !important;
 }
-.masmenos a i:hover,.masmenos a:hover{
+
+.masmenos a i:hover, .masmenos a:hover {
     color: var(--morado);
-    font: .5rem!important;
+    font: .5rem !important;
 }
-.gato{
+
+.gato {
     background-color: none;
+}
+
+.box {
+    /* Choose the animation */
+    animation-name: movingBox;
+
+    background-color: white;
+
+    /* The animation’s duration */
+    animation-duration: 1300ms;
+
+    /* The number of times we want
+        the animation to run */
+    animation-iteration-count: infinite;
+    /* animation-iteration-count: ; */
+
+    /* Causes the animation to reverse
+        on every odd iteration */
+    animation-direction: alternate;
+}
+
+@keyframes movingBox {
+    0%{
+        color: white;
+        text-shadow: black 0 0 5px;
+    }
+    50%{
+        color: black;
+        text-shadow: black 0 0 5px;
+    }
+    100%{
+        color: red;
+        text-shadow: black 0 0 5px;
+    }
+    /* 0% {
+        transform: translate(0, 0);
+        opacity: 0.3;
+    }
+
+    25% {
+        opacity: 0.9;
+    }
+
+    50% {
+        transform: translate(0, 0);
+        opacity: 0.2;
+    }
+
+    100% {
+        transform: translate(30px, 30px);
+        opacity: 0.8;
+    } */
+}
+.envio{
+    display: inline-block;
+    background-color: var(--moradoTenue);
+    border: none;
+    border-radius: 7px;
+    height: 2rem;
+    margin-top: .5rem;
+    color: white;
+    width: 100%;
 }

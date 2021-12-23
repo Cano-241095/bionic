@@ -19,116 +19,187 @@
     include("header.php");
     include("conexion.php");
     $clienteElegido = 7331054723;
+    $nota = 7331054723;
 
-    if (isset($_GET['cliente'])) {
-        $clienteElegido = $_GET['cliente'];
+    if (isset($_POST['idCliente'])) {
+        $clienteElegido = $_POST['idCliente'];
     }
+    if (isset($_POST['nota'])) {
+        $nota = $_POST['nota'];
+    }
+
+    //esto es para eliminar lo que este en la nota actual
+    $query = "SELECT * FROM nota ORDER BY ID DESC LIMIT 1";
+    $result = mysqli_query($conn, $query);
+    $nota = mysqli_fetch_array($result);
+    $folio = $nota['id'] + 1;
+
+    $query = "SELECT * FROM venta WHERE folio = $folio";
+    $result = mysqli_query($conn, $query);
+
+    while ($row = mysqli_fetch_array($result)) {
+        $codigo = $row['codigo'];
+        $delete = "DELETE FROM venta WHERE codigo = '$codigo' AND folio = $folio";
+        mysqli_query($conn, $delete);
+    }
+    //aqui ya se elimino :v
     ?>
-    <div class="contenedor" id="contenedor">
-        <div class="miniContenedor">
-            <div class="sombra" id="cliente">
-                <div class="cliente">
-                    <label for="">Cliente</label>
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected value="informes.php?idCliente=7331054723">Seleccionar Cliente</option>
-                        <?php
-                        $query = "SELECT * FROM clientes ORDER BY nombre";
+    <div class="container-fluid">
+
+        <div class="contenedor" id="contenedor">
+            <div class="miniContenedor">
+                <div class="sombra" id="cliente">
+                    <div class="cliente">
+                        <form class="d-flex" action="informes.php" method="post">
+                            <div>
+                                <label for="">Cliente</label>
+                                <select name="idCliente" class="form-select" aria-label="Default select example">
+                                    <option selected value="7331054723">Seleccionar Cliente</option>
+                                    <?php
+                                    $query = "SELECT * FROM clientes ORDER BY nombre";
+                                    $result = mysqli_query($conn, $query);
+                                    while ($clientes = mysqli_fetch_array($result)) {
+                                    ?>
+                                        <option value="<?php echo $clientes['id'] ?>"> <?php echo $clientes['nombre'] . " " . $clientes['apellidoP'] . " " . $clientes['apellidoM'] ?> </option>
+                                        <!-- agregue idcliente idvendedor falta usarlo al dar click en un producto  -->
+                                    <?php } ?>
+                                </select>
+                            </div>
+                            <div class="c"> '' </div>
+                            <!-- <div>
+                                <label for="">Nota</label>
+
+                                <input name="nota" type="number">
+                            </div> -->
+                            <button class="btn btn-primary" type="submit">Buscar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div id="imprimir" class="sombra">
+                <p class="informe">
+                    <!-- vendedor -->
+                    <span class="pequeño">Nota</span>
+                    <!-- vendedor -->
+                    <span>Vendedor</span>
+                    <!-- fecha -->
+                    <span>Fecha</span>
+
+                    <span>Cliente</span>
+                    <!-- codigo del producto -->
+                    <span>Producto</span>
+                    <!-- cantidad de producto -->
+                    <span class="pequeño">Cantidad</span>
+                    <!-- total -->
+                    <span class="pequeño">Total</span>
+                </p>
+
+                <div class="scroll">
+                    <?php
+                    if ($clienteElegido != 7331054723) {
+                        $query = "SELECT * FROM nota WHERE id_cliente = $clienteElegido order by fecha";
                         $result = mysqli_query($conn, $query);
-                        while ($clientes = mysqli_fetch_array($result)) {
-                        ?>
-                            <option value="informes.php?cliente=<?php echo $clientes['id'] ?>"> <?php echo $clientes['nombre'] . " " . $clientes['apellidoP'] . " " . $clientes['apellidoM'] ?> </option>
-                            <!-- agregue idcliente idvendedor falta usarlo al dar click en un producto  -->
-                        <?php } ?>
-                    </select>
+                        $total = 0;
+                        while ($row = mysqli_fetch_array($result)) {
+                            // $total += $row['precio'] * $row['cantidad'];
+                            $idVendedor = $row['id_vendedor'];
+                            $idCliente = $row['id_cliente'];
+
+                            $query3 = "SELECT * FROM vendedores WHERE id = $idVendedor";
+                            $result3 = mysqli_query($conn, $query3);
+                            $row3 = mysqli_fetch_array($result3);
+
+                            $query4 = "SELECT * FROM clientes WHERE id = $idCliente";
+                            $result4 = mysqli_query($conn, $query4);
+                            $row4 = mysqli_fetch_array($result4);
+
+                            $nota = $row['id'];
+
+                            $query5 = "SELECT * FROM venta WHERE folio = $nota";
+                            $result5 = mysqli_query($conn, $query5);
+                            while ($row5 = mysqli_fetch_array($result5)) {
+                                $total = $row5['precio'] * $row5['cantidad'];
+                                // $query3 = "SELECT * FROM vendedores WHERE id = $idVendedor";
+                                // $result3 = mysqli_query($conn, $query3);
+                                // $row3 = mysqli_fetch_array($result3);
+                                // $query4 = "SELECT * FROM clientes WHERE id = $idCliente";
+                                // $result4 = mysqli_query($conn, $query4);
+                                // $row4 = mysqli_fetch_array($result4);
+                    ?>
+                                <p class="informe">
+                                    <!-- nota -->
+                                    <span class="centrar pequeño"><?php echo $row['id'] ?></span>
+                                    <!-- vendedor -->
+                                    <span><?php echo $row3['nombre'] ?></span>
+                                    <!-- fecha -->
+                                    <span class="centrar"><?php echo $row['fecha'] ?></span>
+
+                                    <span><?php echo $row4['nombre'] ?></span>
+                                    <!-- codigo del producto -->
+                                    <span title="<?php echo $row5['producto'] ?>"><?php echo $row5['codigo'] ?></span>
+                                    <!-- cantidad de producto -->
+                                    <span class="centrar pequeño"><?php echo $row5['cantidad'] ?></span>
+                                    <!-- total -->
+                                    <span class="centrar pequeño">$<?php echo $total ?></span>
+                                </p>
+                            <?php }
+                        }
+                    } else {
+                        $query = "SELECT * FROM venta order by folio";
+                        $result = mysqli_query($conn, $query);
+                        $total = 0;
+                        while ($row = mysqli_fetch_array($result)) {
+                            $total += $row['precio'] * $row['cantidad'];
+                            $folio = $row['folio'];
+
+                            $query2 = "SELECT * FROM nota WHERE id = $folio";
+                            $result2 = mysqli_query($conn, $query2);
+                            $row2 = mysqli_fetch_array($result2);
+
+                            $idVendedor = $row2['id_vendedor'];
+                            $idCliente = $row2['id_cliente'];
+
+                            $query3 = "SELECT * FROM vendedores WHERE id = $idVendedor";
+                            $result3 = mysqli_query($conn, $query3);
+                            $row3 = mysqli_fetch_array($result3);
+
+                            $query4 = "SELECT * FROM clientes WHERE id = $idCliente";
+                            $result4 = mysqli_query($conn, $query4);
+                            $row4 = mysqli_fetch_array($result4);
+                            ?>
+
+                            <p class="informe">
+                                <!-- nota -->
+                                <span class="centrar pequeño"><?php echo $row2['id'] ?></span>
+                                <!-- vendedor -->
+                                <span><?php echo $row3['nombre'] ?></span>
+                                <!-- fecha -->
+                                <span class="centrar"><?php echo $row2['fecha'] ?></span>
+
+                                <span><?php echo $row4['nombre'] ?></span>
+                                <!-- codigo del producto -->
+                                <span title="<?php echo $row['producto'] ?>"><?php echo $row['codigo'] ?></span>
+                                <!-- cantidad de producto -->
+                                <span class="centrar pequeño"><?php echo $row['cantidad'] ?></span>
+                                <!-- total -->
+                                <span class="centrar pequeño">$<?php echo $total ?></span>
+                            </p>
+                    <?php }
+                    } ?>
+                </div>
+                <div class="espacio">
+                    <br>
                 </div>
             </div>
         </div>
-
-        <div id="imprimir" class="sombra">
-            <p class="informe">
-                        <!-- vendedor -->
-                        <span>Vendedor</span>
-                        <!-- vendedor -->
-                        <span>Nota</span>
-                        <!-- fecha -->
-                        <span>Fecha</span>
-                        
-                        <span>Cliente</span>
-                        <!-- codigo del producto -->
-                        <span>Producto</span>
-                        <!-- cantidad de producto -->
-                        <span>Cantidad</span>
-                        <!-- total -->
-                        <span>Total</span>
-                        </p>
-            <?php
-            if ($clienteElegido != 7331054723) {
-                $query = "SELECT * FROM nota order by fecha";
-                $result = mysqli_query($conn, $query);
-                $total = 0;
-                while ($row = mysqli_fetch_array($result)) {
-                    // $total += $row['precio'] * $row['cantidad'];
-            ?>
-                    <p>
-                        <span><?php echo $row['fecha'] ?></span>
-                        <span><?php echo $row['total'] ?></span>
-                    </p>
-                <?php }
-            } else {
-                $query = "SELECT * FROM venta order by folio";
-                $result = mysqli_query($conn, $query);
-                $total = 0;
-                while ($row = mysqli_fetch_array($result)) {
-                    $total += $row['precio'] * $row['cantidad'];
-                    $folio = $row['folio'];
-
-                    $query2 = "SELECT * FROM nota WHERE id = $folio";
-                    $result2 = mysqli_query($conn, $query2);
-                    $row2 = mysqli_fetch_array($result2);
-
-                    $idVendedor = $row2['id_vendedor'];
-                    $idCliente = $row2['id_cliente'];
-
-                    $query3 = "SELECT * FROM vendedores WHERE id = $idVendedor";
-                    $result3 = mysqli_query($conn, $query3);
-                    $row3 = mysqli_fetch_array($result3);
-                    
-                    $query4 = "SELECT * FROM clientes WHERE id = $idCliente";
-                    $result4 = mysqli_query($conn, $query4);
-                    $row4 = mysqli_fetch_array($result4);
-                ?>
-
-                    <p class="informe">
-                        <!-- vendedor -->
-                        <span><?php echo $row3['nombre'] ?></span>
-                        <!-- nota -->
-                        <span class="centrar"><?php echo $row2['id'] ?></span>
-                        <!-- fecha -->
-                        <span class="centrar"><?php echo $row2['fecha'] ?></span>
-
-                        <span><?php echo $row4['nombre'] ?></span>
-                        <!-- codigo del producto -->
-                        <span title="<?php echo $row['producto'] ?>"><?php echo $row['codigo'] ?></span>
-                        <!-- cantidad de producto -->
-                        <span class="centrar"><?php echo $row['cantidad'] ?></span>
-                        <!-- total -->
-                        <span class="centrar">$<?php echo $total ?></span>
-
-                    </p>
-            <?php }
-            } ?>
-            <div class="espacio">
-                <br>
-            </div>
+        <div class="botones">
+            <!-- falta cambiar el folio para poder usar otra nota -->
+            <!-- <button id="btnCrearPdfVenta" class="btnPresupuesto sombra">Finalizar Compra
+        </button> -->
+            <!-- <a href="consulta.php" class="btnPresupuesto sombra">Regresar</a> -->
         </div>
     </div>
-    <div class="botones">
-        <!-- falta cambiar el folio para poder usar otra nota -->
-        <!-- <button id="btnCrearPdfVenta" class="btnPresupuesto sombra">Finalizar Compra
-        </button> -->
-        <!-- <a href="consulta.php" class="btnPresupuesto sombra">Regresar</a> -->
-    </div>
-
     <?php
     include("footer.php");
     ?>
