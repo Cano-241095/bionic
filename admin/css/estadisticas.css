@@ -1,0 +1,114 @@
+body {
+    text-transform: capitalize;
+}
+
+main {
+    width: 70%;
+    margin: 0 auto;
+    height: calc(100% - 90px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.busqueda {
+    height: 25vh;
+    width: 100%;
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 7px;
+    box-shadow: var(--moradoTenue) 0 0 1rem;
+}
+
+.productos {
+    height: 50vh;
+    width: 100%;
+    margin: 1rem auto;
+    border-radius: 7px;
+    box-shadow: var(--moradoTenue) 0 0 1rem;
+    overflow-y: scroll;
+}
+
+@media only screen and (max-width: 768px) {
+    main {
+        width: 100%;
+        padding-bottom: 90px;
+    }
+
+    main div {
+        border-radius: 0px;
+    }
+
+    .busqueda {
+        height: 30vh;
+    }
+
+    .productos {
+        height: 40vh;
+    }
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.productos .titulo {
+    font-weight: bold;
+}
+
+.productos .tamaño {
+    text-transform: lowercase;
+}
+
+.productos li {
+    width: 100%;
+}
+
+.productos p {
+    padding: 0 1rem;
+    color: black;
+    margin: 0;
+    display: flex;
+    width: 100%;
+    background-color: white;
+    justify-content: space-between;
+}
+
+.productos li:nth-child(2n+1) p {
+    /* color: #FFFFFF; */
+    background-color: rgb(241, 241, 241);
+    box-shadow: inset var(--moradoTenue) 0 0 5px;
+}
+
+.productos a{
+    text-decoration: none;
+    color: var(--morado);
+}
+.productos p span {
+    width: 25%;
+}
+
+.productos p span:last-of-type {
+    text-align: center;
+}
+
+.productos::-webkit-scrollbar-track {
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    border-radius: 10px;
+}
+
+.productos::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+.productos::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #FFF;
+    background-image:linear-gradient(var(--morado), var(--moradoTenue)) ;
+}

@@ -1,5 +1,4 @@
-
-.contenedor{
+.contenedor {
     width: 60%;
     display: grid;
     grid-template-columns: 1fr;
@@ -7,50 +6,107 @@
     margin: 2rem auto 0 auto;
     /* padding-bottom: 90px; */
     text-transform: capitalize;
-    padding-bottom: 80px;
+    padding-bottom: 50px;
 }
-@media only screen and (max-width: 768px){
-    .contenedor{
+
+@media only screen and (max-width: 768px) {
+    .contenedor {
         width: 100%;
     }
 }
-.miniContenedor{
+
+.miniContenedor {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
 }
-.sombra{
+
+.sombra {
     box-shadow: var(--moradoTenue) 0 0 15px;
     border-radius: 7px;
     padding: .5rem;
 }
-.cliente{
-    width: 30%;
-}
-.informe{
+
+.informe {
     display: flex;
     justify-content: space-around;
     align-items: center;
     /* text-align: center; */
 }
-.centrar{
+
+button {
+    background-color: var(--moradoTenue);
+    height: 2.5rem;
+    width: 100%;
+    border: none;
+    border-radius: 7px;
+    color: white;
+}
+
+input {
+    width: 100%;
+}
+
+form {
+    display: grid;
+    gap: .5rem;
+    grid-template-columns: 1fr 1fr;
+}
+form div{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    
+}
+.centrar {
     text-align: center;
 }
-.informe:first-child span{
+
+.informe.titulos {
     font-weight: bold;
-    text-align: center;
     padding: 0;
 }
-.informe span{
+
+.informe span {
     display: inline-block;
     width: 15%;
     /* background-color: turquoise; */
 }
-.informe span.pequeño{
+
+.informe span.pequeño {
     width: 10%;
     /* background-color: tomato; */
 }
-.scroll{
-    height: 60vh;
+
+@media only screen and (max-width: 768px) {
+    .d-noneP {
+        display: none !important;
+    }
+}
+
+.scroll {
+    height: 55vh;
     overflow-y: scroll;
+}
+
+@media only screen and (max-width: 768px) {
+    .scroll {
+        height: 43vh;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .contenedor{
+        margin-top: .7rem;
+    }
+}
+@media only screen and (max-width: 360px) {
+    .scroll {
+        height: 36vh;
+    }
+    .contenedor{
+        margin-top: .7rem;
+    }
 }

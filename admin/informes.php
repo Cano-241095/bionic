@@ -50,9 +50,7 @@
             <div class="miniContenedor">
                 <div class="sombra" id="cliente">
                     <div class="cliente">
-                        <form class="d-flex" action="informes.php" method="post">
-                            <div>
-                                <label for="">Cliente</label>
+                        <form class="" action="informes.php" method="post">
                                 <select name="idCliente" class="form-select" aria-label="Default select example">
                                     <option selected value="7331054723">Seleccionar Cliente</option>
                                     <?php
@@ -64,41 +62,32 @@
                                         <!-- agregue idcliente idvendedor falta usarlo al dar click en un producto  -->
                                     <?php } ?>
                                 </select>
-                            </div>
-                            <div class="c"> '' </div>
-                            <!-- <div>
-                                <label for="">Nota</label>
-
-                                <input name="nota" type="number">
-                            </div> -->
-                            <button class="btn btn-primary" type="submit">Buscar</button>
+                                <button class="" type="submit">Buscar</button>
                         </form>
                     </div>
                 </div>
             </div>
-
             <div id="imprimir" class="sombra">
-                <p class="informe">
+                <p class="informe titulos">
                     <!-- vendedor -->
-                    <span class="pequeño">Nota</span>
+                    <span class="pequeño text-center">Nota</span>
                     <!-- vendedor -->
                     <span>Vendedor</span>
                     <!-- fecha -->
-                    <span>Fecha</span>
-
-                    <span>Cliente</span>
+                    <span class="text-center d-noneP">Fecha</span>
+                    
+                    <span class="d-noneP">Cliente</span>
                     <!-- codigo del producto -->
-                    <span>Producto</span>
+                    <span class="">Producto</span>
                     <!-- cantidad de producto -->
-                    <span class="pequeño">Cantidad</span>
+                    <span class="pequeño">Cant.</span>
                     <!-- total -->
-                    <span class="pequeño">Total</span>
+                    <span class="pequeño text-center">Total</span>
                 </p>
-
                 <div class="scroll">
                     <?php
                     if ($clienteElegido != 7331054723) {
-                        $query = "SELECT * FROM nota WHERE id_cliente = $clienteElegido order by fecha";
+                        $query = "SELECT * FROM nota WHERE id_cliente = $clienteElegido order by id DESC";
                         $result = mysqli_query($conn, $query);
                         $total = 0;
                         while ($row = mysqli_fetch_array($result)) {
@@ -133,11 +122,11 @@
                                     <!-- vendedor -->
                                     <span><?php echo $row3['nombre'] ?></span>
                                     <!-- fecha -->
-                                    <span class="centrar"><?php echo $row['fecha'] ?></span>
+                                    <span class="centrar d-noneP"><?php echo $row['fecha'] ?></span>
 
-                                    <span><?php echo $row4['nombre'] ?></span>
+                                    <span class="d-noneP"><?php echo $row4['nombre'] ?></span>
                                     <!-- codigo del producto -->
-                                    <span title="<?php echo $row5['producto'] ?>"><?php echo $row5['codigo'] ?></span>
+                                    <span class="" title="<?php echo $row5['producto'] ?>"><?php echo $row5['codigo'] ?></span>
                                     <!-- cantidad de producto -->
                                     <span class="centrar pequeño"><?php echo $row5['cantidad'] ?></span>
                                     <!-- total -->
@@ -146,10 +135,10 @@
                             <?php }
                         }
                     } else {
-                        $query = "SELECT * FROM venta order by folio";
+                        $query = "SELECT * FROM venta order by folio DESC";
                         $result = mysqli_query($conn, $query);
-                        $total = 0;
                         while ($row = mysqli_fetch_array($result)) {
+                            $total = 0;
                             $total += $row['precio'] * $row['cantidad'];
                             $folio = $row['folio'];
 
@@ -175,11 +164,11 @@
                                 <!-- vendedor -->
                                 <span><?php echo $row3['nombre'] ?></span>
                                 <!-- fecha -->
-                                <span class="centrar"><?php echo $row2['fecha'] ?></span>
+                                <span class="centrar d-noneP"><?php echo $row2['fecha'] ?></span>
 
-                                <span><?php echo $row4['nombre'] ?></span>
+                                <span class="d-noneP"><?php echo $row4['nombre'] ?></span>
                                 <!-- codigo del producto -->
-                                <span title="<?php echo $row['producto'] ?>"><?php echo $row['codigo'] ?></span>
+                                <span class="" title="<?php echo $row['producto'] ?>"><?php echo $row['codigo'] ?></span>
                                 <!-- cantidad de producto -->
                                 <span class="centrar pequeño"><?php echo $row['cantidad'] ?></span>
                                 <!-- total -->
