@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log('si esta click');
             document.getElementById("btnCrearPdfVenta").style.display = "none";
             document.getElementById("busqueda").style.display = "none";
+            document.getElementById("envidoI").style.display = "none";
             document.getElementById("cliente").style.display = "none";
             document.getElementById("contenedor").style.display = "block";
             let $elementoParaConvertir = document.getElementById('contenedor'); // <-- Aquí puedes elegir cualquier elemento del DOM
@@ -43,13 +44,26 @@ document.addEventListener("DOMContentLoaded", () => {
                 .catch(err => console.log(err));
             console.log('valio pispiote');
             let ir = "compra.php?idVendedor=" + idVendedor + "&folio=" + folio + "&idCliente=" + idCliente;
-
             setTimeout("location.href='" + ir + "'", 1500);
-
         }
-
     });
-
+    let $botonIvaSi = document.querySelector("#ivaSi1");
+    $botonIvaSi.addEventListener("click", () => {
+        document.querySelector('#iva1').innerHTML = "$00.00";
+    });
+    let $botonIvaNo = document.querySelector("#ivaNo1");
+    $botonIvaNo.addEventListener("click", () => {
+        document.querySelector('#iva1').innerHTML = "$00.0";
+    });
+    //---------------------------------------------------------------
+    let $botonIvaSi2 = document.querySelector("#ivaSi2");
+    $botonIvaSi2.addEventListener("click", () => {
+        document.querySelector('#iva2').innerHTML = "$00.00";
+    });
+    let $botonIvaNo2 = document.querySelector("#ivaNo2");
+    $botonIvaNo2.addEventListener("click", () => {
+        document.querySelector('#iva2').innerHTML = "$00.0";
+    });
     // esto es para abrir con el select
     $("select").click(function () {
         var open = $(this).data("isopen");

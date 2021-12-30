@@ -28,7 +28,8 @@
             <a href="presupuesto.php">PRESUPUESTOS</a>
             <a href="productos.php">PRODUCTOS</a>
             <a href="loginVenta.php">VENTAS</a>
-            <a href="#">CONTACTO</a>
+            <a href="estadisticasProductos.php">ESTADISTICAS</a>
+            <a href="informes.php">INFORMES</a>
             <div>
             <a href="#"><i class="bi bi-search"></i></a>
             <a href="#"><i class="bi bi-cart"></i></a>

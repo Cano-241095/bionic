@@ -10,6 +10,7 @@
     margin: 2rem auto 0 auto;
     /* padding-bottom: 90px; */
     text-transform: capitalize;
+    /* filter: blur(5px); */
 }
 
 .botones {
@@ -338,7 +339,16 @@ a span:nth-child(4), p.titulo span:nth-child(4) {
 .gato {
     background-color: none;
 }
-
+#ivaSi, #ivaNo{
+    width: 40%;
+    margin: 0 0 0 .4rem;
+    display: inline-block;
+    padding: 0;
+    background-color: var(--moradoTenue);
+    border: none;
+    color: white;
+    border-radius: 7px;
+}
 .box {
     /* Choose the animation */
     animation-name: movingBox;
@@ -399,4 +409,17 @@ a span:nth-child(4), p.titulo span:nth-child(4) {
     margin-top: .5rem;
     color: white;
     width: 100%;
+}
+#imprimir{
+    position: relative;
+}
+#marcaAgua {
+    background-image: url(../../img/logoFondo.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 90%;
+    height: 30%;
+    position: absolute;
+    top: 15rem;
 }

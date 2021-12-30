@@ -7,10 +7,10 @@
 
 body {
     background-color: black;
-    color: #fff;
+    /* color: #fff;
     font-size: 18px;
     font-family: 'Lato', sans-serif;
-    font-weight: 300;
+    font-weight: 300; */
 }
 
 #particles-js {
