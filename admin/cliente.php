@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="css/cliente.css">
     <link rel="stylesheet" href="../css/estilosFondo.css">
-    <link rel="stylesheet" href="css/vendedores.css">
+    <!-- <link rel="stylesheet" href="css/vendedores.css"> -->
     <title>Document</title>
 
 </head>
@@ -21,7 +21,7 @@
     <div id="particles-js"></div>
     <?php
     include("header.php");
-
+$conteo = 0;
     include("conexion.php");
     $idVendedor = 0;
     if (isset($_GET['idVendedor'])) {
@@ -35,11 +35,22 @@
         $cliente = $_POST['NomCliente'];
         $apellidoP = $_POST['apellidoP'];
         $apellidoM = $_POST['apellidoM'];
+        $calle = $_POST['calle'];
+        $colonia = $_POST['colonia'];
+        $num = $_POST['num'];
+        $ciudad = $_POST['ciudad'];
+        $telefono = $_POST['telefono'];
         $email = $_POST['email'];
+        $rfc = $_POST['rfc'];
+        $denominacion = $_POST['denominacion'];
+        $cp = $_POST['cp'];
+
+
         $idVendedor = $_POST['idVendedor'];
         $idd;
         echo '<label> esta llegando</label>';
-        $insert = "INSERT INTO clientes (nombre,apellidoP,apellidoM,email) VALUES ('$cliente', '$apellidoP', '$apellidoM', '$email')";
+        $insert = "INSERT INTO clientes (nombre,apellidoP,apellidoM,calle,colonia,numero,ciudad,telefono,email,denominacion,cp,id) VALUES
+        ('$cliente', '$apellidoP', '$apellidoM', '$calle','$colonia','$num','$ciudad','$telefono','$email','$denominacion','$cp', '$rfc')";
 
         if (mysqli_query($conn, $insert)) {
             $_SESSION['message'] = 'Registro guardado exitosamente';
@@ -52,110 +63,147 @@
         }
     }
     ?>
-    <div class="container-fluid">
-        <div class="contenedorVendedor">
+    <div class="contenedor">
+        <!-- <h1>Clientes</h1> -->
+        <div class="sombra">
             <form action="cliente.php" method="POST">
                 <input class="d-none" type="text" name="idVendedor" value="<?php echo $idVendedor ?>">
-                <label for="">Nombre Cliente</label>
-                <input type="text" placeholder="Ejemplo: Genesis" name="NomCliente" required>
-                <label for="">Apellido Paterno:</label>
-                <input type="text" placeholder="Ejemplo: Cano" name="apellidoP" required>
-                <label for="">Apellido Materno:</label>
-                <input type="text" placeholder="Ejemplo: Gongora" name="apellidoM" required>
-                <label for="">Email:</label>
-                <input type="email" placeholder="Ejemplo: genesis@gmail." name="email" required>
-                <button type="submit">Guardar</button>
-                <a href="venta.php?idVendedor=<?php echo $idVendedor ?>&idCliente=123456789" class="volver">Volver</a>
-            </form>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col lista sombra">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Nombre</th>
-                                        <th class= "enPequeNoSeVe" scope="col">Email</th>
-                                        <th scope="col">Editar</th>
-                                        <th scope="col">Eliminar</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                        $query = "SELECT * FROM clientes ORDER BY nombre";
-                        $result = mysqli_query($conn, $query);
-                        while ($row = mysqli_fetch_array($result)) {
-                        ?>
-
-                                    <tr>
-                                        <th scope="row">
-                                            <?php echo $row['nombre'] . " " . $row['apellidoP'] . " " . $row['apellidoM'] ?>
-                                        </th>
-                                        <td class= "enPequeNoSeVe"><?php echo $row['email'] ?></td>
-                                        <td><a
-                                                href="editarCliente.php?idVendedor=<?php echo $idVendedor ?>&id=<?php echo $row['id'] ?>">
-                                                <i class="bi bi-pencil-square"></i>
-                                            </a></td>
-                                        <td><a href="eliminarCliente.php?id=<?php echo $row['id'] ?>">
-                                                <i class="bi bi-trash"></i>
-                                            </a></td>
-                                    </tr>
-
-                                    <?php } ?>
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                <div>
+                    <label for="">Nombre Cliente</label>
+                    <input type="text" placeholder="Ejemplo: Genesis" name="NomCliente" required>
                 </div>
-            </div>
-
-
-
-            <!-- <div class="lista sombra">
-                <div class="container-fluid">
-                    <table class="table caption-top">
-                        <thead>
-                            <tr>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Editar</th>
-                                <th scope="col">Eliminar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                <div>
+                    <label for="">Apellido Paterno:</label>
+                    <input type="text" placeholder="Ejemplo: Cano" name="apellidoP" required>
+                </div>
+                <div>
+                    <label for="">Apellido Materno:</label>
+                    <input type="text" placeholder="Ejemplo: Gongora" name="apellidoM" required>
+                </div>
+                <div>
+                    <label for="">Calle:</label>
+                    <input type="text" placeholder="Manuel Altamirano" name="calle" required>
+                </div>
+                <div>
+                    <label for="">Colonia:</label>
+                    <input type="text" placeholder="20 de Noviembre" name="colonia" required>
+                </div>
+                <div>
+                    <label for="">Num:</label>
+                    <input type="text" placeholder="#15a" name="num">
+                </div>
+                <div>
+                    <label for="">Ciudad:</label>
+                    <input type="text" placeholder="Iguala de la Independecia" name="ciudad">
+                </div>
+                <div>
+                    <label for="">Telefono:</label>
+                    <input type="number" placeholder="7331254864" name="telefono" required>
+                </div>
+                <div>
+                    <label for="">Email:</label>
+                    <input type="email" placeholder="Ejemplo: genesis@gmail.com" name="email" required>
+                </div>
+                <div>
+                    <label for="">RFC:</label>
+                    <input type="text" placeholder="GECAGOGSYH12" name="rfc" required>
+                </div>
+                <div>
+                    <label for="">Denominacion:</label>
+                    <input type="text" placeholder="Comercial" name="denominacion" required>
+                </div>
+                <div>
+                    <label for="">Codigo_Postal:</label>
+                    <input type="text" placeholder="40000" name="cp" required>
+                </div>
+                <div>
+                    <button class="volver" type="submit">Guardar</button>
+                    <a href="venta.php?idVendedor=<?php echo $idVendedor ?>&idCliente=123456789"
+                        class="volver">Volver</a>
+                </div>
+            </form>
+        </div>
+        <div class="sombra lista">
                             <?php
                         $query = "SELECT * FROM clientes ORDER BY nombre";
                         $result = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result)) {
+                            $conteo = $conteo + 1;
                         ?>
-                            <tr>
-                                <td><?php echo $row['nombre'] . " " . $row['apellidoP'] . " " . $row['apellidoM'] ?>
-                                </td>
+                            <button type="button" class="btn btn-secundary" data-bs-toggle="modal"
+                                data-bs-target="#<?php echo 'm'.$conteo ?>">
+                                <ul>
+                                    <li>
+                                        <label for="">Nombre:</label>
+                                        <i class="bi bi-person"></i> <?php echo $row['nombre'] . " " . $row['apellidoP'] . " " . $row['apellidoM'] ?>
+                                    </li>
+                                    <!-- <li class="enPequeNoSeVe">
+                                        <label for="">Domicilio Fiscal:</label>
+                                        <?php echo $row['calle'] . " " . $row['colonia'] . " " . $row['numero'] . " " . $row['ciudad']?>
+                                    </li> -->
+                                    <li>
+                                        <label for="">Telefono:</label>
+                                        <i class="bi bi-telephone"></i>   <a href="tel:+ <?php echo $row['telefono']?>"> <?php echo $row['telefono']?></a>
+                                    </li>
+                                    <li>
+                                        <label for="">Email:</label>
+                                        <i class="bi bi-envelope"></i>   <a href="mailto:<?php echo $row['email'] ?>"><?php echo $row['email'] ?></a>      
+                                    </li>
+                                    <!-- <li class="enPequeNoSeVe">
+                                        <label for="">RFC:</label>
+                                        <i class="bi bi-person-video2"></i>  <?php echo $row['id'] ?>
+                                    </li> -->
+                                    <!-- <li class="enPequeNoSeVe">
+                                        <a href="editarCliente.php?id=<?php echo $row['id']?>&idVendedor=<?php echo $idVendedor ?>">Editar</a>
+                                    </li>
+                                    <li class="enPequeNoSeVe">
+                                        <a href="eliminarCliente.php?id=<?php echo $row['id'] ?>&idVendedor=<?php echo $idVendedor ?>">Eliminar</a>
+                                    </li> -->
+                                </ul>
+                            </button>
 
-                                <td><?php echo $row['email'] ?></td>
-                                <td>
-                                    <a
-                                        href="editarCliente.php?idVendedor=<?php echo $idVendedor ?>&id=<?php echo $row['id'] ?>">
-                                        <i class="bi bi-pencil-square"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="eliminarCliente.php?id=<?php echo $row['id'] ?>">
-                                        <i class="bi bi-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div> -->
+                            <!-- Modal -->
+                            <div class="modal fade" id="<?php echo 'm'.$conteo ?>" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Datos del Cliente</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                        <label for="">Nombre:</label>
+                                        <i class="bi bi-person"></i> <?php echo $row['nombre'] . " " . $row['apellidoP'] . " " . $row['apellidoM'] ?>  
+                                        <label for="">Domicilio Fiscal:</label>
+                                        <i class="bi bi-house-door"></i> <?php echo $row['calle'] . " " . $row['colonia'] . " " . $row['numero'] . " " . $row['ciudad']?>       
+                                        <label for="">Telefono:</label>
+                                        <i class="bi bi-telephone"></i>  <a href="tel:+ <?php echo $row['telefono']?>"> <?php echo $row['telefono']?></a>
+                                        <label for="">Email:</label>
+                                        <i class="bi bi-envelope"></i> <a href="mailto:<?php echo $row['email'] ?>"><?php echo $row['email'] ?></a>
+                                        <label for="">RFC:</label>
+                                        <i class="bi bi-person-video2"></i> <?php echo $row['id'] ?>        
+                                        <label for="">Denominacion::</label>
+                                        <i class="bi bi-building"></i> <?php echo $row['denominacion'] ?>  
+                                        <label for="">Codigo_Postal:</label>
+                                        <i class="bi bi-mailbox"></i> <?php echo $row['cp'] ?>          
+                                        
+
+                                    </div>
+                                        <div class="modal-footer">
+                                        <a  class="btn btn-secondary" href="editarCliente.php?id=<?php echo $row['id']?>&idVendedor=<?php echo $idVendedor ?>">Editar</a>
+                                        <a  class="btn btn-secondary" href="eliminarCliente.php?id=<?php echo $row['id']?>&idVendedor=<?php echo $idVendedor ?>">Eliminar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <?php } ?>  
         </div>
-        <?php
-    include("footer.php");
-    ?>
     </div>
+
+
+
 
 
     <?php

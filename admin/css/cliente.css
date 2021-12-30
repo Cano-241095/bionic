@@ -1,16 +1,41 @@
 body{
     background-color: white!important;
 }
-form{
-    width: 500px;
-    box-shadow: var(--moradoTenue) 0 0 15px;
-    border-radius: 7px;
-    padding: 1rem;
-    background-color: rgba(255, 255, 255, 0.466);
+.contenedor{
+    width: 90%;
+    /* height: 80vh; */
+    /* background-color: black; */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 0 auto;
+    margin-top: .5rem;
 }
 @media only screen and (max-width: 768px){
-    form{
-        width: 95%;
+    .contenedor{
+        padding-bottom: 120px;
+    }
+}
+h1{
+    color: var(--morado);
+}
+.sombra{
+    box-shadow: var(--moradoTenue) 0 0 15px;
+    border-radius: 7px;
+}
+.contenedor .sombra{
+    width: 100%;
+}
+.contenedor .sombra form{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    width: 100%;
+    gap: 1rem;
+    padding: 1rem;
+}
+@media only screen and (max-width: 768px){
+    .contenedor .sombra form{
+        grid-template-columns: 1fr;
     }
 }
 @media only screen and (max-width: 768px){
@@ -21,7 +46,13 @@ form{
 label{
     width: 100%;
     padding-left: 1rem;
-    color: black;
+    color:purple;
+}
+li label{
+    width: 100%;
+    padding-left: 1rem;
+    color:black;
+    font-weight: bold;
 }
 input{
     width: 100%;
@@ -29,26 +60,16 @@ input{
     border-radius: 7px;
     border: solid 1px var(--moradoTenue);
     height: 2rem;
-    color: var(--moradoTenue)!important;
+    color: black!important;
     text-align: center;
 }
 input::placeholder{
-    color: rgb(179, 145, 179)!important;
+    color: rgb(143, 122, 143)!important;
 }
 input:focus{
     outline: none;
 }
-button{
-    border: none;
-    /* border: solid 1px white; */
-    width: 30%;
-    border-radius: 7px;
-    margin-top: 1rem;
-    background-color: black;
-    height: 2rem;
-    /* box-shadow: rgb(155, 109, 179) 0 0 15px; */
-    color: white;
-}
+
 .volver{
     display: flex;
     border: none;
@@ -57,12 +78,14 @@ button{
     justify-content: center;
     width: 100%;
     border-radius: 7px;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     background-color: var(--moradoTenue);
-    height: 2.5rem;
-    box-shadow: rgb(155, 109, 179) 0 0 15px;
+    height: 1.5rem;
     color: white;
     text-decoration: none;
+}
+a.volver{
+    margin-top: .5rem;
 }
 .volver:hover{
     color: white;
@@ -70,13 +93,102 @@ button{
 button:hover{
     box-shadow: white 0 0 15px;
 }
-.lista{
-    background-color: rgba(219, 167, 253, 0.466);
-    /* color: white; */
-}
-.lista td,.lista a i, .lista th{
-    /* color: white; */
-}
+
 .sombra{
     background-color: white;
+    width: 100%;
 }
+
+.lista{
+    height: 45vh;
+    overflow-y: scroll;
+    margin-bottom: 60px;
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+
+}
+a i{
+    color: var(--morado);
+    
+}
+
+.modal-title{
+color: var(--moradoTenue);
+font-weight: bolder;
+}
+.contenedor .actualizar{
+    width: 100%;
+}
+.contenedor .actualizar form{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    width: 100%;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+@media only screen and (max-width: 768px){
+    .contenedor .actualizar form{
+        grid-template-columns: 1fr ;  
+    }
+    .lista{
+        display: grid;
+        grid-template-columns: 1fr;
+        height: 60vh;
+        margin-bottom: 40px;
+
+
+    }
+}
+.btn{
+    width: 100%;
+    border: solid 2px var(--moradoTenue);
+    text-transform:capitalize;
+}
+@media only screen and (max-width: 768px){
+    .btn{
+        width: 100%;
+        /* margin-bottom: 2rem; */
+        border: solid 2px var(--moradoTenue);
+        
+    }
+    }
+    ul{
+        color:var(--morado) ;
+        list-style: none;
+        width: 100%;
+        padding: 0;
+        }
+li{
+    color: var(--morado);
+}
+ul a{
+    text-decoration: none;
+    color: purple;
+
+}
+i{
+    font-size: 1.5rem;
+}
+.modal-body{
+    color: black;
+    text-transform:capitalize;
+
+}
+.modal-title{
+    font-weight: bold;
+    color: var(--morado);
+    font-size: 1.5rem;
+
+}
+.modal-body a{
+    text-decoration: none;
+    color: var(--morado);
+}
+@media only screen and (max-width: 768px){
+    .modal-dialog{
+        margin-top: 7rem;
+    }
+    }
