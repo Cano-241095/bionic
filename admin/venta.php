@@ -90,27 +90,27 @@
         }
     }
     // set API Endpoint and API key 
-    $endpoint = 'latest';
-    $access_key = 'd9d77f0248877971dadc10b7ec322716';
+    // $endpoint = 'latest';
+    // $access_key = 'd9d77f0248877971dadc10b7ec322716';
 
-    // Initialize CURL:
-    $ch = curl_init('http://data.fixer.io/api/' . $endpoint . '?access_key=' . $access_key . '');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    // // Initialize CURL:
+    // $ch = curl_init('http://data.fixer.io/api/' . $endpoint . '?access_key=' . $access_key . '');
+    // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-    // Store the data:
-    $json = curl_exec($ch);
-    curl_close($ch);
+    // // Store the data:
+    // $json = curl_exec($ch);
+    // curl_close($ch);
 
-    // Decode JSON response:
-    $exchangeRates = json_decode($json, true);
+    // // Decode JSON response:
+    // $exchangeRates = json_decode($json, true);
 
+    // // Access the exchange rate values, e.g. GBP:
+    // $precioEuroPesos = $exchangeRates['rates']['MXN'];
+    // $precioEuroDolar = $exchangeRates['rates']['USD'];
+    // $precioDoralPesos = $precioEuroPesos/$precioEuroDolar;
     // Access the exchange rate values, e.g. GBP:
-    $precioEuroPesos = $exchangeRates['rates']['MXN'];
-    $precioEuroDolar = $exchangeRates['rates']['USD'];
-    $precioDoralPesos = $precioEuroPesos/$precioEuroDolar;
-    // Access the exchange rate values, e.g. GBP:
-    // $precioEuroPesos = 0;
-    // $precioEuroDolar = 1;
+    $precioEuroPesos = 20;
+    $precioEuroDolar = 1;
     $precioDoralPesos = $precioEuroPesos/$precioEuroDolar;
     
     $precioDoralPesos = round($precioDoralPesos,2);
@@ -174,7 +174,7 @@
                         if (isset($_POST['palabra'])) {
                             $palabra = $_POST['palabra'];
                             $palabraDos = $_POST['palabraDos'];
-                            $query = "SELECT * FROM tamanio WHERE nombre like '%$palabra%' and codigo like '%$palabraDos%' order by $ordenar";
+                            $query = "SELECT * FROM tamanio WHERE nombre like '%$palabra%' and codigo like '%$palabraDos%' and cantidad > 0 order by $ordenar";
                             $result = mysqli_query($conn, $query);
                             while ($row = mysqli_fetch_array($result)) {
                         ?>
@@ -189,7 +189,7 @@
                             <?php }
                         } else {
                             $palabra = '';
-                            $query = "SELECT * FROM tamanio WHERE nombre like '%$palabra%' order by $ordenar";
+                            $query = "SELECT * FROM tamanio WHERE nombre like '%$palabra%' and cantidad > 0 order by $ordenar";
                             $result = mysqli_query($conn, $query);
                             while ($row = mysqli_fetch_array($result)) {
                             ?>
@@ -208,6 +208,9 @@
             </div>
         </div>
         <div id="imprimir" class="nota sombra">
+            <div id="marcaAgua">
+
+            </div>
             <div class="header">
                 <a href="https://implants-bionic.com/">
                     <img src="../img/logo.png" alt="">
@@ -254,7 +257,7 @@
                         <?php } ?>
                     </div>
                     <div class="col-1 masmenos">
-                        <div id="menos">
+                        <div id="menos1">
                             <?php
                             $query = "SELECT * FROM venta where folio = $folio order by producto";
                             $result = mysqli_query($conn, $query);
@@ -274,7 +277,7 @@
                         <?php } ?>
                     </div>
                     <div class="col-1 masmenos">
-                        <div id="mas">
+                        <div id="mas1">
                             <?php
                             $query = "SELECT * FROM venta where folio = $folio order by producto";
                             $result = mysqli_query($conn, $query);
@@ -290,7 +293,7 @@
                         $result = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
-                            <p>$<?php echo $row['precio'] * $row['cantidad'] ?></p>
+                            <p><?php echo $row['precio'] * $row['cantidad'] ?></p>
                         <?php } ?>
                     </div>
                 </div>
@@ -298,19 +301,25 @@
                     <div class="col-3"> </div>
                     <div class="col-3"> </div>
                     <div class="col-3 total"> Subtotal:</div>
-                    <div class="col-3 total" id="totalF2">$<?php echo $total ?></div>
+                    <div class="col-3 total" id="totalF2"><?php echo $total ?></div>
                 </div>
                 <div class="row border-bottom rowTotal">
                     <div class="col-3"> </div>
                     <div class="col-3"><button id="ivaSi2">Si</button><button id="ivaNo2">No</button> </div>
                     <div class="col-3 total"> iva:</div>
-                    <div class="col-3 total" id="iva2">$<?php echo $total * $iva ?></div>
+                    <div class="col-3 total" id="iva2"><?php echo $total * $iva ?></div>
                 </div>
                 <div class="row border-bottom rowTotal">
                     <div class="col-3"> </div>
                     <div class="col-3"> </div>
-                    <div class="col-3 total"> Total:</div>
-                    <div class="col-3 total" id="totalFinal2">$<?php echo $total + $total * $iva ?></div>
+                    <div class="col-3 total"> Total USD:</div>
+                    <div class="col-3 total" id="totalFinal2"><?php echo $total + $total * $iva ?></div>
+                </div>
+                <div class="row border-bottom rowTotal">
+                    <div class="col-3"> </div>
+                    <div class="col-3"> </div>
+                    <div class="col-3 total"> Total MXN:</div>
+                    <div class="col-3 total" id="totalFinalMXN2"><?php echo round((($total + ($total * $iva)) * $precioDoralPesos),2) ?></div>
                 </div>
             </div>
 
@@ -354,7 +363,7 @@
                         <?php } ?>
                     </div>
                     <div class="col-1 masmenos text-center">
-                        <div id="menos">
+                        <div id="menos2">
                             <?php
                             $query = "SELECT * FROM venta where folio = $folio order by producto";
                             $result = mysqli_query($conn, $query);
@@ -378,7 +387,7 @@
                         <?php } ?>
                     </div>
                     <div class="col-1 masmenos">
-                        <div id="mas">
+                        <div id="mas2">
                             <?php
                             $query = "SELECT * FROM venta where folio = $folio order by producto";
                             $result = mysqli_query($conn, $query);
@@ -396,7 +405,7 @@
                         $result = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
-                            <p>$<?php echo $row['precio'] * $row['cantidad'] ?></p>
+                            <p><?php echo $row['precio'] * $row['cantidad'] ?></p>
                         <?php } ?>
                     </div>
                 </div>
@@ -405,38 +414,35 @@
                     <div class="col-5"> </div>
                     <div class="col-1"> </div>
                     <div class="col-3 total"> Subtotal:</div>
-                    <div class="col-1 total" id="totalF1">$<?php echo $total ?></div>
+                    <div class="col-1 total" id="totalF1"><?php echo $total ?></div>
                 </div>
                 <div class="row border-bottom rowTotal">
                     <div class="col-2"> </div>
                     <div class="col-5"> <button id="ivaSi1">Si</button><button id="ivaNo1">No</button> </div>
                     <div class="col-1"></div>
                     <div class="col-3 total"> iva:</div>
-                    <div class="col-1 total" id="iva1">$<?php echo $total * $iva ?></div>
+                    <div class="col-1 total" id="iva1"><?php echo $total * $iva ?></div>
                 </div>
                 <div class="row border-bottom rowTotal">
                     <div class="col-2"> </div>
                     <div class="col-5"> </div>
                     <div class="col-1"> </div>
                     <div class="col-3 total"> Total USD:</div>
-                    <div class="col-1 total" id="totalFinal1">$<?php echo $total + $total * $iva ?></div>
+                    <div class="col-1 total" id="totalFinal1"><?php echo $total + $total * $iva ?></div>
                 </div>
                 <div class="row border-bottom rowTotal">
                     <div class="col-2"> </div>
                     <div class="col-5"> </div>
                     <div class="col-1"> </div>
                     <div class="col-3 total"> Total MXN:</div>
-                    <div class="col-1 total" id="totalFinal1">
-                        $<?php echo round((($total + ($total * $iva)) * $precioDoralPesos),2) ?>
+                    <div class="col-1 total" id="totalFinalMXN1">
+                        <?php echo round((($total + ($total * $iva)) * $precioDoralPesos),2) ?>
                     </div>
                 </div>
             </div>
 
             <div class="espacio">
                 <br>
-            </div>
-            <div id="marcaAgua">
-
             </div>
         </div>
     </div>
