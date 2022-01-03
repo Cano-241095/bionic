@@ -89,6 +89,10 @@
             }
         }
     }
+    $precioEuroPesos = 20;
+    $precioEuroDolar = 1;
+    $precioDoralPesos = $precioEuroPesos/$precioEuroDolar;
+
     // set API Endpoint and API key 
     // $endpoint = 'latest';
     // $access_key = 'd9d77f0248877971dadc10b7ec322716';
@@ -109,9 +113,7 @@
     // $precioEuroDolar = $exchangeRates['rates']['USD'];
     // $precioDoralPesos = $precioEuroPesos/$precioEuroDolar;
     // Access the exchange rate values, e.g. GBP:
-    $precioEuroPesos = 20;
-    $precioEuroDolar = 1;
-    $precioDoralPesos = $precioEuroPesos/$precioEuroDolar;
+    
     
     $precioDoralPesos = round($precioDoralPesos,2);
     ?>
@@ -145,7 +147,6 @@
                 <button class="envio">Guardar costo de envio</button>
             </form>
             <div id="busqueda" class="busqueda sombra">
-                <h4 for="">Busqueda</h4>
                 <form action="venta.php?idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $idCliente ?>" method="POST">
                     <div>
                         <label for="">Nombre</label>

@@ -4,6 +4,7 @@ if (isset($_GET['folio'])) {
     $folio = $_GET['folio'];
     $idCliente = $_GET['idCliente'];
     $idVendedor = $_GET['idVendedor'];
+    $iva = $_GET['iva'];
 
     if ($idCliente != 123456789) {
         $query = "SELECT * FROM venta where folio = $folio order by producto";
@@ -38,8 +39,8 @@ if (isset($_GET['folio'])) {
             }
         }
         if ($total > 0) {
-            $guardarNota = "INSERT INTO nota (id,fecha,id_vendedor,total,id_cliente)
-            VALUES ($folio,'$fecha',$idVendedor,$total,$idCliente)";
+            $guardarNota = "INSERT INTO nota (id,fecha,id_vendedor,total,id_cliente,iva)
+            VALUES ($folio,'$fecha',$idVendedor,$total,$idCliente,$iva)";
             mysqli_query($conn, $guardarNota);
         }
     }
