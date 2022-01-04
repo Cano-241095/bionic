@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/estilosFondo.css">
     <link rel="stylesheet" href="css/loginVendedor.css">
+    <link rel="shortcut icon" href="img/logo-png.ico">
+
     <title>Implants Bionic</title>
 </head>
 

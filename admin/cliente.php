@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="css/cliente.css">
     <link rel="stylesheet" href="../css/estilosFondo.css">
+    <link rel="shortcut icon" href="img/logo-png.ico">
+
     <!-- <link rel="stylesheet" href="css/vendedores.css"> -->
     <title>Document</title>
 

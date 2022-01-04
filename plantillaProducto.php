@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/plantillaProducto.css">
     <link rel="stylesheet" href="admin/css/carrucel.css">
+    <link rel="shortcut icon" href="img/logo-png.ico">
+
     <title>Implants Bionic</title>
 </head>
 

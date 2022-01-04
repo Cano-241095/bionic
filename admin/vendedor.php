@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="css/vendedores.css">
+    <link rel="shortcut icon" href="img/logo-png.ico">
+
+    
     <title>Document</title>
 </head>
 

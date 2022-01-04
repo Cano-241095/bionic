@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="css/soluciones.css">
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="img/logo-png.ico">
+
     <title>Implantss Bionic</title>
 </head>
 

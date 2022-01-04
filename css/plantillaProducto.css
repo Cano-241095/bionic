@@ -290,3 +290,213 @@ a.btn-imagenes2{
 display: none;
     }
 }
+
+
+
+/* ------------- */
+.contenedor {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 40px auto 0px auto;
+    padding-bottom: 90px;
+}
+
+@media only screen and (max-width: 768px) {
+    .contenedor {
+        width: 95%;
+        grid-template-columns: 1fr;
+    }
+}
+
+h1 {
+    color: var(--moradoTenue);
+    font-weight: bold;
+    font-size: 45px;
+}
+h1 a i{
+    text-decoration: none;
+    color: #7c4a84;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+h2 {
+    font-weight: bold;
+    margin-top: 40px;
+}
+
+h6 {
+    font-weight: bolder;
+    margin-top: 40px;
+}
+
+li{
+    padding: 0;
+    margin: 0;
+}
+
+
+
+table {
+    align-items: center;
+}
+
+th, td {
+    text-align: center;
+}
+
+th {
+    color: var(--moradoTenue);
+}
+
+td {
+    font-weight: bold;
+}
+table td input {
+    background-color: white;
+    width: 70px;
+    height: 20px;
+    border-radius: 20px;
+    box-shadow: gray 0 0 5px;
+}
+.btn{
+    padding: 0;
+}
+.btnCompra {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.btnCompra button {
+    color: white;
+    background-color: var(--moradoTenue);
+    font-weight: bold;
+    border-radius: 20px;
+    font-size: 20px;
+    width: 90%;
+}
+
+.btnCompra button:last-child {
+    margin-top: 40px;
+}
+
+.btnCompra p {
+    margin: 0;
+}
+
+.btnCompra p i {
+    font-size: 35px;
+    color: var(--moradoTenue);
+}
+
+.btnIconos {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.btnIconos i {
+    font-size: 35px;
+}
+
+.iconosPequenio {
+    display: none;
+}
+
+@media only screen and (max-width:760px) {
+    .iconosPequenio {
+        display: block;
+    }
+
+    .iconosGrande {
+        display: none;
+    }
+
+    .btnIconos {
+        display: flex !important;
+    }
+}
+
+
+@media only screen and (max-width:768px) {
+    .btnIconos {
+        padding-bottom: 120px;
+    }
+}
+
+.contenedorSecundario {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+@media only screen and (max-width:768px) {
+    .contenedorSecundario {
+        grid-template-columns: 1fr;
+
+    }
+}
+
+.visiblePequenio {
+    display: none;
+}
+
+@media only screen and (max-width:768px) {
+    .visiblePequenio {
+        display: block;
+    }
+
+    .visibleGrande {
+        display: none;
+    }
+}
+
+a.btn-descripcion{
+display: flex;
+width: 50px;
+height: 50px;
+background-color:var(--moradoTenue);
+border-radius: 50px;
+align-items: center;
+justify-content: center;
+color: white;
+text-decoration: none;
+font-size: 1.5rem;
+
+}
+@media only screen and (max-width:768px){
+    a.btn-descripcion{
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+    margin: 0 auto;
+    }
+}
+a.btn-tabla{
+    width: 50px;
+    height: 50px;
+    background-color: var(--moradoTenue);
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    font-size: var(--moradoTenue);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+@media only screen and (max-width:768px){
+    a.btn-tabla{
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+    margin: 0 auto;
+    }
+}
+body > div.contenedor > div.imagenes.visibleGrande > div > div > div.gc-display-area{
+    width: 100%!important;
+    height: 400px!important;
+}

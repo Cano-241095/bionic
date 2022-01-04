@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="css/productosAdmin.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="img/logo-png.ico">
+
 </head>
 
 <body>

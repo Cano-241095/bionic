@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="css/informe.css">
+    <link rel="shortcut icon" href="img/logo-png.ico">
+
     <script src="../src/html2.min.js"></script>
 </head>
 
