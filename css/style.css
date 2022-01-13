@@ -125,3 +125,39 @@ background: linear-gradient(180deg, rgb(0, 0, 0) 54%, rgb(0, 0, 0) 55%, rgba(255
     width: 10rem;
     margin-left: 1rem;
 }
+.btn-modal{
+    position: absolute;
+    /* background-color:blue!important; */
+    z-index: 2;
+    right: 10px;
+    border-radius: 100%;
+    top: 7rem;
+    border: solid 2px;
+}
+.btn-modal:focus{
+    color: var(--morado);
+}
+.llave{
+font-size: 3rem;
+color: var(--moradoFooter);
+}
+.llave2{
+    transform: rotate(180deg);
+}
+form{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.modal-content{
+    /* box-shadow: inset var(--morado) 0 0 10px; */
+    /* border: 2px; */
+}
+label{
+    color: var(--morado);
+    font-weight: bold;
+    margin-right: 1rem;
+}
+h5{
+    font-size: 1.5rem;
+}

@@ -1,3 +1,4 @@
+
 <header class="sticky-top">
     <a href="home.php"><img src="../img/completo1.png" alt="logoEntrada"></a>
     <nav>
@@ -8,10 +9,10 @@
         <a href="#"><i class="bi bi-search"></i></a>
         <a href="informes.php"><i class="bi bi-cart"></i></a>
         <a href="#"><img src="../img/mexico.jpg" alt="bandera"></a>
+       
+
     </nav>
-    <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" id="menu">
-        <i class="bi bi-list"></i>
-    </button>
+
 </header>
 
 <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
@@ -36,4 +37,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> 
