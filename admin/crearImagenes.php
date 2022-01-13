@@ -13,7 +13,7 @@
             header('Location:plantillaProducto.php?id='.$id_asociado);
         }else{
         echo "El registro no se pudo guardar". mysqli_error($conn);
-        }        
+        }         
     }
 
     $url = $_FILES["image"]["name"];

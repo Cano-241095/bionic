@@ -99,12 +99,8 @@
                 </a>
                 <div class="fecha">
                     <p>Fecha de presupuesto:</p>
-                    <p><?php
-                        /* Set locale to Dutch */
-                        setlocale(LC_ALL, 'es_mx.UTF-8');
-                        /* Output: vrijdag 22 december 1978 */
-                        echo strftime("%A %d %B %Y",);
-                        ?></p>
+                    <p id="fechaa">
+                    </p>
                 </div>
             </div>
             <div class="productosPreChi">
@@ -168,17 +164,17 @@
                     </div>
                     <div class="col-1 masmenos">
                         <div id="mas">
-                        <?php
-                        $query = "SELECT * FROM presupuesto order by producto";
-                        $result = mysqli_query($conn, $query);
-                        $total = 0;
-                        while ($row = mysqli_fetch_array($result)) {
-                            $total += $row['precio'] * $row['cantidad'];
-                        ?>
-                            <p>
-                                <a class="gato" href="editarCantidadPresupuesto.php?codigo=<?php echo $row['codigo'] ?>&numero=1"><i class="bi bi-plus-circle-fill"></i></a>
-                            </p>
-                        <?php } ?>
+                            <?php
+                            $query = "SELECT * FROM presupuesto order by producto";
+                            $result = mysqli_query($conn, $query);
+                            $total = 0;
+                            while ($row = mysqli_fetch_array($result)) {
+                                $total += $row['precio'] * $row['cantidad'];
+                            ?>
+                                <p>
+                                    <a class="gato" href="editarCantidadPresupuesto.php?codigo=<?php echo $row['codigo'] ?>&numero=1"><i class="bi bi-plus-circle-fill"></i></a>
+                                </p>
+                            <?php } ?>
                         </div>
                     </div>
                     <div class="col-3">
@@ -273,17 +269,17 @@
                     </div>
                     <div class="col-1 masmenos">
                         <div id="mas">
-                        <?php
-                        $query = "SELECT * FROM presupuesto order by producto";
-                        $result = mysqli_query($conn, $query);
-                        $total = 0;
-                        while ($row = mysqli_fetch_array($result)) {
-                            $total += $row['precio'] * $row['cantidad'];
-                        ?>
-                            <p>
-                                <a class="gato" href="editarCantidadPresupuesto.php?codigo=<?php echo $row['codigo'] ?>&numero=1"><i class="bi bi-plus-circle-fill"></i></a>
-                            </p>
-                        <?php } ?>
+                            <?php
+                            $query = "SELECT * FROM presupuesto order by producto";
+                            $result = mysqli_query($conn, $query);
+                            $total = 0;
+                            while ($row = mysqli_fetch_array($result)) {
+                                $total += $row['precio'] * $row['cantidad'];
+                            ?>
+                                <p>
+                                    <a class="gato" href="editarCantidadPresupuesto.php?codigo=<?php echo $row['codigo'] ?>&numero=1"><i class="bi bi-plus-circle-fill"></i></a>
+                                </p>
+                            <?php } ?>
                         </div>
                     </div>
                     <div class="col-1">
@@ -319,6 +315,12 @@
     include("footer.php");
     ?>
 
+    <script>
+        const tiempoTranscurrido = Date.now();
+        const hoy = new Date(tempoTranscurrido);
+        console.log(hoy.toLocaleDateString());
+        document.querySelector('#fechaa').innerHTML = hoy.toLocaleDateString();
+    </script>
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>

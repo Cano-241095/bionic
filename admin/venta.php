@@ -89,33 +89,50 @@
             }
         }
     }
+
     $precioEuroPesos = 20;
     $precioEuroDolar = 1;
-    $precioDoralPesos = $precioEuroPesos/$precioEuroDolar;
+    $precioDoralPesos = $precioEuroPesos / $precioEuroDolar;
 
-    // set API Endpoint and API key 
-    // $endpoint = 'latest';
-    // $access_key = 'd9d77f0248877971dadc10b7ec322716';
 
-    // // Initialize CURL:
-    // $ch = curl_init('http://data.fixer.io/api/' . $endpoint . '?access_key=' . $access_key . '');
-    // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    setlocale(LC_ALL, 'es_mx.UTF-8');
+    $fecha = strftime("%Y-%m-%d");
 
-    // // Store the data:
-    // $json = curl_exec($ch);
-    // curl_close($ch);
+    $queryD = "SELECT * FROM dolar WHERE fecha = '$fecha'";
+    $resultD = mysqli_query($conn, $queryD);
 
-    // // Decode JSON response:
-    // $exchangeRates = json_decode($json, true);
+    if ($rowD = mysqli_fetch_array($resultD)) {
+        $precioDoralPesos = $rowD['valor'];
+        // echo 'toma el valor del dolar de la DB';
+    } else {
+        // set API Endpoint and API key 
+        $endpoint = 'latest';
+        $access_key = 'd9d77f0248877971dadc10b7ec322716';
 
-    // // Access the exchange rate values, e.g. GBP:
-    // $precioEuroPesos = $exchangeRates['rates']['MXN'];
-    // $precioEuroDolar = $exchangeRates['rates']['USD'];
-    // $precioDoralPesos = $precioEuroPesos/$precioEuroDolar;
-    // Access the exchange rate values, e.g. GBP:
-    
-    
-    $precioDoralPesos = round($precioDoralPesos,2);
+        // Initialize CURL:
+        $ch = curl_init('http://data.fixer.io/api/' . $endpoint . '?access_key=' . $access_key . '');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        // Store the data:
+        $json = curl_exec($ch);
+        curl_close($ch);
+
+        // Decode JSON response:
+        $exchangeRates = json_decode($json, true);
+
+        // Access the exchange rate values, e.g. GBP:
+        $precioEuroPesos = $exchangeRates['rates']['MXN'];
+        $precioEuroDolar = $exchangeRates['rates']['USD'];
+        $precioDoralPesos = $precioEuroPesos / $precioEuroDolar;
+        // Access the exchange rate values, e.g. GBP:
+
+        $insertar = "INSERT INTO dolar (valor,fecha) VALUES ($precioDoralPesos,'$fecha')";
+        mysqli_query($conn, $insertar);
+    }
+
+
+    $precioDoralPesos = round($precioDoralPesos, 2);
+
     ?>
 
     <div class="contenedor" id="contenedor">
@@ -224,7 +241,7 @@
                         setlocale(LC_ALL, 'es_mx.UTF-8');
                         echo strftime("%A %d %B %Y");
                         ?>
-                    </p>dolar hoy <label id="resultado"><?php   echo $precioDoralPesos ?></label>
+                    </p>dolar hoy <label id="resultado"><?php echo $precioDoralPesos ?></label>
                 </div>
             </div>
 
@@ -320,7 +337,7 @@
                     <div class="col-3"> </div>
                     <div class="col-3"> </div>
                     <div class="col-3 total"> Total MXN:</div>
-                    <div class="col-3 total" id="totalFinalMXN2"><?php echo round((($total + ($total * $iva)) * $precioDoralPesos),2) ?></div>
+                    <div class="col-3 total" id="totalFinalMXN2"><?php echo round((($total + ($total * $iva)) * $precioDoralPesos), 2) ?></div>
                 </div>
             </div>
 
@@ -437,7 +454,7 @@
                     <div class="col-1"> </div>
                     <div class="col-3 total"> Total MXN:</div>
                     <div class="col-1 total" id="totalFinalMXN1">
-                        <?php echo round((($total + ($total * $iva)) * $precioDoralPesos),2) ?>
+                        <?php echo round((($total + ($total * $iva)) * $precioDoralPesos), 2) ?>
                     </div>
                 </div>
             </div>
@@ -448,8 +465,7 @@
         </div>
     </div>
     <div class="botones">
-        <button id="btnCrearPdfVenta" class="btnPresupuesto sombra">Finalizar Compra
-        </button>
+        <button id="btnCrearPdfVenta" class="btnPresupuesto sombra">Finalizar Compra</button>
     </div>
     <?php
     include("footer.php");

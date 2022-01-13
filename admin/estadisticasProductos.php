@@ -128,7 +128,7 @@
                                         <div class="modal-body">
                                             <?php
                                             $idAsociado = $row['id_asociado'];
-                                            $queryI = "SELECT * FROM ADITAMENTOS WHERE id = $idAsociado";
+                                            $queryI = "SELECT * FROM aditamentos WHERE id = $idAsociado";
                                             $resultI = mysqli_query($conn, $queryI);
                                             $rowI = mysqli_fetch_array($resultI);
                                             ?>

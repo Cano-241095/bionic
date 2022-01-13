@@ -1,3 +1,7 @@
+body{
+
+}
+
 .accordion {
     padding-bottom: 90px;
 }
@@ -15,7 +19,7 @@
 
 .botones {
     margin-top: 1rem;
-    padding-bottom: 70px;
+    padding-bottom: 40px;
 }
 
 @media only screen and (max-width: 768px) {

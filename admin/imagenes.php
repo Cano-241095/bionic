@@ -46,6 +46,7 @@
 
                             <input class="form-control d-none" type="number" name="id" placeholder="Ingresar ID unico"
                                 autocomplete="off" autofocus>
+                                
                             <input class="form-control mt-3" type="file" name="image" placeholder="Elige imagen"
                                 autocomplete="off" required>
 
