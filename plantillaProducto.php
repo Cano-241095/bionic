@@ -99,7 +99,7 @@
                                 <th><i class="bi bi-geo-alt-fill"></i></th>
                                 <th>Code</th>
                                 <th>Size</th>
-                                <th>Cantidad</th>
+                                <th>Inventario</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -63,7 +63,7 @@
                                 <th class="text-center text-white">ID_Asociado</th>
                                 <th class="text-center text-white">Codigo</th>
                                 <th class="text-center text-white">Tamaño</th>
-                                <th class="text-center text-white">cantidad</th>
+                                <th class="text-center text-white">Inventario</th>
                                 <th class="text-center text-white">Acciones</th>
                             </tr>
                         </thead>

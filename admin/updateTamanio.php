@@ -83,7 +83,7 @@
                             <div class="form-group">
                                 <input type="number" name="tamanio" value="<?php echo $tamanio; ?>" class="form-control" placeholder="Actualiza tamanio" autocomplete="off" required>
                             </div>
-                            <label for="">Cantidad:</label>
+                            <label for="">Inventario:</label>
                             <div class="form-group">
                                 <input type="number" name="cantidad" value="<?php echo $cantidad; ?>" class="form-control" placeholder="Actualiza cantidad" autocomplete="off" required>
                             </div>

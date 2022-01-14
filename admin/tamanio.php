@@ -62,7 +62,7 @@ $nombre = $_GET['nombre'];
                             <input class="form-control" type="text" name="casilla" placeholder="Ingresar casilla de ubicacion" autocomplete="off" required>
                             <label for="">Tamaño:</label>
                             <input class="form-control" type="text" name="tamanio" placeholder="Ingresar tamanio" autocomplete="off" required>
-                            <label for="">Cantidad:</label>
+                            <label for="">Inventario:</label>
                             <input class="form-control" type="number" name="cantidad" placeholder="Ingresar cantidad" autocomplete="off" required>
                             <input class="btn btn-secondary mt-3 w-100" type="submit" name="enviar" value="Guardar" id="seleccionArchivos" accept="image/*">
                             <input class="btn btn-secondary mt-3 w-100" type="reset" value=Limpiar>
@@ -80,7 +80,7 @@ $nombre = $_GET['nombre'];
                                 <th class="text-center text-white">Casilla</th>
                                 <th class="text-center text-white">Codigo</th>
                                 <th class="text-center text-white">Tamaño</th>
-                                <th class="text-center text-white">cantidad</th>
+                                <th class="text-center text-white">Inventario</th>
                                 <!-- <th class="text-center text-white">Acciones</th> -->
                             </tr>
                         </thead>

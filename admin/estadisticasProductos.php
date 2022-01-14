@@ -56,7 +56,7 @@
                 <span> <a href="estadisticasProductos.php?ordenar=codigo&palabra=<?php echo $inputUno ?>&palabraDos=<?php echo $inputDos ?>"> codigo </a></span>
                 <span> <a href="estadisticasProductos.php?ordenar=nombre&palabra=<?php echo $inputUno ?>&palabraDos=<?php echo $inputDos ?>"> nombre</a></span>
                 <span> <a href="estadisticasProductos.php?ordenar=tamanio&palabra=<?php echo $inputUno ?>&palabraDos=<?php echo $inputDos ?>"> tamaño </a></span>
-                <span> <a href="estadisticasProductos.php?ordenar=cantidad&palabra=<?php echo $inputUno ?>&palabraDos=<?php echo $inputDos ?>"> stock</a></span>
+                <span> <a href="estadisticasProductos.php?ordenar=cantidad&palabra=<?php echo $inputUno ?>&palabraDos=<?php echo $inputDos ?>"> inventario</a></span>
             </p>
             <ul class="">
                 <?php
@@ -94,7 +94,7 @@
                                                 <h5>Codigo: <?php echo $row['codigo'] ?></h5>
                                                 <h5>Casilla: <?php echo $row['casilla'] ?></h5>
                                                 <h5>Tamaño: <?php echo $row['tamanio'] ?> mm</h5>
-                                                <h5>Stock: <?php echo $row['cantidad'] ?></h5>
+                                                <h5>Inventario: <?php echo $row['cantidad'] ?></h5>
                                             </div>
                                             <img class="img-fluid" src="../img/aditamentos/<?php echo $rowI['url'] ?>" alt="">
                                         </div>
@@ -135,7 +135,7 @@
                                             <h5>Codigo: <?php echo $row['codigo'] ?></h5>
                                             <h5>Casilla: <?php echo $row['casilla'] ?></h5>
                                             <h5>Tamaño: <?php echo $row['tamanio'] ?> mm</h5>
-                                            <h5>Stock: <?php echo $row['cantidad'] ?></h5>
+                                            <h5>Inventario: <?php echo $row['cantidad'] ?></h5>
                                             <img class="img-fluid" src="../img/aditamentos/<?php echo $rowI['url'] ?>" alt="">
                                         </div>
                                     </div>
