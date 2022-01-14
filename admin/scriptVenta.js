@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Escuchamos el click del botón
     console.log('si esta');
-    
+
     let iva = 1;
     let valorIva = .16;
     let dolar = document.querySelector('#resultado').innerHTML;
@@ -17,62 +17,116 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //-------------------------------------------------------------------------------------------------------------------
     //-------------------------------------------------------------------------------------------------------------------
+    let $check = document.querySelector("#ivaCheck");
+    $check.addEventListener("click", () => {
+        if (iva >= 0) {
+            let subTotal = document.querySelector('#totalF1').innerHTML;
+            document.querySelector('#iva1').innerHTML = (subTotal * 0).toFixed(2);
+            document.querySelector('#totalFinal1').innerHTML = (parseInt(subTotal) + subTotal * 0).toFixed(2);
+            document.querySelector('#totalFinalMXN1').innerHTML = (subTotal * dolar).toFixed(2);
 
-    let $botonIvaSi = document.querySelector("#ivaSi1");
-    $botonIvaSi.addEventListener("click", () => {
-        let subTotal = document.querySelector('#totalF1').innerHTML;
-        document.querySelector('#iva1').innerHTML = (subTotal * valorIva).toFixed(2);
-        document.querySelector('#totalFinal1').innerHTML = (parseInt(subTotal) + subTotal * valorIva).toFixed(2);
-        document.querySelector('#totalFinalMXN1').innerHTML = ((parseInt(subTotal) + subTotal * valorIva) * dolar).toFixed(2);
+            document.querySelector('#iva2').innerHTML = (subTotal * 0).toFixed(2);
+            document.querySelector('#totalFinal2').innerHTML = (parseInt(subTotal) + subTotal * 0).toFixed(2);
+            document.querySelector('#totalFinalMXN2').innerHTML = (subTotal * dolar).toFixed(2);
+            iva = iva * -1;
+        } else {
+            let subTotal = document.querySelector('#totalF1').innerHTML;
 
-        document.querySelector('#iva2').innerHTML = (subTotal * valorIva).toFixed(2);
-        document.querySelector('#totalFinal2').innerHTML = (parseInt(subTotal) + subTotal * valorIva).toFixed(2);
-        document.querySelector('#totalFinalMXN2').innerHTML = ((parseInt(subTotal) + subTotal * valorIva) * dolar).toFixed(2);
-        iva = 1;
+            document.querySelector('#iva1').innerHTML = (subTotal * valorIva).toFixed(2);
+            document.querySelector('#totalFinal1').innerHTML = (parseInt(subTotal) + subTotal * valorIva).toFixed(2);
+            document.querySelector('#totalFinalMXN1').innerHTML = ((parseInt(subTotal) + subTotal * valorIva) * dolar).toFixed(2);
+
+            document.querySelector('#iva2').innerHTML = (subTotal * valorIva).toFixed(2);
+            document.querySelector('#totalFinal2').innerHTML = (parseInt(subTotal) + subTotal * valorIva).toFixed(2);
+            document.querySelector('#totalFinalMXN2').innerHTML = ((parseInt(subTotal) + subTotal * valorIva) * dolar).toFixed(2);
+            iva = iva * -1;
+        }
     });
 
-    let $botonIvaNo = document.querySelector("#ivaNo1");
-    $botonIvaNo.addEventListener("click", () => {
-        let subTotal = document.querySelector('#totalF1').innerHTML;
-        document.querySelector('#iva1').innerHTML = (subTotal * 0).toFixed(2);
-        document.querySelector('#totalFinal1').innerHTML = (parseInt(subTotal) + subTotal * 0).toFixed(2);
-        document.querySelector('#totalFinalMXN1').innerHTML = (subTotal * dolar).toFixed(2);
+    let $checkMini = document.querySelector("#ivaCheckMini");
+    $checkMini.addEventListener("click", () => {
+        if (iva >= 0) {
+            let subTotal = document.querySelector('#totalF1').innerHTML;
+            document.querySelector('#iva1').innerHTML = (subTotal * 0).toFixed(2);
+            document.querySelector('#totalFinal1').innerHTML = (parseInt(subTotal) + subTotal * 0).toFixed(2);
+            document.querySelector('#totalFinalMXN1').innerHTML = (subTotal * dolar).toFixed(2);
 
-        document.querySelector('#iva2').innerHTML = (subTotal * 0).toFixed(2);
-        document.querySelector('#totalFinal2').innerHTML = (parseInt(subTotal) + subTotal * 0).toFixed(2);
-        document.querySelector('#totalFinalMXN2').innerHTML = (subTotal * dolar).toFixed(2);
-        iva = 0;
+            document.querySelector('#iva2').innerHTML = (subTotal * 0).toFixed(2);
+            document.querySelector('#totalFinal2').innerHTML = (parseInt(subTotal) + subTotal * 0).toFixed(2);
+            document.querySelector('#totalFinalMXN2').innerHTML = (subTotal * dolar).toFixed(2);
+            iva = iva * -1;
+        } else {
+            let subTotal = document.querySelector('#totalF1').innerHTML;
+
+            document.querySelector('#iva1').innerHTML = (subTotal * valorIva).toFixed(2);
+            document.querySelector('#totalFinal1').innerHTML = (parseInt(subTotal) + subTotal * valorIva).toFixed(2);
+            document.querySelector('#totalFinalMXN1').innerHTML = ((parseInt(subTotal) + subTotal * valorIva) * dolar).toFixed(2);
+
+            document.querySelector('#iva2').innerHTML = (subTotal * valorIva).toFixed(2);
+            document.querySelector('#totalFinal2').innerHTML = (parseInt(subTotal) + subTotal * valorIva).toFixed(2);
+            document.querySelector('#totalFinalMXN2').innerHTML = ((parseInt(subTotal) + subTotal * valorIva) * dolar).toFixed(2);
+            iva = iva * -1;
+        }
+
     });
 
-    //-------------------------------------------------------------------------------------------------------------------
-    //-------------------------------------------------------------------------------------------------------------------
-    let $botonIvaSi2 = document.querySelector("#ivaSi2");
-    $botonIvaSi2.addEventListener("click", () => {
-        let subTotal = document.querySelector('#totalF2').innerHTML;
-        document.querySelector('#iva2').innerHTML = (subTotal * valorIva).toFixed(2);
-        document.querySelector('#totalFinal2').innerHTML = (parseInt(subTotal) + subTotal * valorIva).toFixed(2);
-        document.querySelector('#totalFinalMXN2').innerHTML = ((parseInt(subTotal) + subTotal * valorIva) * dolar).toFixed(2);
+    // //-------------------------------------------------------------------------------------------------------------------
+    // //------------
+    // let $botonIvaSi = document.querySelector("#ivaSi1");
+    // $botonIvaSi.addEventListener("click", () => {
+    //     let subTotal = document.querySelector('#totalF1').innerHTML;
+    //     document.querySelector('#iva1').innerHTML = (subTotal * valorIva).toFixed(2);
+    //     document.querySelector('#totalFinal1').innerHTML = (parseInt(subTotal) + subTotal * valorIva).toFixed(2);
+    //     document.querySelector('#totalFinalMXN1').innerHTML = ((parseInt(subTotal) + subTotal * valorIva) * dolar).toFixed(2);
 
-        document.querySelector('#iva1').innerHTML = (subTotal * valorIva).toFixed(2);
-        document.querySelector('#totalFinal1').innerHTML = (parseInt(subTotal) + subTotal * valorIva).toFixed(2);
-        document.querySelector('#totalFinalMXN1').innerHTML = ((parseInt(subTotal) + subTotal * valorIva) * dolar).toFixed(2);
-        iva = 1;
-    });
+    //     document.querySelector('#iva2').innerHTML = (subTotal * valorIva).toFixed(2);
+    //     document.querySelector('#totalFinal2').innerHTML = (parseInt(subTotal) + subTotal * valorIva).toFixed(2);
+    //     document.querySelector('#totalFinalMXN2').innerHTML = ((parseInt(subTotal) + subTotal * valorIva) * dolar).toFixed(2);
+    //     iva = 1;
+    // });
 
-    let $botonIvaNo2 = document.querySelector("#ivaNo2");
-    $botonIvaNo2.addEventListener("click", () => {
-        let subTotal = document.querySelector('#totalF2').innerHTML;
-        document.querySelector('#iva2').innerHTML = (subTotal * 0).toFixed(2);
-        document.querySelector('#totalFinal2').innerHTML = (parseInt(subTotal) + subTotal * 0).toFixed(2);
-        document.querySelector('#totalFinalMXN2').innerHTML = (subTotal * dolar).toFixed(2);
+    // let $botonIvaNo = document.querySelector("#ivaNo1");
+    // $botonIvaNo.addEventListener("click", () => {
+    //     let subTotal = document.querySelector('#totalF1').innerHTML;
+    //     document.querySelector('#iva1').innerHTML = (subTotal * 0).toFixed(2);
+    //     document.querySelector('#totalFinal1').innerHTML = (parseInt(subTotal) + subTotal * 0).toFixed(2);
+    //     document.querySelector('#totalFinalMXN1').innerHTML = (subTotal * dolar).toFixed(2);
 
-        document.querySelector('#iva1').innerHTML = (subTotal * 0).toFixed(2);
-        document.querySelector('#totalFinal1').innerHTML = (parseInt(subTotal) + subTotal * 0).toFixed(2);
-        document.querySelector('#totalFinalMXN1').innerHTML = (subTotal * dolar).toFixed(2);
-        iva = 0;
-    });
+    //     document.querySelector('#iva2').innerHTML = (subTotal * 0).toFixed(2);
+    //     document.querySelector('#totalFinal2').innerHTML = (parseInt(subTotal) + subTotal * 0).toFixed(2);
+    //     document.querySelector('#totalFinalMXN2').innerHTML = (subTotal * dolar).toFixed(2);
+    //     iva = 0;
+    // });
 
-    
+    // //-------------------------------------------------------------------------------------------------------------------
+    // //-------------------------------------------------------------------------------------------------------------------
+    // let $botonIvaSi2 = document.querySelector("#ivaSi2");
+    // $botonIvaSi2.addEventListener("click", () => {
+    //     let subTotal = document.querySelector('#totalF2').innerHTML;
+    //     document.querySelector('#iva2').innerHTML = (subTotal * valorIva).toFixed(2);
+    //     document.querySelector('#totalFinal2').innerHTML = (parseInt(subTotal) + subTotal * valorIva).toFixed(2);
+    //     document.querySelector('#totalFinalMXN2').innerHTML = ((parseInt(subTotal) + subTotal * valorIva) * dolar).toFixed(2);
+
+    //     document.querySelector('#iva1').innerHTML = (subTotal * valorIva).toFixed(2);
+    //     document.querySelector('#totalFinal1').innerHTML = (parseInt(subTotal) + subTotal * valorIva).toFixed(2);
+    //     document.querySelector('#totalFinalMXN1').innerHTML = ((parseInt(subTotal) + subTotal * valorIva) * dolar).toFixed(2);
+    //     iva = 1;
+    // });
+
+    // let $botonIvaNo2 = document.querySelector("#ivaNo2");
+    // $botonIvaNo2.addEventListener("click", () => {
+    //     let subTotal = document.querySelector('#totalF2').innerHTML;
+    //     document.querySelector('#iva2').innerHTML = (subTotal * 0).toFixed(2);
+    //     document.querySelector('#totalFinal2').innerHTML = (parseInt(subTotal) + subTotal * 0).toFixed(2);
+    //     document.querySelector('#totalFinalMXN2').innerHTML = (subTotal * dolar).toFixed(2);
+
+    //     document.querySelector('#iva1').innerHTML = (subTotal * 0).toFixed(2);
+    //     document.querySelector('#totalFinal1').innerHTML = (parseInt(subTotal) + subTotal * 0).toFixed(2);
+    //     document.querySelector('#totalFinalMXN1').innerHTML = (subTotal * dolar).toFixed(2);
+    //     iva = 0;
+    // });
+
+
     let $botonVenta = document.querySelector("#btnCrearPdfVenta");
 
     $botonVenta.addEventListener("click", () => {
