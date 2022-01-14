@@ -38,7 +38,7 @@
                             <label for="">Tamaño:</label>
                             <input class="form-control" type="text" name="tamanio" placeholder="Ingresar tamanio"
                                 autocomplete="off" required>
-                            <label for="">Cantidad:</label>
+                            <label for="">Inventario:</label>
                             <input class="form-control" type="number" name="cantidad" placeholder="Ingresar cantidad"
                                 autocomplete="off" required>
 
