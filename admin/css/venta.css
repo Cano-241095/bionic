@@ -16,7 +16,24 @@ body{
     text-transform: capitalize;
     /* filter: blur(5px); */
 }
-
+.end{
+    text-align: end;
+}
+input[type=checkbox]{
+	content: ''; /* No hay contenido */
+	width: 26px;
+	height: 26px;
+	background: #fff;
+	border-radius: 50%;
+	-webkit-box-shadow: 3px 0 3px 0 rgba(0,0,0,0.2);
+	box-shadow: rgba(0,0,0,0.2) 0 0 10px;
+    text-align: center;
+}
+@media only screen and (max-width: 1200px) {
+    .contenedor {
+        width: 90%;
+    }
+}
 .botones {
     margin-top: 1rem;
     padding-bottom: 40px;
@@ -267,20 +284,26 @@ a span:nth-child(4), p.titulo span:nth-child(4) {
 
 .nota .header {
     display: flex;
-    align-items: flex-start;
+    align-items: flex-end;
     justify-content: space-between;
     width: 100%;
-    padding: 1rem 1rem 0 1rem;
     border-bottom: solid 1px var(--moradoTenue);
 }
 
 .nota .header img {
-    width: 120px;
+    width: 168px;
 }
 
 .nota .header p {
     margin: 0;
     text-align: end;
+}
+@media only screen and (max-width: 800px){
+    .nota .header p {
+        margin: 0;
+        text-align: start;
+        transition: 1s;
+    }
 }
 
 .folio {
@@ -306,7 +329,20 @@ a span:nth-child(4), p.titulo span:nth-child(4) {
         display: block;
     }
 }
+.nota .productosPre p{
+    height: 2rem;
+    margin-bottom: .5rem;
+}
+@media only screen and (max-width: 1308px){
+    .nota .productosPre p{
+        height: 3rem;
+        margin-bottom: .5rem;
+    }
+}
 
+.header .imagenLogoCliente p{
+    text-align: start;
+}
 .row {
     align-items: center;
 }
@@ -319,12 +355,12 @@ a span:nth-child(4), p.titulo span:nth-child(4) {
 .col-1 {
     padding: 0;
 }
-
+/* 
 .nota .col-5 {
-    white-space: nowrap;
+    white-space: nowrap;    
     overflow: hidden;
     text-overflow: Ellipsis;
-}
+} */
 
 .rowTotal .total {
     font-weight: bold;

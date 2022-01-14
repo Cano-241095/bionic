@@ -151,7 +151,7 @@
                     <?php } ?>
                     <option value="cliente.php?idVendedor=<?php echo $idVendedor ?>"> Nuevo Cliente </option>
                 </select>
-                <h3 id="nombreCliente" class=""><?php echo $clienteElegido ?> <span id="idCliente" class="d-none"><?php echo $idCliente ?></span> <span id="idVendedor" class="d-none"><?php echo $idVendedor ?></span></h3>
+                <!-- <h3 id="nombreCliente" class=""><?php echo $clienteElegido ?> <span id="idCliente" class="d-none"><?php echo $idCliente ?></span> <span id="idVendedor" class="d-none"><?php echo $idVendedor ?></span></h3> -->
             </div>
             <form id="envidoI" class="sombra" action="venta.php" method="$_GET">
                 <div>
@@ -212,7 +212,7 @@
                             while ($row = mysqli_fetch_array($result)) {
                             ?>
                                 <li>
-                                    <a title="<?php echo $row['nombre'] ?>" href="agregarVenta.php?id=<?php echo $row['codigo'] ?>&folio=<?php echo $folio ?>&idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $_GET['idCliente'] ?>">
+                                    <a  title="<?php echo $row['nombre'] ?>" href="agregarVenta.php?id=<?php echo $row['codigo'] ?>&folio=<?php echo $folio ?>&idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $_GET['idCliente'] ?>">
                                         <span><?php echo $row['nombre'] ?></span>
                                         <span><?php echo $row['codigo'] ?></span>
                                         <span class="tamaño"><?php echo $row['tamanio'] ?> mm</span>
@@ -230,9 +230,19 @@
 
             </div>
             <div class="header">
+                <div class="imagenLogoCliente">
                 <a href="https://implants-bionic.com/">
                     <img src="../img/logo.png" alt="">
                 </a>
+                <!-- Cliente: -->
+                <p id="nombreCliente" class="">Cliente: <?php echo $clienteElegido ?> <span id="idCliente" class="d-none"><?php echo $idCliente ?></span> <span id="idVendedor" class="d-none"><?php echo $idVendedor ?></span></p>
+                <p><?php
+                    $queryVendedor = "SELECT * FROM vendedores WHERE id = $idVendedor";
+                    $resultV = mysqli_query($conn, $queryVendedor);
+                    $rowV = mysqli_fetch_array($resultV);
+                    echo 'Vendedor: '.$rowV['nombre'];
+                ?></p>
+                </div>
                 <div class="fecha">
                     <p class="folio">Folio: <span id="folio"><?php echo $folio ?></span> </p>
                     <p>Fecha de venta:</p>
@@ -323,7 +333,8 @@
                 </div>
                 <div class="row border-bottom rowTotal">
                     <div class="col-3"> </div>
-                    <div class="col-3"><button id="ivaSi2">Si</button><button id="ivaNo2">No</button> </div>
+                    <div class="col-3"><input type="checkbox" checked id="ivaCheckMini"> </div>
+                    <!-- <button id="ivaSi2">Si</button><button id="ivaNo2">No</button> -->
                     <div class="col-3 total"> iva:</div>
                     <div class="col-3 total" id="iva2"><?php echo $total * $iva ?></div>
                 </div>
@@ -436,7 +447,8 @@
                 </div>
                 <div class="row border-bottom rowTotal">
                     <div class="col-2"> </div>
-                    <div class="col-5"> <button id="ivaSi1">Si</button><button id="ivaNo1">No</button> </div>
+                    <div class="col-5 end"> <input type="checkbox" checked id="ivaCheck"> </div>
+                    <!-- <button id="ivaSi1">Si</button><button id="ivaNo1">No</button> -->
                     <div class="col-1"></div>
                     <div class="col-3 total"> iva:</div>
                     <div class="col-1 total" id="iva1"><?php echo $total * $iva ?></div>
