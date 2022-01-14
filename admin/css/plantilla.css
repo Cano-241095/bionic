@@ -23,7 +23,12 @@ h1 a i {
 h2 {
     color: #7c4a84;
     font-size: 25px;
+<<<<<<< HEAD
     font-weight: bold;
+=======
+    font-weight: 600;
+    font-weight: bolder;
+>>>>>>> 4fbdeeadcbbe775ae74d921e6d49045153f70f41
 }
 
 h3 {
@@ -94,7 +99,11 @@ main {
 }
 
 .subContenedorProducto img {
+<<<<<<< HEAD
     width: 240px;
+=======
+    width: 200px;
+>>>>>>> 4fbdeeadcbbe775ae74d921e6d49045153f70f41
     position: absolute;
     top: 50px;
     left: 170px;
@@ -125,7 +134,11 @@ main {
     font-size: .8rem;
     border-radius: 10px;
     text-align: center;
+<<<<<<< HEAD
     right: calc(100% - 50% - 80px);
+=======
+    right: 90px;    
+>>>>>>> 4fbdeeadcbbe775ae74d921e6d49045153f70f41
 }
 
 @media only screen and (max-width:768px) {

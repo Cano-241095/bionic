@@ -11,14 +11,47 @@
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/styleIndex.css">
     <link rel="shortcut icon" href="img/logo-png.ico">
+    <link rel="stylesheet" href="css/btnAdmin.css">
 
     <title>Implants Bionic</title>
 </head>
 
 <body>
+    
     <?php
+    
     include("header.php");
+
+// if(isset($_GET['contrasenia'])) {
+//     $input = $_GET['contrasenia'];
+//     if($input==1234){
+//     header('Location:admin/home.php');
+//     }else{
+//         header('Location:home.php');  
+//     }
+// }
     ?> 
+    
+    <!-- <button type="button" class="btn btn-secondary btn-modal" data-bs-toggle="modal" data-bs-target="#exampleModal">
+Ingresar
+</button>
+<!-- Modal -->
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ingresar</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form method="get" name="form" action="home.php">
+            Contraseña:<input type="password" name="contrasenia" require>
+            <button>784</button>
+        </form>    
+      </div>
+    </div>
+  </div>
+</div> -->
     <main>
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
