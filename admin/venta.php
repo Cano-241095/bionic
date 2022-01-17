@@ -130,31 +130,48 @@
         mysqli_query($conn, $insertar);
     }
 
-
     $precioDoralPesos = round($precioDoralPesos, 2);
 
+    $nombre = 'c';
+    if (isset($_GET['inputCliente'])) {
+        $nombre = $_GET['inputCliente'];
+    }
     ?>
 
     <div class="contenedor" id="contenedor">
         <div class="miniContenedor">
             <div class="vendedor sombra" id="cliente">
-                <label for="">Cliente</label>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected value="venta.php?idVendedor=<?php echo $idVendedor ?>&idCliente=123456789">Seleccionar Cliente</option>
+                <div class="duo">
+                    <label for="">Cliente</label>
+                    <input type="text" value="<?php echo $nombre ?>" id="inputCliente" onkeyup="updateValue(this.value)">
+                    <script>
+                        function updateValue(valor) {
+                            let valorInput = ' ';
+                            valorInput = valor;
+                            if (valorInput.length >= 4) {
+                                
+                            // console.log('si toma el cambio: ' + valorInput);
+                            let idVendedor = document.getElementById("idVendedor").innerText;
+                            let ir = "venta.php?idVendedor=" + idVendedor + "&idCliente=123456789" + "&inputCliente=" + valorInput;
+                            setTimeout("location.href='" + ir + "'", 0);
+                            }
+                        }
+                    </script>
+                </div>
+                <div class="contenedorClientes">
                     <?php
-                    $query = "SELECT * FROM clientes ORDER BY nombre";
+                    $query = "SELECT * FROM clientes Where nombre like '%$nombre%' OR apellidoP like '%$nombre%' ORDER BY nombre";
                     $result = mysqli_query($conn, $query);
                     while ($clientes = mysqli_fetch_array($result)) {
                     ?>
-                        <option value="venta.php?idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $clientes['id'] ?>"> <?php echo $clientes['nombre'] . " " . $clientes['apellidoP'] . " " . $clientes['apellidoM'] ?> </option>
+                        <a class="cliente" href="venta.php?idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $clientes['id'] ?>"> <?php echo $clientes['nombre'] . " " . $clientes['apellidoP'] . " " . $clientes['apellidoM'] ?> </a>
                         <!-- agregue idcliente idvendedor falta usarlo al dar click en un producto  -->
                     <?php } ?>
-                    <option value="cliente.php?idVendedor=<?php echo $idVendedor ?>"> Nuevo Cliente </option>
-                </select>
-                <!-- <h3 id="nombreCliente" class=""><?php echo $clienteElegido ?> <span id="idCliente" class="d-none"><?php echo $idCliente ?></span> <span id="idVendedor" class="d-none"><?php echo $idVendedor ?></span></h3> -->
+                    <a class="cliente" href="cliente.php?idVendedor=<?php echo $idVendedor ?>"> Nuevo Cliente </a>
+                </div>
             </div>
             <form id="envidoI" class="sombra" action="venta.php" method="$_GET">
-                <div>
+                <div class="duo">
                     <input value="<?php echo $idVendedor ?>" type="text" class="d-none" name="idVendedor">
                     <input value="<?php echo $idCliente ?>" type="text" class="d-none" name="idCliente">
                     <input value="ENVIO24" type="text" class="d-none" name="codigo">
@@ -165,11 +182,11 @@
             </form>
             <div id="busqueda" class="busqueda sombra">
                 <form action="venta.php?idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $idCliente ?>" method="POST">
-                    <div>
+                    <div class="duo">
                         <label for="">Nombre</label>
                         <input type="text" value="<?php echo $inputUno ?>" name="palabra" autocomplete="off" placeholder="Ejemplo: Implante">
                     </div>
-                    <div class="segundoInput">
+                    <div class="segundoInput duo mt-2">
                         <label for="">Codigo</label>
                         <input type="text" value="<?php echo $inputDos ?>" name="palabraDos" autocomplete="off" placeholder="Ejemplo: Implante">
                     </div>
@@ -212,7 +229,7 @@
                             while ($row = mysqli_fetch_array($result)) {
                             ?>
                                 <li>
-                                    <a  title="<?php echo $row['nombre'] ?>" href="agregarVenta.php?id=<?php echo $row['codigo'] ?>&folio=<?php echo $folio ?>&idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $_GET['idCliente'] ?>">
+                                    <a title="<?php echo $row['nombre'] ?>" href="agregarVenta.php?id=<?php echo $row['codigo'] ?>&folio=<?php echo $folio ?>&idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $_GET['idCliente'] ?>">
                                         <span><?php echo $row['nombre'] ?></span>
                                         <span><?php echo $row['codigo'] ?></span>
                                         <span class="tamaño"><?php echo $row['tamanio'] ?> mm</span>
@@ -231,17 +248,17 @@
             </div>
             <div class="header">
                 <div class="imagenLogoCliente">
-                <a href="https://implants-bionic.com/">
-                    <img src="../img/logo.png" alt="">
-                </a>
-                <!-- Cliente: -->
-                <p id="nombreCliente" class="">Cliente: <?php echo $clienteElegido ?> <span id="idCliente" class="d-none"><?php echo $idCliente ?></span> <span id="idVendedor" class="d-none"><?php echo $idVendedor ?></span></p>
-                <p><?php
-                    $queryVendedor = "SELECT * FROM vendedores WHERE id = $idVendedor";
-                    $resultV = mysqli_query($conn, $queryVendedor);
-                    $rowV = mysqli_fetch_array($resultV);
-                    echo 'Vendedor: '.$rowV['nombre'];
-                ?></p>
+                    <a href="https://implants-bionic.com/">
+                        <img src="../img/logo.png" alt="">
+                    </a>
+                    <!-- Cliente: -->
+                    <p id="nombreCliente" class="">Cliente: <?php echo $clienteElegido ?> <span id="idCliente" class="d-none"><?php echo $idCliente ?></span> <span id="idVendedor" class="d-none"><?php echo $idVendedor ?></span></p>
+                    <p><?php
+                        $queryVendedor = "SELECT * FROM vendedores WHERE id = $idVendedor";
+                        $resultV = mysqli_query($conn, $queryVendedor);
+                        $rowV = mysqli_fetch_array($resultV);
+                        echo 'Vendedor: ' . $rowV['nombre']; ?>
+                    </p>
                 </div>
                 <div class="fecha">
                     <p class="folio">Folio: <span id="folio"><?php echo $folio ?></span> </p>
