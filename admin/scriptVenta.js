@@ -126,6 +126,26 @@ document.addEventListener("DOMContentLoaded", () => {
     //     iva = 0;
     // });
 
+    // let inputCliente = document.querySelector("#inputCliente");
+
+    // inputCliente.addEventListener('change', updateValue);
+    // console.log(inputCliente.innerText);
+    // function updateValue(e) {
+    //     let valorInput = e.target.value;
+    //     console.log('si toma el cambio: ' + valorInput);
+    //     let idVendedor = document.getElementById("idVendedor").innerText;
+    //     let ir = "venta.php?idVendedor=" + idVendedor + "&idCliente=123456789" + "&inputCliente=" + valorInput;
+    //     setTimeout("location.href='" + ir + "'", 0);
+    // }
+
+    // inputCliente.addEventListener("change", () => {
+    //     let valorInput = document.querySelector("#inputCliente").innerText;
+    //     let idCliente = document.getElementById("idCliente").innerText;
+    //     let idVendedor = document.getElementById("idVendedor").innerText;
+
+    //     let ir = "venta.php?idVendedor=" + idCliente + "&idCliente=" + idVendedor + "&inputCliente=" + valorInput;
+    //     setTimeout("location.href='" + ir + "'", 0);
+    // });
 
     let $botonVenta = document.querySelector("#btnCrearPdfVenta");
 
@@ -176,6 +196,8 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout("location.href='" + ir + "'", 1500);
         }
     });
+
+
 
     // esto es para abrir con el select
     $("select").click(function () {
