@@ -39,6 +39,26 @@ h1{
     gap: 1rem;
 }
 @media only screen and (max-width: 768px){
+.cincofr{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem;
+}
+.tresfr{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+}
+
+.tresfr{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: .5rem;
+}
+/* h3{
+    display: inline;
+} */
+@media only screen and (max-width: 768px){
     .contenedor .sombra form{
         grid-template-columns: 1fr;
     }
@@ -66,6 +86,7 @@ input{
     color: black!important;
     text-align: center;
 }
+
 input::placeholder{
     color: rgb(143, 122, 143)!important;
 }
@@ -91,7 +112,9 @@ a.volver{
     margin-top: .5rem;
 }
 .volver:hover{
-    color: white;
+    background-color: white;
+    color: var(--moradoTenue);
+    border: solid 1px var(--moradoTenue);
 }
 button:hover{
     box-shadow: white 0 0 15px;
@@ -152,11 +175,11 @@ font-weight: bolder;
 }
 @media only screen and (max-width: 768px){
     .btn{
-        width: 100%;
+        /* width: 100%;
         /* margin-bottom: 2rem; */
         border: solid 2px var(--moradoTenue);
         
-    }
+    } 
     }
 ul{
         color:var(--morado) ;
@@ -178,11 +201,11 @@ i{
 .modal-body{
     color: black;
     text-transform:capitalize;
+    margin: 1rem;
 
 }
 .modal-title{
-    font-weight: bold;
-    color: var(--morado);
+    color: var(--moradoTenue);
     font-size: 1.5rem;
 
 }

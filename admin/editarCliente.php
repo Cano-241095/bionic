@@ -35,12 +35,22 @@
         $num = ucwords(strtolower($_POST['num']));
         $ciudad = ucwords(strtolower($_POST['ciudad']));
         $telefono = ucwords(strtolower($_POST['telefono']));
-        $email = ucwords(strtolower($_POST['email']));
+        $denominacion = ucwords(strtolower($_POST['denominacion']));
+        $telefonoFis = ucwords(strtolower($_POST['telefonoFis']));
         $rfc = ucwords(strtolower($_POST['rfc']));
+        $cp = ucwords(strtolower($_POST['cp']));
+        $persona = ucwords(strtolower($_POST['persona']));
+        $calleEnv = ucwords(strtolower($_POST['calleEnv']));
+        $coloniaEnv = ucwords(strtolower($_POST['coloniaEnv']));
+        $numEnv = ucwords(strtolower($_POST['numEnv']));
+        $ciudadEnv = ucwords(strtolower($_POST['ciudadEnv']));
+        $telefonoEnv = ucwords(strtolower($_POST['telefonoEnv']));
+        $email = ucwords(strtolower($_POST['email']));
+        $cpEnv = ucwords(strtolower($_POST['cpEnv']));
 
 
         $insert = "UPDATE clientes set nombre ='$nombre', apellidoP ='$apellidoP',
-        apellidoM ='$apellidoM',calle = '$calle', colonia = '$colonia', numero = '$num',ciudad = '$ciudad', telefono = '$telefono', email ='$email' WHERE id= $rfc";
+        apellidoM ='$apellidoM',calle = '$calle', colonia = '$colonia', num = '$num',ciudad = '$ciudad', telefono = '$telefono', denominacion ='$denominacion', telefonoFis = '$telefonoFis', cp = '$cp', persona = '$persona', calleEnv = '$calleEnv', coloniaEnv = '$coloniaEnv',numEnv = '$numEnv', ciudadEnv = '$ciudadEnv', telefonoEnv = '$telefonoEnv', email = '$email', cpEnv = '$cpEnv' WHERE id= $rfc";
                 if (mysqli_query($conn, $insert)) {
             $_SESSION['message'] = 'Registro Actualizado';
             $_SESSION['message_type'] = 'success';
@@ -80,7 +90,7 @@
                 </div>
                 <div>
                     <label for="">Numero:</label>
-                    <input type="text" name="num" value="<?php echo $row['numero'] ?>" required>
+                    <input type="text" name="num" value="<?php echo $row['num'] ?>" required>
                 </div>
                 <div>
                     <label for="">Ciudad:</label>
@@ -91,22 +101,53 @@
                     <input type="number" name="telefono" value="<?php echo $row['telefono'] ?>" required>
                 </div>
                 <div>
-                    <label for="">Email:</label>
-                    <input type="email" name="email" value="<?php echo $row['email'] ?>" required>
+                    <label for="">Denominacion:</label>
+                    <input type="text" name="denominacion" value="<?php echo $row['denominacion'] ?>" required>
+                </div>
+                <div>
+                    <label for="">Telefono:</label>
+                    <input type="text" name="telefonoFis" value="<?php echo $row['telefonoFis'] ?>" required>
                 </div>
                 <div>
                     <label for="">RFC</label>
                     <input type="rfc" name="rfc" value="<?php echo $row['id'] ?>" required>
                 </div>
                 <div>
-                    <label for="">Denominacion:</label>
-                    <input type="text" name="denominacion" value="<?php echo $row['denominacion'] ?>" required>
-                </div>
-                <div>
                     <label for="">Codigo_Postal:</label>
                     <input type="text" name="cp" value="<?php echo $row['cp'] ?>" required>
                 </div>
-
+                <div>
+                    <label for="">Quien recibe::</label>
+                    <input type="text" name="persona" value="<?php echo $row['persona'] ?>" require>
+                </div>
+                <div>
+                    <label for="">Calle:</label>
+                    <input type="calle" name="calleEnv" value="<?php echo $row['calleEnv'] ?>" required>
+                </div>
+                <div>
+                    <label for="">Colonia:</label>
+                    <input type="text" name="coloniaEnv" value="<?php echo $row['coloniaEnv'] ?>" required>
+                </div>
+                <div>
+                    <label for="">Numero:</label>
+                    <input type="text" name="numEnv" value="<?php echo $row['numEnv'] ?>" required>
+                </div>
+                <div>
+                    <label for="">Ciudad:</label>
+                    <input type="text" name="ciudadEnv" value="<?php echo $row['ciudadEnv'] ?>" required>
+                </div>
+                <div>
+                    <label for="">Telefono:</label>
+                    <input type="number" name="telefonoEnv" value="<?php echo $row['telefonoEnv'] ?>" required>
+                </div>
+                <div>
+                    <label for="">Email:</label>
+                    <input type="email" name="email" value="<?php echo $row['email'] ?>" required>
+                </div>
+                <div>
+                    <label for="">Codigo_Postal:</label>
+                    <input type="text" name="cpEnv" value="<?php echo $row['cpEnv'] ?>" required>
+                </div>
                 <button class="btn-actualizar btn btn-secondary" type="submit" name="actualizar">Actualizar</button>
             </form>
             

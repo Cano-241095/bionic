@@ -84,89 +84,92 @@
         <div class="sombra">
             <form action="cliente.php" method="POST">
                 <input class="d-none" type="text" name="idVendedor" value="<?php echo $idVendedor ?>">
+                    <h3>Datos del Cliente</h3>
                 <div class="cincofr">
                     <div>
                         <label for="">Nombre Cliente</label>
-                        <input type="text" placeholder="Ejemplo: Genesis" name="NomCliente" required>
+                        <input type="text" placeholder="Ejemplo: Genesis" name="NomCliente" required autocomplete="none">
                     </div>
                     <div>
                         <label for="">Apellido Paterno:</label>
-                        <input type="text" placeholder="Ejemplo: Cano" name="apellidoP" required>
+                        <input type="text" placeholder="Ejemplo: Cano" name="apellidoP" required autocomplete="none">
                     </div>
                     <div>
                         <label for="">Apellido Materno:</label>
-                        <input type="text" placeholder="Ejemplo: Gongora" name="apellidoM" required>
+                        <input type="text" placeholder="Ejemplo: Gongora" name="apellidoM" required autocomplete="none">
                     </div>
                     <div>
                         <label for="">Calle:</label>
-                        <input type="text" placeholder="Manuel Altamirano" name="calle" required>
+                        <input type="text" placeholder="Manuel Altamirano" name="calle" required autocomplete="none">
                     </div>
                     <div>
                         <label for="">Colonia:</label>
-                        <input type="text" placeholder="20 de Noviembre" name="colonia" required>
+                        <input type="text" placeholder="20 de Noviembre" name="colonia"  autocomplete="none">
                     </div>
                     <div>
                         <label for="">Num:</label>
-                        <input type="text" placeholder="#15a" name="num">
+                        <input type="text" placeholder="#15a" name="num" require autocomplete="none"> 
                     </div>
                     <div>
                         <label for="">Ciudad:</label>
-                        <input type="text" placeholder="Iguala de la Independecia" name="ciudad">
+                        <input type="text" placeholder="Iguala de la Independecia" name="ciudad" require autocomplete="none">
                     </div>
                     <div>
                         <label for="">Telefono:</label>
-                        <input type="number" placeholder="7331254864" name="telefono" required>
+                        <input type="number" placeholder="7331254864" name="telefono" required autocomplete="none">
                     </div>
                     
                 </div>
 
+                <h3>Datos Fiscales</h3>
                 <div class="cincofr">
                     <div>
-                        <label for="">Nombre o Denominacion:</label>
-                        <input type="text" placeholder="Comercial" name="denominacion" required>
+                        <label for="">Denominacion:</label>
+                        <input type="text" placeholder="Comercial" name="denominacion" required autocomplete="none">
                     </div>
                     <div>
                         <label for="">RFC:</label>
-                        <input type="text" placeholder="GECAGOGSYH12" name="rfc" required>
+                        <input type="text" placeholder="GECAGOGSYH12" name="rfc" required autocomplete="none">
                     </div>
                     <div>
                         <label for="">Telefono:</label>
-                        <input type="text" p laceholder="40000" name="telefonoFis" required>
+                        <input type="text" p laceholder="40000" name="telefonoFis" required autocomplete="none">
                     </div>
                     <div>
                         <label for="">C.P:</label>
-                        <input type="text" placeholder="" name="cp" required>
+                        <input type="text" placeholder="" name="cp" required autocomplete="none">
                     </div>
                 </div>
 
+                <h3>Datos de Envio</h3>
                 <div class="cincofr">
                     <div>
                         <label for="">Quien recibe:</label>
-                        <input type="text" placeholder="" name="persona" required>
+                        <input type="text" placeholder="" name="persona" required autocomplete="none">
                     </div>
                     <div>
                         <label for="">Calle:</label>
-                        <input type="text" placeholder="" name="calleEnv" required>
+                        <input type="text" placeholder="" name="calleEnv" required autocomplete="none">
                     </div>
                     <div>
                         <label for="">Colonia:</label>
-                        <input type="text" placeholder="" name="coloniaEnv" required>
+                        <input type="text" placeholder="" name="coloniaEnv" required autocomplete="none">
                     </div>
                     <div>
                         <label for="">Num:</label>
-                        <input type="text" placeholder="" name="numEnv" required>
+                        <input type="text" placeholder="" name="numEnv" required autocomplete="none">
                     </div>
                     <div>
                         <label for="">Ciudad:</label>
-                        <input type="text" placeholder="" name="ciudadEnv" required>
+                        <input type="text" placeholder="" name="ciudadEnv" required autocomplete="none">
                     </div>
                     <div>
                         <label for="">Telefono:</label>
-                        <input type="text" placeholder="" name="telefonoEnv" required>
+                        <input type="text" placeholder="" name="telefonoEnv" required autocomplete="none">
                     </div>
                     <div>
                         <label for="">Email:</label>
-                        <input type="text" placeholder="" name="email" required>
+                        <input type="text" placeholder="" name="email" required autocomplete="none">
                     </div>
                     <div>
                         <label for="">CP:</label>
@@ -224,49 +227,80 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Datos del Cliente</h5>
+                                <h4 class="modal-title" id="exampleModalLabel">Datos de Facturacion</h4>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
+                                <h5>Datos del Cliente</h5>
+                                <div class="tresfr">
                                 <label for="">Nombre:</label>
+                                <div>
                                 <i class="bi bi-person"></i>
                                 <?php echo $row['nombre'] . " " . $row['apellidoP'] . " " . $row['apellidoM'] ?>
-                                <label for="">Domicilio| Fiscal:</label>
+                                </div>
+                                <label for="">Domicilio:</label>
+                                <div>
                                 <i class="bi bi-house-door"></i>
-                                <?php echo $row['calle'] . " " . $row['colonia'] . " " . $row['numero'] . " " . $row['ciudad'] ?>
+                                <?php echo $row['calle'] . " " . $row['colonia'] . " " . $row['num'] . " " . $row['ciudad'] ?>
+                                </div>
                                 <label for="">Telefono:</label>
+                                <div>
                                 <i class="bi bi-telephone"></i> <a href="tel:+ <?php echo $row['telefono'] ?>">
                                     <?php echo $row['telefono'] ?></a>
-                                <label for="">Email:</label>
-                                <i class="bi bi-envelope"></i> <a href="mailto:<?php echo $row['email'] ?>"><?php echo $row['email'] ?></a>
+                                    </div>
+                                </div>
+                                
+                                    <h5>Datos Fiscales:</h5>
+                                    <div  class="tresfr">
+                                    <label for="">Denominacion::</label>
+                                    <div>
+                                    <i class="bi bi-building"></i> <?php echo $row['denominacion'] ?>
+                                    </div>
                                 <label for="">RFC:</label>
+                                <div>
                                 <i class="bi bi-person-video2"></i> <?php echo $row['id'] ?>
-                                <label for="">Denominacion::</label>
-                                <i class="bi bi-building"></i> <?php echo $row['denominacion'] ?>
-                                <label for="">Codigo_Postal:</label>
-                                <i class="bi bi-mailbox"></i> <?php echo $row['cp'] ?>
-                                <label for="">Empresa:</label>
-                                <i class="bi bi-person"></i> <?php echo $row['nombre'] ?>
-                                <label for="">Domicilio Fiscal:</label>
-                                <i class="bi bi-house-door"></i>
-                                <?php echo $row['calleEmp'] . " " . $row['coloniaEmp'] . " " . $row['numeroEmp'] . " " . $row['ciudadEmp'] ?>
+                                </div>
                                 <label for="">Telefono:</label>
-                                <i class="bi bi-telephone"></i> <a href="tel:+ <?php echo $row['telefonoEmp'] ?>">
-                                    <?php echo $row['telefonoEmp'] ?></a>
+                                <div>
+                                <i class="bi bi-telephone"></i> <a href="tel:+ <?php echo $row['telefonoFis'] ?>">
+                                    <?php echo $row['telefonoFis'] ?></a>
+                                </div>
+                                <label for="">Codigo_Postal:</label>
+                                <div>
+                                <i class="bi bi-mailbox"></i> <?php echo $row['cp'] ?>
+                                </div>
+                                    </div>
+                                
+                                <h5>Datos de Envio:</h5>
+                                <div  class="tresfr">
+                                <label for="">Quien recibe:</label>
+                                <div>
+                                <i class="bi bi-person"></i> <?php echo $row['persona'] ?>
+                                </div>
+                                <label for="">Domicilio:</label>
+                                <div>
+                                <i class="bi bi-house-door"></i>
+                                <?php echo $row['calleEnv'] . " " . $row['coloniaEnv'] . " " . $row['numEnv'] . " " . $row['ciudadEnv'] ?>
+                                </div>
+                                <label for="">Telefono:</label>
+                                <div>
+                                <i class="bi bi-telephone"></i> <a href="tel:+ <?php echo $row['telefonoEnv'] ?>">
+                                    <?php echo $row['telefonoEnv'] ?></a>
+                                    </div>
                                 <label for="">Email:</label>
-                                <i class="bi bi-envelope"></i> <a href="mailto:<?php echo $row['emailEmp'] ?>"><?php echo $row['emailEmp'] ?></a>
-                                <label for="">RFC:</label>
-                                <i class="bi bi-person-video2"></i> <?php echo $row['rfcEmp'] ?>
-                                <label for="">Denominacion:</label>
-                                <i class="bi bi-building"></i> <?php echo $row['denominacionEmp'] ?>
+                                <div>
+                                <i class="bi bi-envelope"></i> <a href="mailto:<?php echo $row['email'] ?>"><?php echo $row['email'] ?></a>
+                                </div>
                                 <label for="">Codigo Postal:</label>
-                                <i class="bi bi-mailbox"></i> <?php echo $row['cpEmp'] ?>
-
-
+                                <div>
+                                <i class="bi bi-mailbox"></i> <?php echo $row['cpEnv'] ?>
+                                </div>
+                                </div>
+            
                             </div>
                             <div class="modal-footer">
-                                <a class="btn btn-secondary" href="editarCliente.php?id=<?php echo $row['id'] ?>&idVendedor=<?php echo $idVendedor ?>">Editar</a>
-                                <a class="btn btn-secondary" href="eliminarCliente.php?id=<?php echo $row['id'] ?>&idVendedor=<?php echo $idVendedor ?>">Eliminar</a>
+                                <a class="volver" href="editarCliente.php?id=<?php echo $row['id'] ?>&idVendedor=<?php echo $idVendedor ?>">Editar</a>
+                                <a class="volver" href="eliminarCliente.php?id=<?php echo $row['id'] ?>&idVendedor=<?php echo $idVendedor ?>">Eliminar</a>
                             </div>
                         </div>
                     </div>
