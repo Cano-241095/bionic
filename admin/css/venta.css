@@ -21,10 +21,10 @@ body{
 }
 input[type=checkbox]{
 	content: ''; /* No hay contenido */
-	width: 26px;
-	height: 26px;
-	background: #fff;
-	border-radius: 50%;
+	width: 15px;
+	height: 15px;
+background-color: var(--morado);
+    border-radius: 50%;
 	-webkit-box-shadow: 3px 0 3px 0 rgba(0,0,0,0.2);
 	box-shadow: rgba(0,0,0,0.2) 0 0 10px;
     text-align: center;
@@ -33,6 +33,11 @@ input[type=checkbox]{
     .contenedor {
         width: 90%;
     }
+}
+.btn-check:checked+.btn-outline-primary{
+    color: #fff;
+    background-color: var(--morado);
+    border-color: var(--morado);
 }
 .botones {
     margin-top: 1rem;

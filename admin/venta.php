@@ -143,7 +143,7 @@ const $resultado = document.querySelector("#resultado"),
             <div class="vendedor sombra" id="cliente">
                 <div>
                     <form class="trio" action="venta.php" method="get">
-                    <label for="">Cliente</label>
+                        <label for="">Cliente</label>
                         <input type="text" value="<?php echo $idVendedor ?>" name="idVendedor" class="d-none">
                         <input type="text" value="123456789" name="idCliente" class="d-none">
                         <input type="text" value="<?php echo $nombre ?>" id="inputCliente" name="inputCliente">
@@ -186,7 +186,7 @@ const $resultado = document.querySelector("#resultado"),
                     <input value="ENVIO24" type="text" class="d-none" name="codigo">
                     <label for="">Costo de envio</label>
                     <input name="envio" type="number" name="" id="">
-                <button class="envio">Guardar</button>
+                    <button class="envio">Guardar</button>
                 </div>
             </form>
             <div id="busqueda" class="busqueda sombra">
@@ -235,10 +235,10 @@ const $resultado = document.querySelector("#resultado"),
                                 <span><?php echo $row['codigo'] ?></span>
                                 <span class="tamaño"><?php echo $row['tamanio'] ?> mm</span>
                                 <span><?php echo $row['cantidad'] ?></span>
-                            <div class="listaImagen">
-                                <p><?php echo $row['nombre'] ?></p>
-                                <img src="../img/<?php echo $rowImag['imagen']?>" alt="">
-                            </div>
+                                <div class="listaImagen">
+                                    <p><?php echo $row['nombre'] ?></p>
+                                    <img src="../img/<?php echo $rowImag['imagen']?>" alt="">
+                                </div>
                             </a>
                         </li>
                         <?php }
@@ -259,10 +259,10 @@ const $resultado = document.querySelector("#resultado"),
                                 <span><?php echo $row['codigo'] ?></span>
                                 <span class="tamaño"><?php echo $row['tamanio'] ?> mm</span>
                                 <span><?php echo $row['cantidad'] ?></span>
-                            <div class="listaImagen">
-                                <p><?php echo $row['nombre'] ?></p>
-                                <img src="../img/<?php echo $rowImag['imagen']?>" alt="">
-                            </div>
+                                <div class="listaImagen">
+                                    <p><?php echo $row['nombre'] ?></p>
+                                    <img src="../img/<?php echo $rowImag['imagen']?>" alt="">
+                                </div>
                             </a>
                         </li>
                         <?php }
@@ -385,7 +385,9 @@ const $resultado = document.querySelector("#resultado"),
                 </div>
                 <div class="row border-bottom rowTotal">
                     <div class="col-3"> </div>
-                    <div class="col-3"><input type="checkbox" checked id="ivaCheckMini"> </div>
+                    <div class="col-3"><input type="checkbox" class="btn-check" checked id="ivaCheckMini">
+                        <label class="btn btn-outline-primary w-100" for="ivaCheckMini"><i class="bi bi-check-lg"></i></label>
+                    </div>
                     <!-- <button id="ivaSi2">Si</button><button id="ivaNo2">No</button> -->
                     <div class="col-3 total"> iva:</div>
                     <div class="col-3 total" id="iva2"><?php echo $total * $iva ?></div>
@@ -504,7 +506,9 @@ const $resultado = document.querySelector("#resultado"),
                 </div>
                 <div class="row border-bottom rowTotal">
                     <div class="col-2"> </div>
-                    <div class="col-5 end"> <input type="checkbox" checked id="ivaCheck"> </div>
+                    <div class="col-5 end"> <input type="checkbox" class="btn-check" checked id="ivaCheck">
+                        <label class="btn btn-outline-primary" for="ivaCheck"><i class="bi bi-check-lg"></i></label>
+                    </div>
                     <!-- <button id="ivaSi1">Si</button><button id="ivaNo1">No</button> -->
                     <div class="col-1"></div>
                     <div class="col-3 total"> iva:</div>

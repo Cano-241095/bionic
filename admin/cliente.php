@@ -84,8 +84,8 @@
         <div class="sombra">
             <form action="cliente.php" method="POST">
                 <input class="d-none" type="text" name="idVendedor" value="<?php echo $idVendedor ?>">
-                    <h3>Datos del Cliente<i class="bi bi-question-diamond-fill"><p>Los datos fiscales en facturación son todos aquellos datos
-                    identificativos que nos acreditan y nos permite facturar como profesional o empresa. </p></i></h3>
+                    <h3>Datos del Cliente <i class="bi bi-question-diamond-fill" title="Los datos personales son cualquier información relativa a 
+                    una persona física viva identificada o identificable."></i></h3>
                 <div class="cincofr">
                     <div>
                         <label for="">Nombre Cliente:</label>
@@ -122,7 +122,8 @@
                     
                 </div>
 
-                <h3>Datos Fiscales<i class="bi bi-question-diamond-fill"></i></h3>
+                <h3>Datos Fiscales <i class="bi bi-question-diamond-fill" title="Los datos fiscales en facturación son todos aquellos datos
+                    identificativos que nos acreditan y nos permite facturar como profesional o empresa."></i></h3>
                 <div class="cincofr">
                     <div>
                         <label for="">Razón Social:</label>
@@ -142,7 +143,7 @@
                     </div>
                 </div>
 
-                <h3>Datos de Envio<i class="bi bi-question-diamond-fill"></i></h3>
+                <h3>Datos de Envio <i class="bi bi-question-diamond-fill" title="Los datos de envio son aquellos datos sobre el destino del paquete o productos.  "></i></h3>
                 <div class="cincofr">
                     <div>
                         <label for="">Quien recibe:</label>
