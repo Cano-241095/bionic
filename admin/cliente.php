@@ -84,10 +84,11 @@
         <div class="sombra">
             <form action="cliente.php" method="POST">
                 <input class="d-none" type="text" name="idVendedor" value="<?php echo $idVendedor ?>">
-                    <h3>Datos del Cliente</h3>
+                    <h3>Datos del Cliente<i class="bi bi-question-diamond-fill"><p>Los datos fiscales en facturación son todos aquellos datos
+                    identificativos que nos acreditan y nos permite facturar como profesional o empresa. </p></i></h3>
                 <div class="cincofr">
                     <div>
-                        <label for="">Nombre Cliente</label>
+                        <label for="">Nombre Cliente:</label>
                         <input type="text" placeholder="Ejemplo: Genesis" name="NomCliente" required autocomplete="none">
                     </div>
                     <div>
@@ -121,59 +122,59 @@
                     
                 </div>
 
-                <h3>Datos Fiscales</h3>
+                <h3>Datos Fiscales<i class="bi bi-question-diamond-fill"></i></h3>
                 <div class="cincofr">
                     <div>
-                        <label for="">Denominacion:</label>
-                        <input type="text" placeholder="Comercial" name="denominacion" required autocomplete="none">
+                        <label for="">Razón Social:</label>
+                        <input type="text" placeholder="Clinica Dental Esthetics" name="denominacion" required autocomplete="none">
                     </div>
                     <div>
                         <label for="">RFC:</label>
-                        <input type="text" placeholder="GECAGOGSYH12" name="rfc" required autocomplete="none">
+                        <input type="text" placeholder="GECAGOGSYH12G" name="rfc" required autocomplete="none">
                     </div>
                     <div>
                         <label for="">Telefono:</label>
-                        <input type="text" p laceholder="40000" name="telefonoFis" required autocomplete="none">
+                        <input type="text" placeholder="3378451" name="telefonoFis" required autocomplete="none">
                     </div>
                     <div>
                         <label for="">C.P:</label>
-                        <input type="text" placeholder="" name="cp" required autocomplete="none">
+                        <input type="text" placeholder="40000" name="cp" required autocomplete="none">
                     </div>
                 </div>
 
-                <h3>Datos de Envio</h3>
+                <h3>Datos de Envio<i class="bi bi-question-diamond-fill"></i></h3>
                 <div class="cincofr">
                     <div>
                         <label for="">Quien recibe:</label>
-                        <input type="text" placeholder="" name="persona" required autocomplete="none">
+                        <input type="text" placeholder="Juan Alfonso Diaz Sandoval" name="persona" required autocomplete="none">
                     </div>
                     <div>
                         <label for="">Calle:</label>
-                        <input type="text" placeholder="" name="calleEnv" required autocomplete="none">
+                        <input type="text" placeholder="Juan Alvarez" name="calleEnv" required autocomplete="none">
                     </div>
                     <div>
                         <label for="">Colonia:</label>
-                        <input type="text" placeholder="" name="coloniaEnv" required autocomplete="none">
+                        <input type="text" placeholder="Tamarindos" name="coloniaEnv" required autocomplete="none">
                     </div>
                     <div>
                         <label for="">Num:</label>
-                        <input type="text" placeholder="" name="numEnv" required autocomplete="none">
+                        <input type="text" placeholder="#87B" name="numEnv" required autocomplete="none">
                     </div>
                     <div>
                         <label for="">Ciudad:</label>
-                        <input type="text" placeholder="" name="ciudadEnv" required autocomplete="none">
+                        <input type="text" placeholder="Taxco" name="ciudadEnv" required autocomplete="none">
                     </div>
                     <div>
                         <label for="">Telefono:</label>
-                        <input type="text" placeholder="" name="telefonoEnv" required autocomplete="none">
+                        <input type="text" placeholder="3325418" name="telefonoEnv" required autocomplete="none">
                     </div>
                     <div>
                         <label for="">Email:</label>
-                        <input type="text" placeholder="" name="email" required autocomplete="none">
+                        <input type="text" placeholder="Dental_esthetics@Hotmail.Com" name="email" required autocomplete="none">
                     </div>
                     <div>
                         <label for="">CP:</label>
-                        <input type="text" placeholder="" name="cpEnv" required>
+                        <input type="text" placeholder="40024" name="cpEnv" required>
                     </div>
                     <div>
                         <button class="volver" type="submit">Guardar</button>
