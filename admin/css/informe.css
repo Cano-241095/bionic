@@ -40,12 +40,18 @@
 }
 
 .contenedor button {
-    background-color: var(--moradoTenue);
+    /* background-color: var(--moradoTenue); */
     height: 2.5rem;
     width: 100%;
-    border: none;
+    /* border: none; */
     border-radius: 7px;
+    color: var(--moradoTenue);
+}
+.contenedor button:hover{
+    background-color: var(--moradoTenue);
     color: white;
+    border: none;
+    transition: .8s;
 }
 
 input {

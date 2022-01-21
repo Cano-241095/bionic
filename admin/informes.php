@@ -37,9 +37,18 @@
     }
     if (isset($_GET['semana'])) {
         $semana = $_GET['semana'];
-        $queryFecha = "SELECT * FROM nota WHERE WEEK(fecha) = WEEK('$semana')";
+        //sumo 1 día
+        $diaFin = date("d-m-Y",strtotime($semana."+ 6 days")); 
+    
+        $queryFecha = "SELECT * FROM nota where fecha between '$semana' and '$diaFin'";
+        
     }
-    echo $queryFecha;
+    if (isset($_GET['dia'])) {
+        $dia = $_GET['dia'];
+        $queryFecha = "SELECT * FROM nota WHERE fecha = '$dia'";
+    }
+    // echo $queryFecha;
+    
     ?>
     <div class="container-fluid">
 
@@ -47,30 +56,94 @@
             <div class="miniContenedor">
                 <div class="sombra" id="cliente">
                     <div class="cliente">
-                        <form class="" action="informes.php" method="post">
-                            <select name="idCliente" class="form-select" aria-label="Default select example">
-                                <option selected value="7331054723">Seleccionar Cliente</option>
-                                <?php
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                        aria-controls="flush-collapseOne">
+                                        Cliente
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                    aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+                                        <form class="s" action="informes.php" method="post">
+                                            <select name="idCliente" class="form-select"
+                                                aria-label="Default select example">
+                                                <option selected value="7331054723">Seleccionar Cliente</option>
+                                                <?php
                                     $query = "SELECT * FROM clientes ORDER BY nombre";
                                     $result = mysqli_query($conn, $query);
                                     while ($clientes = mysqli_fetch_array($result)) {
                                     ?>
-                                <option value="<?php echo $clientes['id'] ?>">
-                                    <?php echo $clientes['nombre'] . " " . $clientes['apellidoP'] . " " . $clientes['apellidoM'] ?>
-                                </option>
-                                <!-- agregue idcliente idvendedor falta usarlo al dar click en un producto  -->
-                                <?php } ?>
-                            </select>
-                            <button class="" type="submit">Buscar</button>
-                        </form>
-                        <form action="informes.php" class="mt-2" method="get">
-                            <input class="form-control" type="month" min="2022-01" name="mes" id="mes">
-                            <button type="submit">ok</button>
-                        </form>
-                        <form action="informes.php" class="mt-2" method="get">
-                            <input class="form-control" type="date" name="semana" id="semana">
-                            <button type="submit">ok</button>
-                        </form>
+                                                <option value="<?php echo $clientes['id'] ?>">
+                                                    <?php echo $clientes['nombre'] . " " . $clientes['apellidoP'] . " " . $clientes['apellidoM'] ?>
+                                                </option>
+                                                <!-- agregue idcliente idvendedor falta usarlo al dar click en un producto  -->
+                                                <?php } ?>
+                                            </select>
+                                            <button class="" type="submit">Buscar</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                        aria-controls="flush-collapseTwo">
+                                        Mes
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                    aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+                                        <form action="informes.php" class="mt-2" method="get">
+                                            <input class="form-control" type="month" min="2022-01" name="mes" id="mes">
+                                            <button type="submit">ok</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingTwox">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseTwox" aria-expanded="false"
+                                        aria-controls="flush-collapseTwox">
+                                        Semana
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseTwox" class="accordion-collapse collapse"
+                                    aria-labelledby="flush-headingTwox" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+                                        <form action="informes.php" class="mt-2" method="get">
+                                            <input class="form-control" type="date" name="semana" id="semana">
+                                            <button type="submit">ok</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                        aria-controls="flush-collapseThree">
+                                        Dia
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                    aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+                                        <form action="informes.php" class="mt-2" method="get">
+                                            <input class="form-control" type="date" min="2022-01-01" name="mes"
+                                                id="mes">
+                                            <button type="submit">ok</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -171,23 +244,23 @@
                                     // $result4 = mysqli_query($conn, $query4);
                                     // $row4 = mysqli_fetch_array($result4);
                         ?>
-                        <p class="informe">
-                            <!-- nota -->
-                            <span class="centrar pequeño"><?php echo $row['id'] ?></span>
-                            <!-- vendedor -->
-                            <span><?php echo $row3['nombre'] ?></span>
-                            <!-- fecha -->
-                            <span class="centrar d-noneP"><?php echo $row['fecha'] ?></span>
-    
-                            <span class="d-noneP"><?php echo $row4['nombre'] ?></span>
-                            <!-- codigo del producto -->
-                            <span class="" title="<?php echo $row5['producto'] ?>"><?php echo $row5['codigo'] ?></span>
-                            <!-- cantidad de producto -->
-                            <span class="centrar pequeño"><?php echo $row5['cantidad'] ?></span>
-                            <!-- total -->
-                            <span class="centrar pequeño">$<?php echo $total ?></span>
-                        </p>
-                        <?php }
+                    <p class="informe">
+                        <!-- nota -->
+                        <span class="centrar pequeño"><?php echo $row['id'] ?></span>
+                        <!-- vendedor -->
+                        <span><?php echo $row3['nombre'] ?></span>
+                        <!-- fecha -->
+                        <span class="centrar d-noneP"><?php echo $row['fecha'] ?></span>
+
+                        <span class="d-noneP"><?php echo $row4['nombre'] ?></span>
+                        <!-- codigo del producto -->
+                        <span class="" title="<?php echo $row5['producto'] ?>"><?php echo $row5['codigo'] ?></span>
+                        <!-- cantidad de producto -->
+                        <span class="centrar pequeño"><?php echo $row5['cantidad'] ?></span>
+                        <!-- total -->
+                        <span class="centrar pequeño">$<?php echo $total ?></span>
+                    </p>
+                    <?php }
                      }}else{
                         // echo 'default';
                         $queryGeneral = "SELECT * FROM venta order by folio DESC";
