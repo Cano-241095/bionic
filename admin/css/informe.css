@@ -9,17 +9,17 @@
     padding-bottom: 50px;
 }
 
-@media only screen and (max-width: 768px) {
-    .contenedor {
-        width: 100%;
-    }
-}
 @media only screen and (max-width: 1300px) {
     .contenedor {
         width: 80%;
     }
 }
 
+@media only screen and (max-width: 768px) {
+    .contenedor {
+        width: 100%;
+    }
+}
 .miniContenedor {
     display: grid;
     grid-template-columns: 1fr;
@@ -98,13 +98,13 @@ form div{
 }
 
 .scroll {
-    height: 55vh;
+    height: 50vh;
     overflow-y: scroll;
 }
 
 @media only screen and (max-width: 768px) {
     .scroll {
-        height: 55vh;
+        height: 40vh;
     }
 }
 
@@ -115,7 +115,7 @@ form div{
 }
 @media only screen and (max-width: 360px) {
     .scroll {
-        height: 36vh;
+        height: 28vh;
     }
     .contenedor{
         margin-top: .7rem;
