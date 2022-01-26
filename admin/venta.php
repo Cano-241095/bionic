@@ -62,33 +62,34 @@ const $resultado = document.querySelector("#resultado"),
     $nota = mysqli_fetch_array($result);
     $folio = $nota['id'] + 1;
 
-    if (isset($_GET['envio'])) {
-        $costoEnvio = $_GET['envio'];
-        $codigo = $_GET['codigo'];
+    // if (isset($_GET['envio'])) {
+    //     $costoEnvio = $_GET['envio'];
+    //     $costoEnvio = $costoEnvio/
+    //     $codigo = $_GET['codigo'];
 
-        $queryV = "SELECT * FROM venta where codigo = '$codigo' and folio = $folio";
-        $resultV = mysqli_query($conn, $queryV);
-        $rowV = mysqli_fetch_array($resultV);
+    //     $queryV = "SELECT * FROM venta where codigo = '$codigo' and folio = $folio";
+    //     $resultV = mysqli_query($conn, $queryV);
+    //     $rowV = mysqli_fetch_array($resultV);
 
-        if ($rowV['codigo']) {
-            // echo 'ya existe';
-            header('Location:venta.php?idVendedor=' . $idVendedor . '&idCliente=' . $idCliente);
-        } else {
-            // echo 'no existe';
-            $cantidad = 1;
-            $producto = 'Envio';
+    //     if ($rowV['codigo']) {
+    //         // echo 'ya existe';
+    //         header('Location:venta.php?idVendedor=' . $idVendedor . '&idCliente=' . $idCliente);
+    //     } else {
+    //         // echo 'no existe';
+    //         $cantidad = 1;
+    //         $producto = 'Envio';
 
-            $insert = "INSERT INTO venta (folio,codigo,producto,cantidad,precio)
-            VALUES ('$folio','$codigo','$producto',$cantidad,$costoEnvio)";
-            if (mysqli_query($conn, $insert)) {
-                //echo 'SiSePudo'.$folio.$codigo.$producto.$cantidad.$precio ;
-                header('Location:venta.php?idVendedor=' . $idVendedor . '&idCliente=' . $idCliente);
-            } else {
-                //echo 'NoSePudo'.$folio.$codigo.$producto.$cantidad.$precio ;
-                header('Location:venta.php?idVendedor=' . $idVendedor . '&idCliente=' . $idCliente);
-            }
-        }
-    }
+    //         $insert = "INSERT INTO venta (folio,codigo,producto,cantidad,precio)
+    //         VALUES ('$folio','$codigo','$producto',$cantidad,$costoEnvio)";
+    //         if (mysqli_query($conn, $insert)) {
+    //             //echo 'SiSePudo'.$folio.$codigo.$producto.$cantidad.$precio ;
+    //             header('Location:venta.php?idVendedor=' . $idVendedor . '&idCliente=' . $idCliente);
+    //         } else {
+    //             //echo 'NoSePudo'.$folio.$codigo.$producto.$cantidad.$precio ;
+    //             header('Location:venta.php?idVendedor=' . $idVendedor . '&idCliente=' . $idCliente);
+    //         }
+    //     }
+    // }
 
     $precioEuroPesos = 20;
     $precioEuroDolar = 1;
@@ -131,6 +132,37 @@ const $resultado = document.querySelector("#resultado"),
     }
 
     $precioDoralPesos = round($precioDoralPesos, 2);
+
+
+    if (isset($_GET['envio'])) {
+        $costoEnvio = $_GET['envio'];
+        $costoEnvio = $costoEnvio/$precioDoralPesos;
+        $codigo = $_GET['codigo'];
+
+        $queryV = "SELECT * FROM venta where codigo = '$codigo' and folio = $folio";
+        $resultV = mysqli_query($conn, $queryV);
+        $rowV = mysqli_fetch_array($resultV);
+
+        if ($rowV['codigo']) {
+            // echo 'ya existe';
+            header('Location:venta.php?idVendedor=' . $idVendedor . '&idCliente=' . $idCliente);
+        } else {
+            // echo 'no existe';
+            $cantidad = 1;
+            $producto = 'Envio';
+
+            $insert = "INSERT INTO venta (folio,codigo,producto,cantidad,precio)
+            VALUES ('$folio','$codigo','$producto',$cantidad,$costoEnvio)";
+            if (mysqli_query($conn, $insert)) {
+                //echo 'SiSePudo'.$folio.$codigo.$producto.$cantidad.$precio ;
+                header('Location:venta.php?idVendedor=' . $idVendedor . '&idCliente=' . $idCliente);
+            } else {
+                //echo 'NoSePudo'.$folio.$codigo.$producto.$cantidad.$precio ;
+                header('Location:venta.php?idVendedor=' . $idVendedor . '&idCliente=' . $idCliente);
+            }
+        }
+    }
+
 
     $nombre = '';
     if (isset($_GET['inputCliente'])) {
@@ -185,7 +217,7 @@ const $resultado = document.querySelector("#resultado"),
                     <input value="<?php echo $idCliente ?>" type="text" class="d-none" name="idCliente">
                     <input value="ENVIO24" type="text" class="d-none" name="codigo">
                     <label for="">Costo de envio</label>
-                    <input name="envio" type="number" name="" id="">
+                    <input name="envio" type="number" id="">
                     <button class="envio">Guardar</button>
                 </div>
             </form>
